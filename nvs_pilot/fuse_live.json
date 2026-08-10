@@ -1,0 +1,89 @@
+{
+ "beta": 1.0,
+ "gate": 0.8,
+ "corr": "assign",
+ "pool": "mean",
+ "cases": [
+  {
+   "case": 0,
+   "scene": "FloorPlan201",
+   "instruction": "Find the paper on the table",
+   "staged_occlusion": 0.494,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "plant on table",
+     "plant in pot"
+    ]
+   },
+   "fused": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "plant on table",
+     "plant in pot"
+    ]
+   }
+  },
+  {
+   "case": 1,
+   "scene": "FloorPlan203",
+   "instruction": "Find the book on the table",
+   "staged_occlusion": 0.466,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": 10,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "chair near table",
+     "lamp on table"
+    ]
+   },
+   "fused": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "chair near table",
+     "bowl on table"
+    ]
+   }
+  },
+  {
+   "case": 2,
+   "scene": "FloorPlan211",
+   "instruction": "Find the paper on the table",
+   "staged_occlusion": 0.447,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": 2,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "paper on table",
+     "cup on table"
+    ]
+   },
+   "fused": {
+    "class_rank": 2,
+    "grounded_rank": 8,
+    "best_subject_iou": 0.841,
+    "top3": [
+     "laptop on table",
+     "paper on table",
+     "cup on table"
+    ]
+   }
+  }
+ ]
+}

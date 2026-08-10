@@ -1,0 +1,82 @@
+# The rule applied here: ignore what a THOR run can rebuild, track what it
+# cannot.  Size is the secondary consideration, not the primary one -- see the
+# note on experiments/ at the bottom, which is kept precisely because it is
+# irreproducible despite being small.
+
+# --- rendered datasets ------------------------------------------------------
+# 2.3 GB between them, and every one is a pure function of the generator plus a
+# seed.  Rebuilding occlusion_ds4 is ~2 hours of THOR; that is the real cost of
+# losing them, so keep backups outside git rather than assuming git has them.
+#
+# What makes them reproducible is that the generator is tracked and the scene
+# lists, seeds, camera band and occlusion ceiling are all constants in
+# gen/build_occlusion_dataset.py.  If you change those, record the change in
+# TASKS.md or the rebuild will not match.
+datasets/
+
+# Predictions live outside this tree (../sgg_nvs/results/) but guard against a
+# copy being dropped in here.
+*_baseline/
+*_results.json
+
+# --- transfer archives ------------------------------------------------------
+# These duplicate a directory that already exists; 1.9 GB of them accumulated
+# once already before being cleaned out.
+*.zip
+*.tar
+*.tar.gz
+
+# --- tool output ------------------------------------------------------------
+# Regenerated on demand and never referenced by TASKS.md.
+demo/
+*/_viz/
+*.mp4
+*.avi
+
+# --- python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# --- editor / os ------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+
+# --- hidden-target scenarios ------------------------------------------------
+# The renders are reproducible: gen/build_hidden_target.py is seeded, so the
+# same scene and seed rebuild the same scenario.  The scenario.json holding the
+# poses, the occluder placement and the achieved occlusion is what you would
+# actually cite, and the demo figure is a result -- both stay.
+hidden_target/*/*.png
+!hidden_target/*/scenario.json
+
+# drive_triplet_scene.py's remembered start poses -- a cache of a search whose
+# result is reproducible from the dataset, not a record of anything.
+.drive_poses/
+
+# --- the NVS-pointer experiment ---------------------------------------------
+# Renders only.  A run stores 20 full-resolution synthesised views per case
+# (~16 MB each), and every one of them is reproducible: cases.json fixes the
+# scene, the start pose and the occluder type, and the sweep is deterministic
+# given those.  What you would actually cite is results.json -- every pose,
+# occlusion, rank and per-step trail is in it -- and the case list that
+# generated it, so those two stay.
+nvs_pilot/**/*.png
+!nvs_pilot/**/results.json
+!nvs_pilot/cases*.json
+
+# ---------------------------------------------------------------------------
+# DELIBERATELY TRACKED, despite looking like build output:
+#
+#   experiments/build_logs/   provenance for the datasets ignored above: the
+#                             room families, scene x seed x view counts, camera
+#                             band and per-scene yields each build ran with.
+#   vg_prior.json             fitted on VG train, read at import by vg_gt.
+#   vg_pair_prior.json        442 KB, fitted on 315642 VG relations.  Large for
+#                             git, but rebuilding needs the Visual Genome dump,
+#                             which is not part of this repo.
+#
+# Do not add them here on size grounds.
