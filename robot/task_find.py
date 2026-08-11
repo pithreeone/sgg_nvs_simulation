@@ -386,6 +386,193 @@ def spread(items: Sequence[Any], count: int) -> List[Any]:
             dict.fromkeys(round(k * step) for k in range(count))]
 
 
+def behind_task(task: Dict[str, Any], occluder_name: str,
+                objects: Sequence[Dict[str, Any]], entries: Dict[str, Any]
+                ) -> Optional[Dict[str, Any]]:
+    """
+    Rewrite an `on` task as the `behind` relation the staging just created.
+
+    No new geometry.  `put_in_front` slides the occluder along the CAMERA-TO-
+    TARGET ray, so once it is placed the scene contains, by construction and
+    from this camera, "target behind occluder".  The subject, its box, its
+    distractors and the grading are all unchanged; only the object endpoint and
+    the predicate move.
+
+    WHY BOTHER.  `on` is a viewpoint-INVARIANT fact -- a book on a table is on
+    it from everywhere -- and `channels.py` argues that only viewpoint-dependent
+    facts can be informed by a second viewpoint, which is why its predCond set
+    ships as `behind / in front of / above / under / near` with `on` excluded.
+    Measuring a multi-view mechanism on `on` asks it to help where it cannot.
+
+    THE COST, stated because it decides which experiment may use this: `behind`
+    holds FROM A POSE.  The fusion experiment grades at the reference pose and
+    is fine.  A walking experiment is not -- move far enough and the target
+    stops being behind the occluder, so the instruction stops being true of the
+    scene it was written about.
+
+    Returns None when the rewrite would be ambiguous: the occluder has to be
+    VG150-nameable, has to be a different class from the target, and has to be
+    the only instance of its class in view, or "the vase" names two things.
+    """
+    from vg.vg150 import THOR_TO_VG150
+
+    occluder = entries.get(occluder_name)
+    if occluder is None:
+        return None
+    object_class = THOR_TO_VG150.get(occluder["objectType"])
+    if object_class is None:
+        return None
+    if object_class == task["subject_class"]:
+        return None
+    # `objects` is `measure`'s list, the same one `build_tasks` consumes.
+    twins = [o for o in objects
+             if o.get("vg150_class") == object_class
+             and o["name"] != occluder_name]
+    if twins:
+        return None
+    return {**task,
+            "instruction": f"Find the {task['subject_class']} behind the "
+                           f"{object_class}",
+            "predicate": "behind",
+            "object_class": object_class,
+            "receptacle_name": occluder_name,
+            "on_instruction": task["instruction"]}
+
+
+def in_front_task(task: Dict[str, Any], occluder_name: str,
+                  objects: Sequence[Dict[str, Any]], entries: Dict[str, Any]
+                  ) -> Optional[Dict[str, Any]]:
+    """
+    The same staged geometry as `behind_task`, said the other way round.
+
+    `put_in_front` leaves the occluder between the camera and the target, so
+    both "target behind occluder" and "occluder in front of target" are true of
+    the scene.  Which one to ask is not a matter of taste: measured on ds4,
+    EGTR reaches R@100 1.5% on `behind` against 10.2% on `in front of`, seven
+    times better, and 38.4% against 20.8% under the human convention.  It
+    barely predicts one and predicts the other about as well as `near`.
+
+    THE INSTANCE UNDER TEST MOVES WITH THE SUBJECT.  "Find the vase in front of
+    the paper" asks for the vase, so the vase is what has to be grounded, and
+    `target_name` becomes the occluder.  Grading the paper here -- the thing the
+    sentence uses only as a landmark -- would be scoring a question nobody
+    asked.  The consequence is worth stating in anything these numbers appear
+    in: the sought object is NOT occluded, so this measures whether a novel view
+    helps establish a RELATION whose landmark is hidden, not whether it reveals
+    a hidden object.  The occlusion still makes the relation hard to see; it no
+    longer makes the subject hard to see.
+
+    Returns None when the rewrite would be ambiguous -- the occluder must be
+    VG150-nameable, a different class from the landmark, and the only instance
+    of its class in view, or "the vase" names two things.
+    """
+    from vg.vg150 import THOR_TO_VG150
+
+    occluder = entries.get(occluder_name)
+    if occluder is None:
+        return None
+    subject_class = THOR_TO_VG150.get(occluder["objectType"])
+    if subject_class is None or subject_class == task["subject_class"]:
+        return None
+    if any(o.get("vg150_class") == subject_class and o["name"] != occluder_name
+           for o in objects):
+        return None
+    return {**task,
+            "instruction": f"Find the {subject_class} in front of the "
+                           f"{task['subject_class']}",
+            "predicate": "in front of",
+            "subject_class": subject_class,
+            "object_class": task["subject_class"],
+            # The graded instance is the SUBJECT, so both the box the grader
+            # measures and the distractor set follow it to the occluder.
+            "target_name": occluder_name,
+            "landmark_name": task["target_name"],
+            "receptacle_name": task["target_name"],
+            "distractors": [],
+            "on_instruction": task["instruction"]}
+
+
+def stage_at(rc, target_name: str, occluder_name: str,
+             position: Dict[str, float],
+             snapshot: Optional[Sequence[Dict[str, Any]]] = None
+             ) -> Optional[Dict[str, Any]]:
+    """
+    Replay a staging `put_in_front` already found, instead of searching again.
+
+    WHY THIS EXISTS.  A frozen case used to record the occluder's TYPE and the
+    occlusion band, and every run re-ran the grid search to find a placement
+    inside that band.  The search is not deterministic across runs -- it starts
+    from whatever the physics settle left and keeps the candidate NEAREST the
+    target occlusion, so two runs of the same case land the occluder a few
+    centimetres apart and the target is hidden by, say, 43% instead of 39%.
+    Measured: repeats of one case returned grounded ranks of 19 / 18 / 17, and
+    the single-view total over 59 cases moved between 6 and 7.  That is the same
+    size as the effect the experiment is trying to measure.
+
+    Replay is exact only if the WHOLE moveable scene is restored, which is why
+    `snapshot` exists and why passing just the occluder is not enough.  THOR
+    settles physics on load, that settle is not reproducible, and every other
+    moveable object -- including the TARGET -- lands slightly differently each
+    time.  Measured on FloorPlan211 across three runs that replayed only the
+    occluder: the occlusion held at 39% but the target's own visible box moved,
+    IoU 0.846 / 0.810 / 0.810, and the single-view rank went 11 / 15 / 13.
+
+    With the snapshot, `SetObjectPoses` applies no gravity and no collision
+    resolution, so restoring it reproduces the scene rather than approximating
+    it.  Poses are world coordinates keyed by NAME, so the objectId renumbering
+    `SetObjectPoses` causes does not matter.
+
+    What is NOT replayed is any measurement.  The occlusion, the boxes and the
+    grading are re-derived here exactly as before; only the search is skipped.
+    """
+    from gen.occlusion import by_name, set_pose, set_poses, visible_pixels
+
+    if by_name(rc.event, target_name) is None:
+        print(f"  ! {target_name} is not in this scene")
+        return None
+    if not any(o["name"] == occluder_name for o in rc.event.metadata["objects"]):
+        print(f"  ! occluder {occluder_name} is not in this scene")
+        return None
+
+    if snapshot:
+        # Baseline first, with the occluder still wherever the scene put it --
+        # the number only means "how much of the target this occluder hides" if
+        # it is measured before the occluder moves into the sightline.
+        home = [p for p in snapshot if p["objectName"] != occluder_name]
+        here = next(p for p in rc_snapshot(rc) if p["objectName"] == occluder_name)
+        if not set_poses(rc.controller, home + [here]):
+            return None
+        rc.controller.step(action="Done")
+        rc.event = rc.controller.last_event
+        baseline = visible_pixels(rc.event, target_name)
+        if not set_poses(rc.controller, list(snapshot)):
+            return None
+    else:
+        baseline = visible_pixels(rc.event, target_name)
+        set_pose(rc.controller, occluder_name,
+                 (float(position["x"]), float(position["y"]),
+                  float(position["z"])))
+    # The RGB of a `SetObjectPoses` event lags its own masks; see `put_in_front`.
+    rc.controller.step(action="Done")
+    rc.event = rc.controller.last_event
+
+    remaining = visible_pixels(rc.event, target_name)
+    occlusion = round(max(0.0, 1.0 - remaining / baseline), 3) if baseline else 1.0
+    print(f"  {occluder_name} replayed in front of {target_name}: "
+          f"occlusion {baseline} -> {remaining} px ({occlusion:.0%} hidden)")
+    return {"occluder": occluder_name, "position": dict(position),
+            "baseline_px": baseline, "remaining_px": remaining,
+            "occlusion": occlusion, "replayed": True,
+            "pinned": bool(snapshot)}
+
+
+def rc_snapshot(rc):
+    """This scene's moveable poses right now."""
+    from gen.occlusion import pose_snapshot
+
+    return pose_snapshot(rc.event)
+
+
 def put_in_front(rc, target_name: str, occluder_type: str,
                  receptacle_name: Optional[str] = None,
                  grid: float = STAGE_GRID,

@@ -1,0 +1,4061 @@
+{
+ "beta": 1.0,
+ "objscore": "max",
+ "dedup_iou": 0.9,
+ "corr_relabel": "argmax",
+ "relabel_mode": "consensus",
+ "relabel_tau": 0.0,
+ "gate": 0.8,
+ "corr": "assign",
+ "pool": "mean",
+ "objscore_class": "gate",
+ "cases": [
+  {
+   "case": 0,
+   "scene": "FloorPlan1",
+   "instruction": "Find the bottle behind the plant",
+   "staged_occlusion": 0.36,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "drawer on cabinet",
+     "leaf near leaf"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "leaf near leaf",
+     "leaf on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "leaf near leaf",
+     "leaf on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "leaf near leaf",
+     "leaf behind counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on tile",
+     "cup on counter"
+    ]
+   }
+  },
+  {
+   "case": 1,
+   "scene": "FloorPlan1",
+   "instruction": "Find the cup behind the paper",
+   "staged_occlusion": 0.334,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant in pot",
+     "plant near sink"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant in pot",
+     "sink on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "sink on counter",
+     "plant near sink"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "sink on counter",
+     "plant near sink"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "leaf in pot",
+     "plant near sink"
+    ]
+   }
+  },
+  {
+   "case": 2,
+   "scene": "FloorPlan1",
+   "instruction": "Find the pot behind the plant",
+   "staged_occlusion": 0.332,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "handle on door",
+     "sink on counter",
+     "cup on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "handle on door",
+     "bottle on sink",
+     "sink on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "handle on door",
+     "bottle on sink",
+     "sink on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "handle on door",
+     "bottle near sink",
+     "sink on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "handle on door",
+     "bottle near sink",
+     "sink on counter"
+    ]
+   }
+  },
+  {
+   "case": 3,
+   "scene": "FloorPlan201",
+   "instruction": "Find the paper behind the plant",
+   "staged_occlusion": 0.411,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "plant on table",
+     "plate on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "plant on table",
+     "plate on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "plant on table",
+     "plate on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "plant on table",
+     "plate on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "plant on table",
+     "plate on table"
+    ]
+   }
+  },
+  {
+   "case": 4,
+   "scene": "FloorPlan201",
+   "instruction": "Find the plate behind the laptop",
+   "staged_occlusion": 0.369,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "book on table",
+     "logo on laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "book on table",
+     "logo on laptop"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "book on table",
+     "logo on laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "book on table",
+     "logo on laptop"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "book on table",
+     "logo on laptop"
+    ]
+   }
+  },
+  {
+   "case": 5,
+   "scene": "FloorPlan2",
+   "instruction": "Find the bowl behind the food",
+   "staged_occlusion": 0.276,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "box on counter",
+     "bowl on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "box on counter",
+     "bowl on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "box on counter",
+     "bowl on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "box on counter",
+     "bowl on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "box on counter",
+     "bowl on counter"
+    ]
+   }
+  },
+  {
+   "case": 6,
+   "scene": "FloorPlan2",
+   "instruction": "Find the food behind the pot",
+   "staged_occlusion": 0.349,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "pot on counter",
+     "box on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "pot on counter",
+     "box on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "pot on counter",
+     "box on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "pot on counter",
+     "box on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "pot on counter",
+     "box on counter"
+    ]
+   }
+  },
+  {
+   "case": 7,
+   "scene": "FloorPlan2",
+   "instruction": "Find the phone behind the bowl",
+   "staged_occlusion": 0.463,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "box on counter",
+     "window above sink"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "box on counter",
+     "food on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "box on counter",
+     "food on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "box on counter",
+     "food on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "box on counter",
+     "food on counter"
+    ]
+   }
+  },
+  {
+   "case": 8,
+   "scene": "FloorPlan302",
+   "instruction": "Find the book behind the plant",
+   "staged_occlusion": 0.353,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "clock on building",
+     "bowl on table",
+     "bowl on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "clock on building",
+     "bowl on table",
+     "chair near table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "clock on building",
+     "bowl on table",
+     "chair near table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "clock on building",
+     "bowl on table",
+     "chair near table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "clock on building",
+     "bowl on table",
+     "chair near table"
+    ]
+   }
+  },
+  {
+   "case": 9,
+   "scene": "FloorPlan302",
+   "instruction": "Find the phone behind the laptop",
+   "staged_occlusion": 0.355,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "screen on laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "laptop on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "laptop on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop in table",
+     "laptop on table",
+     "laptop on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop in table",
+     "laptop on table",
+     "laptop on table"
+    ]
+   }
+  },
+  {
+   "case": 10,
+   "scene": "FloorPlan302",
+   "instruction": "Find the laptop behind the plant",
+   "staged_occlusion": 0.379,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "clock on building",
+     "plant in pot",
+     "book on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "clock on building",
+     "plant in pot",
+     "book on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "clock on building",
+     "plant in pot",
+     "book on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "clock on building",
+     "plant in pot",
+     "book on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "clock on building",
+     "plant in pot",
+     "book on table"
+    ]
+   }
+  },
+  {
+   "case": 11,
+   "scene": "FloorPlan3",
+   "instruction": "Find the food behind the plant",
+   "staged_occlusion": 0.351,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vase on table",
+     "plant in vase",
+     "bowl on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vase on table",
+     "plant in vase",
+     "bowl on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vase on table",
+     "plant in vase",
+     "bowl on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vase on table",
+     "plant in vase",
+     "bowl on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vase on table",
+     "plant in vase",
+     "bowl on table"
+    ]
+   }
+  },
+  {
+   "case": 12,
+   "scene": "FloorPlan3",
+   "instruction": "Find the plate behind the plant",
+   "staged_occlusion": 0.34,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bottle on table",
+     "window behind table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bottle on table",
+     "window behind table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bottle on table",
+     "window behind table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bottle on table",
+     "window behind table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bottle on table",
+     "window behind table"
+    ]
+   }
+  },
+  {
+   "case": 13,
+   "scene": "FloorPlan3",
+   "instruction": "Find the fruit behind the bottle",
+   "staged_occlusion": 0.415,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "sink on counter",
+     "fruit on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "sink on counter",
+     "fruit on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "sink on counter",
+     "fruit on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "sink in counter",
+     "fruit on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "fruit on counter",
+     "sink in counter"
+    ]
+   }
+  },
+  {
+   "case": 14,
+   "scene": "FloorPlan3",
+   "instruction": "Find the vegetable behind the plant",
+   "staged_occlusion": 0.252,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant on counter",
+     "pot on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant on counter",
+     "plant in pot"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant on counter",
+     "plant in pot"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant on counter",
+     "plant in pot"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant on counter",
+     "plant in pot"
+    ]
+   }
+  },
+  {
+   "case": 15,
+   "scene": "FloorPlan203",
+   "instruction": "Find the book behind the vase",
+   "staged_occlusion": 0.358,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "chair at table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "chair at table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "chair at table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "chair at table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "bowl on table"
+    ]
+   }
+  },
+  {
+   "case": 16,
+   "scene": "FloorPlan203",
+   "instruction": "Find the bowl behind the vase",
+   "staged_occlusion": 0.307,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "chair near table",
+     "book on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "chair near table",
+     "book on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "chair near table",
+     "chair at table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "chair near table",
+     "chair at table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "chair near table",
+     "bowl on table"
+    ]
+   }
+  },
+  {
+   "case": 17,
+   "scene": "FloorPlan203",
+   "instruction": "Find the plate behind the bowl",
+   "staged_occlusion": 0.401,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vase on table",
+     "vase on table",
+     "book on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vase on table",
+     "book on table",
+     "vase on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vase on table",
+     "book on table",
+     "vase on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vase on table",
+     "book on table",
+     "vase on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "vase on table",
+     "vase on table"
+    ]
+   }
+  },
+  {
+   "case": 18,
+   "scene": "FloorPlan4",
+   "instruction": "Find the bowl behind the food",
+   "staged_occlusion": 0.257,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "orange on counter",
+     "towel on counter",
+     "orange on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "orange on counter",
+     "towel on counter",
+     "orange on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "orange on counter",
+     "towel on counter",
+     "orange in tile"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "orange on counter",
+     "towel on counter",
+     "orange in tile"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "orange on counter",
+     "towel on counter",
+     "orange in tile"
+    ]
+   }
+  },
+  {
+   "case": 19,
+   "scene": "FloorPlan4",
+   "instruction": "Find the vegetable behind the cup",
+   "staged_occlusion": 0.262,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "cup on table",
+     "bowl on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "cup on table",
+     "leg on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "cup on table",
+     "leg on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "cup on table",
+     "leg on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "cup on table",
+     "leg on table"
+    ]
+   }
+  },
+  {
+   "case": 20,
+   "scene": "FloorPlan4",
+   "instruction": "Find the pot behind the food",
+   "staged_occlusion": 0.373,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "bowl on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "bowl on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "fork on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "fork on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "fork on table"
+    ]
+   }
+  },
+  {
+   "case": 21,
+   "scene": "FloorPlan4",
+   "instruction": "Find the fruit behind the pot",
+   "staged_occlusion": 0.287,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "vase on shelf",
+     "plant in pot"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "vase on shelf",
+     "plant in pot"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "vase on shelf",
+     "plant in pot"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "vase on shelf",
+     "plant in pot"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "vase on shelf",
+     "plant in pot"
+    ]
+   }
+  },
+  {
+   "case": 22,
+   "scene": "FloorPlan204",
+   "instruction": "Find the lamp behind the laptop",
+   "staged_occlusion": 0.386,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "screen on laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "screen on laptop"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "screen on laptop",
+     "laptop has screen"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "screen on laptop",
+     "laptop on screen"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "screen on laptop",
+     "laptop on screen"
+    ]
+   }
+  },
+  {
+   "case": 23,
+   "scene": "FloorPlan5",
+   "instruction": "Find the pot behind the food",
+   "staged_occlusion": 0.297,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "vase on table",
+     "plant in vase"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "plant in vase",
+     "vase on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "plant in vase",
+     "vase on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "plant in vase",
+     "vase on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "plant in vase",
+     "vase on table"
+    ]
+   }
+  },
+  {
+   "case": 24,
+   "scene": "FloorPlan5",
+   "instruction": "Find the cup behind the bowl",
+   "staged_occlusion": 0.398,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant in pot",
+     "plant in pot"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant in pot",
+     "chair has leg"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant in pot",
+     "chair has leg"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant in pot",
+     "chair has leg"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant in pot",
+     "plant in pot"
+    ]
+   }
+  },
+  {
+   "case": 25,
+   "scene": "FloorPlan305",
+   "instruction": "Find the pillow behind the lamp",
+   "staged_occlusion": 0.331,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "lamp near bed",
+     "table near bed",
+     "lamp near bed"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "lamp near bed",
+     "table near bed",
+     "lamp near bed"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "lamp near bed",
+     "table near bed",
+     "lamp near bed"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "lamp near bed",
+     "table near bed",
+     "lamp near bed"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "lamp near bed",
+     "table near bed",
+     "lamp near bed"
+    ]
+   }
+  },
+  {
+   "case": 26,
+   "scene": "FloorPlan6",
+   "instruction": "Find the bowl behind the food",
+   "staged_occlusion": 0.328,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "door in room",
+     "plate on table",
+     "chair in room"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "door in room",
+     "plate on table",
+     "chair in room"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "door in room",
+     "plate on table",
+     "chair in room"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "door in room",
+     "plate on table",
+     "chair in room"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "door in room",
+     "plate on table",
+     "chair in room"
+    ]
+   }
+  },
+  {
+   "case": 27,
+   "scene": "FloorPlan6",
+   "instruction": "Find the fruit behind the food",
+   "staged_occlusion": 0.375,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "box on counter",
+     "cup on table",
+     "paper on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "cup on table",
+     "box on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "box on counter",
+     "paper on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "box on counter",
+     "paper on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "pot on table",
+     "paper on table"
+    ]
+   }
+  },
+  {
+   "case": 28,
+   "scene": "FloorPlan6",
+   "instruction": "Find the paper behind the bottle",
+   "staged_occlusion": 0.37,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "sink on counter",
+     "sink on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "sink on counter",
+     "sink on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "sink on counter",
+     "sink on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "sink in counter",
+     "sink in counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "sink in counter",
+     "sink in counter"
+    ]
+   }
+  },
+  {
+   "case": 29,
+   "scene": "FloorPlan306",
+   "instruction": "Find the book behind the laptop",
+   "staged_occlusion": 0.376,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "book on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "book on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "book on table",
+     "laptop on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "book on table",
+     "laptop on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "book on table",
+     "laptop on table"
+    ]
+   }
+  },
+  {
+   "case": 30,
+   "scene": "FloorPlan306",
+   "instruction": "Find the phone behind the lamp",
+   "staged_occlusion": 0.366,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "box on table",
+     "lamp on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "box on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "box on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "box on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "box on table"
+    ]
+   }
+  },
+  {
+   "case": 31,
+   "scene": "FloorPlan7",
+   "instruction": "Find the food behind the pot",
+   "staged_occlusion": 0.312,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "door in room",
+     "towel on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "door in room",
+     "towel on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "door in room",
+     "towel on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "door in room",
+     "towel on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on counter",
+     "pot on handle",
+     "towel on counter"
+    ]
+   }
+  },
+  {
+   "case": 32,
+   "scene": "FloorPlan7",
+   "instruction": "Find the cup behind the pot",
+   "staged_occlusion": 0.474,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "bowl on counter",
+     "door in room"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "door in room",
+     "bowl on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "door in room",
+     "bowl on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "door in room",
+     "bowl on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "bowl on counter",
+     "door in room"
+    ]
+   }
+  },
+  {
+   "case": 33,
+   "scene": "FloorPlan7",
+   "instruction": "Find the bowl behind the pot",
+   "staged_occlusion": 0.346,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "chair near table",
+     "leaf on table",
+     "cup on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "chair near table",
+     "leaf on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "chair near table",
+     "leaf on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "chair near table",
+     "leaf on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "chair near table",
+     "chair near table"
+    ]
+   }
+  },
+  {
+   "case": 34,
+   "scene": "FloorPlan7",
+   "instruction": "Find the plate behind the bottle",
+   "staged_occlusion": 0.379,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "sink on counter",
+     "box on counter",
+     "window above sink"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "sink on counter",
+     "box on counter",
+     "cabinet under sink"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "sink on counter",
+     "box on counter",
+     "cabinet under sink"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "sink above counter",
+     "box on counter",
+     "cabinet under sink"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on sink",
+     "sink above counter",
+     "window above sink"
+    ]
+   }
+  },
+  {
+   "case": 35,
+   "scene": "FloorPlan8",
+   "instruction": "Find the food behind the plant",
+   "staged_occlusion": 0.379,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in vase",
+     "plant in pot",
+     "vase with plant"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in vase",
+     "plant in pot",
+     "vase with plant"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in vase",
+     "plant in pot",
+     "vase with plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in vase",
+     "plant in pot",
+     "vase under plant"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in vase",
+     "plant in pot",
+     "vase under plant"
+    ]
+   }
+  },
+  {
+   "case": 36,
+   "scene": "FloorPlan8",
+   "instruction": "Find the bowl behind the pot",
+   "staged_occlusion": 0.337,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "handle on toilet",
+     "handle on toilet",
+     "towel on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "handle on toilet",
+     "handle on toilet",
+     "towel on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "handle on toilet",
+     "handle on toilet",
+     "towel on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "handle on toilet",
+     "handle on toilet",
+     "towel on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "handle on toilet",
+     "handle on toilet",
+     "toilet has handle"
+    ]
+   }
+  },
+  {
+   "case": 37,
+   "scene": "FloorPlan308",
+   "instruction": "Find the book behind the clock",
+   "staged_occlusion": 0.39,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "chair near table",
+     "chair in room"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "book on table",
+     "chair in room"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "book on table",
+     "chair in room"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "book on table",
+     "chair in room"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "book on table",
+     "chair in room"
+    ]
+   }
+  },
+  {
+   "case": 38,
+   "scene": "FloorPlan308",
+   "instruction": "Find the phone behind the clock",
+   "staged_occlusion": 0.366,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "book on table",
+     "chair near table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "book on table",
+     "chair near table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "book on table",
+     "chair near table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "book on table",
+     "chair near table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "book on table",
+     "book on table",
+     "chair near table"
+    ]
+   }
+  },
+  {
+   "case": 39,
+   "scene": "FloorPlan9",
+   "instruction": "Find the cup behind the bottle",
+   "staged_occlusion": 0.371,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "towel on counter",
+     "bottle on counter",
+     "light above counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "towel on counter",
+     "bottle on counter",
+     "light above counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "towel on counter",
+     "bottle on counter",
+     "light above counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "towel on counter",
+     "bottle on counter",
+     "light above counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "towel on counter",
+     "bottle on counter",
+     "light above counter"
+    ]
+   }
+  },
+  {
+   "case": 40,
+   "scene": "FloorPlan9",
+   "instruction": "Find the bottle behind the food",
+   "staged_occlusion": 0.385,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "light above toilet",
+     "toilet near counter",
+     "cabinet under counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "light above toilet",
+     "toilet near counter",
+     "cabinet under counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "light above toilet",
+     "toilet near counter",
+     "cabinet under counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "light above toilet",
+     "toilet near counter",
+     "cabinet under counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "light above toilet",
+     "toilet near counter",
+     "bottle on counter"
+    ]
+   }
+  },
+  {
+   "case": 41,
+   "scene": "FloorPlan10",
+   "instruction": "Find the food behind the pot",
+   "staged_occlusion": 0.313,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair has leg",
+     "chair in room"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair has leg",
+     "chair in room"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair has leg",
+     "chair in room"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg on chair",
+     "chair has leg",
+     "chair in room"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg on chair",
+     "chair has leg",
+     "chair in room"
+    ]
+   }
+  },
+  {
+   "case": 42,
+   "scene": "FloorPlan10",
+   "instruction": "Find the pot behind the plant",
+   "staged_occlusion": 0.353,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair has leg",
+     "chair near table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair near table",
+     "chair has leg"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair near table",
+     "chair has leg"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg on chair",
+     "chair near table",
+     "chair has leg"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "plant in pot",
+     "plant in pot",
+     "plant in pot"
+    ]
+   }
+  },
+  {
+   "case": 43,
+   "scene": "FloorPlan10",
+   "instruction": "Find the bottle behind the plant",
+   "staged_occlusion": 0.411,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair has leg",
+     "pot on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair has leg",
+     "pot on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair has leg",
+     "pot on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair has leg",
+     "pot on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "leg of chair",
+     "chair has leg",
+     "pot on counter"
+    ]
+   }
+  },
+  {
+   "case": 44,
+   "scene": "FloorPlan10",
+   "instruction": "Find the bowl behind the paper",
+   "staged_occlusion": 0.329,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "sink on counter",
+     "box on counter",
+     "sink on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "sink on counter",
+     "bowl on counter",
+     "box on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "sink on counter",
+     "bowl on counter",
+     "box on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "sink on counter",
+     "bowl on counter",
+     "box on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "bowl on counter",
+     "bowl on table"
+    ]
+   }
+  },
+  {
+   "case": 45,
+   "scene": "FloorPlan10",
+   "instruction": "Find the cup behind the paper",
+   "staged_occlusion": 0.353,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "box on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "box on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "box on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "box on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on table",
+     "bowl on table",
+     "box on table"
+    ]
+   }
+  },
+  {
+   "case": 46,
+   "scene": "FloorPlan310",
+   "instruction": "Find the lamp behind the box",
+   "staged_occlusion": 0.323,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "screen on laptop",
+     "laptop on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "screen on laptop",
+     "laptop on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "screen on laptop",
+     "laptop on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "screen on laptop",
+     "laptop on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "screen on laptop",
+     "laptop on table"
+    ]
+   }
+  },
+  {
+   "case": 47,
+   "scene": "FloorPlan11",
+   "instruction": "Find the plate behind the paper",
+   "staged_occlusion": 0.374,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "sink in counter",
+     "towel on sink"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "sink in counter",
+     "towel on sink"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "sink in counter",
+     "towel on sink"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "sink in counter",
+     "towel near sink"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "sink in counter",
+     "sink on counter"
+    ]
+   }
+  },
+  {
+   "case": 48,
+   "scene": "FloorPlan11",
+   "instruction": "Find the bottle behind the paper",
+   "staged_occlusion": 0.389,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "paper on counter",
+     "paper on counter",
+     "box on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "paper on counter",
+     "paper on counter",
+     "box on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "paper on counter",
+     "paper on counter",
+     "box on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "paper on counter",
+     "paper on counter",
+     "box on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "paper on counter",
+     "paper on counter",
+     "paper on counter"
+    ]
+   }
+  },
+  {
+   "case": 49,
+   "scene": "FloorPlan11",
+   "instruction": "Find the paper behind the food",
+   "staged_occlusion": 0.374,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "window above sink",
+     "sink under window"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "window above sink",
+     "sink under window"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "window above sink",
+     "sink under window"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "window above sink",
+     "sink under window"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "window above sink",
+     "window above sink",
+     "sink under window"
+    ]
+   }
+  },
+  {
+   "case": 50,
+   "scene": "FloorPlan11",
+   "instruction": "Find the cup behind the bowl",
+   "staged_occlusion": 0.313,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "chair near table",
+     "table has leg"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "table has leg",
+     "chair near table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "table has leg",
+     "chair near table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "table has leg",
+     "chair near table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "cup on table",
+     "table has leg",
+     "chair near table"
+    ]
+   }
+  },
+  {
+   "case": 51,
+   "scene": "FloorPlan211",
+   "instruction": "Find the paper behind the vase",
+   "staged_occlusion": 0.392,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "paper on table",
+     "cup on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "paper on table",
+     "glass on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "paper on table",
+     "glass on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "paper on table",
+     "glass on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "paper on table",
+     "cup on table"
+    ]
+   }
+  },
+  {
+   "case": 52,
+   "scene": "FloorPlan211",
+   "instruction": "Find the plate behind the vase",
+   "staged_occlusion": 0.385,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "glass on table",
+     "paper on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "glass on table",
+     "paper on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "glass on table",
+     "paper on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "glass on table",
+     "paper on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "glass on table",
+     "paper on table"
+    ]
+   }
+  },
+  {
+   "case": 53,
+   "scene": "FloorPlan311",
+   "instruction": "Find the book behind the lamp",
+   "staged_occlusion": 0.403,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "lamp on table",
+     "lamp on table",
+     "lamp on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "lamp on table",
+     "lamp on table",
+     "lamp on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "lamp on table",
+     "lamp on table",
+     "lamp on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "lamp on table",
+     "lamp on table",
+     "lamp on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "lamp on table",
+     "lamp on table",
+     "lamp on table"
+    ]
+   }
+  },
+  {
+   "case": 54,
+   "scene": "FloorPlan12",
+   "instruction": "Find the bottle behind the vegetable",
+   "staged_occlusion": 0.367,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "sink on counter",
+     "box on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "sink on counter",
+     "box on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "sink on counter",
+     "box on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "sink in counter",
+     "box on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bowl on counter",
+     "sink in counter",
+     "box on counter"
+    ]
+   }
+  },
+  {
+   "case": 55,
+   "scene": "FloorPlan12",
+   "instruction": "Find the vegetable behind the bottle",
+   "staged_occlusion": 0.344,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "box on counter",
+     "cup on counter",
+     "cup on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "box on counter",
+     "cup on counter",
+     "cup on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "box on counter",
+     "cup on counter",
+     "cup on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "box on counter",
+     "cup on counter",
+     "cup on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "box on counter",
+     "cup on counter",
+     "cup on counter"
+    ]
+   }
+  },
+  {
+   "case": 56,
+   "scene": "FloorPlan12",
+   "instruction": "Find the fruit behind the bottle",
+   "staged_occlusion": 0.449,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vegetable in sink",
+     "cup on counter",
+     "cup on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vegetable in sink",
+     "cup on counter",
+     "cup on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vegetable in sink",
+     "cup on counter",
+     "sink on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vegetable in sink",
+     "cup on counter",
+     "sink in counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vegetable in sink",
+     "cup on counter",
+     "sink in counter"
+    ]
+   }
+  },
+  {
+   "case": 57,
+   "scene": "FloorPlan12",
+   "instruction": "Find the cup behind the bottle",
+   "staged_occlusion": 0.321,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vegetable in sink",
+     "sink on counter",
+     "sink on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vegetable in sink",
+     "vegetable on counter",
+     "sink on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vegetable in sink",
+     "vegetable on counter",
+     "sink on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vegetable in sink",
+     "vegetable on counter",
+     "sink on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "vegetable in sink",
+     "vegetable on counter",
+     "sink on counter"
+    ]
+   }
+  },
+  {
+   "case": 58,
+   "scene": "FloorPlan13",
+   "instruction": "Find the plate behind the food",
+   "staged_occlusion": 0.422,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "banana in box",
+     "banana in box",
+     "orange in box"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "banana in box",
+     "orange in box",
+     "banana in box"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "banana in box",
+     "orange in box",
+     "banana in box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "banana in box",
+     "orange in box",
+     "banana in box"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "banana in box",
+     "orange in box",
+     "banana in box"
+    ]
+   }
+  },
+  {
+   "case": 59,
+   "scene": "FloorPlan13",
+   "instruction": "Find the vegetable behind the bottle",
+   "staged_occlusion": 0.257,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle near plate",
+     "bottle on counter",
+     "bottle near box"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle near plate",
+     "bottle on counter",
+     "bottle near box"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle near plate",
+     "bottle on counter",
+     "bottle near box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle under plate",
+     "bottle on counter",
+     "bottle near box"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle behind box",
+     "bottle under plate",
+     "bottle on counter"
+    ]
+   }
+  },
+  {
+   "case": 60,
+   "scene": "FloorPlan313",
+   "instruction": "Find the box behind the lamp",
+   "staged_occlusion": 0.349,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "screen on laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "screen on laptop"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "screen on laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "screen on laptop"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "screen on laptop"
+    ]
+   }
+  },
+  {
+   "case": 61,
+   "scene": "FloorPlan313",
+   "instruction": "Find the cup behind the clock",
+   "staged_occlusion": 0.328,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "book on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "book on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "book on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "book on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "lamp on table",
+     "book on table"
+    ]
+   }
+  },
+  {
+   "case": 62,
+   "scene": "FloorPlan214",
+   "instruction": "Find the plate behind the plant",
+   "staged_occlusion": 0.369,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "flower on table",
+     "book on table",
+     "flower on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "flower on table",
+     "book on table",
+     "flower on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "flower on table",
+     "book on table",
+     "flower on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "flower on table",
+     "book on table",
+     "flower on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "flower on table",
+     "book on table",
+     "flower on table"
+    ]
+   }
+  },
+  {
+   "case": 63,
+   "scene": "FloorPlan15",
+   "instruction": "Find the fruit behind the bottle",
+   "staged_occlusion": 0.278,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on table",
+     "cup on table",
+     "bottle on table"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on table",
+     "cup on table",
+     "bottle on table"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on table",
+     "cup on table",
+     "bottle on table"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on table",
+     "cup on table",
+     "bottle on table"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on table",
+     "bottle on counter",
+     "cup on table"
+    ]
+   }
+  },
+  {
+   "case": 64,
+   "scene": "FloorPlan15",
+   "instruction": "Find the cup behind the bottle",
+   "staged_occlusion": 0.324,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cabinet under counter",
+     "plate on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cabinet under counter",
+     "plate on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cabinet under counter",
+     "plate on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cabinet under counter",
+     "plate on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "bottle on counter"
+    ]
+   }
+  },
+  {
+   "case": 65,
+   "scene": "FloorPlan15",
+   "instruction": "Find the pot behind the bottle",
+   "staged_occlusion": 0.302,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cup on counter",
+     "plate on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cup on counter",
+     "plate on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cup on counter",
+     "plate on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cup on counter",
+     "plate on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cup on counter",
+     "cup on counter"
+    ]
+   }
+  },
+  {
+   "case": 66,
+   "scene": "FloorPlan15",
+   "instruction": "Find the plate behind the bottle",
+   "staged_occlusion": 0.343,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cup on counter",
+     "drawer under counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cup on counter",
+     "cabinet above counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cup on counter",
+     "cabinet above counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "cup on counter",
+     "cabinet above counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "cup on counter"
+    ]
+   }
+  },
+  {
+   "case": 67,
+   "scene": "FloorPlan315",
+   "instruction": "Find the lamp behind the laptop",
+   "staged_occlusion": 0.361,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 82,
+    "grounded_rank": 82,
+    "best_subject_iou": 0.901,
+    "top3": [
+     "screen on laptop",
+     "laptop on table",
+     "laptop has screen"
+    ]
+   },
+   "A": {
+    "class_rank": 89,
+    "grounded_rank": 89,
+    "best_subject_iou": 0.901,
+    "top3": [
+     "screen on laptop",
+     "laptop on table",
+     "laptop has screen"
+    ]
+   },
+   "A+C": {
+    "class_rank": 71,
+    "grounded_rank": 71,
+    "best_subject_iou": 0.901,
+    "top3": [
+     "screen on laptop",
+     "laptop on table",
+     "laptop has screen"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 71,
+    "grounded_rank": 71,
+    "best_subject_iou": 0.901,
+    "top3": [
+     "screen on laptop",
+     "laptop on table",
+     "laptop on screen"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": 78,
+    "grounded_rank": 78,
+    "best_subject_iou": 0.901,
+    "top3": [
+     "screen on laptop",
+     "laptop on table",
+     "laptop on screen"
+    ]
+   }
+  },
+  {
+   "case": 68,
+   "scene": "FloorPlan315",
+   "instruction": "Find the cup behind the lamp",
+   "staged_occlusion": 0.265,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "handle on drawer"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "handle on drawer"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "handle on drawer"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "laptop on table",
+     "handle on drawer"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "laptop on table",
+     "handle on drawer",
+     "laptop on table"
+    ]
+   }
+  },
+  {
+   "case": 69,
+   "scene": "FloorPlan16",
+   "instruction": "Find the vegetable behind the paper",
+   "staged_occlusion": 0.498,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "bottle on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "box on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "box on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "box on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "bottle on counter"
+    ]
+   }
+  },
+  {
+   "case": 70,
+   "scene": "FloorPlan16",
+   "instruction": "Find the paper behind the bottle",
+   "staged_occlusion": 0.475,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "cup on counter"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "cup on counter"
+    ]
+   },
+   "A+C": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "cup on counter"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "cup on counter"
+    ]
+   },
+   "A+C+R+B": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "top3": [
+     "bottle on counter",
+     "bottle on counter",
+     "bottle near sink"
+    ]
+   }
+  }
+ ]
+}

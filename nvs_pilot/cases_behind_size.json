@@ -1,0 +1,644 @@
+{
+ "iou_hit": 0.5,
+ "cases": [
+  {
+   "scene": "FloorPlan1",
+   "instruction": "Find the bottle behind the plant",
+   "subject_class": "bottle",
+   "share": 0.00576875,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.09616665542125702
+  },
+  {
+   "scene": "FloorPlan1",
+   "instruction": "Find the cup behind the paper",
+   "subject_class": "cup",
+   "share": 0.00905625,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.31527233123779297
+  },
+  {
+   "scene": "FloorPlan1",
+   "instruction": "Find the pot behind the plant",
+   "subject_class": "pot",
+   "share": 0.0044,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.1453993022441864
+  },
+  {
+   "scene": "FloorPlan201",
+   "instruction": "Find the paper behind the plant",
+   "subject_class": "paper",
+   "share": 0.004270833333333333,
+   "queries_on_it": 1,
+   "detected": false,
+   "best_prob": 0.11258842796087265
+  },
+  {
+   "scene": "FloorPlan201",
+   "instruction": "Find the plate behind the laptop",
+   "subject_class": "plate",
+   "share": 0.005145833333333333,
+   "queries_on_it": 1,
+   "detected": false,
+   "best_prob": 0.01538605522364378
+  },
+  {
+   "scene": "FloorPlan2",
+   "instruction": "Find the bowl behind the food",
+   "subject_class": "bowl",
+   "share": 0.011677083333333333,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.21815359592437744
+  },
+  {
+   "scene": "FloorPlan2",
+   "instruction": "Find the food behind the pot",
+   "subject_class": "food",
+   "share": 0.004695833333333333,
+   "queries_on_it": 3,
+   "detected": false,
+   "best_prob": 0.0707828477025032
+  },
+  {
+   "scene": "FloorPlan2",
+   "instruction": "Find the phone behind the bowl",
+   "subject_class": "phone",
+   "share": 0.01903125,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.03911304101347923
+  },
+  {
+   "scene": "FloorPlan302",
+   "instruction": "Find the book behind the plant",
+   "subject_class": "book",
+   "share": 0.004333333333333333,
+   "queries_on_it": 0,
+   "detected": false,
+   "best_prob": 0.0
+  },
+  {
+   "scene": "FloorPlan302",
+   "instruction": "Find the phone behind the laptop",
+   "subject_class": "phone",
+   "share": 0.00440625,
+   "queries_on_it": 3,
+   "detected": false,
+   "best_prob": 0.015258529223501682
+  },
+  {
+   "scene": "FloorPlan302",
+   "instruction": "Find the laptop behind the plant",
+   "subject_class": "laptop",
+   "share": 0.019266666666666668,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.028596553951501846
+  },
+  {
+   "scene": "FloorPlan3",
+   "instruction": "Find the food behind the plant",
+   "subject_class": "food",
+   "share": 0.013016666666666666,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.012206870131194592
+  },
+  {
+   "scene": "FloorPlan3",
+   "instruction": "Find the plate behind the plant",
+   "subject_class": "plate",
+   "share": 0.005625,
+   "queries_on_it": 0,
+   "detected": false,
+   "best_prob": 0.0
+  },
+  {
+   "scene": "FloorPlan3",
+   "instruction": "Find the fruit behind the bottle",
+   "subject_class": "fruit",
+   "share": 0.004166666666666667,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.04595806077122688
+  },
+  {
+   "scene": "FloorPlan3",
+   "instruction": "Find the vegetable behind the plant",
+   "subject_class": "vegetable",
+   "share": 0.0114,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.04103754088282585
+  },
+  {
+   "scene": "FloorPlan203",
+   "instruction": "Find the book behind the vase",
+   "subject_class": "book",
+   "share": 0.0279375,
+   "queries_on_it": 0,
+   "detected": false,
+   "best_prob": 0.0
+  },
+  {
+   "scene": "FloorPlan203",
+   "instruction": "Find the bowl behind the vase",
+   "subject_class": "bowl",
+   "share": 0.00975,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.11169810593128204
+  },
+  {
+   "scene": "FloorPlan203",
+   "instruction": "Find the plate behind the bowl",
+   "subject_class": "plate",
+   "share": 0.006264583333333333,
+   "queries_on_it": 0,
+   "detected": false,
+   "best_prob": 0.0
+  },
+  {
+   "scene": "FloorPlan4",
+   "instruction": "Find the bowl behind the food",
+   "subject_class": "bowl",
+   "share": 0.00495,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.10821624100208282
+  },
+  {
+   "scene": "FloorPlan4",
+   "instruction": "Find the vegetable behind the cup",
+   "subject_class": "vegetable",
+   "share": 0.007,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.011880013160407543
+  },
+  {
+   "scene": "FloorPlan4",
+   "instruction": "Find the pot behind the food",
+   "subject_class": "pot",
+   "share": 0.008854166666666666,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.012920241802930832
+  },
+  {
+   "scene": "FloorPlan4",
+   "instruction": "Find the fruit behind the pot",
+   "subject_class": "fruit",
+   "share": 0.004085416666666667,
+   "queries_on_it": 3,
+   "detected": false,
+   "best_prob": 0.019432516768574715
+  },
+  {
+   "scene": "FloorPlan204",
+   "instruction": "Find the lamp behind the laptop",
+   "subject_class": "lamp",
+   "share": 0.018604166666666668,
+   "queries_on_it": 0,
+   "detected": false,
+   "best_prob": 0.0
+  },
+  {
+   "scene": "FloorPlan5",
+   "instruction": "Find the pot behind the food",
+   "subject_class": "pot",
+   "share": 0.016952083333333333,
+   "queries_on_it": 3,
+   "detected": false,
+   "best_prob": 0.11389613151550293
+  },
+  {
+   "scene": "FloorPlan5",
+   "instruction": "Find the cup behind the bowl",
+   "subject_class": "cup",
+   "share": 0.0033291666666666665,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.18390153348445892
+  },
+  {
+   "scene": "FloorPlan305",
+   "instruction": "Find the pillow behind the lamp",
+   "subject_class": "pillow",
+   "share": 0.008525,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.07481960952281952
+  },
+  {
+   "scene": "FloorPlan6",
+   "instruction": "Find the bowl behind the food",
+   "subject_class": "bowl",
+   "share": 0.009675,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.05817272141575813
+  },
+  {
+   "scene": "FloorPlan6",
+   "instruction": "Find the fruit behind the food",
+   "subject_class": "fruit",
+   "share": 0.0087,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.07061703503131866
+  },
+  {
+   "scene": "FloorPlan6",
+   "instruction": "Find the paper behind the bottle",
+   "subject_class": "paper",
+   "share": 0.00625,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.11181728541851044
+  },
+  {
+   "scene": "FloorPlan306",
+   "instruction": "Find the book behind the laptop",
+   "subject_class": "book",
+   "share": 0.007066666666666666,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.16967128217220306
+  },
+  {
+   "scene": "FloorPlan306",
+   "instruction": "Find the phone behind the lamp",
+   "subject_class": "phone",
+   "share": 0.003675,
+   "queries_on_it": 1,
+   "detected": false,
+   "best_prob": 0.013173069804906845
+  },
+  {
+   "scene": "FloorPlan7",
+   "instruction": "Find the food behind the pot",
+   "subject_class": "food",
+   "share": 0.0153,
+   "queries_on_it": 4,
+   "detected": false,
+   "best_prob": 0.03306055814027786
+  },
+  {
+   "scene": "FloorPlan7",
+   "instruction": "Find the cup behind the pot",
+   "subject_class": "cup",
+   "share": 0.005125,
+   "queries_on_it": 5,
+   "detected": true,
+   "best_prob": 0.1369892805814743
+  },
+  {
+   "scene": "FloorPlan7",
+   "instruction": "Find the bowl behind the pot",
+   "subject_class": "bowl",
+   "share": 0.0051333333333333335,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.19279922544956207
+  },
+  {
+   "scene": "FloorPlan7",
+   "instruction": "Find the plate behind the bottle",
+   "subject_class": "plate",
+   "share": 0.010075,
+   "queries_on_it": 0,
+   "detected": false,
+   "best_prob": 0.0
+  },
+  {
+   "scene": "FloorPlan8",
+   "instruction": "Find the food behind the plant",
+   "subject_class": "food",
+   "share": 0.00905625,
+   "queries_on_it": 0,
+   "detected": false,
+   "best_prob": 0.0
+  },
+  {
+   "scene": "FloorPlan8",
+   "instruction": "Find the bowl behind the pot",
+   "subject_class": "bowl",
+   "share": 0.015166666666666667,
+   "queries_on_it": 4,
+   "detected": false,
+   "best_prob": 0.04640461504459381
+  },
+  {
+   "scene": "FloorPlan308",
+   "instruction": "Find the book behind the clock",
+   "subject_class": "book",
+   "share": 0.00705,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.21669518947601318
+  },
+  {
+   "scene": "FloorPlan308",
+   "instruction": "Find the phone behind the clock",
+   "subject_class": "phone",
+   "share": 0.005733333333333333,
+   "queries_on_it": 1,
+   "detected": false,
+   "best_prob": 0.01328098215162754
+  },
+  {
+   "scene": "FloorPlan9",
+   "instruction": "Find the cup behind the bottle",
+   "subject_class": "cup",
+   "share": 0.0035729166666666665,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.10367891937494278
+  },
+  {
+   "scene": "FloorPlan9",
+   "instruction": "Find the bottle behind the food",
+   "subject_class": "bottle",
+   "share": 0.0104625,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.13832074403762817
+  },
+  {
+   "scene": "FloorPlan10",
+   "instruction": "Find the food behind the pot",
+   "subject_class": "food",
+   "share": 0.00525,
+   "queries_on_it": 3,
+   "detected": false,
+   "best_prob": 0.01794274151325226
+  },
+  {
+   "scene": "FloorPlan10",
+   "instruction": "Find the pot behind the plant",
+   "subject_class": "pot",
+   "share": 0.031141666666666668,
+   "queries_on_it": 4,
+   "detected": true,
+   "best_prob": 0.1010977029800415
+  },
+  {
+   "scene": "FloorPlan10",
+   "instruction": "Find the bottle behind the plant",
+   "subject_class": "bottle",
+   "share": 0.0286875,
+   "queries_on_it": 1,
+   "detected": false,
+   "best_prob": 0.005675651133060455
+  },
+  {
+   "scene": "FloorPlan10",
+   "instruction": "Find the bowl behind the paper",
+   "subject_class": "bowl",
+   "share": 0.004375,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.1878143846988678
+  },
+  {
+   "scene": "FloorPlan10",
+   "instruction": "Find the cup behind the paper",
+   "subject_class": "cup",
+   "share": 0.006629166666666667,
+   "queries_on_it": 4,
+   "detected": false,
+   "best_prob": 0.04456457495689392
+  },
+  {
+   "scene": "FloorPlan310",
+   "instruction": "Find the lamp behind the box",
+   "subject_class": "lamp",
+   "share": 0.03127083333333333,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.16147400438785553
+  },
+  {
+   "scene": "FloorPlan11",
+   "instruction": "Find the plate behind the paper",
+   "subject_class": "plate",
+   "share": 0.007275,
+   "queries_on_it": 1,
+   "detected": false,
+   "best_prob": 0.056982412934303284
+  },
+  {
+   "scene": "FloorPlan11",
+   "instruction": "Find the bottle behind the paper",
+   "subject_class": "bottle",
+   "share": 0.008502083333333334,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.15241144597530365
+  },
+  {
+   "scene": "FloorPlan11",
+   "instruction": "Find the paper behind the food",
+   "subject_class": "paper",
+   "share": 0.00463125,
+   "queries_on_it": 4,
+   "detected": true,
+   "best_prob": 0.18115878105163574
+  },
+  {
+   "scene": "FloorPlan11",
+   "instruction": "Find the cup behind the bowl",
+   "subject_class": "cup",
+   "share": 0.0047979166666666665,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.29527565836906433
+  },
+  {
+   "scene": "FloorPlan211",
+   "instruction": "Find the paper behind the vase",
+   "subject_class": "paper",
+   "share": 0.0059375,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.09697213023900986
+  },
+  {
+   "scene": "FloorPlan211",
+   "instruction": "Find the plate behind the vase",
+   "subject_class": "plate",
+   "share": 0.005395833333333333,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.00984168704599142
+  },
+  {
+   "scene": "FloorPlan311",
+   "instruction": "Find the book behind the lamp",
+   "subject_class": "book",
+   "share": 0.00909375,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.13170267641544342
+  },
+  {
+   "scene": "FloorPlan12",
+   "instruction": "Find the bottle behind the vegetable",
+   "subject_class": "bottle",
+   "share": 0.00584375,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.0812777429819107
+  },
+  {
+   "scene": "FloorPlan12",
+   "instruction": "Find the vegetable behind the bottle",
+   "subject_class": "vegetable",
+   "share": 0.0046875,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.008733009919524193
+  },
+  {
+   "scene": "FloorPlan12",
+   "instruction": "Find the fruit behind the bottle",
+   "subject_class": "fruit",
+   "share": 0.0042,
+   "queries_on_it": 1,
+   "detected": false,
+   "best_prob": 0.012403804808855057
+  },
+  {
+   "scene": "FloorPlan12",
+   "instruction": "Find the cup behind the bottle",
+   "subject_class": "cup",
+   "share": 0.0054666666666666665,
+   "queries_on_it": 1,
+   "detected": true,
+   "best_prob": 0.14278388023376465
+  },
+  {
+   "scene": "FloorPlan13",
+   "instruction": "Find the plate behind the food",
+   "subject_class": "plate",
+   "share": 0.01025,
+   "queries_on_it": 5,
+   "detected": true,
+   "best_prob": 0.14249926805496216
+  },
+  {
+   "scene": "FloorPlan13",
+   "instruction": "Find the vegetable behind the bottle",
+   "subject_class": "vegetable",
+   "share": 0.010747916666666666,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.0044094109907746315
+  },
+  {
+   "scene": "FloorPlan313",
+   "instruction": "Find the box behind the lamp",
+   "subject_class": "box",
+   "share": 0.0075375,
+   "queries_on_it": 0,
+   "detected": false,
+   "best_prob": 0.0
+  },
+  {
+   "scene": "FloorPlan313",
+   "instruction": "Find the cup behind the clock",
+   "subject_class": "cup",
+   "share": 0.0063,
+   "queries_on_it": 2,
+   "detected": true,
+   "best_prob": 0.3320586681365967
+  },
+  {
+   "scene": "FloorPlan214",
+   "instruction": "Find the plate behind the plant",
+   "subject_class": "plate",
+   "share": 0.004675,
+   "queries_on_it": 0,
+   "detected": false,
+   "best_prob": 0.0
+  },
+  {
+   "scene": "FloorPlan15",
+   "instruction": "Find the fruit behind the bottle",
+   "subject_class": "fruit",
+   "share": 0.0077,
+   "queries_on_it": 3,
+   "detected": true,
+   "best_prob": 0.12325357645750046
+  },
+  {
+   "scene": "FloorPlan15",
+   "instruction": "Find the cup behind the bottle",
+   "subject_class": "cup",
+   "share": 0.004858333333333333,
+   "queries_on_it": 2,
+   "detected": false,
+   "best_prob": 0.07135850191116333
+  },
+  {
+   "scene": "FloorPlan15",
+   "instruction": "Find the pot behind the bottle",
+   "subject_class": "pot",
+   "share": 0.019833333333333335,
+   "queries_on_it": 1,
+   "detected": false,
+   "best_prob": 0.0019399372395128012
+  },
+  {
+   "scene": "FloorPlan15",
+   "instruction": "Find the plate behind the bottle",
+   "subject_class": "plate",
+   "share": 0.02026875,
+   "queries_on_it": 5,
+   "detected": false,
+   "best_prob": 0.11147978156805038
+  },
+  {
+   "scene": "FloorPlan315",
+   "instruction": "Find the lamp behind the laptop",
+   "subject_class": "lamp",
+   "share": 0.0311125,
+   "queries_on_it": 5,
+   "detected": true,
+   "best_prob": 0.1232372596859932
+  },
+  {
+   "scene": "FloorPlan315",
+   "instruction": "Find the cup behind the lamp",
+   "subject_class": "cup",
+   "share": 0.005520833333333333,
+   "queries_on_it": 3,
+   "detected": false,
+   "best_prob": 0.012291611172258854
+  },
+  {
+   "scene": "FloorPlan16",
+   "instruction": "Find the vegetable behind the paper",
+   "subject_class": "vegetable",
+   "share": 0.0013333333333333333,
+   "queries_on_it": 0,
+   "detected": false,
+   "best_prob": 0.0
+  },
+  {
+   "scene": "FloorPlan16",
+   "instruction": "Find the paper behind the bottle",
+   "subject_class": "paper",
+   "share": 0.005541666666666667,
+   "queries_on_it": 1,
+   "detected": false,
+   "best_prob": 0.03404296189546585
+  }
+ ]
+}

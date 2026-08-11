@@ -123,6 +123,37 @@ def set_pose(controller, name: str, position: Sequence[float],
     return event.metadata["lastActionSuccess"]
 
 
+def pose_snapshot(event) -> List[Dict[str, Any]]:
+    """Every moveable object's world pose, in `SetObjectPoses` format."""
+    return [{"objectName": o["name"], "position": dict(o["position"]),
+             "rotation": dict(o["rotation"])} for o in moveable(event)]
+
+
+def set_poses(controller, poses: Sequence[Dict[str, Any]]) -> bool:
+    """
+    Restore a whole `pose_snapshot`, pinning the moveable scene exactly.
+
+    `SetObjectPoses` treats its argument as the COMPLETE set, so this is one
+    call and anything omitted would vanish -- which is also why restoring the
+    whole snapshot is the right granularity.  Setting one object leaves the
+    others wherever THOR's own settle put them on this particular load, and
+    that settle is not reproducible: measured on FloorPlan211, replaying only
+    the occluder still moved the TARGET enough to change its visible box IoU
+    between 0.810 and 0.846 across three runs of the same case.
+
+    No gravity and no collision resolution are applied, so a restored snapshot
+    is exact rather than approximately right.
+    """
+    have = {o["name"] for o in moveable(controller.last_event)}
+    missing = [p["objectName"] for p in poses if p["objectName"] not in have]
+    if missing:
+        print(f"  ! snapshot names not in this scene: {missing[:3]}")
+        return False
+    event = controller.step(action="SetObjectPoses",
+                            objectPoses=[dict(p) for p in poses])
+    return event.metadata["lastActionSuccess"]
+
+
 def ray_frame(camera: Dict[str, float], target: Dict[str, float]):
     """Unit vector camera->target, a horizontal perpendicular, and the distance."""
     c = np.array([camera["x"], camera["y"], camera["z"]])

@@ -1,0 +1,5624 @@
+{
+ "beta": 1.0,
+ "objscore": "max",
+ "vocab": null,
+ "dedup_iou": 0.9,
+ "corr_relabel": "argmax",
+ "relabel_mode": "consensus",
+ "relabel_tau": 0.0,
+ "gate": 0.8,
+ "corr": "assign",
+ "pool": "mean",
+ "objscore_class": "gate",
+ "cases": [
+  {
+   "case": 0,
+   "scene": "FloorPlan1",
+   "instruction": "Find the bottle behind the plant",
+   "staged_occlusion": 0.36,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 17,
+    "grounded_rank": 17,
+    "best_subject_iou": 0.897,
+    "matched": "#17 behind iou 0.897",
+    "act": {
+     "chosen": [
+      187,
+      88
+     ],
+     "score": 1.129890522934088e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 17,
+    "top3": [
+     "bottle near plant",
+     "bottle near plant",
+     "bottle on plant"
+    ]
+   },
+   "A": {
+    "class_rank": 9,
+    "grounded_rank": 9,
+    "best_subject_iou": 0.897,
+    "matched": "#9 behind iou 0.897",
+    "act": {
+     "chosen": [
+      101,
+      118
+     ],
+     "score": 4.616252092328293e-09,
+     "iou": 0.897,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 9,
+    "top3": [
+     "bottle near plant",
+     "bottle near plant",
+     "bottle near plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 9,
+    "grounded_rank": 9,
+    "best_subject_iou": 0.897,
+    "matched": "#9 behind iou 0.897",
+    "act": {
+     "chosen": [
+      101,
+      118
+     ],
+     "score": 4.616252092328293e-09,
+     "iou": 0.897,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 9,
+    "top3": [
+     "bottle near plant",
+     "bottle near plant",
+     "bottle near plant"
+    ]
+   }
+  },
+  {
+   "case": 1,
+   "scene": "FloorPlan1",
+   "instruction": "Find the cup behind the paper",
+   "staged_occlusion": 0.334,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 67,
+    "grounded_rank": null,
+    "best_subject_iou": 0.462,
+    "matched": "#67 behind iou 0.462",
+    "act": {
+     "chosen": [
+      92,
+      135
+     ],
+     "score": 2.581196129437155e-09,
+     "iou": 0.126,
+     "success": false,
+     "best_rank": 18,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 67,
+    "top3": [
+     "cup has paper",
+     "cup in paper",
+     "cup on paper"
+    ]
+   },
+   "A": {
+    "class_rank": 74,
+    "grounded_rank": null,
+    "best_subject_iou": 0.462,
+    "matched": "#74 behind iou 0.462",
+    "act": {
+     "chosen": [
+      92,
+      135
+     ],
+     "score": 3.634738951612368e-09,
+     "iou": 0.126,
+     "success": false,
+     "best_rank": 18,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 74,
+    "top3": [
+     "cup has paper",
+     "cup on paper",
+     "cup in paper"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 74,
+    "grounded_rank": null,
+    "best_subject_iou": 0.462,
+    "matched": "#74 behind iou 0.462",
+    "act": {
+     "chosen": [
+      92,
+      135
+     ],
+     "score": 3.634738951612368e-09,
+     "iou": 0.126,
+     "success": false,
+     "best_rank": 18,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 74,
+    "top3": [
+     "cup has paper",
+     "cup in paper",
+     "cup in paper"
+    ]
+   }
+  },
+  {
+   "case": 2,
+   "scene": "FloorPlan1",
+   "instruction": "Find the pot behind the plant",
+   "staged_occlusion": 0.332,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 33,
+    "grounded_rank": 33,
+    "best_subject_iou": 0.784,
+    "matched": "#33 behind iou 0.784",
+    "act": {
+     "chosen": [
+      78,
+      123
+     ],
+     "score": 3.4054535937541143e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 11,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 33,
+    "top3": [
+     "pot with plant",
+     "pot under plant",
+     "pot with plant"
+    ]
+   },
+   "A": {
+    "class_rank": 35,
+    "grounded_rank": 35,
+    "best_subject_iou": 0.784,
+    "matched": "#35 behind iou 0.784",
+    "act": {
+     "chosen": [
+      78,
+      123
+     ],
+     "score": 8.541606322768203e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 11,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 35,
+    "top3": [
+     "pot with plant",
+     "pot under plant",
+     "pot with plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      78,
+      123
+     ],
+     "score": 8.541606322768203e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 11,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "pot with plant",
+     "pot under plant",
+     "pot with plant"
+    ]
+   }
+  },
+  {
+   "case": 3,
+   "scene": "FloorPlan201",
+   "instruction": "Find the paper behind the plant",
+   "staged_occlusion": 0.411,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      82,
+      139
+     ],
+     "score": 1.8863949073806722e-07,
+     "iou": 0.677,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "paper under plant",
+     "paper near plant",
+     "paper across plant"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      82,
+      139
+     ],
+     "score": 2.105819099096351e-07,
+     "iou": 0.677,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "paper under plant",
+     "paper near plant",
+     "paper across plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      82,
+      139
+     ],
+     "score": 2.105819099096351e-07,
+     "iou": 0.677,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "paper near plant",
+     "paper near plant",
+     "paper across plant"
+    ]
+   }
+  },
+  {
+   "case": 4,
+   "scene": "FloorPlan201",
+   "instruction": "Find the plate behind the laptop",
+   "staged_occlusion": 0.369,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 4,
+    "grounded_rank": 4,
+    "best_subject_iou": 0.795,
+    "matched": "#4 behind iou 0.795",
+    "act": {
+     "chosen": [
+      49,
+      178
+     ],
+     "score": 1.5559346271990475e-07,
+     "iou": 0.795,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 93
+    },
+    "acts": true,
+    "first_match": 4,
+    "top3": [
+     "plate on laptop",
+     "plate over laptop",
+     "plate with laptop"
+    ]
+   },
+   "A": {
+    "class_rank": 3,
+    "grounded_rank": 3,
+    "best_subject_iou": 0.795,
+    "matched": "#3 behind iou 0.795",
+    "act": {
+     "chosen": [
+      49,
+      178
+     ],
+     "score": 3.275851373220036e-07,
+     "iou": 0.795,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 93
+    },
+    "acts": true,
+    "first_match": 3,
+    "top3": [
+     "plate on laptop",
+     "plate over laptop",
+     "plate behind laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 25,
+    "grounded_rank": 25,
+    "best_subject_iou": 0.795,
+    "matched": "#25 behind iou 0.795",
+    "act": {
+     "chosen": [
+      49,
+      178
+     ],
+     "score": 3.275851373220036e-07,
+     "iou": 0.795,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 93
+    },
+    "acts": true,
+    "first_match": 25,
+    "top3": [
+     "plate under laptop",
+     "plate above laptop",
+     "plate on laptop"
+    ]
+   }
+  },
+  {
+   "case": 5,
+   "scene": "FloorPlan2",
+   "instruction": "Find the bowl behind the food",
+   "staged_occlusion": 0.276,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      33,
+      166
+     ],
+     "score": 9.620570647068016e-10,
+     "iou": 0.061,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl on food",
+     "bowl on food",
+     "bowl above food"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      33,
+      166
+     ],
+     "score": 9.620831128139514e-10,
+     "iou": 0.061,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl on food",
+     "bowl on food",
+     "bowl above food"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      33,
+      166
+     ],
+     "score": 9.620831128139514e-10,
+     "iou": 0.061,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl on food",
+     "bowl on food",
+     "bowl above food"
+    ]
+   }
+  },
+  {
+   "case": 6,
+   "scene": "FloorPlan2",
+   "instruction": "Find the food behind the pot",
+   "staged_occlusion": 0.349,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 10,
+    "grounded_rank": 10,
+    "best_subject_iou": 0.827,
+    "matched": "#10 behind iou 0.827",
+    "act": {
+     "chosen": [
+      181,
+      42
+     ],
+     "score": 8.689587946061507e-11,
+     "iou": 0.827,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": true,
+    "first_match": 10,
+    "top3": [
+     "food in pot",
+     "food in pot",
+     "food near pot"
+    ]
+   },
+   "A": {
+    "class_rank": 8,
+    "grounded_rank": 8,
+    "best_subject_iou": 0.827,
+    "matched": "#8 behind iou 0.827",
+    "act": {
+     "chosen": [
+      181,
+      42
+     ],
+     "score": 3.91925003784398e-10,
+     "iou": 0.827,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": true,
+    "first_match": 8,
+    "top3": [
+     "food near pot",
+     "food near pot",
+     "food in pot"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 8,
+    "grounded_rank": 8,
+    "best_subject_iou": 0.827,
+    "matched": "#8 behind iou 0.827",
+    "act": {
+     "chosen": [
+      181,
+      42
+     ],
+     "score": 3.91925003784398e-10,
+     "iou": 0.827,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": true,
+    "first_match": 8,
+    "top3": [
+     "food in pot",
+     "food in pot",
+     "food in pot"
+    ]
+   }
+  },
+  {
+   "case": 7,
+   "scene": "FloorPlan2",
+   "instruction": "Find the phone behind the bowl",
+   "staged_occlusion": 0.463,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 9,
+    "grounded_rank": null,
+    "best_subject_iou": 0.235,
+    "matched": "#9 behind iou 0.235",
+    "act": {
+     "chosen": [
+      106,
+      93
+     ],
+     "score": 2.469936626646059e-10,
+     "iou": 0.235,
+     "success": false,
+     "best_rank": 26,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 9,
+    "top3": [
+     "phone on bowl",
+     "phone in bowl",
+     "phone near bowl"
+    ]
+   },
+   "A": {
+    "class_rank": 9,
+    "grounded_rank": null,
+    "best_subject_iou": 0.235,
+    "matched": "#9 behind iou 0.235",
+    "act": {
+     "chosen": [
+      106,
+      93
+     ],
+     "score": 2.471337507614538e-10,
+     "iou": 0.235,
+     "success": false,
+     "best_rank": 26,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 9,
+    "top3": [
+     "phone on bowl",
+     "phone in bowl",
+     "phone near bowl"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 9,
+    "grounded_rank": null,
+    "best_subject_iou": 0.235,
+    "matched": "#9 behind iou 0.235",
+    "act": {
+     "chosen": [
+      106,
+      93
+     ],
+     "score": 2.471337507614538e-10,
+     "iou": 0.235,
+     "success": false,
+     "best_rank": 26,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 9,
+    "top3": [
+     "phone on bowl",
+     "phone in bowl",
+     "phone near bowl"
+    ]
+   }
+  },
+  {
+   "case": 8,
+   "scene": "FloorPlan302",
+   "instruction": "Find the book behind the plant",
+   "staged_occlusion": 0.353,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 4,
+    "grounded_rank": null,
+    "best_subject_iou": 0.281,
+    "matched": "#4 behind iou 0.0",
+    "act": {
+     "chosen": [
+      115,
+      121
+     ],
+     "score": 8.206447886506649e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 4,
+    "top3": [
+     "book on plant",
+     "book near plant",
+     "book near plant"
+    ]
+   },
+   "A": {
+    "class_rank": 4,
+    "grounded_rank": null,
+    "best_subject_iou": 0.281,
+    "matched": "#4 behind iou 0.0",
+    "act": {
+     "chosen": [
+      25,
+      121
+     ],
+     "score": 9.848498098874e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 4,
+    "top3": [
+     "book on plant",
+     "book near plant",
+     "book near plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 4,
+    "grounded_rank": null,
+    "best_subject_iou": 0.281,
+    "matched": "#4 behind iou 0.0",
+    "act": {
+     "chosen": [
+      25,
+      121
+     ],
+     "score": 9.848498098874e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 4,
+    "top3": [
+     "book on plant",
+     "book near plant",
+     "book near plant"
+    ]
+   }
+  },
+  {
+   "case": 9,
+   "scene": "FloorPlan302",
+   "instruction": "Find the phone behind the laptop",
+   "staged_occlusion": 0.355,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 4,
+    "grounded_rank": 4,
+    "best_subject_iou": 0.839,
+    "matched": "#4 behind iou 0.727",
+    "act": {
+     "chosen": [
+      25,
+      95
+     ],
+     "score": 1.2162541505865123e-05,
+     "iou": 0.839,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": true,
+    "first_match": 4,
+    "top3": [
+     "phone near laptop",
+     "phone on laptop",
+     "phone under laptop"
+    ]
+   },
+   "A": {
+    "class_rank": 4,
+    "grounded_rank": 4,
+    "best_subject_iou": 0.839,
+    "matched": "#4 behind iou 0.839",
+    "act": {
+     "chosen": [
+      25,
+      95
+     ],
+     "score": 3.565948155651033e-05,
+     "iou": 0.839,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": true,
+    "first_match": 4,
+    "top3": [
+     "phone near laptop",
+     "phone on laptop",
+     "phone under laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 7,
+    "grounded_rank": 7,
+    "best_subject_iou": 0.839,
+    "matched": "#7 behind iou 0.839",
+    "act": {
+     "chosen": [
+      25,
+      95
+     ],
+     "score": 3.565948155651033e-05,
+     "iou": 0.839,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": true,
+    "first_match": 7,
+    "top3": [
+     "phone near laptop",
+     "phone under laptop",
+     "phone near laptop"
+    ]
+   }
+  },
+  {
+   "case": 10,
+   "scene": "FloorPlan302",
+   "instruction": "Find the laptop behind the plant",
+   "staged_occlusion": 0.379,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 10,
+    "grounded_rank": 10,
+    "best_subject_iou": 0.878,
+    "matched": "#10 behind iou 0.878",
+    "act": {
+     "chosen": [
+      23,
+      115
+     ],
+     "score": 3.9100133896093725e-06,
+     "iou": 0.028,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 10,
+    "top3": [
+     "laptop near plant",
+     "laptop on plant",
+     "laptop on plant"
+    ]
+   },
+   "A": {
+    "class_rank": 5,
+    "grounded_rank": 5,
+    "best_subject_iou": 0.878,
+    "matched": "#5 behind iou 0.878",
+    "act": {
+     "chosen": [
+      23,
+      115
+     ],
+     "score": 3.909560079735919e-06,
+     "iou": 0.028,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 5,
+    "top3": [
+     "laptop near plant",
+     "laptop on plant",
+     "laptop on plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 5,
+    "grounded_rank": 5,
+    "best_subject_iou": 0.878,
+    "matched": "#5 behind iou 0.878",
+    "act": {
+     "chosen": [
+      23,
+      115
+     ],
+     "score": 3.909560079735919e-06,
+     "iou": 0.028,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 5,
+    "top3": [
+     "laptop near plant",
+     "laptop on plant",
+     "laptop on plant"
+    ]
+   }
+  },
+  {
+   "case": 11,
+   "scene": "FloorPlan3",
+   "instruction": "Find the food behind the plant",
+   "staged_occlusion": 0.351,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 21,
+    "grounded_rank": 21,
+    "best_subject_iou": 0.528,
+    "matched": "#21 behind iou 0.528",
+    "act": {
+     "chosen": [
+      8,
+      88
+     ],
+     "score": 5.201568276686712e-07,
+     "iou": 0.093,
+     "success": false,
+     "best_rank": 4,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 21,
+    "top3": [
+     "food on plant",
+     "food of plant",
+     "food of plant"
+    ]
+   },
+   "A": {
+    "class_rank": 23,
+    "grounded_rank": 23,
+    "best_subject_iou": 0.528,
+    "matched": "#23 behind iou 0.528",
+    "act": {
+     "chosen": [
+      8,
+      88
+     ],
+     "score": 5.20179518334607e-07,
+     "iou": 0.093,
+     "success": false,
+     "best_rank": 4,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 23,
+    "top3": [
+     "food on plant",
+     "food of plant",
+     "food of plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 23,
+    "grounded_rank": 23,
+    "best_subject_iou": 0.528,
+    "matched": "#23 behind iou 0.528",
+    "act": {
+     "chosen": [
+      8,
+      88
+     ],
+     "score": 5.20179518334607e-07,
+     "iou": 0.093,
+     "success": false,
+     "best_rank": 4,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 23,
+    "top3": [
+     "food on plant",
+     "food on plant",
+     "food of plant"
+    ]
+   }
+  },
+  {
+   "case": 12,
+   "scene": "FloorPlan3",
+   "instruction": "Find the plate behind the plant",
+   "staged_occlusion": 0.34,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 51,
+    "grounded_rank": null,
+    "best_subject_iou": 0.063,
+    "matched": "#51 behind iou 0.063",
+    "act": {
+     "chosen": [
+      27,
+      105
+     ],
+     "score": 1.7856102614111645e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 51,
+    "top3": [
+     "plate near plant",
+     "plate near plant",
+     "plate near plant"
+    ]
+   },
+   "A": {
+    "class_rank": 51,
+    "grounded_rank": null,
+    "best_subject_iou": 0.063,
+    "matched": "#51 behind iou 0.063",
+    "act": {
+     "chosen": [
+      27,
+      105
+     ],
+     "score": 1.7862038220051038e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 51,
+    "top3": [
+     "plate near plant",
+     "plate near plant",
+     "plate near plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 48,
+    "grounded_rank": null,
+    "best_subject_iou": 0.063,
+    "matched": "#48 behind iou 0.063",
+    "act": {
+     "chosen": [
+      27,
+      105
+     ],
+     "score": 1.7862038220051038e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 48,
+    "top3": [
+     "plate near plant",
+     "plate near plant",
+     "plate near plant"
+    ]
+   }
+  },
+  {
+   "case": 13,
+   "scene": "FloorPlan3",
+   "instruction": "Find the fruit behind the bottle",
+   "staged_occlusion": 0.415,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 9,
+    "grounded_rank": null,
+    "best_subject_iou": 0.136,
+    "matched": "#9 behind iou 0.136",
+    "act": {
+     "chosen": [
+      177,
+      19
+     ],
+     "score": 1.289154458220866e-07,
+     "iou": 0.013,
+     "success": false,
+     "best_rank": 9,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 9,
+    "top3": [
+     "fruit on bottle",
+     "fruit on bottle",
+     "fruit in front of bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 9,
+    "grounded_rank": null,
+    "best_subject_iou": 0.136,
+    "matched": "#9 behind iou 0.136",
+    "act": {
+     "chosen": [
+      177,
+      19
+     ],
+     "score": 2.0945639514220304e-07,
+     "iou": 0.013,
+     "success": false,
+     "best_rank": 6,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 9,
+    "top3": [
+     "fruit on bottle",
+     "fruit on bottle",
+     "fruit in front of bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 9,
+    "grounded_rank": null,
+    "best_subject_iou": 0.136,
+    "matched": "#9 behind iou 0.136",
+    "act": {
+     "chosen": [
+      177,
+      19
+     ],
+     "score": 2.0945639514220304e-07,
+     "iou": 0.013,
+     "success": false,
+     "best_rank": 6,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 9,
+    "top3": [
+     "fruit in front of bottle",
+     "fruit near bottle",
+     "fruit in front of bottle"
+    ]
+   }
+  },
+  {
+   "case": 14,
+   "scene": "FloorPlan3",
+   "instruction": "Find the vegetable behind the plant",
+   "staged_occlusion": 0.252,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      177,
+      18
+     ],
+     "score": 1.1483262213550999e-05,
+     "iou": 0.901,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable on plant",
+     "vegetable on plant",
+     "vegetable on plant"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      177,
+      18
+     ],
+     "score": 2.040098601158169e-05,
+     "iou": 0.901,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable on plant",
+     "vegetable on plant",
+     "vegetable on plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 8,
+    "grounded_rank": null,
+    "best_subject_iou": 0.321,
+    "matched": "#8 behind iou 0.321",
+    "act": {
+     "chosen": [
+      177,
+      18
+     ],
+     "score": 2.040098601158169e-05,
+     "iou": 0.901,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 8,
+    "top3": [
+     "vegetable on plant",
+     "vegetable on plant",
+     "vegetable on plant"
+    ]
+   }
+  },
+  {
+   "case": 15,
+   "scene": "FloorPlan203",
+   "instruction": "Find the book behind the vase",
+   "staged_occlusion": 0.358,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 10,
+    "grounded_rank": null,
+    "best_subject_iou": 0.431,
+    "matched": "#10 behind iou 0.0",
+    "act": {
+     "chosen": [
+      35,
+      51
+     ],
+     "score": 3.5471821095935146e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 10,
+    "top3": [
+     "book made of vase",
+     "book on vase",
+     "book with vase"
+    ]
+   },
+   "A": {
+    "class_rank": 10,
+    "grounded_rank": null,
+    "best_subject_iou": 0.431,
+    "matched": "#10 behind iou 0.0",
+    "act": {
+     "chosen": [
+      35,
+      51
+     ],
+     "score": 3.5482412138622936e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 10,
+    "top3": [
+     "book made of vase",
+     "book under vase",
+     "book on vase"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 10,
+    "grounded_rank": null,
+    "best_subject_iou": 0.431,
+    "matched": "#10 behind iou 0.0",
+    "act": {
+     "chosen": [
+      35,
+      51
+     ],
+     "score": 3.5482412138622936e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 10,
+    "top3": [
+     "book made of vase",
+     "book under vase",
+     "book on vase"
+    ]
+   }
+  },
+  {
+   "case": 16,
+   "scene": "FloorPlan203",
+   "instruction": "Find the bowl behind the vase",
+   "staged_occlusion": 0.307,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 65,
+    "grounded_rank": null,
+    "best_subject_iou": 0.433,
+    "matched": "#65 behind iou 0.433",
+    "act": {
+     "chosen": [
+      61,
+      145
+     ],
+     "score": 3.4346815464582133e-08,
+     "iou": 0.062,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 94
+    },
+    "acts": false,
+    "first_match": 65,
+    "top3": [
+     "bowl belonging to vase",
+     "bowl above vase",
+     "bowl above vase"
+    ]
+   },
+   "A": {
+    "class_rank": 62,
+    "grounded_rank": null,
+    "best_subject_iou": 0.433,
+    "matched": "#62 behind iou 0.433",
+    "act": {
+     "chosen": [
+      48,
+      12
+     ],
+     "score": 6.683710468420766e-08,
+     "iou": 0.828,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 94
+    },
+    "acts": false,
+    "first_match": 62,
+    "top3": [
+     "bowl above vase",
+     "bowl belonging to vase",
+     "bowl above vase"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 52,
+    "grounded_rank": null,
+    "best_subject_iou": 0.433,
+    "matched": "#52 behind iou 0.433",
+    "act": {
+     "chosen": [
+      48,
+      12
+     ],
+     "score": 6.683710468420766e-08,
+     "iou": 0.828,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 94
+    },
+    "acts": false,
+    "first_match": 52,
+    "top3": [
+     "bowl near vase",
+     "bowl under vase",
+     "bowl in vase"
+    ]
+   }
+  },
+  {
+   "case": 17,
+   "scene": "FloorPlan203",
+   "instruction": "Find the plate behind the bowl",
+   "staged_occlusion": 0.401,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 14,
+    "grounded_rank": null,
+    "best_subject_iou": 0.051,
+    "matched": "#14 behind iou 0.0",
+    "act": {
+     "chosen": [
+      115,
+      121
+     ],
+     "score": 3.7290588636270074e-08,
+     "iou": 0.07,
+     "success": false,
+     "best_rank": null,
+     "candidates": 95
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "plate near bowl",
+     "plate near bowl",
+     "plate near bowl"
+    ]
+   },
+   "A": {
+    "class_rank": 12,
+    "grounded_rank": null,
+    "best_subject_iou": 0.051,
+    "matched": "#12 behind iou 0.0",
+    "act": {
+     "chosen": [
+      115,
+      121
+     ],
+     "score": 5.390926645322189e-08,
+     "iou": 0.07,
+     "success": false,
+     "best_rank": null,
+     "candidates": 95
+    },
+    "acts": false,
+    "first_match": 12,
+    "top3": [
+     "plate near bowl",
+     "plate near bowl",
+     "plate near bowl"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 9,
+    "grounded_rank": null,
+    "best_subject_iou": 0.07,
+    "matched": "#9 behind iou 0.0",
+    "act": {
+     "chosen": [
+      115,
+      121
+     ],
+     "score": 5.390926645322189e-08,
+     "iou": 0.07,
+     "success": false,
+     "best_rank": null,
+     "candidates": 95
+    },
+    "acts": false,
+    "first_match": 9,
+    "top3": [
+     "plate near bowl",
+     "plate near bowl",
+     "plate on bowl"
+    ]
+   }
+  },
+  {
+   "case": 18,
+   "scene": "FloorPlan4",
+   "instruction": "Find the bowl behind the food",
+   "staged_occlusion": 0.257,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 28,
+    "grounded_rank": 28,
+    "best_subject_iou": 0.885,
+    "matched": "#28 behind iou 0.885",
+    "act": {
+     "chosen": [
+      121,
+      22
+     ],
+     "score": 1.993814362346852e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 16,
+     "candidates": 97
+    },
+    "acts": true,
+    "first_match": 28,
+    "top3": [
+     "bowl and food",
+     "bowl and food",
+     "bowl on food"
+    ]
+   },
+   "A": {
+    "class_rank": 28,
+    "grounded_rank": 28,
+    "best_subject_iou": 0.885,
+    "matched": "#28 behind iou 0.885",
+    "act": {
+     "chosen": [
+      121,
+      22
+     ],
+     "score": 1.9934859199931054e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 16,
+     "candidates": 97
+    },
+    "acts": true,
+    "first_match": 28,
+    "top3": [
+     "bowl and food",
+     "bowl and food",
+     "bowl on food"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 28,
+    "grounded_rank": 28,
+    "best_subject_iou": 0.885,
+    "matched": "#28 behind iou 0.885",
+    "act": {
+     "chosen": [
+      121,
+      22
+     ],
+     "score": 1.9934859199931054e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 16,
+     "candidates": 97
+    },
+    "acts": true,
+    "first_match": 28,
+    "top3": [
+     "bowl and food",
+     "bowl and food",
+     "bowl on food"
+    ]
+   }
+  },
+  {
+   "case": 19,
+   "scene": "FloorPlan4",
+   "instruction": "Find the vegetable behind the cup",
+   "staged_occlusion": 0.262,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 14,
+    "grounded_rank": 14,
+    "best_subject_iou": 0.902,
+    "matched": "#14 behind iou 0.902",
+    "act": {
+     "chosen": [
+      115,
+      121
+     ],
+     "score": 1.4695034760815683e-08,
+     "iou": 0.902,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 95
+    },
+    "acts": true,
+    "first_match": 14,
+    "top3": [
+     "vegetable in cup",
+     "vegetable in cup",
+     "vegetable on cup"
+    ]
+   },
+   "A": {
+    "class_rank": 18,
+    "grounded_rank": 18,
+    "best_subject_iou": 0.902,
+    "matched": "#18 behind iou 0.902",
+    "act": {
+     "chosen": [
+      51,
+      121
+     ],
+     "score": 1.6518032923613143e-08,
+     "iou": 0.163,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 95
+    },
+    "acts": true,
+    "first_match": 18,
+    "top3": [
+     "vegetable in cup",
+     "vegetable on cup",
+     "vegetable in cup"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 18,
+    "grounded_rank": 18,
+    "best_subject_iou": 0.902,
+    "matched": "#18 behind iou 0.902",
+    "act": {
+     "chosen": [
+      51,
+      121
+     ],
+     "score": 1.6518032923613143e-08,
+     "iou": 0.163,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 95
+    },
+    "acts": true,
+    "first_match": 18,
+    "top3": [
+     "vegetable in cup",
+     "vegetable on cup",
+     "vegetable in cup"
+    ]
+   }
+  },
+  {
+   "case": 20,
+   "scene": "FloorPlan4",
+   "instruction": "Find the pot behind the food",
+   "staged_occlusion": 0.373,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      51,
+      115
+     ],
+     "score": 4.9273466942456524e-09,
+     "iou": 0.007,
+     "success": false,
+     "best_rank": null,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "pot with food",
+     "pot of food",
+     "pot on food"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      51,
+      49
+     ],
+     "score": 7.652938178071852e-09,
+     "iou": 0.007,
+     "success": false,
+     "best_rank": null,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "pot with food",
+     "pot of food",
+     "pot on food"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      51,
+      49
+     ],
+     "score": 7.652938178071852e-09,
+     "iou": 0.007,
+     "success": false,
+     "best_rank": null,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "pot with food",
+     "pot of food",
+     "pot on food"
+    ]
+   }
+  },
+  {
+   "case": 21,
+   "scene": "FloorPlan4",
+   "instruction": "Find the fruit behind the pot",
+   "staged_occlusion": 0.287,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 44,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#44 behind iou 0.0",
+    "act": {
+     "chosen": [
+      143,
+      43
+     ],
+     "score": 7.247667281720085e-10,
+     "iou": 0.731,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 44,
+    "top3": [
+     "fruit in pot",
+     "fruit in pot",
+     "fruit hanging from pot"
+    ]
+   },
+   "A": {
+    "class_rank": 43,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#43 behind iou 0.0",
+    "act": {
+     "chosen": [
+      143,
+      43
+     ],
+     "score": 8.129239206088039e-10,
+     "iou": 0.731,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 43,
+    "top3": [
+     "fruit in pot",
+     "fruit in pot",
+     "fruit hanging from pot"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 39,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#39 behind iou 0.0",
+    "act": {
+     "chosen": [
+      143,
+      43
+     ],
+     "score": 8.129239206088039e-10,
+     "iou": 0.731,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 39,
+    "top3": [
+     "fruit in pot",
+     "fruit in pot",
+     "fruit near pot"
+    ]
+   }
+  },
+  {
+   "case": 22,
+   "scene": "FloorPlan204",
+   "instruction": "Find the lamp behind the laptop",
+   "staged_occlusion": 0.386,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 14,
+    "grounded_rank": null,
+    "best_subject_iou": 0.272,
+    "matched": "#14 behind iou 0.194",
+    "act": {
+     "chosen": [
+      172,
+      178
+     ],
+     "score": 1.8201312087943285e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "lamp above laptop",
+     "lamp near laptop",
+     "lamp near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": 12,
+    "grounded_rank": null,
+    "best_subject_iou": 0.272,
+    "matched": "#12 behind iou 0.194",
+    "act": {
+     "chosen": [
+      172,
+      178
+     ],
+     "score": 2.692931960084267e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 12,
+    "top3": [
+     "lamp above laptop",
+     "lamp near laptop",
+     "lamp near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 12,
+    "grounded_rank": null,
+    "best_subject_iou": 0.272,
+    "matched": "#12 behind iou 0.194",
+    "act": {
+     "chosen": [
+      172,
+      178
+     ],
+     "score": 2.692931960084267e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 12,
+    "top3": [
+     "lamp above laptop",
+     "lamp near laptop",
+     "lamp near laptop"
+    ]
+   }
+  },
+  {
+   "case": 23,
+   "scene": "FloorPlan5",
+   "instruction": "Find the pot behind the food",
+   "staged_occlusion": 0.297,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 7,
+    "grounded_rank": 44,
+    "best_subject_iou": 0.765,
+    "matched": "#7 behind iou 0.0",
+    "act": {
+     "chosen": [
+      144,
+      53
+     ],
+     "score": 7.94807209134916e-09,
+     "iou": 0.9,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 7,
+    "top3": [
+     "pot on food",
+     "pot made of food",
+     "pot on food"
+    ]
+   },
+   "A": {
+    "class_rank": 7,
+    "grounded_rank": 38,
+    "best_subject_iou": 0.765,
+    "matched": "#7 behind iou 0.0",
+    "act": {
+     "chosen": [
+      144,
+      53
+     ],
+     "score": 7.9489755554273e-09,
+     "iou": 0.9,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 7,
+    "top3": [
+     "pot on food",
+     "pot made of food",
+     "pot on food"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 7,
+    "grounded_rank": 35,
+    "best_subject_iou": 0.765,
+    "matched": "#7 behind iou 0.0",
+    "act": {
+     "chosen": [
+      144,
+      53
+     ],
+     "score": 7.9489755554273e-09,
+     "iou": 0.9,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 7,
+    "top3": [
+     "pot on food",
+     "pot in front of food",
+     "pot near food"
+    ]
+   }
+  },
+  {
+   "case": 24,
+   "scene": "FloorPlan5",
+   "instruction": "Find the cup behind the bowl",
+   "staged_occlusion": 0.398,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 1,
+    "grounded_rank": 1,
+    "best_subject_iou": 0.551,
+    "matched": "#1 behind iou 0.551",
+    "act": {
+     "chosen": [
+      78,
+      15
+     ],
+     "score": 1.3041684486100037e-06,
+     "iou": 0.551,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": true,
+    "first_match": 1,
+    "top3": [
+     "cup behind bowl",
+     "cup in front of bowl",
+     "cup near bowl"
+    ]
+   },
+   "A": {
+    "class_rank": 1,
+    "grounded_rank": 1,
+    "best_subject_iou": 0.551,
+    "matched": "#1 behind iou 0.551",
+    "act": {
+     "chosen": [
+      78,
+      15
+     ],
+     "score": 1.6159203155901788e-06,
+     "iou": 0.551,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": true,
+    "first_match": 1,
+    "top3": [
+     "cup behind bowl",
+     "cup in front of bowl",
+     "cup near bowl"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 54,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#54 behind iou 0.0",
+    "act": {
+     "chosen": [
+      78,
+      15
+     ],
+     "score": 1.6159203155901788e-06,
+     "iou": 0.551,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 54,
+    "top3": [
+     "cup near bowl",
+     "cup on bowl",
+     "cup near bowl"
+    ]
+   }
+  },
+  {
+   "case": 25,
+   "scene": "FloorPlan305",
+   "instruction": "Find the pillow behind the lamp",
+   "staged_occlusion": 0.331,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 14,
+    "grounded_rank": 17,
+    "best_subject_iou": 0.67,
+    "matched": "#14 behind iou 0.067",
+    "act": {
+     "chosen": [
+      125,
+      115
+     ],
+     "score": 1.2183719107798163e-10,
+     "iou": 0.067,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "pillow near lamp",
+     "pillow near lamp",
+     "pillow near lamp"
+    ]
+   },
+   "A": {
+    "class_rank": 14,
+    "grounded_rank": 17,
+    "best_subject_iou": 0.67,
+    "matched": "#14 behind iou 0.067",
+    "act": {
+     "chosen": [
+      125,
+      115
+     ],
+     "score": 1.218610642258544e-10,
+     "iou": 0.067,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "pillow near lamp",
+     "pillow near lamp",
+     "pillow near lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 14,
+    "grounded_rank": 17,
+    "best_subject_iou": 0.67,
+    "matched": "#14 behind iou 0.067",
+    "act": {
+     "chosen": [
+      125,
+      115
+     ],
+     "score": 1.218610642258544e-10,
+     "iou": 0.067,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "pillow near lamp",
+     "pillow near lamp",
+     "pillow near lamp"
+    ]
+   }
+  },
+  {
+   "case": 26,
+   "scene": "FloorPlan6",
+   "instruction": "Find the bowl behind the food",
+   "staged_occlusion": 0.328,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 30,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#30 behind iou 0.0",
+    "act": {
+     "chosen": [
+      14,
+      107
+     ],
+     "score": 1.614137586147055e-08,
+     "iou": 0.801,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 30,
+    "top3": [
+     "bowl on food",
+     "bowl on food",
+     "bowl over food"
+    ]
+   },
+   "A": {
+    "class_rank": 29,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#29 behind iou 0.0",
+    "act": {
+     "chosen": [
+      14,
+      107
+     ],
+     "score": 1.6150442188178915e-08,
+     "iou": 0.801,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 29,
+    "top3": [
+     "bowl on food",
+     "bowl on food",
+     "bowl over food"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#5 behind iou 0.0",
+    "act": {
+     "chosen": [
+      14,
+      107
+     ],
+     "score": 1.6150442188178915e-08,
+     "iou": 0.801,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 5,
+    "top3": [
+     "bowl on food",
+     "bowl on food",
+     "bowl over food"
+    ]
+   }
+  },
+  {
+   "case": 27,
+   "scene": "FloorPlan6",
+   "instruction": "Find the fruit behind the food",
+   "staged_occlusion": 0.375,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      33,
+      103
+     ],
+     "score": 3.148808019312996e-10,
+     "iou": 0.79,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 91
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "fruit near food",
+     "fruit near food",
+     "fruit made of food"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      33,
+      103
+     ],
+     "score": 2.1063643166515704e-09,
+     "iou": 0.79,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 91
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "fruit near food",
+     "fruit near food",
+     "fruit made of food"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      33,
+      103
+     ],
+     "score": 2.1063643166515704e-09,
+     "iou": 0.79,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 91
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "fruit near food",
+     "fruit near food",
+     "fruit near food"
+    ]
+   }
+  },
+  {
+   "case": 28,
+   "scene": "FloorPlan6",
+   "instruction": "Find the paper behind the bottle",
+   "staged_occlusion": 0.37,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 4,
+    "grounded_rank": 4,
+    "best_subject_iou": 0.777,
+    "matched": "#4 behind iou 0.777",
+    "act": {
+     "chosen": [
+      84,
+      126
+     ],
+     "score": 1.7769301218324029e-09,
+     "iou": 0.777,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 4,
+    "top3": [
+     "paper in bottle",
+     "paper under bottle",
+     "paper under bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 3,
+    "grounded_rank": 3,
+    "best_subject_iou": 0.777,
+    "matched": "#3 behind iou 0.777",
+    "act": {
+     "chosen": [
+      84,
+      126
+     ],
+     "score": 3.943974698380078e-09,
+     "iou": 0.777,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 3,
+    "top3": [
+     "paper in bottle",
+     "paper under bottle",
+     "paper behind bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 3,
+    "grounded_rank": 3,
+    "best_subject_iou": 0.777,
+    "matched": "#3 behind iou 0.777",
+    "act": {
+     "chosen": [
+      84,
+      126
+     ],
+     "score": 3.943974698380078e-09,
+     "iou": 0.777,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 3,
+    "top3": [
+     "paper in bottle",
+     "paper above bottle",
+     "paper behind bottle"
+    ]
+   }
+  },
+  {
+   "case": 29,
+   "scene": "FloorPlan306",
+   "instruction": "Find the book behind the laptop",
+   "staged_occlusion": 0.376,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 26,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#26 behind iou 0.0",
+    "act": {
+     "chosen": [
+      62,
+      74
+     ],
+     "score": 1.0635555295247733e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 69,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 26,
+    "top3": [
+     "book near laptop",
+     "book near laptop",
+     "book near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": 26,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#26 behind iou 0.0",
+    "act": {
+     "chosen": [
+      62,
+      74
+     ],
+     "score": 1.0636185930668795e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 69,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 26,
+    "top3": [
+     "book near laptop",
+     "book near laptop",
+     "book near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 23,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#23 behind iou 0.0",
+    "act": {
+     "chosen": [
+      62,
+      74
+     ],
+     "score": 1.0636185930668795e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 69,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 23,
+    "top3": [
+     "book near laptop",
+     "book near laptop",
+     "book near laptop"
+    ]
+   }
+  },
+  {
+   "case": 30,
+   "scene": "FloorPlan306",
+   "instruction": "Find the phone behind the lamp",
+   "staged_occlusion": 0.366,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 13,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#13 behind iou 0.0",
+    "act": {
+     "chosen": [
+      121,
+      110
+     ],
+     "score": 1.3905900652647804e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 13,
+    "top3": [
+     "phone over lamp",
+     "phone over lamp",
+     "phone of lamp"
+    ]
+   },
+   "A": {
+    "class_rank": 18,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#18 behind iou 0.0",
+    "act": {
+     "chosen": [
+      121,
+      110
+     ],
+     "score": 1.390900731227076e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 18,
+    "top3": [
+     "phone over lamp",
+     "phone over lamp",
+     "phone over lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 18,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#18 behind iou 0.0",
+    "act": {
+     "chosen": [
+      121,
+      110
+     ],
+     "score": 1.390900731227076e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 18,
+    "top3": [
+     "phone over lamp",
+     "phone over lamp",
+     "phone over lamp"
+    ]
+   }
+  },
+  {
+   "case": 31,
+   "scene": "FloorPlan7",
+   "instruction": "Find the food behind the pot",
+   "staged_occlusion": 0.312,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 10,
+    "grounded_rank": 10,
+    "best_subject_iou": 0.569,
+    "matched": "#10 behind iou 0.569",
+    "act": {
+     "chosen": [
+      19,
+      54
+     ],
+     "score": 1.4845240410571026e-07,
+     "iou": 0.569,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 10,
+    "top3": [
+     "food in pot",
+     "food over pot",
+     "food and pot"
+    ]
+   },
+   "A": {
+    "class_rank": 13,
+    "grounded_rank": 13,
+    "best_subject_iou": 0.569,
+    "matched": "#13 behind iou 0.569",
+    "act": {
+     "chosen": [
+      19,
+      54
+     ],
+     "score": 3.7961290587299054e-07,
+     "iou": 0.569,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 13,
+    "top3": [
+     "food over pot",
+     "food in pot",
+     "food over pot"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 1,
+    "grounded_rank": 1,
+    "best_subject_iou": 0.569,
+    "matched": "#1 behind iou 0.569",
+    "act": {
+     "chosen": [
+      19,
+      54
+     ],
+     "score": 3.7961290587299054e-07,
+     "iou": 0.569,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 1,
+    "top3": [
+     "food behind pot",
+     "food near pot",
+     "food in pot"
+    ]
+   }
+  },
+  {
+   "case": 32,
+   "scene": "FloorPlan7",
+   "instruction": "Find the cup behind the pot",
+   "staged_occlusion": 0.474,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      148,
+      193
+     ],
+     "score": 5.434463628295674e-06,
+     "iou": 0.82,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 94
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near pot",
+     "cup near pot",
+     "cup near pot"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      148,
+      193
+     ],
+     "score": 9.008864975460634e-06,
+     "iou": 0.82,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 94
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near pot",
+     "cup near pot",
+     "cup near pot"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 6,
+    "grounded_rank": 6,
+    "best_subject_iou": 0.82,
+    "matched": "#6 behind iou 0.82",
+    "act": {
+     "chosen": [
+      148,
+      193
+     ],
+     "score": 9.008864975460634e-06,
+     "iou": 0.82,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 94
+    },
+    "acts": true,
+    "first_match": 6,
+    "top3": [
+     "cup near pot",
+     "cup in pot",
+     "cup in front of pot"
+    ]
+   }
+  },
+  {
+   "case": 33,
+   "scene": "FloorPlan7",
+   "instruction": "Find the bowl behind the pot",
+   "staged_occlusion": 0.346,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 14,
+    "grounded_rank": 36,
+    "best_subject_iou": 0.797,
+    "matched": "#14 behind iou 0.108",
+    "act": {
+     "chosen": [
+      12,
+      105
+     ],
+     "score": 7.507374040978571e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "bowl near pot",
+     "bowl near pot",
+     "bowl near pot"
+    ]
+   },
+   "A": {
+    "class_rank": 15,
+    "grounded_rank": 35,
+    "best_subject_iou": 0.797,
+    "matched": "#15 behind iou 0.108",
+    "act": {
+     "chosen": [
+      12,
+      105
+     ],
+     "score": 3.7243470486156283e-06,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 4,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 15,
+    "top3": [
+     "bowl near pot",
+     "bowl near pot",
+     "bowl near pot"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 15,
+    "grounded_rank": null,
+    "best_subject_iou": 0.12,
+    "matched": "#15 behind iou 0.108",
+    "act": {
+     "chosen": [
+      12,
+      105
+     ],
+     "score": 3.7243470486156283e-06,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 4,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 15,
+    "top3": [
+     "bowl near pot",
+     "bowl above pot",
+     "bowl on pot"
+    ]
+   }
+  },
+  {
+   "case": 34,
+   "scene": "FloorPlan7",
+   "instruction": "Find the plate behind the bottle",
+   "staged_occlusion": 0.379,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 11,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#11 behind iou 0.0",
+    "act": {
+     "chosen": [
+      119,
+      103
+     ],
+     "score": 3.180336234824816e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 11,
+    "top3": [
+     "plate with bottle",
+     "plate with bottle",
+     "plate with bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 13,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#13 behind iou 0.0",
+    "act": {
+     "chosen": [
+      119,
+      103
+     ],
+     "score": 4.351645235562557e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 13,
+    "top3": [
+     "plate with bottle",
+     "plate with bottle",
+     "plate with bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 13,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#13 behind iou 0.0",
+    "act": {
+     "chosen": [
+      119,
+      103
+     ],
+     "score": 4.351645235562557e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 13,
+    "top3": [
+     "plate near bottle",
+     "plate near bottle",
+     "plate with bottle"
+    ]
+   }
+  },
+  {
+   "case": 35,
+   "scene": "FloorPlan8",
+   "instruction": "Find the food behind the plant",
+   "staged_occlusion": 0.379,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.023,
+    "matched": "#5 behind iou 0.023",
+    "act": {
+     "chosen": [
+      189,
+      88
+     ],
+     "score": 8.247429416322767e-08,
+     "iou": 0.023,
+     "success": false,
+     "best_rank": null,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 5,
+    "top3": [
+     "food of plant",
+     "food of plant",
+     "food has plant"
+    ]
+   },
+   "A": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.023,
+    "matched": "#5 behind iou 0.023",
+    "act": {
+     "chosen": [
+      189,
+      88
+     ],
+     "score": 2.2869932187849387e-07,
+     "iou": 0.023,
+     "success": false,
+     "best_rank": null,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 5,
+    "top3": [
+     "food of plant",
+     "food of plant",
+     "food on plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 1,
+    "grounded_rank": null,
+    "best_subject_iou": 0.023,
+    "matched": "#1 behind iou 0.011",
+    "act": {
+     "chosen": [
+      189,
+      88
+     ],
+     "score": 2.2869932187849387e-07,
+     "iou": 0.023,
+     "success": false,
+     "best_rank": null,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 1,
+    "top3": [
+     "food behind plant",
+     "food on plant",
+     "food on plant"
+    ]
+   }
+  },
+  {
+   "case": 36,
+   "scene": "FloorPlan8",
+   "instruction": "Find the bowl behind the pot",
+   "staged_occlusion": 0.337,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      81,
+      156
+     ],
+     "score": 9.769456086509225e-09,
+     "iou": 0.005,
+     "success": false,
+     "best_rank": 12,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl in pot",
+     "bowl on pot",
+     "bowl in pot"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      81,
+      156
+     ],
+     "score": 2.36164155146386e-08,
+     "iou": 0.005,
+     "success": false,
+     "best_rank": 11,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl on pot",
+     "bowl in pot",
+     "bowl attached to pot"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 37,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#37 behind iou 0.0",
+    "act": {
+     "chosen": [
+      81,
+      156
+     ],
+     "score": 2.36164155146386e-08,
+     "iou": 0.005,
+     "success": false,
+     "best_rank": 11,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 37,
+    "top3": [
+     "bowl on pot",
+     "bowl in pot",
+     "bowl attached to pot"
+    ]
+   }
+  },
+  {
+   "case": 37,
+   "scene": "FloorPlan308",
+   "instruction": "Find the book behind the clock",
+   "staged_occlusion": 0.39,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      110,
+      51
+     ],
+     "score": 8.519543542663864e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "book near clock",
+     "book near clock",
+     "book on clock"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      110,
+      51
+     ],
+     "score": 1.4222375229474318e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "book near clock",
+     "book near clock",
+     "book on clock"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      110,
+      51
+     ],
+     "score": 1.4222375229474318e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "book near clock",
+     "book near clock",
+     "book on clock"
+    ]
+   }
+  },
+  {
+   "case": 38,
+   "scene": "FloorPlan308",
+   "instruction": "Find the phone behind the clock",
+   "staged_occlusion": 0.366,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      134
+     ],
+     "score": 1.7813865333493364e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "phone on clock",
+     "phone on clock",
+     "phone on clock"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      134
+     ],
+     "score": 1.8622838830924249e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "phone on clock",
+     "phone on clock",
+     "phone on clock"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 14,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#14 behind iou 0.0",
+    "act": {
+     "chosen": [
+      155,
+      134
+     ],
+     "score": 1.8622838830924249e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "phone on clock",
+     "phone on clock",
+     "phone on clock"
+    ]
+   }
+  },
+  {
+   "case": 39,
+   "scene": "FloorPlan9",
+   "instruction": "Find the cup behind the bottle",
+   "staged_occlusion": 0.371,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 9,
+    "grounded_rank": 18,
+    "best_subject_iou": 0.76,
+    "matched": "#9 behind iou 0.0",
+    "act": {
+     "chosen": [
+      148,
+      164
+     ],
+     "score": 3.7484491367170354e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 93
+    },
+    "acts": false,
+    "first_match": 9,
+    "top3": [
+     "cup for bottle",
+     "cup above bottle",
+     "cup near bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 12,
+    "grounded_rank": 17,
+    "best_subject_iou": 0.76,
+    "matched": "#12 behind iou 0.0",
+    "act": {
+     "chosen": [
+      155,
+      67
+     ],
+     "score": 2.130121301388186e-07,
+     "iou": 0.751,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 93
+    },
+    "acts": false,
+    "first_match": 12,
+    "top3": [
+     "cup for bottle",
+     "cup above bottle",
+     "cup near bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 32,
+    "grounded_rank": null,
+    "best_subject_iou": 0.145,
+    "matched": "#32 behind iou 0.145",
+    "act": {
+     "chosen": [
+      155,
+      67
+     ],
+     "score": 2.130121301388186e-07,
+     "iou": 0.751,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 93
+    },
+    "acts": false,
+    "first_match": 32,
+    "top3": [
+     "cup near bottle",
+     "cup above bottle",
+     "cup near bottle"
+    ]
+   }
+  },
+  {
+   "case": 40,
+   "scene": "FloorPlan9",
+   "instruction": "Find the bottle behind the food",
+   "staged_occlusion": 0.385,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 37,
+    "grounded_rank": 50,
+    "best_subject_iou": 0.817,
+    "matched": "#37 behind iou 0.133",
+    "act": {
+     "chosen": [
+      86,
+      191
+     ],
+     "score": 1.0644559698158041e-08,
+     "iou": 0.133,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 37,
+    "top3": [
+     "bottle on food",
+     "bottle on food",
+     "bottle on food"
+    ]
+   },
+   "A": {
+    "class_rank": 43,
+    "grounded_rank": 54,
+    "best_subject_iou": 0.817,
+    "matched": "#43 behind iou 0.133",
+    "act": {
+     "chosen": [
+      86,
+      191
+     ],
+     "score": 1.158424112949856e-08,
+     "iou": 0.133,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 43,
+    "top3": [
+     "bottle on food",
+     "bottle on food",
+     "bottle on food"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 46,
+    "grounded_rank": 54,
+    "best_subject_iou": 0.817,
+    "matched": "#46 behind iou 0.421",
+    "act": {
+     "chosen": [
+      86,
+      191
+     ],
+     "score": 1.158424112949856e-08,
+     "iou": 0.133,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 46,
+    "top3": [
+     "bottle on food",
+     "bottle on food",
+     "bottle on food"
+    ]
+   }
+  },
+  {
+   "case": 41,
+   "scene": "FloorPlan10",
+   "instruction": "Find the food behind the pot",
+   "staged_occlusion": 0.313,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 45,
+    "grounded_rank": null,
+    "best_subject_iou": 0.014,
+    "matched": "#45 behind iou 0.014",
+    "act": {
+     "chosen": [
+      52,
+      67
+     ],
+     "score": 4.5531674872655064e-09,
+     "iou": 0.005,
+     "success": false,
+     "best_rank": null,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 45,
+    "top3": [
+     "food near pot",
+     "food near pot",
+     "food between pot"
+    ]
+   },
+   "A": {
+    "class_rank": 47,
+    "grounded_rank": null,
+    "best_subject_iou": 0.014,
+    "matched": "#47 behind iou 0.014",
+    "act": {
+     "chosen": [
+      52,
+      67
+     ],
+     "score": 6.852104190565255e-09,
+     "iou": 0.005,
+     "success": false,
+     "best_rank": null,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 47,
+    "top3": [
+     "food near pot",
+     "food near pot",
+     "food between pot"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 47,
+    "grounded_rank": null,
+    "best_subject_iou": 0.014,
+    "matched": "#47 behind iou 0.014",
+    "act": {
+     "chosen": [
+      52,
+      67
+     ],
+     "score": 6.852104190565255e-09,
+     "iou": 0.005,
+     "success": false,
+     "best_rank": null,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 47,
+    "top3": [
+     "food near pot",
+     "food near pot",
+     "food between pot"
+    ]
+   }
+  },
+  {
+   "case": 42,
+   "scene": "FloorPlan10",
+   "instruction": "Find the pot behind the plant",
+   "staged_occlusion": 0.353,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      182,
+      90
+     ],
+     "score": 1.5764758785302778e-20,
+     "iou": 0.101,
+     "success": false,
+     "best_rank": 12,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "pot with plant",
+     "pot has plant",
+     "pot with plant"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      182,
+      90
+     ],
+     "score": 2.902035551545869e-20,
+     "iou": 0.101,
+     "success": false,
+     "best_rank": 10,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "pot with plant",
+     "pot has plant",
+     "pot with plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      182,
+      90
+     ],
+     "score": 2.902035551545869e-20,
+     "iou": 0.101,
+     "success": false,
+     "best_rank": 10,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "pot under plant",
+     "pot under plant",
+     "pot under plant"
+    ]
+   }
+  },
+  {
+   "case": 43,
+   "scene": "FloorPlan10",
+   "instruction": "Find the bottle behind the plant",
+   "staged_occlusion": 0.411,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.464,
+    "matched": "#5 behind iou 0.464",
+    "act": {
+     "chosen": [
+      47,
+      46
+     ],
+     "score": 6.030178198276454e-09,
+     "iou": 0.464,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 5,
+    "top3": [
+     "bottle with plant",
+     "bottle with plant",
+     "bottle near plant"
+    ]
+   },
+   "A": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.464,
+    "matched": "#5 behind iou 0.464",
+    "act": {
+     "chosen": [
+      47,
+      46
+     ],
+     "score": 6.026484687859534e-09,
+     "iou": 0.464,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 5,
+    "top3": [
+     "bottle with plant",
+     "bottle with plant",
+     "bottle near plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.464,
+    "matched": "#5 behind iou 0.464",
+    "act": {
+     "chosen": [
+      47,
+      46
+     ],
+     "score": 6.026484687859534e-09,
+     "iou": 0.464,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 5,
+    "top3": [
+     "bottle with plant",
+     "bottle with plant",
+     "bottle near plant"
+    ]
+   }
+  },
+  {
+   "case": 44,
+   "scene": "FloorPlan10",
+   "instruction": "Find the bowl behind the paper",
+   "staged_occlusion": 0.329,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 36,
+    "grounded_rank": null,
+    "best_subject_iou": 0.105,
+    "matched": "#36 behind iou 0.0",
+    "act": {
+     "chosen": [
+      183,
+      26
+     ],
+     "score": 9.384201334063461e-09,
+     "iou": 0.791,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 36,
+    "top3": [
+     "bowl on paper",
+     "bowl with paper",
+     "bowl between paper"
+    ]
+   },
+   "A": {
+    "class_rank": 42,
+    "grounded_rank": null,
+    "best_subject_iou": 0.105,
+    "matched": "#42 behind iou 0.0",
+    "act": {
+     "chosen": [
+      183,
+      26
+     ],
+     "score": 2.2915130022600386e-08,
+     "iou": 0.791,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 42,
+    "top3": [
+     "bowl on paper",
+     "bowl with paper",
+     "bowl between paper"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 42,
+    "grounded_rank": null,
+    "best_subject_iou": 0.105,
+    "matched": "#42 behind iou 0.0",
+    "act": {
+     "chosen": [
+      183,
+      26
+     ],
+     "score": 2.2915130022600386e-08,
+     "iou": 0.791,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 42,
+    "top3": [
+     "bowl on paper",
+     "bowl near paper",
+     "bowl near paper"
+    ]
+   }
+  },
+  {
+   "case": 45,
+   "scene": "FloorPlan10",
+   "instruction": "Find the cup behind the paper",
+   "staged_occlusion": 0.353,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      127,
+      38
+     ],
+     "score": 1.4454517050453322e-09,
+     "iou": 0.922,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup on paper",
+     "cup on paper",
+     "cup on paper"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      127,
+      52
+     ],
+     "score": 3.854370393737278e-09,
+     "iou": 0.922,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup on paper",
+     "cup on paper",
+     "cup on paper"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      127,
+      52
+     ],
+     "score": 3.854370393737278e-09,
+     "iou": 0.922,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup in front of paper",
+     "cup on paper",
+     "cup above paper"
+    ]
+   }
+  },
+  {
+   "case": 46,
+   "scene": "FloorPlan310",
+   "instruction": "Find the lamp behind the box",
+   "staged_occlusion": 0.323,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 6,
+    "grounded_rank": 6,
+    "best_subject_iou": 0.614,
+    "matched": "#6 behind iou 0.614",
+    "act": {
+     "chosen": [
+      77,
+      19
+     ],
+     "score": 7.26814856365962e-08,
+     "iou": 0.294,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 6,
+    "top3": [
+     "lamp near box",
+     "lamp under box",
+     "lamp under box"
+    ]
+   },
+   "A": {
+    "class_rank": 6,
+    "grounded_rank": 6,
+    "best_subject_iou": 0.614,
+    "matched": "#6 behind iou 0.614",
+    "act": {
+     "chosen": [
+      77,
+      19
+     ],
+     "score": 9.32374920239315e-08,
+     "iou": 0.294,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 6,
+    "top3": [
+     "lamp near box",
+     "lamp under box",
+     "lamp under box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 6,
+    "grounded_rank": 6,
+    "best_subject_iou": 0.614,
+    "matched": "#6 behind iou 0.614",
+    "act": {
+     "chosen": [
+      77,
+      19
+     ],
+     "score": 9.32374920239315e-08,
+     "iou": 0.294,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 6,
+    "top3": [
+     "lamp near box",
+     "lamp under box",
+     "lamp under box"
+    ]
+   }
+  },
+  {
+   "case": 47,
+   "scene": "FloorPlan11",
+   "instruction": "Find the plate behind the paper",
+   "staged_occlusion": 0.374,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 26,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#26 behind iou 0.0",
+    "act": {
+     "chosen": [
+      8,
+      12
+     ],
+     "score": 1.2320349060566583e-09,
+     "iou": 0.575,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 26,
+    "top3": [
+     "plate lying on paper",
+     "plate on paper",
+     "plate under paper"
+    ]
+   },
+   "A": {
+    "class_rank": 27,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#27 behind iou 0.0",
+    "act": {
+     "chosen": [
+      177,
+      12
+     ],
+     "score": 1.897514265239704e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 27,
+    "top3": [
+     "plate lying on paper",
+     "plate at paper",
+     "plate on paper"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 27,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#27 behind iou 0.0",
+    "act": {
+     "chosen": [
+      177,
+      12
+     ],
+     "score": 1.897514265239704e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 27,
+    "top3": [
+     "plate lying on paper",
+     "plate in paper",
+     "plate on paper"
+    ]
+   }
+  },
+  {
+   "case": 48,
+   "scene": "FloorPlan11",
+   "instruction": "Find the bottle behind the paper",
+   "staged_occlusion": 0.389,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 3,
+    "grounded_rank": 6,
+    "best_subject_iou": 0.851,
+    "matched": "#3 behind iou 0.263",
+    "act": {
+     "chosen": [
+      71,
+      33
+     ],
+     "score": 6.427639659773736e-09,
+     "iou": 0.263,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 3,
+    "top3": [
+     "bottle on paper",
+     "bottle on paper",
+     "bottle behind paper"
+    ]
+   },
+   "A": {
+    "class_rank": 4,
+    "grounded_rank": 5,
+    "best_subject_iou": 0.851,
+    "matched": "#4 behind iou 0.263",
+    "act": {
+     "chosen": [
+      71,
+      33
+     ],
+     "score": 7.96022065589221e-09,
+     "iou": 0.263,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 4,
+    "top3": [
+     "bottle on paper",
+     "bottle on paper",
+     "bottle in paper"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 4,
+    "grounded_rank": 5,
+    "best_subject_iou": 0.851,
+    "matched": "#4 behind iou 0.263",
+    "act": {
+     "chosen": [
+      71,
+      33
+     ],
+     "score": 7.96022065589221e-09,
+     "iou": 0.263,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 4,
+    "top3": [
+     "bottle on paper",
+     "bottle near paper",
+     "bottle in paper"
+    ]
+   }
+  },
+  {
+   "case": 49,
+   "scene": "FloorPlan11",
+   "instruction": "Find the paper behind the food",
+   "staged_occlusion": 0.374,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      105,
+      67
+     ],
+     "score": 1.4756924118886399e-07,
+     "iou": 0.834,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "paper for food",
+     "paper for food",
+     "paper under food"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      105,
+      67
+     ],
+     "score": 3.027068665569172e-07,
+     "iou": 0.834,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "paper for food",
+     "paper for food",
+     "paper under food"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 2,
+    "grounded_rank": 2,
+    "best_subject_iou": 0.834,
+    "matched": "#2 behind iou 0.834",
+    "act": {
+     "chosen": [
+      105,
+      67
+     ],
+     "score": 3.027068665569172e-07,
+     "iou": 0.834,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 2,
+    "top3": [
+     "paper under food",
+     "paper behind food",
+     "paper under food"
+    ]
+   }
+  },
+  {
+   "case": 50,
+   "scene": "FloorPlan11",
+   "instruction": "Find the cup behind the bowl",
+   "staged_occlusion": 0.313,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 81,
+    "grounded_rank": null,
+    "best_subject_iou": 0.213,
+    "matched": "#81 behind iou 0.213",
+    "act": {
+     "chosen": [
+      35,
+      23
+     ],
+     "score": 4.324180119343762e-08,
+     "iou": 0.679,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 93
+    },
+    "acts": false,
+    "first_match": 81,
+    "top3": [
+     "cup near bowl",
+     "cup near bowl",
+     "cup and bowl"
+    ]
+   },
+   "A": {
+    "class_rank": 82,
+    "grounded_rank": null,
+    "best_subject_iou": 0.213,
+    "matched": "#82 behind iou 0.213",
+    "act": {
+     "chosen": [
+      23,
+      115
+     ],
+     "score": 5.756910913869715e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 93
+    },
+    "acts": false,
+    "first_match": 82,
+    "top3": [
+     "cup near bowl",
+     "cup and bowl",
+     "cup near bowl"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 74,
+    "grounded_rank": null,
+    "best_subject_iou": 0.213,
+    "matched": "#74 behind iou 0.213",
+    "act": {
+     "chosen": [
+      23,
+      115
+     ],
+     "score": 5.756910913869715e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 93
+    },
+    "acts": false,
+    "first_match": 74,
+    "top3": [
+     "cup near bowl",
+     "cup and bowl",
+     "cup near bowl"
+    ]
+   }
+  },
+  {
+   "case": 51,
+   "scene": "FloorPlan211",
+   "instruction": "Find the paper behind the vase",
+   "staged_occlusion": 0.392,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 17,
+    "grounded_rank": null,
+    "best_subject_iou": 0.043,
+    "matched": "#17 behind iou 0.043",
+    "act": {
+     "chosen": [
+      177,
+      181
+     ],
+     "score": 3.3521472197331187e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 17,
+    "top3": [
+     "paper near vase",
+     "paper near vase",
+     "paper under vase"
+    ]
+   },
+   "A": {
+    "class_rank": 18,
+    "grounded_rank": null,
+    "best_subject_iou": 0.043,
+    "matched": "#18 behind iou 0.043",
+    "act": {
+     "chosen": [
+      177,
+      181
+     ],
+     "score": 6.245856326394551e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 18,
+    "top3": [
+     "paper near vase",
+     "paper near vase",
+     "paper under vase"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 37,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#37 behind iou 0.0",
+    "act": {
+     "chosen": [
+      177,
+      181
+     ],
+     "score": 6.245856326394551e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 37,
+    "top3": [
+     "paper near vase",
+     "paper near vase",
+     "paper under vase"
+    ]
+   }
+  },
+  {
+   "case": 52,
+   "scene": "FloorPlan211",
+   "instruction": "Find the plate behind the vase",
+   "staged_occlusion": 0.385,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 31,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#31 behind iou 0.0",
+    "act": {
+     "chosen": [
+      177,
+      185
+     ],
+     "score": 9.503151368448573e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 31,
+    "top3": [
+     "plate near vase",
+     "plate under vase",
+     "plate near vase"
+    ]
+   },
+   "A": {
+    "class_rank": 31,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#31 behind iou 0.0",
+    "act": {
+     "chosen": [
+      177,
+      185
+     ],
+     "score": 1.1807684329476296e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 31,
+    "top3": [
+     "plate near vase",
+     "plate under vase",
+     "plate near vase"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 29,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#29 behind iou 0.0",
+    "act": {
+     "chosen": [
+      177,
+      185
+     ],
+     "score": 1.1807684329476296e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 29,
+    "top3": [
+     "plate under vase",
+     "plate under vase",
+     "plate near vase"
+    ]
+   }
+  },
+  {
+   "case": 53,
+   "scene": "FloorPlan311",
+   "instruction": "Find the book behind the lamp",
+   "staged_occlusion": 0.403,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      49,
+      139
+     ],
+     "score": 1.690137113285136e-08,
+     "iou": 0.679,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "book to lamp",
+     "book near lamp",
+     "book near lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      49,
+      139
+     ],
+     "score": 1.6903864557814646e-08,
+     "iou": 0.679,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "book to lamp",
+     "book near lamp",
+     "book near lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      49,
+      139
+     ],
+     "score": 1.6903864557814646e-08,
+     "iou": 0.679,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "book to lamp",
+     "book near lamp",
+     "book near lamp"
+    ]
+   }
+  },
+  {
+   "case": 54,
+   "scene": "FloorPlan12",
+   "instruction": "Find the bottle behind the vegetable",
+   "staged_occlusion": 0.367,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 2,
+    "grounded_rank": 2,
+    "best_subject_iou": 0.843,
+    "matched": "#2 behind iou 0.843",
+    "act": {
+     "chosen": [
+      32,
+      190
+     ],
+     "score": 1.1309001748543848e-08,
+     "iou": 0.843,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 2,
+    "top3": [
+     "bottle on vegetable",
+     "bottle behind vegetable",
+     "bottle behind vegetable"
+    ]
+   },
+   "A": {
+    "class_rank": 2,
+    "grounded_rank": 2,
+    "best_subject_iou": 0.843,
+    "matched": "#2 behind iou 0.843",
+    "act": {
+     "chosen": [
+      32,
+      190
+     ],
+     "score": 2.501593158585802e-08,
+     "iou": 0.843,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 2,
+    "top3": [
+     "bottle on vegetable",
+     "bottle behind vegetable",
+     "bottle behind vegetable"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 2,
+    "grounded_rank": 2,
+    "best_subject_iou": 0.843,
+    "matched": "#2 behind iou 0.843",
+    "act": {
+     "chosen": [
+      32,
+      190
+     ],
+     "score": 2.501593158585802e-08,
+     "iou": 0.843,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 2,
+    "top3": [
+     "bottle on vegetable",
+     "bottle behind vegetable",
+     "bottle in vegetable"
+    ]
+   }
+  },
+  {
+   "case": 55,
+   "scene": "FloorPlan12",
+   "instruction": "Find the vegetable behind the bottle",
+   "staged_occlusion": 0.344,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 20,
+    "grounded_rank": 21,
+    "best_subject_iou": 0.731,
+    "matched": "#20 behind iou 0.0",
+    "act": {
+     "chosen": [
+      102,
+      68
+     ],
+     "score": 9.188945620874439e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 95
+    },
+    "acts": false,
+    "first_match": 20,
+    "top3": [
+     "vegetable in bottle",
+     "vegetable near bottle",
+     "vegetable near bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 18,
+    "grounded_rank": 18,
+    "best_subject_iou": 0.731,
+    "matched": "#18 behind iou 0.731",
+    "act": {
+     "chosen": [
+      102,
+      68
+     ],
+     "score": 3.611023506791799e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 95
+    },
+    "acts": true,
+    "first_match": 18,
+    "top3": [
+     "vegetable in bottle",
+     "vegetable near bottle",
+     "vegetable near bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 2,
+    "grounded_rank": 2,
+    "best_subject_iou": 0.731,
+    "matched": "#2 behind iou 0.731",
+    "act": {
+     "chosen": [
+      102,
+      68
+     ],
+     "score": 3.611023506791799e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 95
+    },
+    "acts": true,
+    "first_match": 2,
+    "top3": [
+     "vegetable in bottle",
+     "vegetable behind bottle",
+     "vegetable on bottle"
+    ]
+   }
+  },
+  {
+   "case": 56,
+   "scene": "FloorPlan12",
+   "instruction": "Find the fruit behind the bottle",
+   "staged_occlusion": 0.449,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      8
+     ],
+     "score": 9.932905826533738e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "fruit on bottle",
+     "fruit with bottle",
+     "fruit in bottle"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      8
+     ],
+     "score": 1.6754888678990118e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "fruit on bottle",
+     "fruit in bottle",
+     "fruit with bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      8
+     ],
+     "score": 1.6754888678990118e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "fruit on bottle",
+     "fruit in bottle",
+     "fruit in bottle"
+    ]
+   }
+  },
+  {
+   "case": 57,
+   "scene": "FloorPlan12",
+   "instruction": "Find the cup behind the bottle",
+   "staged_occlusion": 0.321,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      127,
+      129
+     ],
+     "score": 2.830423087236055e-09,
+     "iou": 0.151,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup made of bottle",
+     "cup has bottle",
+     "cup has bottle"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      138,
+      129
+     ],
+     "score": 6.317701300135952e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup made of bottle",
+     "cup has bottle",
+     "cup near bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      138,
+      129
+     ],
+     "score": 6.317701300135952e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near bottle",
+     "cup near bottle",
+     "cup near bottle"
+    ]
+   }
+  },
+  {
+   "case": 58,
+   "scene": "FloorPlan13",
+   "instruction": "Find the plate behind the food",
+   "staged_occlusion": 0.422,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      141,
+      182
+     ],
+     "score": 3.89149299631664e-09,
+     "iou": 0.026,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "plate with food",
+     "plate of food",
+     "plate of food"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      183,
+      180
+     ],
+     "score": 8.661789556871439e-09,
+     "iou": 0.883,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "plate with food",
+     "plate of food",
+     "plate of food"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 5,
+    "grounded_rank": 5,
+    "best_subject_iou": 0.883,
+    "matched": "#5 behind iou 0.883",
+    "act": {
+     "chosen": [
+      183,
+      180
+     ],
+     "score": 8.661789556871439e-09,
+     "iou": 0.883,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 5,
+    "top3": [
+     "plate under food",
+     "plate under food",
+     "plate under food"
+    ]
+   }
+  },
+  {
+   "case": 59,
+   "scene": "FloorPlan13",
+   "instruction": "Find the vegetable behind the bottle",
+   "staged_occlusion": 0.257,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 74,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#74 behind iou 0.0",
+    "act": {
+     "chosen": [
+      141,
+      102
+     ],
+     "score": 6.326313708805258e-10,
+     "iou": 0.026,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 74,
+    "top3": [
+     "vegetable in front of bottle",
+     "vegetable and bottle",
+     "vegetable covering bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 75,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#75 behind iou 0.0",
+    "act": {
+     "chosen": [
+      141,
+      102
+     ],
+     "score": 1.3886809088779104e-09,
+     "iou": 0.026,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 75,
+    "top3": [
+     "vegetable in front of bottle",
+     "vegetable and bottle",
+     "vegetable covering bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 34,
+    "grounded_rank": null,
+    "best_subject_iou": 0.026,
+    "matched": "#34 behind iou 0.026",
+    "act": {
+     "chosen": [
+      141,
+      102
+     ],
+     "score": 1.3886809088779104e-09,
+     "iou": 0.026,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 34,
+    "top3": [
+     "vegetable in front of bottle",
+     "vegetable near bottle",
+     "vegetable on bottle"
+    ]
+   }
+  },
+  {
+   "case": 60,
+   "scene": "FloorPlan313",
+   "instruction": "Find the box behind the lamp",
+   "staged_occlusion": 0.349,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 14,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#14 behind iou 0.0",
+    "act": {
+     "chosen": [
+      99,
+      139
+     ],
+     "score": 4.937991116384499e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "box near lamp",
+     "box against lamp",
+     "box for lamp"
+    ]
+   },
+   "A": {
+    "class_rank": 14,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#14 behind iou 0.0",
+    "act": {
+     "chosen": [
+      99,
+      139
+     ],
+     "score": 4.936586761589339e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "box near lamp",
+     "box against lamp",
+     "box for lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 14,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#14 behind iou 0.0",
+    "act": {
+     "chosen": [
+      99,
+      139
+     ],
+     "score": 4.936586761589339e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "box near lamp",
+     "box against lamp",
+     "box for lamp"
+    ]
+   }
+  },
+  {
+   "case": 61,
+   "scene": "FloorPlan313",
+   "instruction": "Find the cup behind the clock",
+   "staged_occlusion": 0.328,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 7,
+    "grounded_rank": 7,
+    "best_subject_iou": 0.835,
+    "matched": "#7 behind iou 0.835",
+    "act": {
+     "chosen": [
+      132,
+      120
+     ],
+     "score": 1.4681826129140587e-09,
+     "iou": 0.835,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 97
+    },
+    "acts": true,
+    "first_match": 7,
+    "top3": [
+     "cup on clock",
+     "cup near clock",
+     "cup in clock"
+    ]
+   },
+   "A": {
+    "class_rank": 6,
+    "grounded_rank": 6,
+    "best_subject_iou": 0.835,
+    "matched": "#6 behind iou 0.835",
+    "act": {
+     "chosen": [
+      132,
+      120
+     ],
+     "score": 2.1693467911886297e-09,
+     "iou": 0.835,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 97
+    },
+    "acts": true,
+    "first_match": 6,
+    "top3": [
+     "cup on clock",
+     "cup near clock",
+     "cup has clock"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 6,
+    "grounded_rank": 6,
+    "best_subject_iou": 0.835,
+    "matched": "#6 behind iou 0.835",
+    "act": {
+     "chosen": [
+      132,
+      120
+     ],
+     "score": 2.1693467911886297e-09,
+     "iou": 0.835,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 97
+    },
+    "acts": true,
+    "first_match": 6,
+    "top3": [
+     "cup on clock",
+     "cup in clock",
+     "cup has clock"
+    ]
+   }
+  },
+  {
+   "case": 62,
+   "scene": "FloorPlan214",
+   "instruction": "Find the plate behind the plant",
+   "staged_occlusion": 0.369,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 1,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#1 behind iou 0.0",
+    "act": {
+     "chosen": [
+      56,
+      65
+     ],
+     "score": 3.235953494786456e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 1,
+    "top3": [
+     "plate behind plant",
+     "plate with plant",
+     "plate with plant"
+    ]
+   },
+   "A": {
+    "class_rank": 1,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#1 behind iou 0.0",
+    "act": {
+     "chosen": [
+      56,
+      65
+     ],
+     "score": 7.383786414260664e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 1,
+    "top3": [
+     "plate behind plant",
+     "plate with plant",
+     "plate behind plant"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 1,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#1 behind iou 0.0",
+    "act": {
+     "chosen": [
+      56,
+      65
+     ],
+     "score": 7.383786414260664e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 1,
+    "top3": [
+     "plate behind plant",
+     "plate with plant",
+     "plate behind plant"
+    ]
+   }
+  },
+  {
+   "case": 63,
+   "scene": "FloorPlan15",
+   "instruction": "Find the fruit behind the bottle",
+   "staged_occlusion": 0.278,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.038,
+    "matched": "#5 behind iou 0.038",
+    "act": {
+     "chosen": [
+      53,
+      180
+     ],
+     "score": 1.6145666154597154e-06,
+     "iou": 0.861,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 5,
+    "top3": [
+     "fruit for bottle",
+     "fruit on bottle",
+     "fruit on bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 7,
+    "grounded_rank": null,
+    "best_subject_iou": 0.038,
+    "matched": "#7 behind iou 0.038",
+    "act": {
+     "chosen": [
+      53,
+      180
+     ],
+     "score": 3.4511410107692687e-06,
+     "iou": 0.861,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 7,
+    "top3": [
+     "fruit for bottle",
+     "fruit on bottle",
+     "fruit on bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 7,
+    "grounded_rank": null,
+    "best_subject_iou": 0.038,
+    "matched": "#7 behind iou 0.038",
+    "act": {
+     "chosen": [
+      53,
+      180
+     ],
+     "score": 3.4511410107692687e-06,
+     "iou": 0.861,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 7,
+    "top3": [
+     "fruit near bottle",
+     "fruit on bottle",
+     "fruit on bottle"
+    ]
+   }
+  },
+  {
+   "case": 64,
+   "scene": "FloorPlan15",
+   "instruction": "Find the cup behind the bottle",
+   "staged_occlusion": 0.324,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 14,
+    "grounded_rank": null,
+    "best_subject_iou": 0.02,
+    "matched": "#14 behind iou 0.02",
+    "act": {
+     "chosen": [
+      38,
+      6
+     ],
+     "score": 2.8648185098762327e-08,
+     "iou": 0.02,
+     "success": false,
+     "best_rank": 4,
+     "candidates": 95
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "cup on bottle",
+     "cup on bottle",
+     "cup near bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 21,
+    "grounded_rank": null,
+    "best_subject_iou": 0.02,
+    "matched": "#21 behind iou 0.02",
+    "act": {
+     "chosen": [
+      38,
+      6
+     ],
+     "score": 3.353435066403578e-08,
+     "iou": 0.02,
+     "success": false,
+     "best_rank": 4,
+     "candidates": 95
+    },
+    "acts": false,
+    "first_match": 21,
+    "top3": [
+     "cup on bottle",
+     "cup on bottle",
+     "cup near bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 21,
+    "grounded_rank": null,
+    "best_subject_iou": 0.02,
+    "matched": "#21 behind iou 0.02",
+    "act": {
+     "chosen": [
+      38,
+      6
+     ],
+     "score": 3.353435066403578e-08,
+     "iou": 0.02,
+     "success": false,
+     "best_rank": 4,
+     "candidates": 95
+    },
+    "acts": false,
+    "first_match": 21,
+    "top3": [
+     "cup near bottle",
+     "cup near bottle",
+     "cup near bottle"
+    ]
+   }
+  },
+  {
+   "case": 65,
+   "scene": "FloorPlan15",
+   "instruction": "Find the pot behind the bottle",
+   "staged_occlusion": 0.302,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 3,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#3 behind iou 0.0",
+    "act": {
+     "chosen": [
+      90,
+      63
+     ],
+     "score": 1.1818638803250713e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 3,
+    "top3": [
+     "pot near bottle",
+     "pot has bottle",
+     "pot behind bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 3,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#3 behind iou 0.0",
+    "act": {
+     "chosen": [
+      90,
+      183
+     ],
+     "score": 1.3299155292142456e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 3,
+    "top3": [
+     "pot near bottle",
+     "pot has bottle",
+     "pot behind bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 3,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#3 behind iou 0.0",
+    "act": {
+     "chosen": [
+      90,
+      183
+     ],
+     "score": 1.3299155292142456e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 3,
+    "top3": [
+     "pot near bottle",
+     "pot has bottle",
+     "pot behind bottle"
+    ]
+   }
+  },
+  {
+   "case": 66,
+   "scene": "FloorPlan15",
+   "instruction": "Find the plate behind the bottle",
+   "staged_occlusion": 0.343,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 74,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#74 behind iou 0.0",
+    "act": {
+     "chosen": [
+      26,
+      69
+     ],
+     "score": 9.073043143898364e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 6,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 74,
+    "top3": [
+     "plate with bottle",
+     "plate near bottle",
+     "plate near bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 68,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#68 behind iou 0.0",
+    "act": {
+     "chosen": [
+      26,
+      69
+     ],
+     "score": 1.7098425135574947e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 6,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 68,
+    "top3": [
+     "plate with bottle",
+     "plate near bottle",
+     "plate near bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 5,
+    "grounded_rank": 5,
+    "best_subject_iou": 0.763,
+    "matched": "#5 behind iou 0.763",
+    "act": {
+     "chosen": [
+      26,
+      69
+     ],
+     "score": 1.7098425135574947e-09,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 6,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 5,
+    "top3": [
+     "plate near bottle",
+     "plate in bottle",
+     "plate near bottle"
+    ]
+   }
+  },
+  {
+   "case": 67,
+   "scene": "FloorPlan315",
+   "instruction": "Find the lamp behind the laptop",
+   "staged_occlusion": 0.361,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 3,
+    "grounded_rank": 3,
+    "best_subject_iou": 0.901,
+    "matched": "#3 behind iou 0.901",
+    "act": {
+     "chosen": [
+      159,
+      153
+     ],
+     "score": 2.8077874254177803e-05,
+     "iou": 0.706,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 3,
+    "top3": [
+     "lamp above laptop",
+     "lamp near laptop",
+     "lamp behind laptop"
+    ]
+   },
+   "A": {
+    "class_rank": 3,
+    "grounded_rank": 3,
+    "best_subject_iou": 0.901,
+    "matched": "#3 behind iou 0.901",
+    "act": {
+     "chosen": [
+      159,
+      153
+     ],
+     "score": 2.8081298255506343e-05,
+     "iou": 0.706,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 3,
+    "top3": [
+     "lamp above laptop",
+     "lamp near laptop",
+     "lamp behind laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 3,
+    "grounded_rank": 3,
+    "best_subject_iou": 0.901,
+    "matched": "#3 behind iou 0.901",
+    "act": {
+     "chosen": [
+      159,
+      153
+     ],
+     "score": 2.8081298255506343e-05,
+     "iou": 0.706,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 3,
+    "top3": [
+     "lamp above laptop",
+     "lamp near laptop",
+     "lamp behind laptop"
+    ]
+   }
+  },
+  {
+   "case": 68,
+   "scene": "FloorPlan315",
+   "instruction": "Find the cup behind the lamp",
+   "staged_occlusion": 0.265,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      173,
+      186
+     ],
+     "score": 1.368501591843739e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near lamp",
+     "cup has lamp",
+     "cup on lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      173,
+      186
+     ],
+     "score": 1.3682890771266832e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near lamp",
+     "cup has lamp",
+     "cup on lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      173,
+      186
+     ],
+     "score": 1.3682890771266832e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near lamp",
+     "cup has lamp",
+     "cup on lamp"
+    ]
+   }
+  },
+  {
+   "case": 69,
+   "scene": "FloorPlan16",
+   "instruction": "Find the vegetable behind the paper",
+   "staged_occlusion": 0.498,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 74,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#74 behind iou 0.0",
+    "act": {
+     "chosen": [
+      182,
+      155
+     ],
+     "score": 2.601196773048533e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 74,
+    "top3": [
+     "vegetable on paper",
+     "vegetable near paper",
+     "vegetable made of paper"
+    ]
+   },
+   "A": {
+    "class_rank": 69,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#69 behind iou 0.0",
+    "act": {
+     "chosen": [
+      182,
+      155
+     ],
+     "score": 6.911797878119276e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 69,
+    "top3": [
+     "vegetable on paper",
+     "vegetable near paper",
+     "vegetable made of paper"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 64,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#64 behind iou 0.0",
+    "act": {
+     "chosen": [
+      182,
+      155
+     ],
+     "score": 6.911797878119276e-10,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": 64,
+    "top3": [
+     "vegetable on paper",
+     "vegetable near paper",
+     "vegetable made of paper"
+    ]
+   }
+  },
+  {
+   "case": 70,
+   "scene": "FloorPlan16",
+   "instruction": "Find the paper behind the bottle",
+   "staged_occlusion": 0.475,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 29,
+    "grounded_rank": null,
+    "best_subject_iou": 0.031,
+    "matched": "#29 behind iou 0.031",
+    "act": {
+     "chosen": [
+      137,
+      144
+     ],
+     "score": 8.78999311784498e-08,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 80,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 29,
+    "top3": [
+     "paper near bottle",
+     "paper near bottle",
+     "paper near bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 18,
+    "grounded_rank": null,
+    "best_subject_iou": 0.031,
+    "matched": "#18 behind iou 0.031",
+    "act": {
+     "chosen": [
+      137,
+      144
+     ],
+     "score": 1.602019492639371e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 80,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 18,
+    "top3": [
+     "paper near bottle",
+     "paper near bottle",
+     "paper near bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 18,
+    "grounded_rank": null,
+    "best_subject_iou": 0.031,
+    "matched": "#18 behind iou 0.031",
+    "act": {
+     "chosen": [
+      137,
+      144
+     ],
+     "score": 1.602019492639371e-07,
+     "iou": 0.0,
+     "success": false,
+     "best_rank": 80,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 18,
+    "top3": [
+     "paper near bottle",
+     "paper near bottle",
+     "paper near bottle"
+    ]
+   }
+  }
+ ]
+}

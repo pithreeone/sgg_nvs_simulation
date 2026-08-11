@@ -17,11 +17,19 @@ else; everything a run needs but no one reads first is one level down.
 
 ```
 gen/                1. build the occlusion dataset  (needs AI2-THOR)
-find_cases.py       2. the robot experiments -- five runnable entry points
-freeze_cases.py        find/freeze the task list, then run a pointer arm
-fuse_live.py           fuse_live is current; the eval_nvs_* pair is the
-eval_nvs_pointer.py    superseded oracle pointer, kept for its results
-eval_nvs_loop.py
+find_cases.py       2. the robot experiments -- seven runnable entry points
+freeze_cases.py        discover cases, then freeze them: staging verified and
+                       the whole moveable scene pinned so reruns score the
+                       same scene
+fuse_live.py           the current experiment -- the paper's A+C+R over a live
+                       frame and its synthesised sweep
+eval_nvs_pointer.py    the superseded oracle pointer (ground truth in the
+eval_nvs_loop.py       control loop), kept for the results in reports/
+show_tasks.py          diagnostics: draw what a case list actually asks --
+probe_size.py          graded instance vs landmark; and whether the target is
+                       detectable at all before any relation is asked for.
+                       Both back numbers in reports/0816.md and are re-run
+                       whenever the case list changes.
 
 robot/              the robot, the sweep, EGTR, staging and grading
 scoring/            R@K against the dataset -- a CROSS-REPO interface, read by

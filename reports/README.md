@@ -8,19 +8,26 @@ that is silently edited is not a record.
 
 | report | covers | headline |
 |---|---|---|
-| [0813.md](0813.md) | NVS as a viewpoint pointer, 59 tasks, K=10 | success rate is a coin flip (p = 0.613), speed is decisive (12–0, p = 0.00024) — but the pointer reads ground truth, so it is an upper bound, not a deployable result |
+| [0816.md](0816.md) | both robot experiments to date: the oracle pointer with motion, and A+C+R on an instruction without | pointer — no effect on success (p = 0.61), decisive on speed (12–0, p = 0.0002), but it reads ground truth. Fusion — 23% → 27% (+5 −2, p ≈ 0.23); the binding constraint is instance disambiguation, not the relation |
 
 ## Which one describes where we are
 
-The newest report's own "Where this is now" section, and nothing else. Two
-experiments run in this repo and they are not interchangeable — the oracle
-pointer (`eval_nvs_pointer.py`, `eval_nvs_loop.py`) and the fusion pointer
-(`fuse_live.py`). Every table in `0813.md` is the first one.
+`0816.md` is the only report and covers everything run so far. It opens with a
+table of the two experiments, which are not interchangeable: the oracle pointer
+(`eval_nvs_pointer.py` / `eval_nvs_loop.py`, with motion, ground truth in the
+loop) and the instruction-conditioned fusion (`fuse_live.py --condition 10`, no
+motion, no ground truth in the loop).
+
+**Nothing has yet combined the current fusion with robot motion.** That is the
+next step.
 
 ## Naming
 
-`MMDD.md`, the date the report was written. Future weeks may want `YYYY-MM-DD`
-once two years overlap; not worth renaming the existing one for.
+`MMDD.md`, the date the report was written.  `0813.md` was folded into `0816.md`
+rather than kept beside it: both described the same investigation a few days
+apart, and two files invited reading the superseded one as current.  Reports are
+not edited after the fact, but merging two live drafts of the same week is not
+that.
 
 ## Not reports
 

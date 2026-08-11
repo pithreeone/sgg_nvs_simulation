@@ -67,6 +67,10 @@ hidden_target/*/*.png
 nvs_pilot/**/*.png
 !nvs_pilot/**/results.json
 !nvs_pilot/cases*.json
+# Experiment results are the point of the runs, not build output: a few hundred
+# KB of ranks and occlusions that cost a quarter of an hour of THOR and EGTR,
+# and re-running is not bit-reproducible (GPU float order flips near-ties).
+!nvs_pilot/fuse_live*.json
 
 # ---------------------------------------------------------------------------
 # DELIBERATELY TRACKED, despite looking like build output:
