@@ -94,6 +94,30 @@ def look_at_point(camera: np.ndarray, yaw: float, pitch: float,
     return camera + forward * distance
 
 
+#: Metres down the optical axis the sweep is centred on.  A constant, because
+#: the trajectory is GIVEN: a view synthesiser is handed a lookat_dist and a
+#: camera path, and nothing about that is supposed to depend on the scene.
+LOOKAT_DIST = 0.5
+
+
+def orbit_centre(rc, radius: float = LOOKAT_DIST) -> np.ndarray:
+    """
+    The lemniscate's centre: a point along the reference camera's optical axis.
+
+    Downstream tools drifted away from this.  `fuse_live` centred the orbit on
+    the 3D point of EGTR's best box for the instruction's LANDMARK class, which
+    makes the whole sweep depend on a detection, and when that detection is poor
+    the consequences are not subtle: on the tabletop cases whose landmark is a
+    `clock` -- a class whose argmax is almost never right -- the anchor box landed
+    on the WALL, so twenty views orbited a point behind the room and rendered
+    mostly tiles.  Every fusion number computed from those views was describing a
+    broken sweep rather than a fusion.
+
+    No detection and no ground truth: a fixed distance and the camera's own pose.
+    """
+    return look_at_point(rc.camera_xyz, rc.agent_yaw, rc.camera_horizon, radius)
+
+
 def camera_for(centre: np.ndarray, reference: np.ndarray,
                azimuth: float, elevation: float) -> Dict[str, Any]:
     """

@@ -36,11 +36,21 @@ and every occlusion at the pose they are standing in.  What changed on
 replayed, so `staged_occlusion` is a guarantee about the next run rather than a
 report about this one.
 
-    python freeze_cases.py --cases nvs_pilot/cases_big.json \\
-        --out nvs_pilot/cases_frozen.json
+    python freeze_cases.py --cases nvs_pilot/cases/cases_big.json \\
+        --out nvs_pilot/cases/cases_frozen.json     # deleted; see nvs_pilot/README.md
 """
 
 from __future__ import annotations
+
+# `python build_robotic_task/<script>.py` puts this directory on sys.path, not
+# the repo root, so `robot.*`, `vg.*` and the sibling generators would not
+# resolve.  Running as `python -m build_robotic_task.<script>` does not need
+# this; it is here so both work.  Same shim as `gen/build_occlusion_dataset.py`.
+import os as _os
+import sys as _sys
+if __package__ in (None, ""):
+    _sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+
 
 import argparse
 import json
@@ -49,15 +59,18 @@ from typing import Any, Dict, List, Optional, Sequence
 
 from robot import drive
 from robot.drive_triplet_scene import measure
-from find_cases import rank_occluders
+from build_robotic_task.find_cases import rank_occluders
 from gen.occlusion import pose_snapshot
 from robot.task_find import (behind_task, build_tasks,
-                             in_front_task, put_in_front)
+                             in_front_task, place_beside,
+                             put_in_front)
 from vg.vg150 import THOR_TO_VG150
 
 
 def verify(rc, case: Dict[str, Any], band: Sequence[float],
-           predicate: str = "on") -> Optional[Dict[str, Any]]:
+           predicate: str = "on", max_ratio: float = 4.0,
+           max_box: float = 0.0,
+           distract: bool = False) -> Optional[Dict[str, Any]]:
     """Stage this case for real.  Returns the frozen record, or None."""
     nameable = sorted(o["name"] for o in rc.event.metadata["objects"]
                       if o["objectType"] in THOR_TO_VG150)
@@ -74,7 +87,7 @@ def verify(rc, case: Dict[str, Any], band: Sequence[float],
     # that already works byte-identical to what the runs used.
     ranked = rank_occluders(rc.event, entries[task["target_name"]],
                             entries[task["receptacle_name"]],
-                            rc.camera_xyz[[0, 2]])
+                            rc.camera_xyz[[0, 2]], max_ratio)
     order = ([case["occluder_type"]] if case.get("occluder_type") else []) + \
             [t for t in ranked if t != case.get("occluder_type")]
     if predicate != "on":
@@ -89,6 +102,44 @@ def verify(rc, case: Dict[str, Any], band: Sequence[float],
                               min_occlusion=band[0], target_occlusion=band[1],
                               max_occlusion=band[2])
         if staged is not None:
+            # THE OCCLUDER'S SHARE OF THE FRAME, measured after staging.
+            # `rank_occluders` caps the physical AABB, which is the wrong
+            # quantity: what made "behind the plant" vacuous is the box a
+            # DETECTOR draws, and that grows with the sprawl of the leaves and
+            # with perspective once the plant has been slid toward the camera.
+            # Capping the AABB at 4x changed nothing -- HousePlant survived 12
+            # times out of 12.  This is the same idea measured where it counts.
+            from gen.occlusion import visible_pixels
+            frame_px = rc.event.frame.shape[0] * rc.event.frame.shape[1]
+            share = visible_pixels(rc.event, staged["occluder"]) / frame_px
+            if max_box and share > max_box:
+                print(f"    ! {occluder_type} covers {share:.1%} of the frame, "
+                      f"over the {max_box:.0%} cap")
+                continue
+            beside = None
+            if distract:
+                # A second object of the TARGET's VG150 class, so the relation
+                # has something to disambiguate.  iTHOR has no two instances of
+                # one objectType, so this is another type mapping to the same
+                # class -- see `place_beside`.
+                want = THOR_TO_VG150.get(
+                    entries[task["target_name"]]["objectType"])
+                twin = next((o["name"] for o in rc.event.metadata["objects"]
+                             if o["name"] != task["target_name"]
+                             and (o.get("moveable") or o.get("pickupable"))
+                             and THOR_TO_VG150.get(o["objectType"]) == want),
+                            None)
+                if twin is None:
+                    print(f"    ! no second `{want}` in this scene")
+                    continue
+                beside = place_beside(rc, task["target_name"], twin,
+                                      task["receptacle_name"])
+                if beside is None:
+                    print(f"    ! {twin} cannot stand clear of the sightline")
+                    continue
+                print(f"    + distractor {twin} at "
+                      f"{beside['lateral']:.2f} m off the ray, "
+                      f"{beside['visible_px']} px visible")
             if predicate in ("behind", "in front of"):
                 # The occluder is now ON the sightline, so the relation exists.
                 # Rewriting AFTER staging rather than before is what makes it
@@ -120,6 +171,9 @@ def verify(rc, case: Dict[str, Any], band: Sequence[float],
                 # placement instead of searching for its own -- see
                 # `task_find.stage_at` for why the search is not reproducible.
                 "occluder_name": staged["occluder"],
+                "occluder_share": round(share, 4),
+                "distractor_name": None if not beside else beside["distractor"],
+                "distractor_position": None if not beside else beside["position"],
                 "occluder_position": staged["position"],
                 # Every moveable object's pose AFTER staging.  The occluder
                 # alone is not enough -- THOR's load settle moves the target
@@ -151,7 +205,9 @@ def _one(payload):
                           case["start"])
     try:
         record = verify(rc, case, (args.min_occlusion, args.target_occlusion,
-                                   args.max_occlusion), args.predicate)
+                                   args.max_occlusion), args.predicate,
+                        args.max_occluder_ratio, args.max_occluder_box,
+                        args.distract)
     except Exception as error:                                   # noqa: BLE001
         print(f"    ! {type(error).__name__}: {error}", flush=True)
         record = None
@@ -179,6 +235,23 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--max-occlusion", type=float, default=0.90,
                     help="placements that hide more than this are rejected; a "
                          "target with no pixels left is a separate regime")
+    ap.add_argument("--max-occluder-ratio", type=float, default=4.0,
+                    help="cap on the occluder's silhouette relative to the "
+                         "target's.  It is an ENDPOINT of a `behind` "
+                         "instruction, and a box spanning a whole house plant "
+                         "makes the relation vacuous.")
+    ap.add_argument("--max-occluder-box", type=float, default=0.0,
+                    help="cap on the fraction of the FRAME the staged occluder "
+                         "covers, from its instance mask.  0 = no cap, and the "
+                         "share is recorded either way so a threshold can be "
+                         "chosen from the distribution rather than guessed -- "
+                         "the AABB cap was guessed twice and bit neither time.")
+    ap.add_argument("--distract", action="store_true",
+                    help="also place a second object of the TARGET's class, off "
+                         "the sightline.  Without one the relation in `the "
+                         "bottle behind the plant` is decoration: all 71 frozen "
+                         "cases had zero same-class distractors, so `behind` "
+                         "never had to disambiguate anything.")
     ap.add_argument("--predicate", default="on",
                     choices=("on", "behind", "in front of"),
                     help="`behind` rewrites each task as the relation staging "
@@ -193,7 +266,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "own THOR instance, so this is bounded by GPU memory "
                          "and by how many Unity processes the machine tolerates, "
                          "not by CPU cores.")
-    ap.add_argument("--out", default="nvs_pilot/cases_frozen.json")
+    ap.add_argument("--out", default="nvs_pilot/cases/cases_frozen.json")
     args = ap.parse_args(argv)
 
     raw: List[Dict[str, Any]] = []

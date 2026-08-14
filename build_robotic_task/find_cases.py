@@ -45,6 +45,16 @@ already worked.
 
 from __future__ import annotations
 
+# `python build_robotic_task/<script>.py` puts this directory on sys.path, not
+# the repo root, so `robot.*`, `vg.*` and the sibling generators would not
+# resolve.  Running as `python -m build_robotic_task.<script>` does not need
+# this; it is here so both work.  Same shim as `gen/build_occlusion_dataset.py`.
+import os as _os
+import sys as _sys
+if __package__ in (None, ""):
+    _sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+
+
 import argparse
 import json
 import math
@@ -112,8 +122,19 @@ def height_of(entry: Dict[str, Any]) -> float:
     return float(size_of(entry).get("y", 0.0))
 
 
+#: How much bigger than the target an occluder's silhouette may be.  Only a
+#: lower bound existed, which is the wrong half to leave open once the occluder
+#: became an ENDPOINT of the instruction: a HousePlant's detection box spans the
+#: sprawl of its leaves, so "behind the plant" is satisfiable by most of the
+#: frame, and the rendered stops show exactly that -- a faucet paired with a
+#: plant box covering the left third of the picture, called `behind`, accepted.
+#: A cap keeps the landmark a landmark.
+MAX_OCCLUDER_RATIO = 4.0
+
+
 def rank_occluders(event, target: Dict[str, Any], receptacle: Dict[str, Any],
-                   camera_xz: np.ndarray) -> List[str]:
+                   camera_xz: np.ndarray,
+                   max_ratio: float = MAX_OCCLUDER_RATIO) -> List[str]:
     """
     Every workable occluder type, tallest first.
 
@@ -156,7 +177,8 @@ def rank_occluders(event, target: Dict[str, Any], receptacle: Dict[str, Any],
         if math.dist(here, (entry["position"]["x"],
                             entry["position"]["z"])) > OCCLUDER_RADIUS:
             continue
-        if frontal_area(entry) < frontal_area(target):
+        if not (frontal_area(target) <= frontal_area(entry)
+                <= max_ratio * frontal_area(target)):
             continue
         # Tallest first; among equals the smaller footprint, which has more
         # places to stand and more room to be slid into the line of sight.

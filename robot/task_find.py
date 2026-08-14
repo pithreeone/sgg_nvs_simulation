@@ -386,6 +386,126 @@ def spread(items: Sequence[Any], count: int) -> List[Any]:
             dict.fromkeys(round(k * step) for k in range(count))]
 
 
+#: How far off the camera-to-target ray a DISTRACTOR must sit, metres.  The
+#: lower bound is `STAGE_LATERAL` plus a margin so it cannot occlude what the
+#: staged occluder is already occluding.
+DISTRACT_LATERAL = (0.35, 1.20)
+
+#: How far from the TARGET, in metres on the surface.  Lateral offset alone is
+#: not enough and the rendered tasks showed why: a point 0.35 m off the ray can
+#: still be two metres nearer the camera, and the first distractors landed at
+#: the bottom edge of the frame, small and half cut off.  Nothing that far away
+#: competes for "the bottle" -- a distractor has to be somewhere a person would
+#: have to disambiguate between.
+DISTRACT_RANGE = (0.30, 0.90)
+
+
+def place_beside(rc, target_name: str, distractor_name: str,
+                 receptacle_name: str, grid: float = STAGE_GRID
+                 ) -> Optional[Dict[str, Any]]:
+    """
+    Put a SECOND object of the target's class on the same surface, off the ray.
+
+    WHY A DISTRACTOR IS NOT OPTIONAL.  With one bottle in the room, "the bottle
+    behind the plant" and "any bottle" are the same instruction: the relation is
+    decoration, and a relation-fusion mechanism has nothing to contribute.
+    Measured on the frozen list, all 71 cases had zero same-class distractors,
+    which is why the predicate never did any work.  A second bottle makes the
+    relation load-bearing -- it is the only thing that says WHICH one.
+
+    The mirror of `legal_placements`: same surface, same overlap rejections,
+    but the lateral band is INVERTED.  A distractor sitting on the sightline
+    would be a second occluder, and one at the far end of the room would not
+    compete for the instruction.
+
+    iTHOR scenes never hold two instances of one objectType, so the caller has
+    to settle for another type mapping to the same VG150 class -- a WineBottle
+    beside a SoapBottle.  Creating a true copy needs `SpawnAsset`, which needs
+    the ProceduralAssetDatabase, which is not in these scenes.
+    """
+    from gen.occlusion import by_name, set_pose, visible_pixels
+
+    target = by_name(rc.event, target_name)
+    distractor = by_name(rc.event, distractor_name)
+    entries = {o["name"]: o for o in rc.event.metadata["objects"]}
+    receptacle = entries.get(receptacle_name)
+    if target is None or distractor is None or receptacle is None:
+        return None
+
+    surface, target_box, own = (aabb(receptacle), aabb(target),
+                                aabb(distractor))
+    if surface is None or target_box is None or own is None:
+        return None
+    surface_top = float(surface[1][1])
+    size = own[1] - own[0]
+    low = surface[0][[0, 2]] + size[[0, 2]] / 2.0
+    high = surface[1][[0, 2]] - size[[0, 2]] / 2.0
+    if np.any(low > high):
+        return None
+
+    camera = rc.event.metadata["cameraPosition"]
+    camera_xz = np.array([camera["x"], camera["z"]])
+    target_xz = np.array([target["position"]["x"], target["position"]["z"]])
+    forward = target_xz - camera_xz
+    forward = forward / max(float(np.linalg.norm(forward)), 1e-6)
+    left_of = np.array([-forward[1], forward[0]])
+    centre_xz = (own[0] + own[1])[[0, 2]] / 2.0
+
+    neighbours = [(n, b) for n, b in
+                  ((n, aabb(e)) for n, e in entries.items()) if b is not None
+                  and n not in (target_name, receptacle_name, distractor_name)
+                  and abs(float(b[0][1]) - surface_top) <= SUPPORT_GAP]
+
+    candidates = []
+    for cx in np.arange(low[0], high[0] + 1e-6, grid):
+        for cz in np.arange(low[1], high[1] + 1e-6, grid):
+            delta = target_xz - np.array([cx, cz])
+            lateral = abs(float(delta @ left_of))
+            if not DISTRACT_LATERAL[0] <= lateral <= DISTRACT_LATERAL[1]:
+                continue
+            if not (DISTRACT_RANGE[0] <= float(np.linalg.norm(delta))
+                    <= DISTRACT_RANGE[1]):
+                continue
+            shift = np.array([cx - centre_xz[0], surface_top - float(own[0][1]),
+                              cz - centre_xz[1]])
+            here = (own[0] + shift, own[1] + shift)
+            if boxes_overlap(here, target_box):
+                continue
+            if any(boxes_overlap(here, b) for _, b in neighbours):
+                continue
+            candidates.append((lateral, float(cx), float(cz)))
+    if not candidates:
+        return None
+
+    before = visible_pixels(rc.event, target_name)
+    host_id = receptacle["objectId"]
+    for lateral, cx, cz in sorted(candidates):
+        lift = surface_top - float(own[0][1])
+        set_pose(rc.controller, distractor_name,
+                 (cx, distractor["position"]["y"] + lift, cz))
+        rc.controller.step(action="Done")
+        rc.event = rc.controller.last_event
+        placed = by_name(rc.event, distractor_name)
+        seen = visible_pixels(rc.event, distractor_name)
+        after = visible_pixels(rc.event, target_name)
+        # SUPPORTED, not merely inside the receptacle's bounding box.  An
+        # L-shaped counter's AABB spans the empty inner corner, and
+        # `SetObjectPoses` applies no gravity, so a candidate there leaves the
+        # object hovering in mid-air at counter height.  Measured on the first
+        # three distractors: two of them reported no parent receptacle at all.
+        # THOR's own `parentReceptacles` is the check the geometry cannot make.
+        supported = host_id in (placed.get("parentReceptacles") or [])
+        # It also has to be VISIBLE (or it competes for nothing) and must not
+        # have taken pixels off the target (or it is a second occluder).
+        if supported and seen > 0 and after >= before * 0.95:
+            return {"distractor": distractor_name, "lateral": round(lateral, 3),
+                    "visible_px": seen,
+                    "position": {"x": float(cx),
+                                 "y": float(distractor["position"]["y"] + lift),
+                                 "z": float(cz)}}
+    return None
+
+
 def behind_task(task: Dict[str, Any], occluder_name: str,
                 objects: Sequence[Dict[str, Any]], entries: Dict[str, Any]
                 ) -> Optional[Dict[str, Any]]:
@@ -790,14 +910,22 @@ def grade(task: Dict[str, Any], triplets: Sequence[Dict[str, Any]],
 
       `class_rank`     the first triplet whose class triple matches -- the model
                        said the right words.
-      `grounded_rank`  the first that ALSO puts its subject on the right
-                       instance -- the model meant the right thing.
+      `grounded_rank`  the first that ALSO puts BOTH boxes on the right
+                       instances -- the model meant the right thing.
 
     A `class_rank` with no `grounded_rank` is the interesting failure: the graph
     contains `book on table` and it is a different book.
+
+    BOTH ENDPOINTS, because the task is triplet detection.  This graded the
+    subject box alone and checked the object's CLASS only, so `bowl behind box`
+    scored correct whenever some query labelled `box` happened to be the object
+    endpoint, wherever its box actually was.  With `landmark_box` absent the old
+    behaviour is kept, since the iTHOR lists do not all carry one; every caller
+    that can supply it should, and `regrade` does.
     """
     target = {"bbox_amodal": task["target_box_amodal"],
               "bbox_visible": task["target_box_visible"]}
+    landmark = task.get("landmark_box")
     class_rank = grounded_rank = distractor_rank = None
     best = best_distractor = 0.0
     matches = []
@@ -809,6 +937,8 @@ def grade(task: Dict[str, Any], triplets: Sequence[Dict[str, Any]],
         if not any_predicate and rel["predicate"] != task["predicate"]:
             continue
         overlap = best_iou(rel["subject_box"], target)
+        on_landmark = (best_iou(rel["object_box"], landmark) if landmark
+                       else 1.0)
         best = max(best, overlap)
         # Highest IoU against any same-class distractor, so "it found A book"
         # can be told apart from "it found THE book".
@@ -818,10 +948,12 @@ def grade(task: Dict[str, Any], triplets: Sequence[Dict[str, Any]],
         if other >= threshold and other > overlap and distractor_rank is None:
             distractor_rank = rank
         matches.append({"rank": rank, "predicate": rel["predicate"],
-                        "score": rel["score"], "subject_iou": round(overlap, 3)})
+                        "score": rel["score"], "subject_iou": round(overlap, 3),
+                        "object_iou": round(on_landmark, 3)})
         if class_rank is None:
             class_rank = rank
-        if overlap >= threshold and grounded_rank is None:
+        if (overlap >= threshold and on_landmark >= threshold
+                and grounded_rank is None):
             grounded_rank = rank
     return {
         "class_rank": class_rank,
