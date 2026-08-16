@@ -106,6 +106,31 @@ def filmstrip(case: Dict[str, Any], args) -> np.ndarray:
         controller.stop()
 
 
+def contact(cases: Sequence[Dict[str, Any]], args) -> np.ndarray:
+    """Every case's REFERENCE view, one panel each, on one sheet.
+
+    The frame comes from `rebuild`, which is the case's own stored start pose --
+    so this is exactly what a runner sees at step 0, and nothing about the sweep
+    enters.  What it is for is judging the SCENES rather than the angles: whether
+    the instruction names something a reader would name, whether the landmark
+    dominates, whether the target is a recognisable object at all.
+    """
+    controller = open_room(args.width, args.height, args.fov)
+    try:
+        panels = []
+        for index, case in enumerate(cases):
+            event = rebuild(controller, case)
+            boxes = {name: visible_box(event, name) for name in COLOURS}
+            panels.append(draw(
+                event.frame[:, :, ::-1], boxes,
+                f"{index}  {case['scene']}  {case['staged_occlusion']:.0%} hid"
+                f"  best {case['best_hidden']:.0%}@{case['best_azimuth']:+.0f}",
+                "", args.scale))
+        return tile(panels, args.columns)
+    finally:
+        controller.stop()
+
+
 def curves(cases: Sequence[Dict[str, Any]], data: Dict[str, Any], out: str):
     """hidden(azimuth) for every case, with what each acceptance test reads."""
     import matplotlib
@@ -160,6 +185,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "--curves, every case is plotted")
     ap.add_argument("--curves", action="store_true",
                     help="draw hidden(azimuth) for every case instead of frames")
+    ap.add_argument("--refs", action="store_true",
+                    help="one sheet of every case's REFERENCE view -- what a "
+                         "runner sees at step 0, for judging the scenes rather "
+                         "than the angles")
     ap.add_argument("--every", type=int, default=2, metavar="N",
                     help="keep every Nth swept azimuth; 25 panels is a wall")
     ap.add_argument("--columns", type=int, default=7)
@@ -182,6 +211,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         out = args.out or f"nvs_pilot/{stem}_curves.png"
         os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
         curves(cases, data, out)
+        return 0
+
+    if args.refs:
+        out = args.out or f"nvs_pilot/{stem}_refs.png"
+        os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
+        print(f"  {len(cases)} reference views, {args.columns} per row")
+        cv2.imwrite(out, contact(cases, args))
+        print(f"  -> {out}")
         return 0
 
     index = args.case or 0

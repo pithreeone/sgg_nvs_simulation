@@ -1,0 +1,3295 @@
+{
+ "beta": 0.0,
+ "objscore": "mean",
+ "vocab": null,
+ "dedup_iou": 0.9,
+ "corr_relabel": "argmax",
+ "relabel_mode": "consensus",
+ "relabel_tau": 0.0,
+ "gate": 0.8,
+ "corr": "assign",
+ "pool": "mean",
+ "objscore_class": "gate",
+ "cases": [
+  {
+   "case": 0,
+   "scene": "tabletop|2",
+   "instruction": "Find the box behind the laptop",
+   "staged_occlusion": 0.345,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      54,
+      116
+     ],
+     "score": 3.040460363983849e-08,
+     "iou": 0.023,
+     "iou_object": 0.119,
+     "success": false,
+     "best_rank": null,
+     "candidates": 95
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box on laptop",
+     "box on laptop",
+     "box on laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      54,
+      116
+     ],
+     "score": 3.2650171382612025e-08,
+     "iou": 0.023,
+     "iou_object": 0.119,
+     "success": false,
+     "best_rank": null,
+     "candidates": 95
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box on laptop",
+     "box on laptop",
+     "box on laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      54,
+      116
+     ],
+     "score": 3.2650171382612025e-08,
+     "iou": 0.023,
+     "iou_object": 0.119,
+     "success": false,
+     "best_rank": null,
+     "candidates": 93
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box on laptop",
+     "box on laptop",
+     "box on laptop"
+    ]
+   }
+  },
+  {
+   "case": 1,
+   "scene": "tabletop|4",
+   "instruction": "Find the food behind the bottle",
+   "staged_occlusion": 0.336,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      10,
+      182
+     ],
+     "score": 9.290656252400947e-11,
+     "iou": 0.003,
+     "iou_object": 0.577,
+     "success": false,
+     "best_rank": 37,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food over bottle",
+     "food and bottle",
+     "food from bottle"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      10,
+      182
+     ],
+     "score": 5.062593393097696e-11,
+     "iou": 0.003,
+     "iou_object": 0.577,
+     "success": false,
+     "best_rank": 37,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food over bottle",
+     "food and bottle",
+     "food near bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 47,
+    "grounded_rank": null,
+    "best_subject_iou": 0.003,
+    "matched": "#47 behind iou 0.003",
+    "act": {
+     "chosen": [
+      10,
+      182
+     ],
+     "score": 5.062593393097696e-11,
+     "iou": 0.003,
+     "iou_object": 0.577,
+     "success": false,
+     "best_rank": 37,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 47,
+    "top3": [
+     "food above bottle",
+     "food in front of bottle",
+     "food near bottle"
+    ]
+   }
+  },
+  {
+   "case": 2,
+   "scene": "tabletop|6",
+   "instruction": "Find the vegetable behind the bottle",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 16,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#16 behind iou 0.0",
+    "act": {
+     "chosen": [
+      43,
+      182
+     ],
+     "score": 4.865536973047828e-07,
+     "iou": 0.679,
+     "iou_object": 0.875,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 16,
+    "top3": [
+     "vegetable standing on bottle",
+     "vegetable standing on bottle",
+     "vegetable and bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 16,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#16 behind iou 0.0",
+    "act": {
+     "chosen": [
+      43,
+      182
+     ],
+     "score": 3.01796862822942e-07,
+     "iou": 0.679,
+     "iou_object": 0.875,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 16,
+    "top3": [
+     "vegetable standing on bottle",
+     "vegetable standing on bottle",
+     "vegetable on bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 12,
+    "grounded_rank": 12,
+    "best_subject_iou": 0.772,
+    "matched": "#12 behind iou 0.772",
+    "act": {
+     "chosen": [
+      43,
+      182
+     ],
+     "score": 3.01796862822942e-07,
+     "iou": 0.679,
+     "iou_object": 0.875,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 12,
+    "top3": [
+     "vegetable near bottle",
+     "vegetable in front of bottle",
+     "vegetable near bottle"
+    ]
+   }
+  },
+  {
+   "case": 3,
+   "scene": "tabletop|7",
+   "instruction": "Find the bottle behind the box",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      164
+     ],
+     "score": 2.573783472170715e-09,
+     "iou": 0.64,
+     "iou_object": 0.928,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under box",
+     "bottle in box",
+     "bottle under box"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      164
+     ],
+     "score": 5.971695158268385e-09,
+     "iou": 0.64,
+     "iou_object": 0.928,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under box",
+     "bottle in box",
+     "bottle under box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 8,
+    "grounded_rank": 64,
+    "best_subject_iou": 0.64,
+    "matched": "#8 behind iou 0.276",
+    "act": {
+     "chosen": [
+      43,
+      164
+     ],
+     "score": 5.971695158268385e-09,
+     "iou": 0.64,
+     "iou_object": 0.928,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 8,
+    "top3": [
+     "bottle in box",
+     "bottle in box",
+     "bottle in box"
+    ]
+   }
+  },
+  {
+   "case": 4,
+   "scene": "tabletop|8",
+   "instruction": "Find the bowl behind the box",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      7
+     ],
+     "score": 1.867260533441164e-09,
+     "iou": 0.0,
+     "iou_object": 0.682,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl for box",
+     "bowl attached to box",
+     "bowl made of box"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      7
+     ],
+     "score": 1.3522720901756815e-09,
+     "iou": 0.0,
+     "iou_object": 0.682,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl for box",
+     "bowl attached to box",
+     "bowl made of box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.779,
+    "matched": "#5 behind iou 0.713",
+    "act": {
+     "chosen": [
+      28,
+      7
+     ],
+     "score": 1.3522720901756815e-09,
+     "iou": 0.0,
+     "iou_object": 0.682,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 5,
+    "top3": [
+     "bowl near box",
+     "bowl near box",
+     "bowl made of box"
+    ]
+   }
+  },
+  {
+   "case": 5,
+   "scene": "tabletop|10",
+   "instruction": "Find the cup behind the clock",
+   "staged_occlusion": 0.337,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      148,
+      38
+     ],
+     "score": 2.481256161534108e-08,
+     "iou": 0.0,
+     "iou_object": 0.136,
+     "success": false,
+     "best_rank": 16,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near clock",
+     "cup near clock",
+     "cup near clock"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      148,
+      38
+     ],
+     "score": 1.889761156872974e-08,
+     "iou": 0.0,
+     "iou_object": 0.136,
+     "success": false,
+     "best_rank": 16,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near clock",
+     "cup near clock",
+     "cup near clock"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 2,
+    "grounded_rank": null,
+    "best_subject_iou": 0.83,
+    "matched": "#2 behind iou 0.83",
+    "act": {
+     "chosen": [
+      148,
+      38
+     ],
+     "score": 1.889761156872974e-08,
+     "iou": 0.0,
+     "iou_object": 0.136,
+     "success": false,
+     "best_rank": 16,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 2,
+    "top3": [
+     "cup near clock",
+     "cup behind clock",
+     "cup behind clock"
+    ]
+   }
+  },
+  {
+   "case": 6,
+   "scene": "tabletop|11",
+   "instruction": "Find the food behind the box",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      10
+     ],
+     "score": 2.629540713797966e-07,
+     "iou": 0.844,
+     "iou_object": 0.055,
+     "success": false,
+     "best_rank": 36,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food on box",
+     "food on box",
+     "food on box"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      10
+     ],
+     "score": 2.5136201873746543e-07,
+     "iou": 0.844,
+     "iou_object": 0.055,
+     "success": false,
+     "best_rank": 36,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food on box",
+     "food on box",
+     "food on box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 36,
+    "grounded_rank": 36,
+    "best_subject_iou": 0.844,
+    "matched": "#36 behind iou 0.844",
+    "act": {
+     "chosen": [
+      43,
+      10
+     ],
+     "score": 2.5136201873746543e-07,
+     "iou": 0.844,
+     "iou_object": 0.055,
+     "success": false,
+     "best_rank": 36,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 36,
+    "top3": [
+     "food on box",
+     "food above box",
+     "food on box"
+    ]
+   }
+  },
+  {
+   "case": 7,
+   "scene": "tabletop|12",
+   "instruction": "Find the fruit behind the bottle",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 25,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#25 behind iou 0.0",
+    "act": {
+     "chosen": [
+      135,
+      181
+     ],
+     "score": 1.6711332105806273e-08,
+     "iou": 0.0,
+     "iou_object": 0.205,
+     "success": false,
+     "best_rank": 3,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 25,
+    "top3": [
+     "fruit and bottle",
+     "fruit of bottle",
+     "fruit against bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 30,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#30 behind iou 0.0",
+    "act": {
+     "chosen": [
+      135,
+      181
+     ],
+     "score": 1.339254414067733e-08,
+     "iou": 0.0,
+     "iou_object": 0.205,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 30,
+    "top3": [
+     "fruit and bottle",
+     "fruit against bottle",
+     "fruit against bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 2,
+    "grounded_rank": 2,
+    "best_subject_iou": 0.679,
+    "matched": "#2 behind iou 0.679",
+    "act": {
+     "chosen": [
+      135,
+      181
+     ],
+     "score": 1.339254414067733e-08,
+     "iou": 0.0,
+     "iou_object": 0.205,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 96
+    },
+    "acts": true,
+    "first_match": 2,
+    "top3": [
+     "fruit in front of bottle",
+     "fruit behind bottle",
+     "fruit in front of bottle"
+    ]
+   }
+  },
+  {
+   "case": 8,
+   "scene": "tabletop|15",
+   "instruction": "Find the bowl behind the clock",
+   "staged_occlusion": 0.282,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      148,
+      170
+     ],
+     "score": 9.644710306972536e-11,
+     "iou": 0.0,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl in front of clock",
+     "bowl between clock",
+     "bowl for clock"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      148,
+      170
+     ],
+     "score": 2.06476932872491e-10,
+     "iou": 0.0,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl in front of clock",
+     "bowl for clock",
+     "bowl between clock"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 40,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#40 behind iou 0.0",
+    "act": {
+     "chosen": [
+      148,
+      170
+     ],
+     "score": 2.06476932872491e-10,
+     "iou": 0.0,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 40,
+    "top3": [
+     "bowl in front of clock",
+     "bowl in front of clock",
+     "bowl under clock"
+    ]
+   }
+  },
+  {
+   "case": 9,
+   "scene": "tabletop|18",
+   "instruction": "Find the food behind the clock",
+   "staged_occlusion": 0.251,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      43
+     ],
+     "score": 1.3196753917366664e-10,
+     "iou": 0.0,
+     "iou_object": 0.099,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food and clock",
+     "food and clock",
+     "food and clock"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      43
+     ],
+     "score": 1.4991686885172555e-10,
+     "iou": 0.0,
+     "iou_object": 0.099,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food and clock",
+     "food and clock",
+     "food and clock"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 7,
+    "grounded_rank": null,
+    "best_subject_iou": 0.12,
+    "matched": "#7 behind iou 0.11",
+    "act": {
+     "chosen": [
+      28,
+      43
+     ],
+     "score": 1.4991686885172555e-10,
+     "iou": 0.0,
+     "iou_object": 0.099,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 7,
+    "top3": [
+     "food in clock",
+     "food in clock",
+     "food and clock"
+    ]
+   }
+  },
+  {
+   "case": 10,
+   "scene": "tabletop|19",
+   "instruction": "Find the fruit behind the box",
+   "staged_occlusion": 0.351,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 1,
+    "grounded_rank": 1,
+    "best_subject_iou": 0.73,
+    "matched": "#1 behind iou 0.703",
+    "act": {
+     "chosen": [
+      43,
+      164
+     ],
+     "score": 6.614142725886876e-08,
+     "iou": 0.703,
+     "iou_object": 0.848,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 1,
+    "top3": [
+     "fruit behind box",
+     "fruit attached to box",
+     "fruit attached to box"
+    ]
+   },
+   "A": {
+    "class_rank": 1,
+    "grounded_rank": 1,
+    "best_subject_iou": 0.73,
+    "matched": "#1 behind iou 0.703",
+    "act": {
+     "chosen": [
+      43,
+      164
+     ],
+     "score": 4.372078297978789e-08,
+     "iou": 0.703,
+     "iou_object": 0.848,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 1,
+    "top3": [
+     "fruit behind box",
+     "fruit attached to box",
+     "fruit attached to box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 7,
+    "grounded_rank": null,
+    "best_subject_iou": 0.397,
+    "matched": "#7 behind iou 0.301",
+    "act": {
+     "chosen": [
+      43,
+      164
+     ],
+     "score": 4.372078297978789e-08,
+     "iou": 0.703,
+     "iou_object": 0.848,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 7,
+    "top3": [
+     "fruit in front of box",
+     "fruit in front of box",
+     "fruit in front of box"
+    ]
+   }
+  },
+  {
+   "case": 11,
+   "scene": "tabletop|20",
+   "instruction": "Find the vegetable behind the lamp",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      157
+     ],
+     "score": 1.0455105726323126e-10,
+     "iou": 0.838,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 35,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable and lamp",
+     "vegetable at lamp",
+     "vegetable at lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      157
+     ],
+     "score": 7.483773293676355e-11,
+     "iou": 0.838,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 35,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable and lamp",
+     "vegetable at lamp",
+     "vegetable at lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      157
+     ],
+     "score": 7.483773293676355e-11,
+     "iou": 0.838,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 35,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable and lamp",
+     "vegetable at lamp",
+     "vegetable at lamp"
+    ]
+   }
+  },
+  {
+   "case": 12,
+   "scene": "tabletop|21",
+   "instruction": "Find the bottle behind the lamp",
+   "staged_occlusion": 0.347,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 2,
+    "grounded_rank": 2,
+    "best_subject_iou": 0.707,
+    "matched": "#2 behind iou 0.707",
+    "act": {
+     "chosen": [
+      43,
+      171
+     ],
+     "score": 1.6485341588271675e-09,
+     "iou": 0.707,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 96
+    },
+    "acts": true,
+    "first_match": 2,
+    "top3": [
+     "bottle near lamp",
+     "bottle behind lamp",
+     "bottle and lamp"
+    ]
+   },
+   "A": {
+    "class_rank": 2,
+    "grounded_rank": 2,
+    "best_subject_iou": 0.707,
+    "matched": "#2 behind iou 0.707",
+    "act": {
+     "chosen": [
+      43,
+      171
+     ],
+     "score": 7.572650160331305e-09,
+     "iou": 0.707,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 96
+    },
+    "acts": true,
+    "first_match": 2,
+    "top3": [
+     "bottle near lamp",
+     "bottle behind lamp",
+     "bottle with lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 2,
+    "grounded_rank": 2,
+    "best_subject_iou": 0.707,
+    "matched": "#2 behind iou 0.707",
+    "act": {
+     "chosen": [
+      43,
+      171
+     ],
+     "score": 7.572650160331305e-09,
+     "iou": 0.707,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 96
+    },
+    "acts": true,
+    "first_match": 2,
+    "top3": [
+     "bottle near lamp",
+     "bottle behind lamp",
+     "bottle near lamp"
+    ]
+   }
+  },
+  {
+   "case": 13,
+   "scene": "tabletop|22",
+   "instruction": "Find the bowl behind the box",
+   "staged_occlusion": 0.349,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#5 behind iou 0.0",
+    "act": {
+     "chosen": [
+      199,
+      109
+     ],
+     "score": 2.2426888683155893e-09,
+     "iou": 0.0,
+     "iou_object": 0.966,
+     "success": false,
+     "best_rank": 10,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 5,
+    "top3": [
+     "bowl near box",
+     "bowl near box",
+     "bowl near box"
+    ]
+   },
+   "A": {
+    "class_rank": 5,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#5 behind iou 0.0",
+    "act": {
+     "chosen": [
+      199,
+      109
+     ],
+     "score": 1.363895911352086e-09,
+     "iou": 0.0,
+     "iou_object": 0.966,
+     "success": false,
+     "best_rank": 10,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 5,
+    "top3": [
+     "bowl near box",
+     "bowl near box",
+     "bowl near box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 2,
+    "grounded_rank": 31,
+    "best_subject_iou": 0.839,
+    "matched": "#2 behind iou 0.0",
+    "act": {
+     "chosen": [
+      199,
+      109
+     ],
+     "score": 1.363895911352086e-09,
+     "iou": 0.0,
+     "iou_object": 0.966,
+     "success": false,
+     "best_rank": 10,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 2,
+    "top3": [
+     "bowl near box",
+     "bowl behind box",
+     "bowl near box"
+    ]
+   }
+  },
+  {
+   "case": 14,
+   "scene": "tabletop|23",
+   "instruction": "Find the box behind the lamp",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      69,
+      7
+     ],
+     "score": 4.599419234074598e-08,
+     "iou": 0.015,
+     "iou_object": 0.771,
+     "success": false,
+     "best_rank": 5,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box on lamp",
+     "box under lamp",
+     "box near lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      69,
+      7
+     ],
+     "score": 4.551649499709811e-08,
+     "iou": 0.015,
+     "iou_object": 0.771,
+     "success": false,
+     "best_rank": 6,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box on lamp",
+     "box under lamp",
+     "box near lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      69,
+      7
+     ],
+     "score": 4.551649499709811e-08,
+     "iou": 0.015,
+     "iou_object": 0.771,
+     "success": false,
+     "best_rank": 6,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box on lamp",
+     "box near lamp",
+     "box near lamp"
+    ]
+   }
+  },
+  {
+   "case": 15,
+   "scene": "tabletop|25",
+   "instruction": "Find the food behind the laptop",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      93
+     ],
+     "score": 5.589519802900243e-10,
+     "iou": 0.637,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food on laptop",
+     "food and laptop",
+     "food and laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      118
+     ],
+     "score": 3.0965759228769735e-10,
+     "iou": 0.637,
+     "iou_object": 0.861,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food and laptop",
+     "food and laptop",
+     "food on laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 1,
+    "grounded_rank": 1,
+    "best_subject_iou": 0.637,
+    "matched": "#1 behind iou 0.637",
+    "act": {
+     "chosen": [
+      155,
+      118
+     ],
+     "score": 3.0965759228769735e-10,
+     "iou": 0.637,
+     "iou_object": 0.861,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 1,
+    "top3": [
+     "food behind laptop",
+     "food behind laptop",
+     "food on laptop"
+    ]
+   }
+  },
+  {
+   "case": 16,
+   "scene": "tabletop|27",
+   "instruction": "Find the vegetable behind the bottle",
+   "staged_occlusion": 0.351,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      26
+     ],
+     "score": 1.47068416333697e-08,
+     "iou": 0.0,
+     "iou_object": 0.578,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable for bottle",
+     "vegetable for bottle",
+     "vegetable in front of bottle"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      26
+     ],
+     "score": 1.017184777382583e-08,
+     "iou": 0.0,
+     "iou_object": 0.578,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable for bottle",
+     "vegetable for bottle",
+     "vegetable in front of bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      26
+     ],
+     "score": 1.017184777382583e-08,
+     "iou": 0.0,
+     "iou_object": 0.578,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable in front of bottle",
+     "vegetable in front of bottle",
+     "vegetable in front of bottle"
+    ]
+   }
+  },
+  {
+   "case": 17,
+   "scene": "tabletop|28",
+   "instruction": "Find the bottle behind the lamp",
+   "staged_occlusion": 0.351,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      157
+     ],
+     "score": 3.5627248664930494e-09,
+     "iou": 0.722,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle and lamp",
+     "bottle for lamp",
+     "bottle for lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      26
+     ],
+     "score": 3.52619726833599e-09,
+     "iou": 0.722,
+     "iou_object": 0.442,
+     "success": false,
+     "best_rank": null,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle for lamp",
+     "bottle and lamp",
+     "bottle for lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 20,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#20 behind iou 0.0",
+    "act": {
+     "chosen": [
+      181,
+      26
+     ],
+     "score": 3.52619726833599e-09,
+     "iou": 0.722,
+     "iou_object": 0.442,
+     "success": false,
+     "best_rank": null,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 20,
+    "top3": [
+     "bottle in front of lamp",
+     "bottle in front of lamp",
+     "bottle in front of lamp"
+    ]
+   }
+  },
+  {
+   "case": 18,
+   "scene": "tabletop|30",
+   "instruction": "Find the box behind the clock",
+   "staged_occlusion": 0.346,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      26,
+      72
+     ],
+     "score": 1.1935883575096528e-08,
+     "iou": 0.896,
+     "iou_object": 0.045,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box for clock",
+     "box for clock",
+     "box on clock"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      26,
+      72
+     ],
+     "score": 1.3824720825077688e-08,
+     "iou": 0.896,
+     "iou_object": 0.045,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box for clock",
+     "box for clock",
+     "box on clock"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      26,
+      72
+     ],
+     "score": 1.3824720825077688e-08,
+     "iou": 0.896,
+     "iou_object": 0.045,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box above clock",
+     "box on clock",
+     "box on clock"
+    ]
+   }
+  },
+  {
+   "case": 19,
+   "scene": "tabletop|31",
+   "instruction": "Find the cup behind the lamp",
+   "staged_occlusion": 0.348,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 7,
+    "grounded_rank": null,
+    "best_subject_iou": 0.761,
+    "matched": "#7 behind iou 0.761",
+    "act": {
+     "chosen": [
+      67,
+      144
+     ],
+     "score": 1.7192770748116552e-08,
+     "iou": 0.761,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 23,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 7,
+    "top3": [
+     "cup near lamp",
+     "cup holding lamp",
+     "cup and lamp"
+    ]
+   },
+   "A": {
+    "class_rank": 7,
+    "grounded_rank": null,
+    "best_subject_iou": 0.761,
+    "matched": "#7 behind iou 0.761",
+    "act": {
+     "chosen": [
+      67,
+      144
+     ],
+     "score": 2.6909568389190135e-08,
+     "iou": 0.761,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 24,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 7,
+    "top3": [
+     "cup near lamp",
+     "cup holding lamp",
+     "cup and lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 4,
+    "grounded_rank": null,
+    "best_subject_iou": 0.761,
+    "matched": "#4 behind iou 0.0",
+    "act": {
+     "chosen": [
+      67,
+      144
+     ],
+     "score": 2.6909568389190135e-08,
+     "iou": 0.761,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 24,
+     "candidates": 94
+    },
+    "acts": false,
+    "first_match": 4,
+    "top3": [
+     "cup in lamp",
+     "cup near lamp",
+     "cup near lamp"
+    ]
+   }
+  },
+  {
+   "case": 20,
+   "scene": "tabletop|32",
+   "instruction": "Find the food behind the lamp",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      157
+     ],
+     "score": 2.2593340611125344e-10,
+     "iou": 0.0,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food and lamp",
+     "food and lamp",
+     "food and lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      171,
+      157
+     ],
+     "score": 2.24245434589721e-10,
+     "iou": 0.0,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food and lamp",
+     "food and lamp",
+     "food and lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      171,
+      157
+     ],
+     "score": 2.24245434589721e-10,
+     "iou": 0.0,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food near lamp",
+     "food and lamp",
+     "food and lamp"
+    ]
+   }
+  },
+  {
+   "case": 21,
+   "scene": "tabletop|34",
+   "instruction": "Find the vegetable behind the lamp",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      171,
+      19
+     ],
+     "score": 5.8427430201081634e-08,
+     "iou": 0.0,
+     "iou_object": 0.902,
+     "success": false,
+     "best_rank": 42,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable near lamp",
+     "vegetable near lamp",
+     "vegetable near lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      171,
+      19
+     ],
+     "score": 5.167898780604754e-08,
+     "iou": 0.0,
+     "iou_object": 0.902,
+     "success": false,
+     "best_rank": 42,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable near lamp",
+     "vegetable near lamp",
+     "vegetable near lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      171,
+      19
+     ],
+     "score": 5.167898780604754e-08,
+     "iou": 0.0,
+     "iou_object": 0.902,
+     "success": false,
+     "best_rank": 42,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "vegetable on lamp",
+     "vegetable on lamp",
+     "vegetable in lamp"
+    ]
+   }
+  },
+  {
+   "case": 22,
+   "scene": "tabletop|36",
+   "instruction": "Find the bowl behind the box",
+   "staged_occlusion": 0.349,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 9.19876226937318e-19,
+     "iou": 0.855,
+     "iou_object": 0.969,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl on box",
+     "bowl on box",
+     "bowl on box"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 7.835021912639836e-19,
+     "iou": 0.855,
+     "iou_object": 0.969,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl on box",
+     "bowl on box",
+     "bowl on box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 7.835021912639836e-19,
+     "iou": 0.855,
+     "iou_object": 0.969,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl on box",
+     "bowl on box",
+     "bowl on box"
+    ]
+   }
+  },
+  {
+   "case": 23,
+   "scene": "tabletop|38",
+   "instruction": "Find the cup behind the bottle",
+   "staged_occlusion": 0.28,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 15,
+    "grounded_rank": null,
+    "best_subject_iou": 0.034,
+    "matched": "#15 behind iou 0.0",
+    "act": {
+     "chosen": [
+      53,
+      67
+     ],
+     "score": 2.43964392116456e-08,
+     "iou": 0.0,
+     "iou_object": 0.313,
+     "success": false,
+     "best_rank": null,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 15,
+    "top3": [
+     "cup for bottle",
+     "cup against bottle",
+     "cup made of bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 18,
+    "grounded_rank": null,
+    "best_subject_iou": 0.034,
+    "matched": "#18 behind iou 0.0",
+    "act": {
+     "chosen": [
+      53,
+      67
+     ],
+     "score": 2.84621313839105e-08,
+     "iou": 0.0,
+     "iou_object": 0.313,
+     "success": false,
+     "best_rank": null,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 18,
+    "top3": [
+     "cup for bottle",
+     "cup against bottle",
+     "cup made of bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 31,
+    "grounded_rank": null,
+    "best_subject_iou": 0.034,
+    "matched": "#31 behind iou 0.034",
+    "act": {
+     "chosen": [
+      53,
+      67
+     ],
+     "score": 2.84621313839105e-08,
+     "iou": 0.0,
+     "iou_object": 0.313,
+     "success": false,
+     "best_rank": null,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": 31,
+    "top3": [
+     "cup near bottle",
+     "cup on bottle",
+     "cup on bottle"
+    ]
+   }
+  },
+  {
+   "case": 24,
+   "scene": "tabletop|39",
+   "instruction": "Find the food behind the lamp",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      7
+     ],
+     "score": 5.61761220684195e-09,
+     "iou": 0.0,
+     "iou_object": 0.89,
+     "success": false,
+     "best_rank": 41,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food near lamp",
+     "food near lamp",
+     "food near lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      7
+     ],
+     "score": 7.4124324030899184e-09,
+     "iou": 0.0,
+     "iou_object": 0.89,
+     "success": false,
+     "best_rank": 41,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food near lamp",
+     "food near lamp",
+     "food near lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      7
+     ],
+     "score": 7.4124324030899184e-09,
+     "iou": 0.0,
+     "iou_object": 0.89,
+     "success": false,
+     "best_rank": 41,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food on lamp",
+     "food near lamp",
+     "food in front of lamp"
+    ]
+   }
+  },
+  {
+   "case": 25,
+   "scene": "tabletop|41",
+   "instruction": "Find the vegetable behind the lamp",
+   "staged_occlusion": 0.351,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 14,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#14 behind iou 0.0",
+    "act": {
+     "chosen": [
+      28,
+      85
+     ],
+     "score": 2.0054742471046662e-09,
+     "iou": 0.0,
+     "iou_object": 0.732,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 14,
+    "top3": [
+     "vegetable and lamp",
+     "vegetable has lamp",
+     "vegetable has lamp"
+    ]
+   },
+   "A": {
+    "class_rank": 16,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#16 behind iou 0.0",
+    "act": {
+     "chosen": [
+      28,
+      85
+     ],
+     "score": 1.6877563813857072e-09,
+     "iou": 0.0,
+     "iou_object": 0.732,
+     "success": false,
+     "best_rank": 4,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 16,
+    "top3": [
+     "vegetable and lamp",
+     "vegetable and lamp",
+     "vegetable and lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 7,
+    "grounded_rank": 7,
+    "best_subject_iou": 0.838,
+    "matched": "#7 behind iou 0.838",
+    "act": {
+     "chosen": [
+      28,
+      85
+     ],
+     "score": 1.6877563813857072e-09,
+     "iou": 0.0,
+     "iou_object": 0.732,
+     "success": false,
+     "best_rank": 4,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 7,
+    "top3": [
+     "vegetable in lamp",
+     "vegetable in front of lamp",
+     "vegetable in front of lamp"
+    ]
+   }
+  },
+  {
+   "case": 26,
+   "scene": "tabletop|45",
+   "instruction": "Find the cup behind the bottle",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      6,
+      26
+     ],
+     "score": 7.140673474726767e-10,
+     "iou": 0.021,
+     "iou_object": 0.78,
+     "success": false,
+     "best_rank": 48,
+     "candidates": 93
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near bottle",
+     "cup and bottle",
+     "cup near bottle"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      6,
+      26
+     ],
+     "score": 7.139646586457167e-10,
+     "iou": 0.021,
+     "iou_object": 0.78,
+     "success": false,
+     "best_rank": 48,
+     "candidates": 93
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near bottle",
+     "cup near bottle",
+     "cup and bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      6,
+      26
+     ],
+     "score": 7.139646586457167e-10,
+     "iou": 0.021,
+     "iou_object": 0.78,
+     "success": false,
+     "best_rank": 48,
+     "candidates": 93
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup on bottle",
+     "cup above bottle",
+     "cup in front of bottle"
+    ]
+   }
+  },
+  {
+   "case": 27,
+   "scene": "tabletop|46",
+   "instruction": "Find the food behind the lamp",
+   "staged_occlusion": 0.351,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      54,
+      157
+     ],
+     "score": 2.976443082551673e-10,
+     "iou": 0.01,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food near lamp",
+     "food under lamp",
+     "food under lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      54,
+      157
+     ],
+     "score": 4.059713802253655e-10,
+     "iou": 0.01,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food near lamp",
+     "food under lamp",
+     "food under lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      54,
+      157
+     ],
+     "score": 4.059713802253655e-10,
+     "iou": 0.01,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food near lamp",
+     "food under lamp",
+     "food near lamp"
+    ]
+   }
+  },
+  {
+   "case": 28,
+   "scene": "tabletop|47",
+   "instruction": "Find the fruit behind the lamp",
+   "staged_occlusion": 0.349,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      7
+     ],
+     "score": 1.1654658260453937e-08,
+     "iou": 0.832,
+     "iou_object": 0.861,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "fruit in lamp",
+     "fruit and lamp",
+     "fruit under lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      7
+     ],
+     "score": 1.5586762899217115e-08,
+     "iou": 0.832,
+     "iou_object": 0.861,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "fruit in lamp",
+     "fruit and lamp",
+     "fruit under lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 20,
+    "grounded_rank": null,
+    "best_subject_iou": 0.832,
+    "matched": "#20 behind iou 0.781",
+    "act": {
+     "chosen": [
+      43,
+      7
+     ],
+     "score": 1.5586762899217115e-08,
+     "iou": 0.832,
+     "iou_object": 0.861,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 20,
+    "top3": [
+     "fruit on lamp",
+     "fruit in front of lamp",
+     "fruit in front of lamp"
+    ]
+   }
+  },
+  {
+   "case": 29,
+   "scene": "tabletop|48",
+   "instruction": "Find the vegetable behind the bottle",
+   "staged_occlusion": 0.293,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 13,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#13 behind iou 0.0",
+    "act": {
+     "chosen": [
+      135,
+      181
+     ],
+     "score": 6.627711671323295e-09,
+     "iou": 0.0,
+     "iou_object": 0.241,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 13,
+    "top3": [
+     "vegetable and bottle",
+     "vegetable has bottle",
+     "vegetable has bottle"
+    ]
+   },
+   "A": {
+    "class_rank": 15,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#15 behind iou 0.0",
+    "act": {
+     "chosen": [
+      135,
+      181
+     ],
+     "score": 9.635150527915885e-09,
+     "iou": 0.0,
+     "iou_object": 0.241,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 15,
+    "top3": [
+     "vegetable and bottle",
+     "vegetable has bottle",
+     "vegetable has bottle"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 6,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#6 behind iou 0.0",
+    "act": {
+     "chosen": [
+      135,
+      181
+     ],
+     "score": 9.635150527915885e-09,
+     "iou": 0.0,
+     "iou_object": 0.241,
+     "success": false,
+     "best_rank": null,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 6,
+    "top3": [
+     "vegetable near bottle",
+     "vegetable near bottle",
+     "vegetable in front of bottle"
+    ]
+   }
+  },
+  {
+   "case": 30,
+   "scene": "tabletop|49",
+   "instruction": "Find the bottle behind the clock",
+   "staged_occlusion": 0.335,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      182
+     ],
+     "score": 4.5091460712255867e-07,
+     "iou": 0.696,
+     "iou_object": 0.934,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle for clock",
+     "bottle for clock",
+     "bottle for clock"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      182
+     ],
+     "score": 3.7600051846301945e-07,
+     "iou": 0.696,
+     "iou_object": 0.934,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle for clock",
+     "bottle for clock",
+     "bottle for clock"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 3,
+    "grounded_rank": 5,
+    "best_subject_iou": 0.696,
+    "matched": "#3 behind iou 0.696",
+    "act": {
+     "chosen": [
+      155,
+      182
+     ],
+     "score": 3.7600051846301945e-07,
+     "iou": 0.696,
+     "iou_object": 0.934,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 95
+    },
+    "acts": false,
+    "first_match": 3,
+    "top3": [
+     "bottle under clock",
+     "bottle under clock",
+     "bottle behind clock"
+    ]
+   }
+  },
+  {
+   "case": 31,
+   "scene": "tabletop|50",
+   "instruction": "Find the bowl behind the box",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      193,
+      54
+     ],
+     "score": 1.7935876747225091e-09,
+     "iou": 0.0,
+     "iou_object": 0.956,
+     "success": false,
+     "best_rank": 13,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl near box",
+     "bowl sitting on box",
+     "bowl near box"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      193,
+      54
+     ],
+     "score": 2.3422114924721886e-09,
+     "iou": 0.0,
+     "iou_object": 0.956,
+     "success": false,
+     "best_rank": 13,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl near box",
+     "bowl sitting on box",
+     "bowl near box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      193,
+      54
+     ],
+     "score": 2.3422114924721886e-09,
+     "iou": 0.0,
+     "iou_object": 0.956,
+     "success": false,
+     "best_rank": 13,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bowl near box",
+     "bowl on box",
+     "bowl near box"
+    ]
+   }
+  },
+  {
+   "case": 32,
+   "scene": "tabletop|52",
+   "instruction": "Find the cup behind the lamp",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 4,
+    "grounded_rank": 4,
+    "best_subject_iou": 0.864,
+    "matched": "#4 behind iou 0.864",
+    "act": {
+     "chosen": [
+      181,
+      19
+     ],
+     "score": 4.2955216135642573e-07,
+     "iou": 0.864,
+     "iou_object": 0.883,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 4,
+    "top3": [
+     "cup near lamp",
+     "cup near lamp",
+     "cup in front of lamp"
+    ]
+   },
+   "A": {
+    "class_rank": 4,
+    "grounded_rank": 4,
+    "best_subject_iou": 0.864,
+    "matched": "#4 behind iou 0.864",
+    "act": {
+     "chosen": [
+      181,
+      19
+     ],
+     "score": 5.705553027405468e-07,
+     "iou": 0.864,
+     "iou_object": 0.883,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": true,
+    "first_match": 4,
+    "top3": [
+     "cup near lamp",
+     "cup near lamp",
+     "cup in front of lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 25,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#25 behind iou 0.0",
+    "act": {
+     "chosen": [
+      181,
+      19
+     ],
+     "score": 5.705553027405468e-07,
+     "iou": 0.864,
+     "iou_object": 0.883,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": 25,
+    "top3": [
+     "cup near lamp",
+     "cup near lamp",
+     "cup above lamp"
+    ]
+   }
+  },
+  {
+   "case": 33,
+   "scene": "tabletop|53",
+   "instruction": "Find the food behind the lamp",
+   "staged_occlusion": 0.349,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      83,
+      181
+     ],
+     "score": 1.3004812317940071e-08,
+     "iou": 0.025,
+     "iou_object": 0.008,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food under lamp",
+     "food near lamp",
+     "food under lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      83,
+      181
+     ],
+     "score": 1.1435813629231758e-08,
+     "iou": 0.025,
+     "iou_object": 0.008,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food under lamp",
+     "food near lamp",
+     "food under lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      83,
+      181
+     ],
+     "score": 1.1435813629231758e-08,
+     "iou": 0.025,
+     "iou_object": 0.008,
+     "success": false,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "food near lamp",
+     "food near lamp",
+     "food near lamp"
+    ]
+   }
+  },
+  {
+   "case": 34,
+   "scene": "tabletop|56",
+   "instruction": "Find the bottle behind the box",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 1,
+    "grounded_rank": 22,
+    "best_subject_iou": 0.667,
+    "matched": "#1 behind iou 0.252",
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 7.09852757418434e-08,
+     "iou": 0.252,
+     "iou_object": 0.939,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 1,
+    "top3": [
+     "bottle behind box",
+     "bottle near box",
+     "bottle behind box"
+    ]
+   },
+   "A": {
+    "class_rank": 1,
+    "grounded_rank": 24,
+    "best_subject_iou": 0.667,
+    "matched": "#1 behind iou 0.252",
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 1.1916249918717513e-07,
+     "iou": 0.252,
+     "iou_object": 0.939,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 1,
+    "top3": [
+     "bottle behind box",
+     "bottle near box",
+     "bottle behind box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 3,
+    "grounded_rank": 24,
+    "best_subject_iou": 0.667,
+    "matched": "#3 behind iou 0.252",
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 1.1916249918717513e-07,
+     "iou": 0.252,
+     "iou_object": 0.939,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 3,
+    "top3": [
+     "bottle in box",
+     "bottle in box",
+     "bottle behind box"
+    ]
+   }
+  },
+  {
+   "case": 35,
+   "scene": "tabletop|58",
+   "instruction": "Find the box behind the laptop",
+   "staged_occlusion": 0.267,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 34,
+    "grounded_rank": null,
+    "best_subject_iou": 0.073,
+    "matched": "#34 behind iou 0.073",
+    "act": {
+     "chosen": [
+      87,
+      54
+     ],
+     "score": 1.3077758629933197e-09,
+     "iou": 0.042,
+     "iou_object": 0.897,
+     "success": false,
+     "best_rank": null,
+     "candidates": 94
+    },
+    "acts": false,
+    "first_match": 34,
+    "top3": [
+     "box in laptop",
+     "box in laptop",
+     "box under laptop"
+    ]
+   },
+   "A": {
+    "class_rank": 34,
+    "grounded_rank": null,
+    "best_subject_iou": 0.073,
+    "matched": "#34 behind iou 0.073",
+    "act": {
+     "chosen": [
+      87,
+      54
+     ],
+     "score": 1.6107308156871051e-09,
+     "iou": 0.042,
+     "iou_object": 0.897,
+     "success": false,
+     "best_rank": null,
+     "candidates": 94
+    },
+    "acts": false,
+    "first_match": 34,
+    "top3": [
+     "box in laptop",
+     "box in laptop",
+     "box under laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 34,
+    "grounded_rank": null,
+    "best_subject_iou": 0.073,
+    "matched": "#34 behind iou 0.073",
+    "act": {
+     "chosen": [
+      87,
+      54
+     ],
+     "score": 1.6107308156871051e-09,
+     "iou": 0.042,
+     "iou_object": 0.897,
+     "success": false,
+     "best_rank": null,
+     "candidates": 94
+    },
+    "acts": false,
+    "first_match": 34,
+    "top3": [
+     "box in laptop",
+     "box on laptop",
+     "box under laptop"
+    ]
+   }
+  },
+  {
+   "case": 36,
+   "scene": "tabletop|59",
+   "instruction": "Find the cup behind the box",
+   "staged_occlusion": 0.349,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": 15,
+    "grounded_rank": null,
+    "best_subject_iou": 0.782,
+    "matched": "#15 behind iou 0.782",
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 8.530495053413064e-07,
+     "iou": 0.782,
+     "iou_object": 0.949,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 15,
+    "top3": [
+     "cup near box",
+     "cup near box",
+     "cup near box"
+    ]
+   },
+   "A": {
+    "class_rank": 9,
+    "grounded_rank": null,
+    "best_subject_iou": 0.782,
+    "matched": "#9 behind iou 0.782",
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 2.9470306751326876e-06,
+     "iou": 0.782,
+     "iou_object": 0.949,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 9,
+    "top3": [
+     "cup near box",
+     "cup near box",
+     "cup near box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 30,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": "#30 behind iou 0.0",
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 2.9470306751326876e-06,
+     "iou": 0.782,
+     "iou_object": 0.949,
+     "success": true,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 30,
+    "top3": [
+     "cup near box",
+     "cup near box",
+     "cup near box"
+    ]
+   }
+  },
+  {
+   "case": 37,
+   "scene": "tabletop|61",
+   "instruction": "Find the fruit behind the box",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      69
+     ],
+     "score": 1.865654885958355e-08,
+     "iou": 0.753,
+     "iou_object": 0.379,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "fruit and box",
+     "fruit and box",
+     "fruit for box"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      69
+     ],
+     "score": 1.8676849632180278e-08,
+     "iou": 0.753,
+     "iou_object": 0.379,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "fruit and box",
+     "fruit and box",
+     "fruit for box"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 16,
+    "grounded_rank": null,
+    "best_subject_iou": 0.506,
+    "matched": "#16 behind iou 0.388",
+    "act": {
+     "chosen": [
+      43,
+      69
+     ],
+     "score": 1.8676849632180278e-08,
+     "iou": 0.753,
+     "iou_object": 0.379,
+     "success": false,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": 16,
+    "top3": [
+     "fruit on box",
+     "fruit in front of box",
+     "fruit on box"
+    ]
+   }
+  },
+  {
+   "case": 38,
+   "scene": "tabletop|63",
+   "instruction": "Find the bottle behind the lamp",
+   "staged_occlusion": 0.349,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      16,
+      171
+     ],
+     "score": 1.998098808789981e-09,
+     "iou": 0.0,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 25,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle belonging to lamp",
+     "bottle covering lamp",
+     "bottle to lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      16,
+      171
+     ],
+     "score": 3.213877021580012e-09,
+     "iou": 0.0,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 25,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle belonging to lamp",
+     "bottle covering lamp",
+     "bottle flying in lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      16,
+      171
+     ],
+     "score": 3.213877021580012e-09,
+     "iou": 0.0,
+     "iou_object": 0.0,
+     "success": false,
+     "best_rank": 25,
+     "candidates": 96
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle above lamp",
+     "bottle on lamp",
+     "bottle above lamp"
+    ]
+   }
+  },
+  {
+   "case": 39,
+   "scene": "tabletop|65",
+   "instruction": "Find the box behind the lamp",
+   "staged_occlusion": 0.35,
+   "self_test": "100/100",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      134
+     ],
+     "score": 6.566677288785781e-08,
+     "iou": 0.19,
+     "iou_object": 0.513,
+     "success": false,
+     "best_rank": 17,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box in lamp",
+     "box and lamp",
+     "box in lamp"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      134
+     ],
+     "score": 5.852629119846273e-08,
+     "iou": 0.19,
+     "iou_object": 0.513,
+     "success": false,
+     "best_rank": 17,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "box in lamp",
+     "box in lamp",
+     "box in lamp"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 35,
+    "grounded_rank": null,
+    "best_subject_iou": 0.324,
+    "matched": "#35 behind iou 0.324",
+    "act": {
+     "chosen": [
+      181,
+      134
+     ],
+     "score": 5.852629119846273e-08,
+     "iou": 0.19,
+     "iou_object": 0.513,
+     "success": false,
+     "best_rank": 17,
+     "candidates": 97
+    },
+    "acts": false,
+    "first_match": 35,
+    "top3": [
+     "box on lamp",
+     "box above lamp",
+     "box under lamp"
+    ]
+   }
+  }
+ ]
+}

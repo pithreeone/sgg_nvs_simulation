@@ -225,8 +225,35 @@ def target_mask(event, name: str) -> Tuple[int, Optional[List[int]]]:
 
 
 def sweep(rc, poses: Sequence[Dict[str, Any]], target: str, fov: float,
-          reachable: Sequence[Dict[str, float]], keep_frames: bool
-          ) -> List[Dict[str, Any]]:
+          reachable: Sequence[Dict[str, float]], keep_frames: bool,
+          synth=None) -> List[Dict[str, Any]]:
+    """The views the pipeline reasons over, one row per pose.
+
+    `synth` IS WHERE A REAL NVS MODEL GOES.  With it None the views are rendered
+    by moving THOR's own camera, which is not novel-view SYNTHESIS -- it is the
+    ground truth a synthesiser would be trying to produce, and every number
+    measured that way is an upper bound on the same pipeline driven by a model.
+
+    IT TAKES THE WHOLE TRAJECTORY, `(poses) -> [HxWx3 uint8]`, one frame per
+    pose in order.  A diffusion synthesiser conditions on the trajectory and
+    generates it in one pass -- calling it per pose would both cost 20 passes
+    and drop the consistency between neighbouring views that makes the sweep
+    worth sweeping.
+
+    Downstream reads only `frame` (`fuse_live.record`, `eval_move.perceive`).
+    `pixels` and `box` come from THOR's instance masks, which a synthesiser
+    cannot produce and no decision consumes, so they are None in that mode; the
+    tools that DO read them (`eval_nvs_pointer`, this module's `main`) are
+    measuring the simulator and always run without `synth`.
+    """
+    if synth is not None:
+        frames = synth(poses) if keep_frames else [None] * len(poses)
+        if len(frames) != len(poses):
+            raise ValueError(f"synth returned {len(frames)} frames for "
+                             f"{len(poses)} poses")
+        return [{"pose": pose, "pixels": None, "box": None,
+                 **({"frame": np.asarray(frame)} if keep_frames else {})}
+                for pose, frame in zip(poses, frames)]
     out = []
     for pose in poses:
         event = aim(rc, pose, fov, first=_first_flag(rc), reachable=reachable)

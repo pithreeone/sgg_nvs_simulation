@@ -79,6 +79,30 @@ from vg.vg_conventions import TARGET_PREDICATES as RELABEL_VOCAB  # noqa: E402
 from robot.nvs_lemniscate import LOOKAT_DIST  # noqa: E402
 
 
+def task_for(case: Dict[str, Any]) -> Dict[str, Any]:
+    """The instruction as the pipeline needs it, from a case of any list.
+
+    THE DISTRACTOR IS OPTIONAL.  A list built without a same-class competitor
+    says so with `has_distractor: False` and carries no `distractor_name`, and
+    `cases_slot` is that list on purpose: with nothing else of the target's class
+    in the room, "the laptop behind the box" and "any laptop" have the same
+    answer.  A number measured there says nothing about relational grounding and
+    must not be pooled with a list that has distractors.
+
+    This used to be four identical literals, each indexing `distractor_name`
+    unconditionally, so the first case without one raised `KeyError` before a
+    single frame was rendered.
+    """
+    name = case.get("distractor_name")
+    return {"instruction": case["instruction"],
+            "predicate": case["predicate"],
+            "subject_class": case["subject_class"],
+            "object_class": case["object_class"],
+            "target_name": case["target_name"],
+            "receptacle_name": case["occluder_name"],
+            "distractors": [{"name": name}] if name else []}
+
+
 def sparse_pairs(torch, rel, keep: int = VIEW_TOPK):
     """`mapback_cache.topk_sparse`: keep the strongest `keep` pairs of a field."""
     n = rel.shape[0]
@@ -195,6 +219,33 @@ def consensus_relabel(built: Dict[str, Any], egtr, corr: str = "argmax",
     return (which, margin, ballots) if per_view else (which, margin)
 
 
+#: VG150 classes that name the same thing, so the instruction's word covers all
+#: of them.  A softmax splits its mass across mutually exclusive labels, and
+#: where two labels are not really exclusive that split is a loss the pipeline
+#: pays twice -- once when the slot fails to reach the candidate list, and again
+#: when its score is halved.  Summing the columns undoes it: the classes are
+#: disjoint events, so `p(laptop or screen)` IS the sum.
+#:
+#: MEASURED ON `cases_slot`: over the poses where a slot covers the laptop, EGTR
+#: called it `laptop` twice and `screen` twice out of seven, and the instructed
+#: class fell outside the slot's own top TEN classes at three of them -- so the
+#: target could not enter a candidate list gated on p(laptop) at all.
+#:
+#: THE TABLE IS SEMANTIC AND FIXED IN ADVANCE.  `screen` is the part of a laptop
+#: that faces the camera; that is the whole argument, and it is the only kind
+#: admitted here.  The other things EGTR called the landmark -- `board`, `tile`,
+#: `bottle`, `door` -- are plain mistakes and are NOT aliased, however much
+#: adding them would help.  Aliases chosen by which ones raise a score are the
+#: same error as tuning on the test set.
+#:
+#: GRADING NEVER SEES THIS.  `top1_correct` overlaps boxes with the ground truth
+#: and reads no class at all, so the metric is not loosened; and both arms and
+#: every rule share `conditioned`, so no comparison is tilted.
+CLASS_ALIASES: Dict[str, Sequence[str]] = {
+    "laptop": ("laptop", "screen"),
+}
+
+
 def conditioned(built: Dict[str, Any], egtr, task: Dict[str, Any],
                 width: int = 10, nms: float = 0.0):
     """The candidate pairs an INSTRUCTION licenses -> ([subjects], [objects]).
@@ -211,16 +262,23 @@ def conditioned(built: Dict[str, Any], egtr, task: Dict[str, Any],
 
     classes = {v: k - 1 for k, v in egtr["obj_names"].items()}
     probs = built["probs_ref"]
-    subject_id = classes.get(task["subject_class"])
-    object_id = classes.get(task["object_class"])
-    if subject_id is None or object_id is None:
+
+    def mass(name: str):
+        """p(the instruction's word), summed over the classes that mean it."""
+        columns = [classes[c] for c in CLASS_ALIASES.get(name, (name,))
+                   if c in classes]
+        return probs[:, columns].sum(-1) if columns else None
+
+    subject_p = mass(task["subject_class"])
+    object_p = mass(task["object_class"])
+    if subject_p is None or object_p is None:
         return None
 
     # By p(INSTRUCTED class), not by argmax: a query sitting on the bottle often
     # argmaxes to something else (median p(class) on these targets is 0.07).
     if not nms:
-        subjects = _np.argsort(-probs[:, subject_id])[:width]
-        objects = _np.argsort(-probs[:, object_id])[:width]
+        subjects = _np.argsort(-subject_p)[:width]
+        objects = _np.argsort(-object_p)[:width]
         return [int(q) for q in subjects], [int(q) for q in objects]
 
     # ONE SLOT PER OBJECT: the subject side's top 10 covers a median of FIVE
@@ -247,7 +305,7 @@ def conditioned(built: Dict[str, Any], egtr, task: Dict[str, Any],
                 keep.append(int(q))
         return keep
 
-    return pick(probs[:, subject_id]), pick(probs[:, object_id])
+    return pick(subject_p), pick(object_p)
 
 
 def decide(built: Dict[str, Any], egtr, task: Dict[str, Any], rank,
@@ -536,13 +594,7 @@ def run_case_proc(case: Dict[str, Any], args, egtr) -> Optional[Dict[str, Any]]:
         rc = View(event)
         rc.controller = controller
 
-        task = {"instruction": case["instruction"],
-                "predicate": case["predicate"],
-                "subject_class": case["subject_class"],
-                "object_class": case["object_class"],
-                "target_name": case["target_name"],
-                "receptacle_name": case["occluder_name"],
-                "distractors": [{"name": case["distractor_name"]}]}
+        task = task_for(case)
         print(f"  {task['instruction']}   target {task['target_name']}")
 
         reference = event.frame.copy()
@@ -564,8 +616,8 @@ def run_case_proc(case: Dict[str, Any], args, egtr) -> Optional[Dict[str, Any]]:
         # truth is defined in, and both arms share it.
         event = rebuild(controller, case)
         geo = {name: {"bbox_visible": visible_box(event, name)}
-               for name in (case["target_name"], case["distractor_name"],
-                            case["occluder_name"])}
+               for name in (case["target_name"], case["occluder_name"],
+                            *(d["name"] for d in task["distractors"]))}
         return score_case(built, egtr, task, geo, reference, args,
                           case["scene"], case["staged_occlusion"])
     finally:

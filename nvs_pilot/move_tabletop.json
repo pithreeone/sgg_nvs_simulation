@@ -1,0 +1,6081 @@
+{
+ "steps": 3,
+ "condition": 10,
+ "cases": [
+  {
+   "scene": "tabletop|1",
+   "instruction": "Find the bowl behind the clock",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.994,
+    2.22
+   ],
+   "target_xz": [
+    1.996,
+    2.463
+   ],
+   "landmark_xz": [
+    1.996,
+    2.251
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.996,
+       1.613
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "moved": 0.098,
+      "votes": 2,
+      "xz": [
+       2.094,
+       1.621
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "moved": 0.098,
+      "votes": 4,
+      "xz": [
+       1.996,
+       1.613
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.845,
+      "iou_object": 0.166,
+      "matched_at": 5,
+      "chosen_box": [
+       343.6,
+       140.9,
+       458.7,
+       216.9
+      ],
+      "object_box": [
+       347.0,
+       286.3,
+       447.1,
+       311.8
+      ],
+      "truth_box": [
+       346.0,
+       147.0,
+       458.0,
+       213.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 2,
+    "metres": 0.196,
+    "sweeps": 1,
+    "stops": [
+     {
+      "step": 2,
+      "stops": true,
+      "correct": false,
+      "iou": 0.845,
+      "iou_object": 0.166,
+      "matched_at": 5,
+      "chosen_box": [
+       343.6,
+       140.9,
+       458.7,
+       216.9
+      ],
+      "object_box": [
+       347.0,
+       286.3,
+       447.1,
+       311.8
+      ],
+      "truth_box": [
+       346.0,
+       147.0,
+       458.0,
+       213.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.996,
+       1.613
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 19.6,
+      "moved": 0.207,
+      "votes": 2,
+      "xz": [
+       1.792,
+       1.647
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.351,
+      "iou_object": 0.303,
+      "matched_at": 3,
+      "chosen_box": [
+       300.4,
+       145.0,
+       463.3,
+       324.8
+      ],
+      "object_box": [
+       341.3,
+       274.8,
+       443.2,
+       324.6
+      ],
+      "truth_box": [
+       302.0,
+       148.0,
+       420.0,
+       235.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.207,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.351,
+      "iou_object": 0.303,
+      "matched_at": 3,
+      "chosen_box": [
+       300.4,
+       145.0,
+       463.3,
+       324.8
+      ],
+      "object_box": [
+       341.3,
+       274.8,
+       443.2,
+       324.6
+      ],
+      "truth_box": [
+       302.0,
+       148.0,
+       420.0,
+       235.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|6",
+   "instruction": "Find the vegetable behind the box",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.105,
+    2.221
+   ],
+   "target_xz": [
+    1.906,
+    2.478
+   ],
+   "landmark_xz": [
+    2.061,
+    2.265
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.906,
+       1.628
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -5.5,
+      "moved": 0.06,
+      "votes": 0,
+      "xz": [
+       1.964,
+       1.612
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -8.2,
+      "moved": 0.089,
+      "votes": 0,
+      "xz": [
+       2.052,
+       1.598
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": -9.5,
+      "moved": 0.104,
+      "votes": 0,
+      "xz": [
+       2.156,
+       1.597
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.253,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.906,
+       1.628
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -5.5,
+      "moved": 0.06,
+      "votes": 0,
+      "xz": [
+       1.964,
+       1.612
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -8.2,
+      "moved": 0.089,
+      "votes": 0,
+      "xz": [
+       2.052,
+       1.598
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": -9.5,
+      "moved": 0.104,
+      "votes": 0,
+      "xz": [
+       2.156,
+       1.597
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.253,
+    "sweeps": 0,
+    "stops": []
+   }
+  },
+  {
+   "scene": "tabletop|8",
+   "instruction": "Find the bowl behind the box",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.222,
+    2.473
+   ],
+   "target_xz": [
+    1.994,
+    2.441
+   ],
+   "landmark_xz": [
+    2.146,
+    2.228
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.994,
+       1.591
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "moved": 0.147,
+      "votes": 1,
+      "xz": [
+       2.139,
+       1.565
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.299,
+      "matched_at": 6,
+      "chosen_box": [
+       7.7,
+       337.3,
+       147.2,
+       468.4
+      ],
+      "object_box": [
+       39.9,
+       174.9,
+       597.9,
+       521.2
+      ],
+      "truth_box": [
+       242.0,
+       278.0,
+       302.0,
+       339.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.147,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.299,
+      "matched_at": 6,
+      "chosen_box": [
+       7.7,
+       337.3,
+       147.2,
+       468.4
+      ],
+      "object_box": [
+       39.9,
+       174.9,
+       597.9,
+       521.2
+      ],
+      "truth_box": [
+       242.0,
+       278.0,
+       302.0,
+       339.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.994,
+       1.591
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "1/7"
+  },
+  {
+   "scene": "tabletop|9",
+   "instruction": "Find the box behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.818,
+    2.024
+   ],
+   "target_xz": [
+    1.876,
+    2.429
+   ],
+   "landmark_xz": [
+    1.754,
+    2.216
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.876,
+       1.579
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -17.6,
+      "moved": 0.138,
+      "votes": 1,
+      "xz": [
+       2.008,
+       1.617
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "moved": 0.073,
+      "votes": 2,
+      "xz": [
+       1.94,
+       1.592
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "moved": 0.073,
+      "votes": 1,
+      "xz": [
+       1.869,
+       1.578
+      ],
+      "stops": true,
+      "correct": true,
+      "iou": 0.57,
+      "iou_object": 0.939,
+      "matched_at": 1,
+      "chosen_box": [
+       290.6,
+       2.1,
+       551.9,
+       211.5
+      ],
+      "object_box": [
+       289.4,
+       8.6,
+       440.1,
+       226.3
+      ],
+      "truth_box": [
+       384.0,
+       1.0,
+       547.0,
+       194.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": true,
+    "steps": 3,
+    "metres": 0.283,
+    "sweeps": 2,
+    "stops": [
+     {
+      "step": 3,
+      "stops": true,
+      "correct": true,
+      "iou": 0.57,
+      "iou_object": 0.939,
+      "matched_at": 1,
+      "chosen_box": [
+       290.6,
+       2.1,
+       551.9,
+       211.5
+      ],
+      "object_box": [
+       289.4,
+       8.6,
+       440.1,
+       226.3
+      ],
+      "truth_box": [
+       384.0,
+       1.0,
+       547.0,
+       194.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.876,
+       1.579
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -3.4,
+      "moved": 0.027,
+      "votes": 1,
+      "xz": [
+       1.902,
+       1.583
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -18.1,
+      "moved": 0.141,
+      "votes": 1,
+      "xz": [
+       2.035,
+       1.631
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 8.6,
+      "moved": 0.067,
+      "votes": 1,
+      "xz": [
+       1.974,
+       1.603
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.235,
+    "sweeps": 0,
+    "stops": []
+   }
+  },
+  {
+   "scene": "tabletop|10",
+   "instruction": "Find the cup behind the box",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.874,
+    2.333
+   ],
+   "target_xz": [
+    1.997,
+    2.333
+   ],
+   "landmark_xz": [
+    1.866,
+    2.158
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.997,
+       1.633
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "moved": 0.115,
+      "votes": 3,
+      "xz": [
+       2.108,
+       1.662
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.115,
+    "sweeps": 1,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.997,
+       1.633
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 15.8,
+      "moved": 0.195,
+      "votes": 3,
+      "xz": [
+       1.802,
+       1.626
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -28.5,
+      "moved": 0.35,
+      "votes": 3,
+      "xz": [
+       2.148,
+       1.678
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.545,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "2/13"
+  },
+  {
+   "scene": "tabletop|12",
+   "instruction": "Find the fruit behind the clock",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.985,
+    2.502
+   ],
+   "target_xz": [
+    1.971,
+    2.381
+   ],
+   "landmark_xz": [
+    2.047,
+    2.168
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.971,
+       1.531
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -22.1,
+      "moved": 0.372,
+      "votes": 0,
+      "xz": [
+       2.338,
+       1.597
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.456,
+      "iou_object": 0.43,
+      "matched_at": 3,
+      "chosen_box": [
+       336.0,
+       220.8,
+       409.3,
+       280.9
+      ],
+      "object_box": [
+       244.2,
+       220.6,
+       483.5,
+       418.0
+      ],
+      "truth_box": [
+       348.0,
+       235.0,
+       397.0,
+       276.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.372,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.456,
+      "iou_object": 0.43,
+      "matched_at": 3,
+      "chosen_box": [
+       336.0,
+       220.8,
+       409.3,
+       280.9
+      ],
+      "object_box": [
+       244.2,
+       220.6,
+       483.5,
+       418.0
+      ],
+      "truth_box": [
+       348.0,
+       235.0,
+       397.0,
+       276.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.971,
+       1.531
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -22.1,
+      "moved": 0.372,
+      "votes": 0,
+      "xz": [
+       2.338,
+       1.597
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.456,
+      "iou_object": 0.43,
+      "matched_at": 3,
+      "chosen_box": [
+       336.0,
+       220.8,
+       409.3,
+       280.9
+      ],
+      "object_box": [
+       244.2,
+       220.6,
+       483.5,
+       418.0
+      ],
+      "truth_box": [
+       348.0,
+       235.0,
+       397.0,
+       276.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.372,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.456,
+      "iou_object": 0.43,
+      "matched_at": 3,
+      "chosen_box": [
+       336.0,
+       220.8,
+       409.3,
+       280.9
+      ],
+      "object_box": [
+       244.2,
+       220.6,
+       483.5,
+       418.0
+      ],
+      "truth_box": [
+       348.0,
+       235.0,
+       397.0,
+       276.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|14",
+   "instruction": "Find the bottle behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.771,
+    2.212
+   ],
+   "target_xz": [
+    2.135,
+    2.401
+   ],
+   "landmark_xz": [
+    2.24,
+    2.189
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.135,
+       1.551
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 16.0,
+      "moved": 0.21,
+      "votes": 0,
+      "xz": [
+       1.939,
+       1.476
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 29.4,
+      "moved": 0.383,
+      "votes": 0,
+      "xz": [
+       1.556,
+       1.488
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.006,
+      "matched_at": 2,
+      "chosen_box": [
+       361.0,
+       248.5,
+       448.4,
+       354.6
+      ],
+      "object_box": [
+       487.6,
+       165.5,
+       562.3,
+       259.9
+      ],
+      "truth_box": [
+       490.0,
+       171.0,
+       561.0,
+       261.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 2,
+    "metres": 0.592,
+    "sweeps": 1,
+    "stops": [
+     {
+      "step": 2,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.006,
+      "matched_at": 2,
+      "chosen_box": [
+       361.0,
+       248.5,
+       448.4,
+       354.6
+      ],
+      "object_box": [
+       487.6,
+       165.5,
+       562.3,
+       259.9
+      ],
+      "truth_box": [
+       490.0,
+       171.0,
+       561.0,
+       261.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.135,
+       1.551
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 16.0,
+      "moved": 0.21,
+      "votes": 0,
+      "xz": [
+       1.939,
+       1.476
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 29.4,
+      "moved": 0.383,
+      "votes": 0,
+      "xz": [
+       1.556,
+       1.488
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.006,
+      "matched_at": 2,
+      "chosen_box": [
+       361.0,
+       248.5,
+       448.4,
+       354.6
+      ],
+      "object_box": [
+       487.6,
+       165.5,
+       562.3,
+       259.9
+      ],
+      "truth_box": [
+       490.0,
+       171.0,
+       561.0,
+       261.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 2,
+    "metres": 0.592,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 2,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.006,
+      "matched_at": 2,
+      "chosen_box": [
+       361.0,
+       248.5,
+       448.4,
+       354.6
+      ],
+      "object_box": [
+       487.6,
+       165.5,
+       562.3,
+       259.9
+      ],
+      "truth_box": [
+       490.0,
+       171.0,
+       561.0,
+       261.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|16",
+   "instruction": "Find the box behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.883,
+    2.248
+   ],
+   "target_xz": [
+    2.03,
+    2.45
+   ],
+   "landmark_xz": [
+    1.908,
+    2.237
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.03,
+       1.6
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.03,
+       1.6
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "2/6"
+  },
+  {
+   "scene": "tabletop|17",
+   "instruction": "Find the cup behind the bottle",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.124,
+    2.27
+   ],
+   "target_xz": [
+    2.089,
+    2.452
+   ],
+   "landmark_xz": [
+    2.127,
+    2.239
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.089,
+       1.602
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 21.0,
+      "moved": 0.243,
+      "votes": 7,
+      "xz": [
+       1.852,
+       1.658
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.243,
+    "sweeps": 1,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.089,
+       1.602
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "2/9"
+  },
+  {
+   "scene": "tabletop|18",
+   "instruction": "Find the food behind the bottle",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.119,
+    2.165
+   ],
+   "target_xz": [
+    2.11,
+    2.397
+   ],
+   "landmark_xz": [
+    2.122,
+    2.185
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.11,
+       1.547
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "moved": 0.1,
+      "votes": 1,
+      "xz": [
+       2.21,
+       1.554
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "moved": 0.1,
+      "votes": 1,
+      "xz": [
+       2.307,
+       1.576
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 2.0,
+      "moved": 0.022,
+      "votes": 0,
+      "xz": [
+       2.286,
+       1.57
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.222,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.11,
+       1.547
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 11.2,
+      "moved": 0.121,
+      "votes": 1,
+      "xz": [
+       1.99,
+       1.561
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.132,
+      "iou_object": 0.148,
+      "matched_at": 1,
+      "chosen_box": [
+       346.3,
+       199.1,
+       436.6,
+       349.9
+      ],
+      "object_box": [
+       384.9,
+       217.3,
+       417.0,
+       257.5
+      ],
+      "truth_box": [
+       355.0,
+       208.0,
+       391.0,
+       258.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.121,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.132,
+      "iou_object": 0.148,
+      "matched_at": 1,
+      "chosen_box": [
+       346.3,
+       199.1,
+       436.6,
+       349.9
+      ],
+      "object_box": [
+       384.9,
+       217.3,
+       417.0,
+       257.5
+      ],
+      "truth_box": [
+       355.0,
+       208.0,
+       391.0,
+       258.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|21",
+   "instruction": "Find the bottle behind the box",
+   "start_stops": true,
+   "start_correct": true,
+   "start_iou": 0.835,
+   "centre_xz": [
+    2.146,
+    2.166
+   ],
+   "target_xz": [
+    1.992,
+    2.333
+   ],
+   "landmark_xz": [
+    2.119,
+    2.158
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": true,
+      "iou": 0.835,
+      "iou_object": 0.553,
+      "matched_at": 6,
+      "chosen_box": [
+       365.1,
+       223.7,
+       410.2,
+       351.1
+      ],
+      "object_box": [
+       325.1,
+       218.2,
+       614.8,
+       474.7
+      ],
+      "truth_box": [
+       368.0,
+       228.0,
+       407.0,
+       351.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.992,
+       1.633
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": true,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": true,
+      "iou": 0.835,
+      "iou_object": 0.553,
+      "matched_at": 6,
+      "chosen_box": [
+       365.1,
+       223.7,
+       410.2,
+       351.1
+      ],
+      "object_box": [
+       325.1,
+       218.2,
+       614.8,
+       474.7
+      ],
+      "truth_box": [
+       368.0,
+       228.0,
+       407.0,
+       351.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": true,
+      "iou": 0.835,
+      "iou_object": 0.553,
+      "matched_at": 6,
+      "chosen_box": [
+       365.1,
+       223.7,
+       410.2,
+       351.1
+      ],
+      "object_box": [
+       325.1,
+       218.2,
+       614.8,
+       474.7
+      ],
+      "truth_box": [
+       368.0,
+       228.0,
+       407.0,
+       351.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.992,
+       1.633
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": true,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": true,
+      "iou": 0.835,
+      "iou_object": 0.553,
+      "matched_at": 6,
+      "chosen_box": [
+       365.1,
+       223.7,
+       410.2,
+       351.1
+      ],
+      "object_box": [
+       325.1,
+       218.2,
+       614.8,
+       474.7
+      ],
+      "truth_box": [
+       368.0,
+       228.0,
+       407.0,
+       351.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|22",
+   "instruction": "Find the bowl behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.853,
+    2.259
+   ],
+   "target_xz": [
+    1.926,
+    2.439
+   ],
+   "landmark_xz": [
+    1.81,
+    2.226
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.926,
+       1.589
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 21.4,
+      "moved": 0.25,
+      "votes": 0,
+      "xz": [
+       1.677,
+       1.608
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 24.3,
+      "moved": 0.283,
+      "votes": 1,
+      "xz": [
+       1.425,
+       1.738
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 27.1,
+      "moved": 0.316,
+      "votes": 0,
+      "xz": [
+       1.235,
+       1.989
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.849,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.926,
+       1.589
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 21.4,
+      "moved": 0.25,
+      "votes": 0,
+      "xz": [
+       1.677,
+       1.608
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 18.2,
+      "moved": 0.214,
+      "votes": 0,
+      "xz": [
+       1.482,
+       1.696
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 27.1,
+      "moved": 0.316,
+      "votes": 0,
+      "xz": [
+       1.266,
+       1.926
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.779,
+    "sweeps": 0,
+    "stops": []
+   }
+  },
+  {
+   "scene": "tabletop|25",
+   "instruction": "Find the food behind the laptop",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.964,
+    2.185
+   ],
+   "target_xz": [
+    1.968,
+    2.415
+   ],
+   "landmark_xz": [
+    1.969,
+    2.203
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.969,
+       1.565
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 24.3,
+      "moved": 0.26,
+      "votes": 2,
+      "xz": [
+       1.714,
+       1.618
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 17.6,
+      "moved": 0.19,
+      "votes": 2,
+      "xz": [
+       1.554,
+       1.72
+      ],
+      "stops": true,
+      "correct": true,
+      "iou": 0.918,
+      "iou_object": 0.93,
+      "matched_at": 1,
+      "chosen_box": [
+       257.2,
+       202.1,
+       399.2,
+       340.8
+      ],
+      "object_box": [
+       273.6,
+       216.8,
+       529.7,
+       445.0
+      ],
+      "truth_box": [
+       260.0,
+       207.0,
+       397.0,
+       339.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": true,
+    "steps": 2,
+    "metres": 0.45,
+    "sweeps": 1,
+    "stops": [
+     {
+      "step": 2,
+      "stops": true,
+      "correct": true,
+      "iou": 0.918,
+      "iou_object": 0.93,
+      "matched_at": 1,
+      "chosen_box": [
+       257.2,
+       202.1,
+       399.2,
+       340.8
+      ],
+      "object_box": [
+       273.6,
+       216.8,
+       529.7,
+       445.0
+      ],
+      "truth_box": [
+       260.0,
+       207.0,
+       397.0,
+       339.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.969,
+       1.565
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 15.9,
+      "moved": 0.171,
+      "votes": 2,
+      "xz": [
+       1.799,
+       1.588
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -23.5,
+      "moved": 0.252,
+      "votes": 2,
+      "xz": [
+       2.05,
+       1.571
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": -8.5,
+      "moved": 0.091,
+      "votes": 2,
+      "xz": [
+       2.139,
+       1.591
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.845,
+      "iou_object": 0.471,
+      "matched_at": 5,
+      "chosen_box": [
+       382.5,
+       186.0,
+       485.1,
+       291.4
+      ],
+      "object_box": [
+       238.9,
+       184.1,
+       548.2,
+       449.7
+      ],
+      "truth_box": [
+       385.0,
+       192.0,
+       479.0,
+       294.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.515,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 3,
+      "stops": true,
+      "correct": false,
+      "iou": 0.845,
+      "iou_object": 0.471,
+      "matched_at": 5,
+      "chosen_box": [
+       382.5,
+       186.0,
+       485.1,
+       291.4
+      ],
+      "object_box": [
+       238.9,
+       184.1,
+       548.2,
+       449.7
+      ],
+      "truth_box": [
+       385.0,
+       192.0,
+       479.0,
+       294.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|26",
+   "instruction": "Find the fruit behind the bottle",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.885,
+    2.205
+   ],
+   "target_xz": [
+    1.888,
+    2.361
+   ],
+   "landmark_xz": [
+    1.887,
+    2.186
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.888,
+       1.661
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.888,
+       1.661
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 0.4,
+      "moved": 0.003,
+      "votes": 2,
+      "xz": [
+       1.884,
+       1.661
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 2.4,
+      "moved": 0.022,
+      "votes": 2,
+      "xz": [
+       1.862,
+       1.661
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 18.4,
+      "moved": 0.174,
+      "votes": 2,
+      "xz": [
+       1.692,
+       1.697
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.2,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "1/11"
+  },
+  {
+   "scene": "tabletop|27",
+   "instruction": "Find the vegetable behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.207,
+    2.187
+   ],
+   "target_xz": [
+    2.073,
+    2.391
+   ],
+   "landmark_xz": [
+    2.185,
+    2.179
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.073,
+       1.541
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -16.9,
+      "moved": 0.194,
+      "votes": 0,
+      "xz": [
+       2.267,
+       1.53
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -1.3,
+      "moved": 0.014,
+      "votes": 0,
+      "xz": [
+       2.281,
+       1.532
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 20.1,
+      "moved": 0.23,
+      "votes": 0,
+      "xz": [
+       2.051,
+       1.546
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.439,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.073,
+       1.541
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -16.9,
+      "moved": 0.194,
+      "votes": 0,
+      "xz": [
+       2.267,
+       1.53
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -1.3,
+      "moved": 0.014,
+      "votes": 0,
+      "xz": [
+       2.281,
+       1.532
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 20.1,
+      "moved": 0.23,
+      "votes": 0,
+      "xz": [
+       2.051,
+       1.546
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.439,
+    "sweeps": 0,
+    "stops": []
+   }
+  },
+  {
+   "scene": "tabletop|32",
+   "instruction": "Find the food behind the bottle",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.909,
+    2.313
+   ],
+   "target_xz": [
+    1.91,
+    2.378
+   ],
+   "landmark_xz": [
+    1.91,
+    2.203
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.91,
+       1.678
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.91,
+       1.678
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "2/6"
+  },
+  {
+   "scene": "tabletop|33",
+   "instruction": "Find the fruit behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.19,
+    2.079
+   ],
+   "target_xz": [
+    2.101,
+    2.469
+   ],
+   "landmark_xz": [
+    2.204,
+    2.256
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.101,
+       1.619
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -28.5,
+      "moved": 0.231,
+      "votes": 1,
+      "xz": [
+       2.332,
+       1.633
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.655,
+      "matched_at": 3,
+      "chosen_box": [
+       139.0,
+       91.6,
+       214.2,
+       169.6
+      ],
+      "object_box": [
+       328.2,
+       23.3,
+       550.0,
+       280.6
+      ],
+      "truth_box": null
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.231,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.655,
+      "matched_at": 3,
+      "chosen_box": [
+       139.0,
+       91.6,
+       214.2,
+       169.6
+      ],
+      "object_box": [
+       328.2,
+       23.3,
+       550.0,
+       280.6
+      ],
+      "truth_box": null
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.101,
+       1.619
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -10.8,
+      "moved": 0.088,
+      "votes": 1,
+      "xz": [
+       2.189,
+       1.61
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.0,
+      "matched_at": 2,
+      "chosen_box": [
+       69.9,
+       145.3,
+       154.5,
+       226.1
+      ],
+      "object_box": [
+       393.7,
+       276.1,
+       432.4,
+       324.8
+      ],
+      "truth_box": [
+       324.0,
+       78.0,
+       345.0,
+       142.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.088,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.0,
+      "matched_at": 2,
+      "chosen_box": [
+       69.9,
+       145.3,
+       154.5,
+       226.1
+      ],
+      "object_box": [
+       393.7,
+       276.1,
+       432.4,
+       324.8
+      ],
+      "truth_box": [
+       324.0,
+       78.0,
+       345.0,
+       142.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|34",
+   "instruction": "Find the vegetable behind the box",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.87,
+    2.383
+   ],
+   "target_xz": [
+    1.87,
+    2.335
+   ],
+   "landmark_xz": [
+    1.725,
+    2.16
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.87,
+       1.635
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 22.0,
+      "moved": 0.286,
+      "votes": 0,
+      "xz": [
+       1.589,
+       1.69
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.598,
+      "matched_at": 2,
+      "chosen_box": [
+       555.5,
+       198.7,
+       656.0,
+       301.8
+      ],
+      "object_box": [
+       227.1,
+       168.6,
+       698.3,
+       468.6
+      ],
+      "truth_box": [
+       407.0,
+       197.0,
+       435.0,
+       241.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.286,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.598,
+      "matched_at": 2,
+      "chosen_box": [
+       555.5,
+       198.7,
+       656.0,
+       301.8
+      ],
+      "object_box": [
+       227.1,
+       168.6,
+       698.3,
+       468.6
+      ],
+      "truth_box": [
+       407.0,
+       197.0,
+       435.0,
+       241.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.87,
+       1.635
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 22.0,
+      "moved": 0.286,
+      "votes": 0,
+      "xz": [
+       1.589,
+       1.69
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.598,
+      "matched_at": 2,
+      "chosen_box": [
+       555.5,
+       198.7,
+       656.0,
+       301.8
+      ],
+      "object_box": [
+       227.1,
+       168.6,
+       698.3,
+       468.6
+      ],
+      "truth_box": [
+       407.0,
+       197.0,
+       435.0,
+       241.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.286,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.598,
+      "matched_at": 2,
+      "chosen_box": [
+       555.5,
+       198.7,
+       656.0,
+       301.8
+      ],
+      "object_box": [
+       227.1,
+       168.6,
+       698.3,
+       468.6
+      ],
+      "truth_box": [
+       407.0,
+       197.0,
+       435.0,
+       241.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|35",
+   "instruction": "Find the bottle behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.742,
+    2.232
+   ],
+   "target_xz": [
+    2.078,
+    2.419
+   ],
+   "landmark_xz": [
+    2.183,
+    2.207
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.078,
+       1.569
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -11.5,
+      "moved": 0.149,
+      "votes": 0,
+      "xz": [
+       2.203,
+       1.649
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -1.6,
+      "moved": 0.021,
+      "votes": 0,
+      "xz": [
+       2.219,
+       1.663
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.17,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.078,
+       1.569
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -11.5,
+      "moved": 0.149,
+      "votes": 0,
+      "xz": [
+       2.203,
+       1.649
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -1.6,
+      "moved": 0.021,
+      "votes": 0,
+      "xz": [
+       2.219,
+       1.663
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.17,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "2/16"
+  },
+  {
+   "scene": "tabletop|36",
+   "instruction": "Find the bowl behind the bottle",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.951,
+    2.381
+   ],
+   "target_xz": [
+    1.921,
+    2.471
+   ],
+   "landmark_xz": [
+    1.962,
+    2.258
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.921,
+       1.621
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "moved": 0.394,
+      "votes": 1,
+      "xz": [
+       1.545,
+       1.738
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -17.6,
+      "moved": 0.233,
+      "votes": 1,
+      "xz": [
+       1.758,
+       1.645
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -30.0,
+      "moved": 0.394,
+      "votes": 1,
+      "xz": [
+       2.152,
+       1.647
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.437,
+      "matched_at": 1,
+      "chosen_box": [
+       164.5,
+       259.6,
+       258.0,
+       350.9
+      ],
+      "object_box": [
+       319.0,
+       199.3,
+       462.8,
+       394.5
+      ],
+      "truth_box": [
+       357.0,
+       228.0,
+       436.0,
+       293.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 3,
+    "metres": 1.021,
+    "sweeps": 2,
+    "stops": [
+     {
+      "step": 3,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.437,
+      "matched_at": 1,
+      "chosen_box": [
+       164.5,
+       259.6,
+       258.0,
+       350.9
+      ],
+      "object_box": [
+       319.0,
+       199.3,
+       462.8,
+       394.5
+      ],
+      "truth_box": [
+       357.0,
+       228.0,
+       436.0,
+       293.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.921,
+       1.621
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -8.6,
+      "moved": 0.114,
+      "votes": 1,
+      "xz": [
+       2.035,
+       1.625
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.114,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "1/15"
+  },
+  {
+   "scene": "tabletop|38",
+   "instruction": "Find the cup behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.721,
+    2.271
+   ],
+   "target_xz": [
+    2.035,
+    2.446
+   ],
+   "landmark_xz": [
+    2.137,
+    2.234
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.035,
+       1.596
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 22.8,
+      "moved": 0.295,
+      "votes": 0,
+      "xz": [
+       1.748,
+       1.527
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 21.7,
+      "moved": 0.281,
+      "votes": 0,
+      "xz": [
+       1.471,
+       1.57
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -24.3,
+      "moved": 0.313,
+      "votes": 1,
+      "xz": [
+       1.781,
+       1.529
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.888,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.035,
+       1.596
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 22.8,
+      "moved": 0.295,
+      "votes": 0,
+      "xz": [
+       1.748,
+       1.527
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 21.7,
+      "moved": 0.281,
+      "votes": 0,
+      "xz": [
+       1.471,
+       1.57
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 21.9,
+      "moved": 0.283,
+      "votes": 0,
+      "xz": [
+       1.227,
+       1.714
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.858,
+    "sweeps": 0,
+    "stops": []
+   }
+  },
+  {
+   "scene": "tabletop|41",
+   "instruction": "Find the vegetable behind the bottle",
+   "start_stops": true,
+   "start_correct": false,
+   "start_iou": 0.871,
+   "centre_xz": [
+    1.852,
+    2.273
+   ],
+   "target_xz": [
+    1.878,
+    2.346
+   ],
+   "landmark_xz": [
+    1.834,
+    2.171
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.871,
+      "iou_object": 0.31,
+      "matched_at": 3,
+      "chosen_box": [
+       372.2,
+       262.5,
+       437.6,
+       358.8
+      ],
+      "object_box": [
+       329.2,
+       247.4,
+       459.1,
+       367.8
+      ],
+      "truth_box": [
+       375.0,
+       267.0,
+       436.0,
+       361.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.878,
+       1.646
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.871,
+      "iou_object": 0.31,
+      "matched_at": 3,
+      "chosen_box": [
+       372.2,
+       262.5,
+       437.6,
+       358.8
+      ],
+      "object_box": [
+       329.2,
+       247.4,
+       459.1,
+       367.8
+      ],
+      "truth_box": [
+       375.0,
+       267.0,
+       436.0,
+       361.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.871,
+      "iou_object": 0.31,
+      "matched_at": 3,
+      "chosen_box": [
+       372.2,
+       262.5,
+       437.6,
+       358.8
+      ],
+      "object_box": [
+       329.2,
+       247.4,
+       459.1,
+       367.8
+      ],
+      "truth_box": [
+       375.0,
+       267.0,
+       436.0,
+       361.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.878,
+       1.646
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.871,
+      "iou_object": 0.31,
+      "matched_at": 3,
+      "chosen_box": [
+       372.2,
+       262.5,
+       437.6,
+       358.8
+      ],
+      "object_box": [
+       329.2,
+       247.4,
+       459.1,
+       367.8
+      ],
+      "truth_box": [
+       375.0,
+       267.0,
+       436.0,
+       361.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|44",
+   "instruction": "Find the box behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.664,
+    2.175
+   ],
+   "target_xz": [
+    1.944,
+    2.36
+   ],
+   "landmark_xz": [
+    2.055,
+    2.185
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.944,
+       1.66
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 15.9,
+      "moved": 0.162,
+      "votes": 0,
+      "xz": [
+       1.793,
+       1.603
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.002,
+      "iou_object": 0.445,
+      "matched_at": 3,
+      "chosen_box": [
+       572.9,
+       303.6,
+       692.3,
+       399.6
+      ],
+      "object_box": [
+       569.3,
+       217.1,
+       706.7,
+       397.9
+      ],
+      "truth_box": [
+       512.0,
+       215.0,
+       605.0,
+       305.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.162,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.002,
+      "iou_object": 0.445,
+      "matched_at": 3,
+      "chosen_box": [
+       572.9,
+       303.6,
+       692.3,
+       399.6
+      ],
+      "object_box": [
+       569.3,
+       217.1,
+       706.7,
+       397.9
+      ],
+      "truth_box": [
+       512.0,
+       215.0,
+       605.0,
+       305.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.944,
+       1.66
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 15.9,
+      "moved": 0.162,
+      "votes": 0,
+      "xz": [
+       1.793,
+       1.603
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.002,
+      "iou_object": 0.445,
+      "matched_at": 3,
+      "chosen_box": [
+       572.9,
+       303.6,
+       692.3,
+       399.6
+      ],
+      "object_box": [
+       569.3,
+       217.1,
+       706.7,
+       397.9
+      ],
+      "truth_box": [
+       512.0,
+       215.0,
+       605.0,
+       305.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.162,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.002,
+      "iou_object": 0.445,
+      "matched_at": 3,
+      "chosen_box": [
+       572.9,
+       303.6,
+       692.3,
+       399.6
+      ],
+      "object_box": [
+       569.3,
+       217.1,
+       706.7,
+       397.9
+      ],
+      "truth_box": [
+       512.0,
+       215.0,
+       605.0,
+       305.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|45",
+   "instruction": "Find the cup behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.898,
+    2.203
+   ],
+   "target_xz": [
+    1.985,
+    2.376
+   ],
+   "landmark_xz": [
+    1.885,
+    2.201
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.985,
+       1.676
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.985,
+       1.676
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "2/6"
+  },
+  {
+   "scene": "tabletop|47",
+   "instruction": "Find the fruit behind the lamp",
+   "start_stops": true,
+   "start_correct": false,
+   "start_iou": 0.843,
+   "centre_xz": [
+    1.928,
+    2.168
+   ],
+   "target_xz": [
+    2.012,
+    2.375
+   ],
+   "landmark_xz": [
+    1.91,
+    2.2
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.843,
+      "iou_object": 0.373,
+      "matched_at": 1,
+      "chosen_box": [
+       390.5,
+       269.8,
+       432.5,
+       332.8
+      ],
+      "object_box": [
+       243.3,
+       257.4,
+       428.9,
+       348.6
+      ],
+      "truth_box": [
+       392.0,
+       273.0,
+       430.0,
+       334.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.013,
+       1.675
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.843,
+      "iou_object": 0.373,
+      "matched_at": 1,
+      "chosen_box": [
+       390.5,
+       269.8,
+       432.5,
+       332.8
+      ],
+      "object_box": [
+       243.3,
+       257.4,
+       428.9,
+       348.6
+      ],
+      "truth_box": [
+       392.0,
+       273.0,
+       430.0,
+       334.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.843,
+      "iou_object": 0.373,
+      "matched_at": 1,
+      "chosen_box": [
+       390.5,
+       269.8,
+       432.5,
+       332.8
+      ],
+      "object_box": [
+       243.3,
+       257.4,
+       428.9,
+       348.6
+      ],
+      "truth_box": [
+       392.0,
+       273.0,
+       430.0,
+       334.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.013,
+       1.675
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.843,
+      "iou_object": 0.373,
+      "matched_at": 1,
+      "chosen_box": [
+       390.5,
+       269.8,
+       432.5,
+       332.8
+      ],
+      "object_box": [
+       243.3,
+       257.4,
+       428.9,
+       348.6
+      ],
+      "truth_box": [
+       392.0,
+       273.0,
+       430.0,
+       334.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|50",
+   "instruction": "Find the bowl behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.923,
+    2.298
+   ],
+   "target_xz": [
+    2.013,
+    2.416
+   ],
+   "landmark_xz": [
+    1.897,
+    2.203
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.013,
+       1.566
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 24.3,
+      "moved": 0.31,
+      "votes": 1,
+      "xz": [
+       1.704,
+       1.593
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "moved": 0.119,
+      "votes": 1,
+      "xz": [
+       1.594,
+       1.638
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 19.8,
+      "moved": 0.254,
+      "votes": 0,
+      "xz": [
+       1.39,
+       1.788
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.683,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.013,
+       1.566
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 12.7,
+      "moved": 0.163,
+      "votes": 1,
+      "xz": [
+       1.851,
+       1.564
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -11.8,
+      "moved": 0.151,
+      "votes": 1,
+      "xz": [
+       2.002,
+       1.565
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 19.8,
+      "moved": 0.254,
+      "votes": 1,
+      "xz": [
+       1.749,
+       1.581
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.568,
+    "sweeps": 0,
+    "stops": []
+   }
+  },
+  {
+   "scene": "tabletop|52",
+   "instruction": "Find the cup behind the bottle",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.975,
+    2.368
+   ],
+   "target_xz": [
+    1.937,
+    2.448
+   ],
+   "landmark_xz": [
+    1.969,
+    2.235
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.937,
+       1.598
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "moved": 0.125,
+      "votes": 3,
+      "xz": [
+       1.814,
+       1.614
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 24.3,
+      "moved": 0.324,
+      "votes": 5,
+      "xz": [
+       1.518,
+       1.747
+      ],
+      "stops": true,
+      "correct": true,
+      "iou": 0.894,
+      "iou_object": 0.853,
+      "matched_at": 3,
+      "chosen_box": [
+       325.9,
+       226.4,
+       392.2,
+       302.0
+      ],
+      "object_box": [
+       408.3,
+       233.0,
+       474.9,
+       351.3
+      ],
+      "truth_box": [
+       329.0,
+       230.0,
+       392.0,
+       303.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": true,
+    "steps": 2,
+    "metres": 0.449,
+    "sweeps": 1,
+    "stops": [
+     {
+      "step": 2,
+      "stops": true,
+      "correct": true,
+      "iou": 0.894,
+      "iou_object": 0.853,
+      "matched_at": 3,
+      "chosen_box": [
+       325.9,
+       226.4,
+       392.2,
+       302.0
+      ],
+      "object_box": [
+       408.3,
+       233.0,
+       474.9,
+       351.3
+      ],
+      "truth_box": [
+       329.0,
+       230.0,
+       392.0,
+       303.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.937,
+       1.598
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 7.2,
+      "moved": 0.097,
+      "votes": 3,
+      "xz": [
+       1.841,
+       1.609
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.0,
+      "matched_at": 3,
+      "chosen_box": [
+       141.1,
+       308.2,
+       227.7,
+       400.3
+      ],
+      "object_box": [
+       166.3,
+       318.6,
+       225.6,
+       394.3
+      ],
+      "truth_box": [
+       344.0,
+       222.0,
+       404.0,
+       294.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.097,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.0,
+      "matched_at": 3,
+      "chosen_box": [
+       141.1,
+       308.2,
+       227.7,
+       400.3
+      ],
+      "object_box": [
+       166.3,
+       318.6,
+       225.6,
+       394.3
+      ],
+      "truth_box": [
+       344.0,
+       222.0,
+       404.0,
+       294.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|54",
+   "instruction": "Find the fruit behind the clock",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.03,
+    2.228
+   ],
+   "target_xz": [
+    2.096,
+    2.377
+   ],
+   "landmark_xz": [
+    2.035,
+    2.202
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.096,
+       1.677
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.096,
+       1.677
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "2/6"
+  },
+  {
+   "scene": "tabletop|55",
+   "instruction": "Find the vegetable behind the clock",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.828,
+    2.331
+   ],
+   "target_xz": [
+    1.893,
+    2.466
+   ],
+   "landmark_xz": [
+    1.812,
+    2.253
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.893,
+       1.616
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 17.6,
+      "moved": 0.22,
+      "votes": 2,
+      "xz": [
+       1.673,
+       1.63
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.647,
+      "iou_object": 0.445,
+      "matched_at": 3,
+      "chosen_box": [
+       387.8,
+       217.7,
+       451.9,
+       260.1
+      ],
+      "object_box": [
+       322.2,
+       201.1,
+       485.8,
+       398.5
+      ],
+      "truth_box": [
+       388.0,
+       222.0,
+       455.0,
+       274.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.22,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.647,
+      "iou_object": 0.445,
+      "matched_at": 3,
+      "chosen_box": [
+       387.8,
+       217.7,
+       451.9,
+       260.1
+      ],
+      "object_box": [
+       322.2,
+       201.1,
+       485.8,
+       398.5
+      ],
+      "truth_box": [
+       388.0,
+       222.0,
+       455.0,
+       274.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.893,
+       1.616
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "1/7"
+  },
+  {
+   "scene": "tabletop|56",
+   "instruction": "Find the bottle behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.948,
+    2.41
+   ],
+   "target_xz": [
+    1.94,
+    2.41
+   ],
+   "landmark_xz": [
+    1.84,
+    2.197
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.94,
+       1.56
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -24.3,
+      "moved": 0.358,
+      "votes": 1,
+      "xz": [
+       2.29,
+       1.631
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 17.6,
+      "moved": 0.261,
+      "votes": 1,
+      "xz": [
+       2.038,
+       1.564
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 21.0,
+      "moved": 0.309,
+      "votes": 2,
+      "xz": [
+       1.73,
+       1.588
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.928,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.94,
+       1.56
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -27.8,
+      "moved": 0.409,
+      "votes": 1,
+      "xz": [
+       2.337,
+       1.654
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 8.5,
+      "moved": 0.126,
+      "votes": 1,
+      "xz": [
+       2.221,
+       1.605
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 2.5,
+      "moved": 0.038,
+      "votes": 1,
+      "xz": [
+       2.185,
+       1.593
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.573,
+    "sweeps": 0,
+    "stops": []
+   }
+  },
+  {
+   "scene": "tabletop|57",
+   "instruction": "Find the bowl behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.657,
+    2.226
+   ],
+   "target_xz": [
+    2.055,
+    2.396
+   ],
+   "landmark_xz": [
+    2.171,
+    2.184
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.055,
+       1.546
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -6.6,
+      "moved": 0.091,
+      "votes": 0,
+      "xz": [
+       2.13,
+       1.596
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -2.2,
+      "moved": 0.031,
+      "votes": 0,
+      "xz": [
+       2.154,
+       1.615
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 11.5,
+      "moved": 0.158,
+      "votes": 0,
+      "xz": [
+       2.022,
+       1.528
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.28,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.055,
+       1.546
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -6.6,
+      "moved": 0.091,
+      "votes": 0,
+      "xz": [
+       2.13,
+       1.596
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -2.2,
+      "moved": 0.031,
+      "votes": 0,
+      "xz": [
+       2.154,
+       1.615
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 11.5,
+      "moved": 0.158,
+      "votes": 0,
+      "xz": [
+       2.022,
+       1.528
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.28,
+    "sweeps": 0,
+    "stops": []
+   }
+  },
+  {
+   "scene": "tabletop|59",
+   "instruction": "Find the cup behind the box",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.902,
+    2.316
+   ],
+   "target_xz": [
+    2.088,
+    2.469
+   ],
+   "landmark_xz": [
+    1.951,
+    2.256
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.088,
+       1.619
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "moved": 0.373,
+      "votes": 2,
+      "xz": [
+       1.715,
+       1.62
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.364,
+      "matched_at": 10,
+      "chosen_box": [
+       606.6,
+       258.2,
+       679.3,
+       370.8
+      ],
+      "object_box": [
+       304.8,
+       153.9,
+       707.6,
+       577.8
+      ],
+      "truth_box": [
+       450.0,
+       228.0,
+       485.0,
+       251.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.373,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.364,
+      "matched_at": 10,
+      "chosen_box": [
+       606.6,
+       258.2,
+       679.3,
+       370.8
+      ],
+      "object_box": [
+       304.8,
+       153.9,
+       707.6,
+       577.8
+      ],
+      "truth_box": [
+       450.0,
+       228.0,
+       485.0,
+       251.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.088,
+       1.619
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 12.6,
+      "moved": 0.158,
+      "votes": 2,
+      "xz": [
+       1.932,
+       1.595
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 23.3,
+      "moved": 0.292,
+      "votes": 2,
+      "xz": [
+       1.644,
+       1.643
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.374,
+      "matched_at": 6,
+      "chosen_box": [
+       597.6,
+       245.3,
+       662.4,
+       350.7
+      ],
+      "object_box": [
+       319.8,
+       157.8,
+       727.8,
+       579.7
+      ],
+      "truth_box": [
+       440.0,
+       225.0,
+       474.0,
+       249.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 2,
+    "metres": 0.45,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 2,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.374,
+      "matched_at": 6,
+      "chosen_box": [
+       597.6,
+       245.3,
+       662.4,
+       350.7
+      ],
+      "object_box": [
+       319.8,
+       157.8,
+       727.8,
+       579.7
+      ],
+      "truth_box": [
+       440.0,
+       225.0,
+       474.0,
+       249.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|62",
+   "instruction": "Find the vegetable behind the clock",
+   "start_stops": true,
+   "start_correct": false,
+   "start_iou": 0.853,
+   "centre_xz": [
+    2.03,
+    2.21
+   ],
+   "target_xz": [
+    2.0,
+    2.426
+   ],
+   "landmark_xz": [
+    2.031,
+    2.214
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.853,
+      "iou_object": 0.281,
+      "matched_at": 1,
+      "chosen_box": [
+       360.6,
+       256.3,
+       434.9,
+       341.2
+      ],
+      "object_box": [
+       385.3,
+       315.4,
+       451.6,
+       356.3
+      ],
+      "truth_box": [
+       364.0,
+       262.0,
+       434.0,
+       344.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.0,
+       1.576
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.853,
+      "iou_object": 0.281,
+      "matched_at": 1,
+      "chosen_box": [
+       360.6,
+       256.3,
+       434.9,
+       341.2
+      ],
+      "object_box": [
+       385.3,
+       315.4,
+       451.6,
+       356.3
+      ],
+      "truth_box": [
+       364.0,
+       262.0,
+       434.0,
+       344.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.853,
+      "iou_object": 0.281,
+      "matched_at": 1,
+      "chosen_box": [
+       360.6,
+       256.3,
+       434.9,
+       341.2
+      ],
+      "object_box": [
+       385.3,
+       315.4,
+       451.6,
+       356.3
+      ],
+      "truth_box": [
+       364.0,
+       262.0,
+       434.0,
+       344.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.0,
+       1.576
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.853,
+      "iou_object": 0.281,
+      "matched_at": 1,
+      "chosen_box": [
+       360.6,
+       256.3,
+       434.9,
+       341.2
+      ],
+      "object_box": [
+       385.3,
+       315.4,
+       451.6,
+       356.3
+      ],
+      "truth_box": [
+       364.0,
+       262.0,
+       434.0,
+       344.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|63",
+   "instruction": "Find the bottle behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.947,
+    2.008
+   ],
+   "target_xz": [
+    1.999,
+    2.401
+   ],
+   "landmark_xz": [
+    1.895,
+    2.188
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.998,
+       1.551
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 10.5,
+      "moved": 0.084,
+      "votes": 0,
+      "xz": [
+       1.914,
+       1.549
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "moved": 0.238,
+      "votes": 3,
+      "xz": [
+       1.69,
+       1.627
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.322,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.998,
+       1.551
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 10.5,
+      "moved": 0.084,
+      "votes": 0,
+      "xz": [
+       1.914,
+       1.549
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 6.1,
+      "moved": 0.049,
+      "votes": 0,
+      "xz": [
+       1.866,
+       1.555
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 13.0,
+      "moved": 0.104,
+      "votes": 0,
+      "xz": [
+       1.767,
+       1.585
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.237,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "1/17"
+  },
+  {
+   "scene": "tabletop|65",
+   "instruction": "Find the box behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.904,
+    2.326
+   ],
+   "target_xz": [
+    2.003,
+    2.448
+   ],
+   "landmark_xz": [
+    1.893,
+    2.235
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.003,
+       1.598
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "moved": 0.119,
+      "votes": 1,
+      "xz": [
+       1.885,
+       1.591
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.626,
+      "matched_at": 5,
+      "chosen_box": [
+       336.5,
+       306.2,
+       453.4,
+       407.3
+      ],
+      "object_box": [
+       309.6,
+       205.8,
+       506.9,
+       419.6
+      ],
+      "truth_box": [
+       456.0,
+       243.0,
+       494.0,
+       316.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 1,
+    "metres": 0.119,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 1,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.626,
+      "matched_at": 5,
+      "chosen_box": [
+       336.5,
+       306.2,
+       453.4,
+       407.3
+      ],
+      "object_box": [
+       309.6,
+       205.8,
+       506.9,
+       419.6
+      ],
+      "truth_box": [
+       456.0,
+       243.0,
+       494.0,
+       316.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.003,
+       1.598
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": 28.7,
+      "moved": 0.365,
+      "votes": 1,
+      "xz": [
+       1.641,
+       1.64
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -29.7,
+      "moved": 0.377,
+      "votes": 1,
+      "xz": [
+       2.015,
+       1.6
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": -1.0,
+      "moved": 0.012,
+      "votes": 1,
+      "xz": [
+       2.027,
+       1.602
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.754,
+    "sweeps": 0,
+    "stops": []
+   }
+  },
+  {
+   "scene": "tabletop|67",
+   "instruction": "Find the food behind the bottle",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.144,
+    2.407
+   ],
+   "target_xz": [
+    2.119,
+    2.473
+   ],
+   "landmark_xz": [
+    2.141,
+    2.261
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.119,
+       1.623
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "moved": 0.127,
+      "votes": 1,
+      "xz": [
+       2.246,
+       1.629
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "moved": 0.127,
+      "votes": 1,
+      "xz": [
+       2.37,
+       1.656
+      ],
+      "stops": true,
+      "correct": false,
+      "iou": 0.004,
+      "iou_object": 0.085,
+      "matched_at": 3,
+      "chosen_box": [
+       0.1,
+       0.0,
+       799.9,
+       599.6
+      ],
+      "object_box": [
+       131.5,
+       117.0,
+       594.8,
+       396.7
+      ],
+      "truth_box": [
+       380.0,
+       243.0,
+       416.0,
+       291.0
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 2,
+    "metres": 0.254,
+    "sweeps": 1,
+    "stops": [
+     {
+      "step": 2,
+      "stops": true,
+      "correct": false,
+      "iou": 0.004,
+      "iou_object": 0.085,
+      "matched_at": 3,
+      "chosen_box": [
+       0.1,
+       0.0,
+       799.9,
+       599.6
+      ],
+      "object_box": [
+       131.5,
+       117.0,
+       594.8,
+       396.7
+      ],
+      "truth_box": [
+       380.0,
+       243.0,
+       416.0,
+       291.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.119,
+       1.623
+      ]
+     },
+     {
+      "step": 1,
+      "unreachable": true
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": []
+   },
+   "refused": "1/10"
+  },
+  {
+   "scene": "tabletop|68",
+   "instruction": "Find the fruit behind the box",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.066,
+    2.293
+   ],
+   "target_xz": [
+    2.133,
+    2.437
+   ],
+   "landmark_xz": [
+    1.988,
+    2.224
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.132,
+       1.587
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -21.0,
+      "moved": 0.258,
+      "votes": 5,
+      "xz": [
+       2.381,
+       1.657
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "moved": 0.115,
+      "votes": 1,
+      "xz": [
+       2.274,
+       1.615
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 28.5,
+      "moved": 0.349,
+      "votes": 2,
+      "xz": [
+       1.925,
+       1.598
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.722,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       2.132,
+       1.587
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -17.2,
+      "moved": 0.212,
+      "votes": 5,
+      "xz": [
+       2.338,
+       1.638
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": -21.5,
+      "moved": 0.264,
+      "votes": 5,
+      "xz": [
+       2.559,
+       1.783
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": 16.5,
+      "moved": 0.204,
+      "votes": 5,
+      "xz": [
+       2.393,
+       1.664
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.68,
+    "sweeps": 0,
+    "stops": []
+   }
+  },
+  {
+   "scene": "tabletop|69",
+   "instruction": "Find the vegetable behind the lamp",
+   "start_stops": true,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.919,
+    2.192
+   ],
+   "target_xz": [
+    2.005,
+    2.354
+   ],
+   "landmark_xz": [
+    1.901,
+    2.179
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.73,
+      "matched_at": 5,
+      "chosen_box": [
+       549.4,
+       292.6,
+       707.7,
+       458.2
+      ],
+      "object_box": [
+       232.4,
+       217.6,
+       443.8,
+       432.7
+      ],
+      "truth_box": [
+       375.0,
+       253.0,
+       447.0,
+       363.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.004,
+       1.654
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.73,
+      "matched_at": 5,
+      "chosen_box": [
+       549.4,
+       292.6,
+       707.7,
+       458.2
+      ],
+      "object_box": [
+       232.4,
+       217.6,
+       443.8,
+       432.7
+      ],
+      "truth_box": [
+       375.0,
+       253.0,
+       447.0,
+       363.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.73,
+      "matched_at": 5,
+      "chosen_box": [
+       549.4,
+       292.6,
+       707.7,
+       458.2
+      ],
+      "object_box": [
+       232.4,
+       217.6,
+       443.8,
+       432.7
+      ],
+      "truth_box": [
+       375.0,
+       253.0,
+       447.0,
+       363.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.004,
+       1.654
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.73,
+      "matched_at": 5,
+      "chosen_box": [
+       549.4,
+       292.6,
+       707.7,
+       458.2
+      ],
+      "object_box": [
+       232.4,
+       217.6,
+       443.8,
+       432.7
+      ],
+      "truth_box": [
+       375.0,
+       253.0,
+       447.0,
+       363.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|70",
+   "instruction": "Find the bottle behind the box",
+   "start_stops": true,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.701,
+    2.328
+   ],
+   "target_xz": [
+    1.93,
+    2.466
+   ],
+   "landmark_xz": [
+    1.787,
+    2.253
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.34,
+      "matched_at": 3,
+      "chosen_box": [
+       629.8,
+       303.6,
+       668.1,
+       361.6
+      ],
+      "object_box": [
+       83.0,
+       149.1,
+       464.5,
+       594.5
+      ],
+      "truth_box": [
+       378.0,
+       242.0,
+       422.0,
+       341.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.93,
+       1.616
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.34,
+      "matched_at": 3,
+      "chosen_box": [
+       629.8,
+       303.6,
+       668.1,
+       361.6
+      ],
+      "object_box": [
+       83.0,
+       149.1,
+       464.5,
+       594.5
+      ],
+      "truth_box": [
+       378.0,
+       242.0,
+       422.0,
+       341.0
+      ]
+     }
+    ]
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.34,
+      "matched_at": 3,
+      "chosen_box": [
+       629.8,
+       303.6,
+       668.1,
+       361.6
+      ],
+      "object_box": [
+       83.0,
+       149.1,
+       464.5,
+       594.5
+      ],
+      "truth_box": [
+       378.0,
+       242.0,
+       422.0,
+       341.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.93,
+       1.616
+      ]
+     }
+    ],
+    "stopped": true,
+    "correct": false,
+    "steps": 0,
+    "metres": 0.0,
+    "sweeps": 0,
+    "stops": [
+     {
+      "step": 0,
+      "stops": true,
+      "correct": false,
+      "iou": 0.0,
+      "iou_object": 0.34,
+      "matched_at": 3,
+      "chosen_box": [
+       629.8,
+       303.6,
+       668.1,
+       361.6
+      ],
+      "object_box": [
+       83.0,
+       149.1,
+       464.5,
+       594.5
+      ],
+      "truth_box": [
+       378.0,
+       242.0,
+       422.0,
+       341.0
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "scene": "tabletop|74",
+   "instruction": "Find the food behind the lamp",
+   "start_stops": false,
+   "start_correct": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.333,
+    2.222
+   ],
+   "target_xz": [
+    1.924,
+    2.441
+   ],
+   "landmark_xz": [
+    1.826,
+    2.229
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.924,
+       1.592
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -25.6,
+      "moved": 0.333,
+      "votes": 0,
+      "xz": [
+       2.237,
+       1.477
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 8.7,
+      "moved": 0.114,
+      "votes": 0,
+      "xz": [
+       2.125,
+       1.5
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": -21.1,
+      "moved": 0.275,
+      "votes": 0,
+      "xz": [
+       2.399,
+       1.473
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.723,
+    "sweeps": 2,
+    "stops": []
+   },
+   "random": {
+    "trail": [
+     {
+      "step": 0,
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "moved": 0.0,
+      "xz": [
+       1.924,
+       1.592
+      ]
+     },
+     {
+      "step": 1,
+      "source": "random",
+      "azimuth": -25.6,
+      "moved": 0.333,
+      "votes": 0,
+      "xz": [
+       2.237,
+       1.477
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 2,
+      "source": "random",
+      "azimuth": 8.7,
+      "moved": 0.114,
+      "votes": 0,
+      "xz": [
+       2.125,
+       1.5
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     },
+     {
+      "step": 3,
+      "source": "random",
+      "azimuth": -21.1,
+      "moved": 0.275,
+      "votes": 0,
+      "xz": [
+       2.399,
+       1.473
+      ],
+      "stops": false,
+      "correct": false,
+      "iou": 0.0,
+      "matched_at": null
+     }
+    ],
+    "stopped": false,
+    "correct": false,
+    "steps": 3,
+    "metres": 0.723,
+    "sweeps": 0,
+    "stops": []
+   }
+  }
+ ]
+}

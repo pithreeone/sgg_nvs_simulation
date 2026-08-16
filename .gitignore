@@ -65,6 +65,16 @@ hidden_target/*/*.png
 # occlusion, rank and per-step trail is in it -- and the case list that
 # generated it, so those two stay.
 nvs_pilot/**/*.png
+# Build logs are not tracked here.  A generator's log is the rejection trace of
+# one run -- useful while tuning thresholds, superseded the next time the
+# generator changes -- and what has to survive is the DECISION it drove, which
+# belongs in the generator's own comments where it cannot drift from the code.
+# `build_slot.py`'s threshold notes are the worked example: the numbers that set
+# --falloff and --max-landmark-ratio are in the source, not in build_slot.log.
+# `experiments/build_logs/` is the deliberate exception below, and for the
+# opposite reason: the datasets it describes are NOT tracked, so those logs are
+# the only record of how they were built.
+nvs_pilot/**/*.log
 !nvs_pilot/**/results.json
 !nvs_pilot/cases*.json
 # Experiment results are the point of the runs, not build output: a few hundred

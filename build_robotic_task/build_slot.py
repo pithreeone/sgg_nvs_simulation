@@ -43,7 +43,7 @@ azimuth is monotonically no worse.
 WHY THE ANGLES ARE SMALL, AND WHY THE WINDOW STILL FITS.  Everything downstream
 is capped at 30 degrees of azimuth -- `fuse_live --max-az`, `probe_viewdist`,
 and the bearings `eval_move` samples -- and a ray to the target crosses the
-occluder plane at `x_target + gap * tan(azimuth)`, so the whole reachable sweep
+occluder plane at `x_target - gap * tan(azimuth)`, so the whole reachable sweep
 moves it by only +-0.29 m at `gap` 0.50.  That is less than a `box` is wide, so
 the target never fully clears the landmark inside the sweep (it would take 32
 degrees).  It does not have to.  What is measured is silhouette OVERLAP, and the
@@ -107,10 +107,14 @@ from vg.vg150 import THOR_TO_VG150
 #: occluder pool and that was right when both front objects were named; here
 #: only two of the three ever reach the instruction.
 #:
-#:   target    must be NAMEABLE and must fit behind the landmark.  `laptop`
-#:             scores 1/1 on the landmark-nameability screen and 22 assets pass
-#:             the band; `build_tabletop`'s TARGET_SIZE ceiling of 0.22 m admits
-#:             exactly ONE laptop, which is why the band is set here instead.
+#:   target    must be NAMEABLE and must fit behind the landmark.  SEVERAL
+#:             CLASSES, and the band is wide, because nameability is no longer
+#:             argued from the class name -- `--nameable-topk` measures it per
+#:             case at the best view and throws the case away if the detector
+#:             cannot say the word.  `laptop` alone is what the first build used,
+#:             on the reasoning that it scores 1/1 on a landmark screen; the
+#:             screen it actually needed was a TARGET one, and THOR laptops fail
+#:             it, the lid facing the camera being an unlit black slab.
 #:   landmark  must be NAMEABLE, since it is the B of `A behind B`, and wide and
 #:             tall enough to hide the target.  `box` is the best-named class the
 #:             repo has measured -- 8/8 where `lamp` is 0/18 and `clock` 0/5.
@@ -138,8 +142,14 @@ from vg.vg150 import THOR_TO_VG150
 #: Widths carry a FLOOR as well as a ceiling, which `build_tabletop.catalogue`
 #: has no way to say, and that floor is the whole reason `pool` is local.
 ROLES: Dict[str, Dict[str, Any]] = {
-    "target": {"classes": ("laptop",),
-               "height": (0.16, 0.30), "width": (0.25, 0.50)},
+    # THE WIDTH FLOOR IS WHAT KEEPS THE LANDMARK FROM SWALLOWING THE PICTURE.
+    # Dropping it to 0.06 to admit cups and bottles put 9 of 18 attempts into
+    # `landmark is 56.9x the target`: the box has to out-top and out-width the
+    # target to hide it, so a small target forces a landmark that fills a quarter
+    # of the frame, which is the `HousePlant` failure again.  0.18 admits the
+    # larger vases, bowls and plants without that.
+    "target": {"classes": ("laptop", "vase", "bowl", "plant"),
+               "height": (0.14, 0.30), "width": (0.18, 0.50)},
     "landmark": {"classes": ("box",),
                  "height": (0.24, 0.40), "width": (0.30, 0.70)},
     "blocker": {"classes": ("plant", "lamp"),
@@ -174,7 +184,7 @@ STANDING = False
 #: being explicit about why, because the instinct is that they are jammed
 #: together for no reason.
 #:
-#: The sightline crosses the occluder plane at `x_target + gap * tan(azimuth)`,
+#: The sightline crosses the occluder plane at `x_target - gap * tan(azimuth)`,
 #: so over the reachable +-30 degrees it moves +-`gap * 0.577` and no further.
 #: The blocker's inner edge has to sit INSIDE that span or it never bites, and a
 #: blocker that never bites is exactly the case where walking to the far edge of
@@ -270,6 +280,153 @@ TARGET_TURN = 45.0
 #: diversity that was worth having.
 
 
+#: EGTR, loaded once and only if the nameability screen is on.  A build spawns
+#: and stops a controller per attempt; reloading the detector with it would cost
+#: more than the screen saves.
+_EGTR: Dict[str, Any] = {}
+
+
+def nameable_egtr():
+    """The detector the screen judges with -- the same one every runner uses."""
+    if not _EGTR:
+        from robot.sgg_live import load_egtr
+
+        _EGTR["it"] = load_egtr()
+    return _EGTR["it"]
+
+
+def solved_at(event, egtr, task: Dict[str, Any], condition: int,
+              gate: float) -> bool:
+    """`fuse_live.decide`'s verdict on one frame: is the top-1 pair the right one?
+
+    THE SCREEN JUDGES BY THE METRIC, NOT BY A PROXY FOR IT.  The version before
+    this one asked whether the detector slot covering the target argmaxed to the
+    instructed class, which is a different question and a much weaker one: over
+    the 40 cases that passed it, the class was right at the best view by
+    construction 40/40 and the top-1 pair was right at that same angle 17/40.
+    The gap is everything between naming ONE slot and winning a ranking of ~100
+    PAIRS -- entering the top-10 by class mass, carrying `rel[i, j, behind]`, and
+    outscoring every pair the landmark forms with the rest of the table.
+
+    So the score, the candidate set and the IoU gate here are `eval_move.look`'s,
+    imported rather than restated wherever that is possible.
+    """
+    from fuse_live import conditioned
+    from robot.sgg_live import raw_predict
+    from robot.task_find import iou
+
+    target = visible_box(event, task["target_name"])
+    landmark = visible_box(event, task["receptacle_name"])
+    if not target or not landmark:
+        return False
+    raw = raw_predict(egtr, event.frame)
+    built = {"probs_ref": raw["probs_softmax"].detach().cpu().numpy(),
+             "rel": raw["rel"].detach().cpu(),
+             "boxes": raw["boxes"].detach().cpu(),
+             "s": raw["probs_softmax"].detach().cpu().max(-1).values}
+    cand = conditioned(built, egtr, task, condition, 0.0)
+    if cand is None:
+        return False
+    rel, s = built["rel"], built["s"].float()
+    subjects, objects = cand
+    predicate = egtr["rel_names"].index(task["predicate"])
+    pairs = [(float(rel[i, j, predicate]) * float(s[i]) * float(s[j]), i, j)
+             for i in subjects for j in objects if i != j]
+    if not pairs:
+        return False
+    _, i, j = max(pairs)
+    return (iou(built["boxes"][i].tolist(), target) >= gate
+            and iou(built["boxes"][j].tolist(), landmark) >= gate)
+
+
+def fan_out(args, argv: Optional[Sequence[str]]) -> int:
+    """Build in `--workers` processes and merge what they write.
+
+    THE SEED IS THE ONLY THING THAT DIFFERS, so a worker is just this script
+    with one flag changed and a scratch `--out`; there is no shared state to
+    race on and nothing to coordinate.  Each asks for its share of `--n` and
+    the merge truncates, so a worker that runs dry does not hold the others up.
+
+    A WORKER THAT DIES IS REPORTED AND NOT FATAL.  Unity exits non-zero on
+    display trouble often enough that failing the whole build on one worker
+    would make the flag useless; the merge says how many cases each produced.
+    """
+    import subprocess
+    import tempfile
+    import time
+
+    argv = list(argv if argv is not None else _sys.argv[1:])
+    share = -(-args.n // args.workers)
+    stem = os.path.splitext(os.path.basename(args.out))[0]
+    scratch = tempfile.mkdtemp(prefix=f"{stem}.workers.")
+    running, parts = [], []
+    for worker in range(args.workers):
+        keep = [a for a in argv]
+        for flag in ("--workers", "--stagger", "--seed", "--n", "--out"):
+            while flag in keep:
+                at = keep.index(flag)
+                del keep[at:at + 2]
+        part = os.path.join(scratch, f"{worker}.json")
+        parts.append(part)
+        command = [_sys.executable, os.path.abspath(__file__), *keep,
+                   "--seed", str(args.seed + worker), "--n", str(share),
+                   "--out", part]
+        log = open(os.path.join(scratch, f"{worker}.log"), "w")
+        running.append((worker, subprocess.Popen(command, stdout=log,
+                                                 stderr=subprocess.STDOUT),
+                        log))
+        print(f"  worker {worker} seed {args.seed + worker} -> {part}",
+              flush=True)
+        if worker + 1 < args.workers:
+            time.sleep(args.stagger)
+    for worker, process, log in running:
+        code = process.wait()
+        log.close()
+        if code:
+            print(f"  ! worker {worker} exited {code}, see "
+                  f"{os.path.join(scratch, f'{worker}.log')}", flush=True)
+
+    cases, header = [], None
+    for worker, part in enumerate(parts):
+        if not os.path.exists(part):
+            print(f"  ! worker {worker} wrote nothing", flush=True)
+            continue
+        got = json.load(open(part))
+        header = header or {k: v for k, v in got.items() if k != "cases"}
+        print(f"  worker {worker}: {len(got['cases'])} cases", flush=True)
+        cases.extend(got["cases"])
+    if not cases:
+        print("no cases built")
+        return 1
+    # `scene` is `slot|<attempt index>` and two workers index independently, so
+    # the merged list would carry the same name twice.  The seed is what makes
+    # them different scenes, so it is what disambiguates them.
+    seen: Dict[str, int] = {}
+    for case in cases:
+        seen[case["scene"]] = seen.get(case["scene"], 0) + 1
+        if seen[case["scene"]] > 1:
+            case["scene"] = f"{case['scene']}.{seen[case['scene']] - 1}"
+    cases = cases[:args.n]
+    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
+    json.dump({**(header or {}), "cases": cases}, open(args.out, "w"), indent=1)
+    print(f"\n{len(cases)} cases from {args.workers} workers -> {args.out}")
+    print(f"  worker logs and parts kept in {scratch}")
+    return 0
+
+
+def longest_run(angles: Sequence[float], step: float
+                ) -> Optional[Tuple[float, float]]:
+    """The widest contiguous stretch of `angles`, which arrive sorted."""
+    if not angles:
+        return None
+    best = run = (angles[0], angles[0])
+    for az in angles[1:]:
+        run = (run[0], az) if az - run[1] <= step + 1e-6 else (az, az)
+        if run[1] - run[0] > best[1] - best[0]:
+            best = run
+    return best
+
+
 def extent(entry: Dict[str, Any]) -> Tuple[float, float]:
     """An asset's (height, widest horizontal extent) from the database."""
     box = entry["boundingBox"]
@@ -336,8 +493,19 @@ def look_along(controller, target_xz, top: float, radius: float,
     two 25-angle sweeps per attempt and twenty attempts per accepted case that
     was the dominant cost of a build.
     """
+    # AZIMUTH IS SIGNED AS `nvs_lemniscate.arc_step` SIGNS IT, which is what
+    # `eval_move.walk` executes and what every sweep downstream is labelled in:
+    # the camera starts behind the target, so its offset is (0, -r), and adding
+    # `azimuth` to `atan2(0, -r)` puts it at `x - r sin`.  This file had the
+    # opposite sign until 2026-08-15, so a case's `visible_arc` named the mirror
+    # of the arc a robot walking that number would reach -- silently, since both
+    # ends of a symmetric sweep exist.  Two ladder cases caught it: the rank-1
+    # angles landed exactly on the negation of the recorded window.
+    #
+    # `close_at` and the blocker's inner bound flip with it, and those two
+    # cancel: the WORLD geometry is unchanged and only the labels move.
     theta = math.radians(azimuth)
-    x = float(target_xz[0] + radius * math.sin(theta))
+    x = float(target_xz[0] - radius * math.sin(theta))
     z = float(target_xz[1] - radius * math.cos(theta))
     yaw = float(math.degrees(math.atan2(target_xz[0] - x, target_xz[1] - z)))
     reachable = controller.step(
@@ -593,14 +761,20 @@ def one_case(controller, rng: random.Random, index: int, args,
     # occluder plane -- any further in and it starts eating the reference view
     # the landmark was just bisected for -- and its outer bound is far enough to
     # miss entirely.
-    close_at = -sign * args.reach
+    # `sign` is the WORLD direction the landmark was pushed, so the window opens
+    # the other way.  Under `arc_step`'s sign the sightline crosses the occluder
+    # plane at `tx - gap tan(azimuth)`, so reaching the `-sign` side takes an
+    # azimuth of `+sign` -- the opposite of what this line said before the
+    # convention was fixed, and it has to move with it or the blocker is bisected
+    # at an angle on the side the window is not on.
+    close_at = sign * args.reach
     blk_yaw = occluder_yaw(controller, blk_asset, blk_class)
     _, blk_pos = place_on(controller, blk_asset, "blocker", tx, top, z_plane,
                           blk_yaw)
     look_along(controller, target_xz, top, radius, close_at, args.standing,
                pitch, reach=False)
     blocked = bisect_x(controller, "blocker", blk_pos["y"], z_plane,
-                       tx + args.gap * math.tan(math.radians(close_at)),
+                       tx - args.gap * math.tan(math.radians(close_at)),
                        tx - sign * 0.55, clear[close_at],
                        (args.shut_frac, 1.0, 1.0), blk_yaw)
     if blocked is None:
@@ -677,8 +851,84 @@ def one_case(controller, rng: random.Random, index: int, args,
                       f"({occluder_px} px, {occluder_px / (args.width * args.height):.0%} "
                       f"of the frame): it swallows the picture")
 
+    # IS IT NAMEABLE FROM THE BEST VIEW?  Every test above is geometry -- pixels
+    # of silhouette, degrees of arc -- and a target can pass all of them and
+    # still be unrecognisable.  A THOR laptop turned to the camera is a black
+    # slab: the first build of this list read 97% of its pixels as visible at the
+    # window and EGTR still called it `screen`, `pot` or `door`, so `walk into
+    # the window` was a losing move for a reason that has nothing to do with
+    # viewpoint.
+    #
+    # THE POINT IS TO CONTROL A VARIABLE, not to flatter the detector.  A list
+    # meant to ask "what does moving buy?" has to hold "can it be named at all?"
+    # fixed, or the two are confounded and the ceiling measures naming.  The
+    # screen runs at the BEST view only -- that is the one pose where the answer
+    # must be yes -- and the achieved rank is recorded so the cut can be
+    # tightened offline instead of by rebuilding.
+    #
+    # It is a detector-in-the-loop filter and the paper has to say so: cases are
+    # screened so the target is nameable from its best viewpoint, which makes the
+    # ceiling a property of VIEWPOINT rather than of recognition.
+    solved_arc = None
+    if args.solved_width:
+        task = {"instruction": f"Find the {target_class} behind the {occ_class}",
+                "predicate": "behind", "subject_class": target_class,
+                "object_class": occ_class, "target_name": "target",
+                "receptacle_name": "occluder", "distractors": []}
+        egtr = nameable_egtr()
+        # THE BEST VIEW FIRST, and reject there.  Most candidates that reach
+        # this line fail, and failing on one frame instead of 25 is the
+        # difference between a screen that costs a fifth of the build and one
+        # that costs the build.
+        if not solved_at(open_event, egtr, task, args.condition,
+                         args.solved_iou):
+            return reject("the top-1 pair is wrong even at the best view")
+        step = float(args.sweep[2])
+        solved = [best["azimuth"]]
+        for row in inside:
+            az = row["azimuth"]
+            if az == best["azimuth"]:
+                continue
+            event = look_along(controller, target_xz, top, radius, az,
+                               args.standing, pitch, reach=False)[0]
+            if solved_at(event, egtr, task, args.condition, args.solved_iou):
+                solved.append(az)
+        run = longest_run(sorted(solved), step)
+        if run is None or run[1] - run[0] < args.solved_width:
+            width = 0.0 if run is None else run[1] - run[0]
+            return reject(f"the solved arc is only {width:.1f} deg wide, under "
+                          f"{args.solved_width:.1f}")
+        if abs((run[0] + run[1]) / 2) > args.interior:
+            return reject(f"the solved arc is centred at "
+                          f"{(run[0] + run[1]) / 2:+.1f} deg, on the rim of the "
+                          f"sweep: walking to the end would do")
+        solved_arc = [run[0], run[1]]
+
     event, ref_pose = look_along(controller, target_xz, top, radius, 0.0,
                                 args.standing, pitch, reach=False)
+
+    # RE-CHECK THE START POSE, NOW THAT EVERYTHING IS ON THE TABLE.  `radius` was
+    # chosen right after the target was placed and before either occluder
+    # existed, so the collision check it passed was against a different scene.
+    # The occluders sit `gap` nearer the camera, and on a case at the near end of
+    # STANDOFF that is enough to make the pose illegal: `slot|46` shipped with a
+    # start pose THOR accepts with the target alone and refuses with all three,
+    # 0.206 m from a table edge whose collider reaches 0.23 m out.
+    #
+    # It has to be asked UNFORCED and here, because `rebuild` asks it unforced
+    # too -- that is the whole contract, a case that cannot be replayed is a case
+    # whose geometry is wrong -- and a case that fails there fails for every
+    # runner, after the GPU time.  This is what caught it: 1 of 40.
+    x, z, yaw, horizon = (float(v) for v in ref_pose["start"].split(","))
+    if not controller.step(
+            action="Teleport", position={"x": x, "y": 0.9, "z": z},
+            rotation={"x": 0, "y": yaw, "z": 0}, horizon=horizon,
+            standing=args.standing,
+            forceAction=False).metadata["lastActionSuccess"]:
+        return reject(f"the start pose is legal with the target alone but not "
+                      f"with the occluders in place (radius {radius})")
+    event = look_along(controller, target_xz, top, radius, 0.0, args.standing,
+                       pitch, reach=False)[0]
     return {
         "scene": f"slot|{index}",
         "instruction": f"Find the {target_class} behind the {occ_class}",
@@ -699,6 +949,13 @@ def one_case(controller, rng: random.Random, index: int, args,
         "blocker_position": blocked["position"],
         "target_yaw": target_yaw,
         "occluder_yaw": occ_yaw, "blocker_yaw": blk_yaw,
+        # THE ARC THE POLICY IS ACTUALLY ASKED TO FIND: the widest contiguous
+        # stretch of azimuths where `fuse_live.decide`'s top-1 pair is the
+        # instructed one.  `visible_arc` below is the GEOMETRIC window and the
+        # two are not the same window -- on the list built before this screen
+        # they overlapped 58% -- so a policy graded against the metric has to be
+        # aimed at this one.
+        "solved_arc": solved_arc,
         "staged_occlusion": reference["hidden"],
         "clear_px": clear[0.0], "target_px": reference["px"],
         "occluder_px": occluder_px,
@@ -831,11 +1088,56 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     # Kept as a backstop against the absurd rather than removed, and `one_case`
     # records the achieved ratio either way, so a stricter cut can be made on
     # the case list afterwards without rebuilding it.
+    # THE SCREEN, AND WHAT IT IS FOR.  Turned off (0) the list ships cases no
+    # viewpoint solves: the first build was screened on geometry alone and shipped
+    # targets 97%% visible at the window that EGTR still read as `screen` or
+    # `door`, which confounds `what does moving buy` with `can this be named at
+    # all`.  Screened on the class name instead, 40 of 40 cases named the target
+    # at their best view and only 17 of 40 had the top-1 PAIR right there -- the
+    # proxy bought 43%%.  So the screen asks the metric itself, at every azimuth,
+    # and keeps the case only if a contiguous stretch of them answers.
+    #
+    # It is a detector-in-the-loop filter and the paper has to say so: the arc is
+    # defined RELATIVE TO THIS DETECTOR, which makes the ceiling a property of
+    # viewpoint rather than of recognition, and makes this list unfit for
+    # comparing one SGG model against another.  What it is fit for is the
+    # comparison it was built for -- multi-view against single-view, same model.
+    ap.add_argument("--solved-width", type=float, default=10.0, metavar="DEG",
+                    help="reject a case unless `fuse_live.decide`'s top-1 pair "
+                         "is correct across a contiguous arc at least this "
+                         "wide.  0 turns the screen off")
+    ap.add_argument("--solved-iou", type=float, default=0.5, metavar="IOU",
+                    help="IoU both endpoints of the top-1 pair must reach for "
+                         "the angle to count as solved; `eval_move`'s `--iou`")
+    ap.add_argument("--condition", type=int, default=10, metavar="K",
+                    help="candidates per side the screen scores, "
+                         "`eval_move`'s `--condition`")
     ap.add_argument("--max-landmark-ratio", type=float, default=10.0,
                     metavar="X", help="reject a case whose landmark renders "
                                       "more than X times the target's pixels")
+    # 6 was right when geometry was the only screen and roughly one attempt in
+    # five survived.  Asking the metric costs about three times that, so the cap
+    # became the binding constraint rather than the backstop it is meant to be.
+    ap.add_argument("--tries", type=int, default=6, metavar="X",
+                    help="give up after X attempts per case asked for")
+    # ONE THOR PROCESS PER WORKER, NOT ONE THOR PER THREAD.  A build is a long
+    # sequence of renders with a detector pass on some of them, so it scales by
+    # process and by nothing else -- but each worker carries its own Unity AND
+    # its own EGTR, which on an 8 GB card measured 2.9 GB apiece.  Two fit; the
+    # third is what took the machine down before, the GPU also being the one
+    # driving the display.  Workers are SUBPROCESSES rather than forks because a
+    # CUDA context does not survive `fork`, and they are staggered because two
+    # Unity instances claiming the display at the same instant is its own hazard.
+    ap.add_argument("--workers", type=int, default=1, metavar="N",
+                    help="build in N processes, seeds `--seed` .. `--seed`+N-1, "
+                         "and merge.  Each costs about 2.9 GB of VRAM")
+    ap.add_argument("--stagger", type=float, default=45.0, metavar="S",
+                    help="seconds between worker launches")
     ap.add_argument("--out", default="nvs_pilot/cases/cases_slot.json")
     args = ap.parse_args(argv)
+
+    if args.workers > 1:
+        return fan_out(args, argv)
 
     rng = random.Random(args.seed)
     controller = open_room(args.width, args.height, args.fov)
@@ -853,7 +1155,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             print("  ! a slot needs all three roles")
             return 1
         attempt = 0
-        while len(cases) < args.n and attempt < args.n * 6:
+        while len(cases) < args.n and attempt < args.tries * args.n:
             case = None
             try:
                 case = one_case(controller, rng, attempt, args, pools)

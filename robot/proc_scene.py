@@ -40,6 +40,7 @@ THREE THINGS THE PROCEDURAL BACKEND DOES DIFFERENTLY, all found the hard way:
 from __future__ import annotations
 
 import math
+import os
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
@@ -82,14 +83,27 @@ def house(room: float = ROOM, height: float = WALL_HEIGHT) -> Dict[str, Any]:
 
 def open_room(width: int = 800, height: int = 600, fov: float = 60.0,
               room: float = ROOM):
-    """A controller sitting in an empty room, ready to be furnished."""
+    """A controller sitting in an empty room, ready to be furnished.
+
+    `THOR_HEADLESS=1` SELECTS CloudRendering, which draws through Vulkan and
+    needs no X server -- the one change a machine without a display requires.
+    Left unset the platform is chosen by ai2thor as before, so a desktop run is
+    untouched.  The GPU must have Vulkan drivers; CloudRendering fails at
+    startup rather than falling back if it does not.
+    """
     from ai2thor.controller import Controller
+
+    extra = {}
+    if os.environ.get("THOR_HEADLESS") == "1":
+        from ai2thor.platform import CloudRendering
+
+        extra["platform"] = CloudRendering
 
     return Controller(scene=house(room), width=width, height=height,
                       fieldOfView=fov, renderDepthImage=True,
                       renderInstanceSegmentation=True,
                       # Not optional; see the module docstring.
-                      snapToGrid=False)
+                      snapToGrid=False, **extra)
 
 
 def spawn(controller, asset: str, name: str, x: float, y: float, z: float,

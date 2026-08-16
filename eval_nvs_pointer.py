@@ -191,6 +191,11 @@ def regrade(task: Dict[str, Any], geo: Dict[str, Dict[str, Any]],
     here["target_box_amodal"] = target.get("bbox_amodal")
     here["target_box_visible"] = target.get("bbox_visible")
     here["target_occlusion"] = target.get("occlusion", 1.0)
+    # The object endpoint's own box, so `grade` can require the triplet to be
+    # grounded at BOTH ends rather than only at the subject.
+    here["landmark_box"] = {
+        "bbox_amodal": geo.get(task["receptacle_name"], {}).get("bbox_amodal"),
+        "bbox_visible": geo.get(task["receptacle_name"], {}).get("bbox_visible")}
     here["distractors"] = [
         {**d, "bbox_amodal": geo.get(d["name"], {}).get("bbox_amodal"),
          "bbox_visible": geo.get(d["name"], {}).get("bbox_visible")}

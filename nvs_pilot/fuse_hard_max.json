@@ -1,0 +1,4615 @@
+{
+ "beta": 1.0,
+ "objscore": "max",
+ "vocab": null,
+ "dedup_iou": 0.9,
+ "corr_relabel": "argmax",
+ "relabel_mode": "consensus",
+ "relabel_tau": 0.0,
+ "gate": 0.8,
+ "corr": "assign",
+ "pool": "mean",
+ "objscore_class": "gate",
+ "cases": [
+  {
+   "case": 0,
+   "scene": "tabletop|0",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 1.0075731728475996e-06,
+     "iou": 0.322,
+     "iou_object": 0.912,
+     "success": false,
+     "score_runner_up": 9.786212888273623e-07,
+     "score_other_subject": 9.786212888273623e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle for laptop",
+     "bottle under laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 1.4990048551118303e-06,
+     "iou": 0.322,
+     "iou_object": 0.912,
+     "success": false,
+     "score_runner_up": 1.4542527154085124e-06,
+     "score_other_subject": 1.4542527154085124e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle for laptop",
+     "bottle under laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 1.4990048551118303e-06,
+     "iou": 0.322,
+     "iou_object": 0.912,
+     "success": false,
+     "score_runner_up": 1.4542527154085124e-06,
+     "score_other_subject": 1.4542527154085124e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle in front of laptop",
+     "bottle under laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 5.1229936300686146e-05,
+     "iou": 0.736,
+     "iou_object": 0.912,
+     "success": true,
+     "score_runner_up": 1.0053311317103492e-05,
+     "score_other_subject": 1.0053311317103492e-05,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle in front of laptop",
+     "bottle under laptop"
+    ]
+   }
+  },
+  {
+   "case": 1,
+   "scene": "tabletop|1",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.598,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      83
+     ],
+     "score": 5.940049956437763e-08,
+     "iou": 0.0,
+     "iou_object": 0.915,
+     "success": false,
+     "score_runner_up": 1.2455045787539238e-08,
+     "score_other_subject": 3.2647092541144644e-09,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup on laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      83
+     ],
+     "score": 1.8607600872173815e-07,
+     "iou": 0.0,
+     "iou_object": 0.915,
+     "success": false,
+     "score_runner_up": 2.839804069458237e-08,
+     "score_other_subject": 2.0561491427068535e-08,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup on laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      83
+     ],
+     "score": 1.8607600872173815e-07,
+     "iou": 0.0,
+     "iou_object": 0.915,
+     "success": false,
+     "score_runner_up": 2.839804069458237e-08,
+     "score_other_subject": 2.0561491427068535e-08,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 1.0863181434512224e-05,
+     "iou": 0.0,
+     "iou_object": 0.926,
+     "success": false,
+     "score_runner_up": 6.124066109728949e-06,
+     "score_other_subject": 1.997826470714892e-06,
+     "best_rank": 4,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 2,
+   "scene": "tabletop|2",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.601,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 2.634836092018182e-07,
+     "iou": 0.842,
+     "iou_object": 0.905,
+     "success": true,
+     "score_runner_up": 6.364442506335925e-08,
+     "score_other_subject": 6.364442506335925e-08,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 4.704696964352023e-07,
+     "iou": 0.842,
+     "iou_object": 0.905,
+     "success": true,
+     "score_runner_up": 2.0115151729829459e-07,
+     "score_other_subject": 2.0115151729829459e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 4.704696964352023e-07,
+     "iou": 0.842,
+     "iou_object": 0.905,
+     "success": true,
+     "score_runner_up": 2.0115151729829459e-07,
+     "score_other_subject": 2.0115151729829459e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle near laptop",
+     "bottle in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      171,
+      54
+     ],
+     "score": 8.62974114412135e-06,
+     "iou": 0.0,
+     "iou_object": 0.905,
+     "success": false,
+     "score_runner_up": 4.143836063988729e-06,
+     "score_other_subject": 4.143836063988729e-06,
+     "best_rank": 5,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle near laptop",
+     "bottle in front of laptop"
+    ]
+   }
+  },
+  {
+   "case": 3,
+   "scene": "tabletop|3",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.599,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 1.772533857344839e-07,
+     "iou": 0.0,
+     "iou_object": 0.907,
+     "success": false,
+     "score_runner_up": 2.181055996827681e-08,
+     "score_other_subject": 2.181055996827681e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 6.151147204718171e-07,
+     "iou": 0.0,
+     "iou_object": 0.907,
+     "success": false,
+     "score_runner_up": 3.134373773633261e-07,
+     "score_other_subject": 3.134373773633261e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 6.151147204718171e-07,
+     "iou": 0.0,
+     "iou_object": 0.907,
+     "success": false,
+     "score_runner_up": 3.134373773633261e-07,
+     "score_other_subject": 3.134373773633261e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 3.1829654960126644e-05,
+     "iou": 0.812,
+     "iou_object": 0.907,
+     "success": true,
+     "score_runner_up": 1.833480958087462e-05,
+     "score_other_subject": 1.833480958087462e-05,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 4,
+   "scene": "tabletop|4",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 6.717045797421907e-06,
+     "iou": 0.93,
+     "iou_object": 0.837,
+     "success": true,
+     "score_runner_up": 6.858807453376556e-08,
+     "score_other_subject": 6.858807453376556e-08,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle in front of laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 1.2819032652461315e-05,
+     "iou": 0.93,
+     "iou_object": 0.837,
+     "success": true,
+     "score_runner_up": 1.5077859051733887e-07,
+     "score_other_subject": 1.5077859051733887e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle in front of laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 1.2819032652461315e-05,
+     "iou": 0.93,
+     "iou_object": 0.837,
+     "success": true,
+     "score_runner_up": 1.5077859051733887e-07,
+     "score_other_subject": 1.5077859051733887e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 4.1170033313470134e-05,
+     "iou": 0.93,
+     "iou_object": 0.837,
+     "success": true,
+     "score_runner_up": 6.0956399110540654e-06,
+     "score_other_subject": 6.0956399110540654e-06,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 5,
+   "scene": "tabletop|5",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 1.3971173781155718e-06,
+     "iou": 0.0,
+     "iou_object": 0.881,
+     "success": false,
+     "score_runner_up": 3.241658911853638e-07,
+     "score_other_subject": 3.241658911853638e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 3.0562070298459365e-06,
+     "iou": 0.0,
+     "iou_object": 0.881,
+     "success": false,
+     "score_runner_up": 1.5784589884788609e-06,
+     "score_other_subject": 1.5784589884788609e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 3.0562070298459365e-06,
+     "iou": 0.0,
+     "iou_object": 0.881,
+     "success": false,
+     "score_runner_up": 1.5784589884788609e-06,
+     "score_other_subject": 1.5784589884788609e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 4.248382039162557e-05,
+     "iou": 0.0,
+     "iou_object": 0.881,
+     "success": false,
+     "score_runner_up": 2.962838093867326e-05,
+     "score_other_subject": 2.065841693573399e-05,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 6,
+   "scene": "tabletop|6",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      148,
+      54
+     ],
+     "score": 1.7756136722509315e-07,
+     "iou": 0.0,
+     "iou_object": 0.893,
+     "success": false,
+     "score_runner_up": 1.2770085131168048e-08,
+     "score_other_subject": 1.2770085131168048e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle under laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      148,
+      54
+     ],
+     "score": 3.831156516970267e-07,
+     "iou": 0.0,
+     "iou_object": 0.893,
+     "success": false,
+     "score_runner_up": 2.032920728080858e-08,
+     "score_other_subject": 2.032920728080858e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle near laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      148,
+      54
+     ],
+     "score": 3.831156516970267e-07,
+     "iou": 0.0,
+     "iou_object": 0.893,
+     "success": false,
+     "score_runner_up": 2.032920728080858e-08,
+     "score_other_subject": 2.032920728080858e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle near laptop",
+     "bottle under laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      148,
+      54
+     ],
+     "score": 6.386113073119162e-06,
+     "iou": 0.0,
+     "iou_object": 0.893,
+     "success": false,
+     "score_runner_up": 2.530757148961303e-06,
+     "score_other_subject": 2.530757148961303e-06,
+     "best_rank": 7,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle near laptop",
+     "bottle under laptop"
+    ]
+   }
+  },
+  {
+   "case": 7,
+   "scene": "tabletop|7",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.599,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 4.281921154877272e-06,
+     "iou": 0.0,
+     "iou_object": 0.904,
+     "success": false,
+     "score_runner_up": 7.897014782172605e-07,
+     "score_other_subject": 7.897014782172605e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 7.451830104018842e-06,
+     "iou": 0.0,
+     "iou_object": 0.904,
+     "success": false,
+     "score_runner_up": 1.1148440857706565e-06,
+     "score_other_subject": 1.1148440857706565e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 7.451830104018842e-06,
+     "iou": 0.0,
+     "iou_object": 0.904,
+     "success": false,
+     "score_runner_up": 1.1148440857706565e-06,
+     "score_other_subject": 1.1148440857706565e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 5.497271896807293e-05,
+     "iou": 0.0,
+     "iou_object": 0.904,
+     "success": false,
+     "score_runner_up": 3.734160039167711e-05,
+     "score_other_subject": 3.734160039167711e-05,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 8,
+   "scene": "tabletop|8",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 5.752742675332542e-06,
+     "iou": 0.873,
+     "iou_object": 0.925,
+     "success": true,
+     "score_runner_up": 4.3702119990082037e-07,
+     "score_other_subject": 4.3702119990082037e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle in front of laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 1.6320375044037716e-05,
+     "iou": 0.873,
+     "iou_object": 0.925,
+     "success": true,
+     "score_runner_up": 1.6319273827693041e-06,
+     "score_other_subject": 1.6319273827693041e-06,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle in front of laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 1.6320375044037716e-05,
+     "iou": 0.873,
+     "iou_object": 0.925,
+     "success": true,
+     "score_runner_up": 1.6319273827693041e-06,
+     "score_other_subject": 1.6319273827693041e-06,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 9.336225639608453e-05,
+     "iou": 0.873,
+     "iou_object": 0.925,
+     "success": true,
+     "score_runner_up": 5.966120922740181e-05,
+     "score_other_subject": 5.966120922740181e-05,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 9,
+   "scene": "tabletop|9",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 1.1533940564107048e-06,
+     "iou": 0.0,
+     "iou_object": 0.911,
+     "success": false,
+     "score_runner_up": 9.148079747580157e-08,
+     "score_other_subject": 9.148079747580157e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup for laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 2.867149749225862e-06,
+     "iou": 0.0,
+     "iou_object": 0.911,
+     "success": false,
+     "score_runner_up": 3.013927472050068e-07,
+     "score_other_subject": 3.013927472050068e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup for laptop",
+     "cup in front of laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 2.867149749225862e-06,
+     "iou": 0.0,
+     "iou_object": 0.911,
+     "success": false,
+     "score_runner_up": 3.013927472050068e-07,
+     "score_other_subject": 3.013927472050068e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 0.00011353825932862438,
+     "iou": 0.0,
+     "iou_object": 0.911,
+     "success": false,
+     "score_runner_up": 1.1395691072732875e-05,
+     "score_other_subject": 1.1395691072732875e-05,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup in front of laptop"
+    ]
+   }
+  },
+  {
+   "case": 10,
+   "scene": "tabletop|10",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      67,
+      109
+     ],
+     "score": 7.210113206992856e-07,
+     "iou": 0.898,
+     "iou_object": 0.922,
+     "success": true,
+     "score_runner_up": 2.850056300693755e-07,
+     "score_other_subject": 2.850056300693755e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle for laptop",
+     "bottle under laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      67,
+      109
+     ],
+     "score": 1.5952974410167638e-06,
+     "iou": 0.898,
+     "iou_object": 0.922,
+     "success": true,
+     "score_runner_up": 3.9599096904470964e-07,
+     "score_other_subject": 3.9599096904470964e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle for laptop",
+     "bottle under laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      67,
+      109
+     ],
+     "score": 1.5952974410167638e-06,
+     "iou": 0.898,
+     "iou_object": 0.922,
+     "success": true,
+     "score_runner_up": 3.9599096904470964e-07,
+     "score_other_subject": 3.9599096904470964e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 2.1829177470142e-05,
+     "iou": 0.666,
+     "iou_object": 0.922,
+     "success": true,
+     "score_runner_up": 1.600127621491365e-05,
+     "score_other_subject": 1.600127621491365e-05,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 11,
+   "scene": "tabletop|11",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      33,
+      109
+     ],
+     "score": 1.0979881102844421e-06,
+     "iou": 0.0,
+     "iou_object": 0.891,
+     "success": false,
+     "score_runner_up": 7.4243357739436e-09,
+     "score_other_subject": 5.009452339035977e-10,
+     "best_rank": 6,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup for laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      33,
+      109
+     ],
+     "score": 2.014917826498666e-06,
+     "iou": 0.0,
+     "iou_object": 0.891,
+     "success": false,
+     "score_runner_up": 9.913967697381765e-09,
+     "score_other_subject": 1.0924887506459357e-09,
+     "best_rank": 7,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup for laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      33,
+      109
+     ],
+     "score": 2.014917826498666e-06,
+     "iou": 0.0,
+     "iou_object": 0.891,
+     "success": false,
+     "score_runner_up": 9.913967697381765e-09,
+     "score_other_subject": 1.0924887506459357e-09,
+     "best_rank": 7,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      33,
+      109
+     ],
+     "score": 3.534469786695138e-05,
+     "iou": 0.0,
+     "iou_object": 0.891,
+     "success": false,
+     "score_runner_up": 3.556427147945315e-06,
+     "score_other_subject": 3.556427147945315e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 12,
+   "scene": "tabletop|12",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      144,
+      109
+     ],
+     "score": 3.105827471678706e-08,
+     "iou": 0.0,
+     "iou_object": 0.912,
+     "success": false,
+     "score_runner_up": 1.3631012151475716e-08,
+     "score_other_subject": 1.3631012151475716e-08,
+     "best_rank": 65,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle for laptop",
+     "bottle for laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      144,
+      109
+     ],
+     "score": 9.814160994560346e-08,
+     "iou": 0.0,
+     "iou_object": 0.912,
+     "success": false,
+     "score_runner_up": 3.897927490494285e-08,
+     "score_other_subject": 3.897927490494285e-08,
+     "best_rank": 65,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle for laptop",
+     "bottle for laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      144,
+      109
+     ],
+     "score": 9.814160994560346e-08,
+     "iou": 0.0,
+     "iou_object": 0.912,
+     "success": false,
+     "score_runner_up": 3.897927490494285e-08,
+     "score_other_subject": 3.897927490494285e-08,
+     "best_rank": 65,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      67,
+      109
+     ],
+     "score": 0.00011320724795035875,
+     "iou": 0.81,
+     "iou_object": 0.912,
+     "success": true,
+     "score_runner_up": 4.507614203347332e-05,
+     "score_other_subject": 4.507614203347332e-05,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 13,
+   "scene": "tabletop|13",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.601,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 4.8814689539150684e-06,
+     "iou": 0.0,
+     "iou_object": 0.927,
+     "success": false,
+     "score_runner_up": 2.8675995515837887e-06,
+     "score_other_subject": 2.8675995515837887e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup of laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 7.5371938224044754e-06,
+     "iou": 0.0,
+     "iou_object": 0.927,
+     "success": false,
+     "score_runner_up": 4.496714336374441e-06,
+     "score_other_subject": 4.496714336374441e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup of laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 7.5371938224044754e-06,
+     "iou": 0.0,
+     "iou_object": 0.927,
+     "success": false,
+     "score_runner_up": 4.496714336374441e-06,
+     "score_other_subject": 4.496714336374441e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup on laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 0.00033853203527556275,
+     "iou": 0.0,
+     "iou_object": 0.927,
+     "success": false,
+     "score_runner_up": 0.00019306905136809438,
+     "score_other_subject": 0.00019306905136809438,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup on laptop"
+    ]
+   }
+  },
+  {
+   "case": 14,
+   "scene": "tabletop|14",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 3.6127809867438804e-08,
+     "iou": 0.456,
+     "iou_object": 0.922,
+     "success": false,
+     "score_runner_up": 2.0695208899332488e-08,
+     "score_other_subject": 2.0695208899332488e-08,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle near laptop",
+     "bottle on laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      54
+     ],
+     "score": 6.726759830185942e-08,
+     "iou": 0.351,
+     "iou_object": 0.922,
+     "success": false,
+     "score_runner_up": 5.987084704477233e-08,
+     "score_other_subject": 5.987084704477233e-08,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle near laptop",
+     "bottle on laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      54
+     ],
+     "score": 6.726759830185942e-08,
+     "iou": 0.351,
+     "iou_object": 0.922,
+     "success": false,
+     "score_runner_up": 5.987084704477233e-08,
+     "score_other_subject": 5.987084704477233e-08,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle under laptop",
+     "bottle in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      54
+     ],
+     "score": 2.8921001134117e-06,
+     "iou": 0.351,
+     "iou_object": 0.922,
+     "success": false,
+     "score_runner_up": 1.6073096211361706e-06,
+     "score_other_subject": 1.6073096211361706e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle under laptop",
+     "bottle under laptop",
+     "bottle in front of laptop"
+    ]
+   }
+  },
+  {
+   "case": 15,
+   "scene": "tabletop|15",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 1.0894272207562661e-06,
+     "iou": 0.0,
+     "iou_object": 0.909,
+     "success": false,
+     "score_runner_up": 8.774184487412608e-07,
+     "score_other_subject": 8.774184487412608e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 2.978210497707424e-06,
+     "iou": 0.859,
+     "iou_object": 0.909,
+     "success": true,
+     "score_runner_up": 2.625493291983456e-06,
+     "score_other_subject": 2.625493291983456e-06,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 2.978210497707424e-06,
+     "iou": 0.859,
+     "iou_object": 0.909,
+     "success": true,
+     "score_runner_up": 2.625493291983456e-06,
+     "score_other_subject": 2.625493291983456e-06,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 0.00012546846554217783,
+     "iou": 0.0,
+     "iou_object": 0.909,
+     "success": false,
+     "score_runner_up": 0.00010146354837439753,
+     "score_other_subject": 0.00010146354837439753,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup in front of laptop"
+    ]
+   }
+  },
+  {
+   "case": 16,
+   "scene": "tabletop|16",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.601,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 1.2289788240675665e-05,
+     "iou": 0.0,
+     "iou_object": 0.885,
+     "success": false,
+     "score_runner_up": 1.4663136074586965e-07,
+     "score_other_subject": 1.4663136074586965e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 2.443747920604679e-05,
+     "iou": 0.0,
+     "iou_object": 0.885,
+     "success": false,
+     "score_runner_up": 2.2231262482909917e-07,
+     "score_other_subject": 2.2231262482909917e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 2.443747920604679e-05,
+     "iou": 0.0,
+     "iou_object": 0.885,
+     "success": false,
+     "score_runner_up": 2.2231262482909917e-07,
+     "score_other_subject": 2.2231262482909917e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 0.00042295865285954526,
+     "iou": 0.0,
+     "iou_object": 0.885,
+     "success": false,
+     "score_runner_up": 9.550297505810101e-05,
+     "score_other_subject": 9.550297505810101e-05,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 17,
+   "scene": "tabletop|17",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 6.156802873517805e-06,
+     "iou": 0.0,
+     "iou_object": 0.885,
+     "success": false,
+     "score_runner_up": 1.962744097171902e-06,
+     "score_other_subject": 1.962744097171902e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 1.2922993938751029e-05,
+     "iou": 0.0,
+     "iou_object": 0.885,
+     "success": false,
+     "score_runner_up": 2.7286479585900136e-06,
+     "score_other_subject": 2.7286479585900136e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 1.2922993938751029e-05,
+     "iou": 0.0,
+     "iou_object": 0.885,
+     "success": false,
+     "score_runner_up": 2.7286479585900136e-06,
+     "score_other_subject": 2.7286479585900136e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 6.66980499654593e-05,
+     "iou": 0.0,
+     "iou_object": 0.885,
+     "success": false,
+     "score_runner_up": 3.414116334336456e-05,
+     "score_other_subject": 3.414116334336456e-05,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 18,
+   "scene": "tabletop|18",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.602,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 8.058337876339239e-07,
+     "iou": 0.0,
+     "iou_object": 0.894,
+     "success": false,
+     "score_runner_up": 4.7814138685462046e-08,
+     "score_other_subject": 4.7814138685462046e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 2.570275592090514e-06,
+     "iou": 0.0,
+     "iou_object": 0.894,
+     "success": false,
+     "score_runner_up": 6.319043289465876e-08,
+     "score_other_subject": 6.319043289465876e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 2.570275592090514e-06,
+     "iou": 0.0,
+     "iou_object": 0.894,
+     "success": false,
+     "score_runner_up": 6.319043289465876e-08,
+     "score_other_subject": 6.319043289465876e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 0.0001962858124872624,
+     "iou": 0.0,
+     "iou_object": 0.894,
+     "success": false,
+     "score_runner_up": 0.00010296733693569704,
+     "score_other_subject": 0.00010296733693569704,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 19,
+   "scene": "tabletop|19",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 1.9464503883390337e-08,
+     "iou": 0.797,
+     "iou_object": 0.88,
+     "success": true,
+     "score_runner_up": 7.251080783329016e-10,
+     "score_other_subject": 7.251080783329016e-10,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup on laptop",
+     "cup in front of laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 5.6217936837726e-08,
+     "iou": 0.797,
+     "iou_object": 0.88,
+     "success": true,
+     "score_runner_up": 1.4605423280388357e-09,
+     "score_other_subject": 1.4605423280388357e-09,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup under laptop",
+     "cup on laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 5.6217936837726e-08,
+     "iou": 0.797,
+     "iou_object": 0.88,
+     "success": true,
+     "score_runner_up": 1.4605423280388357e-09,
+     "score_other_subject": 1.4605423280388357e-09,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup under laptop",
+     "cup under laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 9.888472507855323e-06,
+     "iou": 0.797,
+     "iou_object": 0.88,
+     "success": true,
+     "score_runner_up": 1.2006032607070967e-06,
+     "score_other_subject": 5.837521455332112e-07,
+     "best_rank": 1,
+     "candidates": 98
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup under laptop",
+     "cup under laptop"
+    ]
+   }
+  },
+  {
+   "case": 20,
+   "scene": "tabletop|20",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.596,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 1.928333894962644e-06,
+     "iou": 0.0,
+     "iou_object": 0.924,
+     "success": false,
+     "score_runner_up": 2.9671317677639436e-07,
+     "score_other_subject": 2.9671317677639436e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 5.002066336301514e-06,
+     "iou": 0.0,
+     "iou_object": 0.924,
+     "success": false,
+     "score_runner_up": 4.915601731258004e-07,
+     "score_other_subject": 4.915601731258004e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 5.002066336301514e-06,
+     "iou": 0.0,
+     "iou_object": 0.924,
+     "success": false,
+     "score_runner_up": 4.915601731258004e-07,
+     "score_other_subject": 4.915601731258004e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 0.00032234710776357645,
+     "iou": 0.0,
+     "iou_object": 0.924,
+     "success": false,
+     "score_runner_up": 0.00024465023615638515,
+     "score_other_subject": 0.00024465023615638515,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 21,
+   "scene": "tabletop|21",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 2.236630496965949e-06,
+     "iou": 0.0,
+     "iou_object": 0.919,
+     "success": false,
+     "score_runner_up": 4.362096549700206e-07,
+     "score_other_subject": 4.362096549700206e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 4.522957169307649e-06,
+     "iou": 0.0,
+     "iou_object": 0.919,
+     "success": false,
+     "score_runner_up": 3.1732984363561176e-06,
+     "score_other_subject": 3.1732984363561176e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 4.522957169307649e-06,
+     "iou": 0.0,
+     "iou_object": 0.919,
+     "success": false,
+     "score_runner_up": 3.1732984363561176e-06,
+     "score_other_subject": 3.1732984363561176e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 8.014497003507037e-05,
+     "iou": 0.0,
+     "iou_object": 0.919,
+     "success": false,
+     "score_runner_up": 5.4224261814880825e-05,
+     "score_other_subject": 5.4224261814880825e-05,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 22,
+   "scene": "tabletop|22",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      97,
+      109
+     ],
+     "score": 2.3639670215554704e-07,
+     "iou": 0.0,
+     "iou_object": 0.942,
+     "success": false,
+     "score_runner_up": 2.1777032728501592e-08,
+     "score_other_subject": 2.1777032728501592e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      97,
+      109
+     ],
+     "score": 5.420450719709045e-07,
+     "iou": 0.0,
+     "iou_object": 0.942,
+     "success": false,
+     "score_runner_up": 4.176185639975792e-08,
+     "score_other_subject": 4.176185639975792e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      97,
+      109
+     ],
+     "score": 5.420450719709045e-07,
+     "iou": 0.0,
+     "iou_object": 0.942,
+     "success": false,
+     "score_runner_up": 4.176185639975792e-08,
+     "score_other_subject": 4.176185639975792e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 1.5142492458451728e-05,
+     "iou": 0.221,
+     "iou_object": 0.942,
+     "success": false,
+     "score_runner_up": 7.588260822022396e-06,
+     "score_other_subject": 7.588260822022396e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 23,
+   "scene": "tabletop|23",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.599,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 2.0577969561493323e-06,
+     "iou": 0.793,
+     "iou_object": 0.934,
+     "success": true,
+     "score_runner_up": 3.4010918784270546e-07,
+     "score_other_subject": 3.4010918784270546e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup in front of laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 2.9847296461773913e-06,
+     "iou": 0.793,
+     "iou_object": 0.934,
+     "success": true,
+     "score_runner_up": 6.307725876585611e-07,
+     "score_other_subject": 6.307725876585611e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup in front of laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 2.9847296461773913e-06,
+     "iou": 0.793,
+     "iou_object": 0.934,
+     "success": true,
+     "score_runner_up": 6.307725876585611e-07,
+     "score_other_subject": 6.307725876585611e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 6.810164681206321e-05,
+     "iou": 0.793,
+     "iou_object": 0.934,
+     "success": true,
+     "score_runner_up": 4.9306597797093774e-05,
+     "score_other_subject": 4.9306597797093774e-05,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup in front of laptop"
+    ]
+   }
+  },
+  {
+   "case": 24,
+   "scene": "tabletop|24",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 8.195754946240027e-06,
+     "iou": 0.8,
+     "iou_object": 0.874,
+     "success": true,
+     "score_runner_up": 6.069445247488281e-08,
+     "score_other_subject": 2.772017532870798e-08,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle under laptop",
+     "bottle on laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 2.0487720410369836e-05,
+     "iou": 0.8,
+     "iou_object": 0.874,
+     "success": true,
+     "score_runner_up": 1.3029812492257624e-07,
+     "score_other_subject": 1.3029812492257624e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle under laptop",
+     "bottle on laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 2.0487720410369836e-05,
+     "iou": 0.8,
+     "iou_object": 0.874,
+     "success": true,
+     "score_runner_up": 1.3029812492257624e-07,
+     "score_other_subject": 1.3029812492257624e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 2.0487720410369836e-05,
+     "iou": 0.8,
+     "iou_object": 0.874,
+     "success": true,
+     "score_runner_up": 1.3366722059886607e-05,
+     "score_other_subject": 1.3366722059886607e-05,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle in front of laptop"
+    ]
+   }
+  },
+  {
+   "case": 25,
+   "scene": "tabletop|25",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      67,
+      109
+     ],
+     "score": 7.479398492930776e-07,
+     "iou": 0.893,
+     "iou_object": 0.893,
+     "success": true,
+     "score_runner_up": 2.2373795032284333e-08,
+     "score_other_subject": 2.2373795032284333e-08,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup in front of laptop",
+     "cup under laptop",
+     "cup for laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      67,
+      109
+     ],
+     "score": 1.208215509329179e-06,
+     "iou": 0.893,
+     "iou_object": 0.893,
+     "success": true,
+     "score_runner_up": 2.6203398009907428e-08,
+     "score_other_subject": 2.6203398009907428e-08,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup in front of laptop",
+     "cup under laptop",
+     "cup for laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      67,
+      109
+     ],
+     "score": 1.208215509329179e-06,
+     "iou": 0.893,
+     "iou_object": 0.893,
+     "success": true,
+     "score_runner_up": 2.6203398009907428e-08,
+     "score_other_subject": 2.6203398009907428e-08,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup in front of laptop",
+     "cup under laptop",
+     "cup in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      67,
+      109
+     ],
+     "score": 5.792758939831243e-06,
+     "iou": 0.893,
+     "iou_object": 0.893,
+     "success": true,
+     "score_runner_up": 2.614867118773878e-07,
+     "score_other_subject": 2.614867118773878e-07,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup in front of laptop",
+     "cup under laptop",
+     "cup in front of laptop"
+    ]
+   }
+  },
+  {
+   "case": 26,
+   "scene": "tabletop|26",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 1.6108580046192327e-05,
+     "iou": 0.0,
+     "iou_object": 0.829,
+     "success": false,
+     "score_runner_up": 9.337701568016779e-06,
+     "score_other_subject": 9.337701568016779e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 6.356525723083539e-05,
+     "iou": 0.0,
+     "iou_object": 0.829,
+     "success": false,
+     "score_runner_up": 1.9768302347494132e-05,
+     "score_other_subject": 1.9768302347494132e-05,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 6.356525723083539e-05,
+     "iou": 0.0,
+     "iou_object": 0.829,
+     "success": false,
+     "score_runner_up": 1.9768302347494132e-05,
+     "score_other_subject": 1.9768302347494132e-05,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 0.00012605699884614407,
+     "iou": 0.817,
+     "iou_object": 0.829,
+     "success": true,
+     "score_runner_up": 0.00010187154864340492,
+     "score_other_subject": 0.00010187154864340492,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 27,
+   "scene": "tabletop|27",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 1.2485390386174512e-07,
+     "iou": 0.317,
+     "iou_object": 0.916,
+     "success": false,
+     "score_runner_up": 1.4758867486932612e-08,
+     "score_other_subject": 1.4758867486932612e-08,
+     "best_rank": 6,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup in front of laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 3.349769316207511e-07,
+     "iou": 0.317,
+     "iou_object": 0.916,
+     "success": false,
+     "score_runner_up": 2.7821582330645784e-08,
+     "score_other_subject": 2.7821582330645784e-08,
+     "best_rank": 7,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup in front of laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 3.349769316207511e-07,
+     "iou": 0.317,
+     "iou_object": 0.916,
+     "success": false,
+     "score_runner_up": 2.7821582330645784e-08,
+     "score_other_subject": 2.7821582330645784e-08,
+     "best_rank": 7,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 8.62543370188304e-05,
+     "iou": 0.0,
+     "iou_object": 0.916,
+     "success": false,
+     "score_runner_up": 6.105895816301086e-06,
+     "score_other_subject": 6.105895816301086e-06,
+     "best_rank": 15,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 28,
+   "scene": "tabletop|28",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": 3,
+    "grounded_rank": 3,
+    "best_subject_iou": 0.719,
+    "matched": "#3 behind iou 0.719",
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 2.2706435234375683e-06,
+     "iou": 0.328,
+     "iou_object": 0.911,
+     "success": false,
+     "score_runner_up": 8.040916006783043e-08,
+     "score_other_subject": 8.040916006783043e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 3,
+    "top3": [
+     "bottle on laptop",
+     "bottle under laptop",
+     "bottle behind laptop"
+    ]
+   },
+   "A": {
+    "class_rank": 3,
+    "grounded_rank": 3,
+    "best_subject_iou": 0.719,
+    "matched": "#3 behind iou 0.719",
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 3.5242261510761395e-06,
+     "iou": 0.328,
+     "iou_object": 0.911,
+     "success": false,
+     "score_runner_up": 1.5858622400299644e-07,
+     "score_other_subject": 1.5858622400299644e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 3,
+    "top3": [
+     "bottle on laptop",
+     "bottle under laptop",
+     "bottle behind laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 3.5242261510761395e-06,
+     "iou": 0.328,
+     "iou_object": 0.911,
+     "success": false,
+     "score_runner_up": 1.5858622400299644e-07,
+     "score_other_subject": 1.5858622400299644e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle on laptop",
+     "bottle under laptop",
+     "bottle under laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      109
+     ],
+     "score": 7.979515803738235e-05,
+     "iou": 0.328,
+     "iou_object": 0.911,
+     "success": false,
+     "score_runner_up": 1.1149226449834806e-05,
+     "score_other_subject": 4.947469983955798e-07,
+     "best_rank": 5,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle on laptop",
+     "bottle under laptop",
+     "bottle under laptop"
+    ]
+   }
+  },
+  {
+   "case": 29,
+   "scene": "tabletop|30",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.599,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 2.0404700568664556e-05,
+     "iou": 0.0,
+     "iou_object": 0.914,
+     "success": false,
+     "score_runner_up": 4.0158340950141005e-07,
+     "score_other_subject": 4.0158340950141005e-07,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 3.0179999758654305e-05,
+     "iou": 0.0,
+     "iou_object": 0.914,
+     "success": false,
+     "score_runner_up": 7.473329629453535e-07,
+     "score_other_subject": 7.473329629453535e-07,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 3.0179999758654305e-05,
+     "iou": 0.0,
+     "iou_object": 0.914,
+     "success": false,
+     "score_runner_up": 7.473329629453535e-07,
+     "score_other_subject": 7.473329629453535e-07,
+     "best_rank": 3,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 0.00019056591701599457,
+     "iou": 0.0,
+     "iou_object": 0.914,
+     "success": false,
+     "score_runner_up": 3.1068529481967366e-05,
+     "score_other_subject": 3.1068529481967366e-05,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 30,
+   "scene": "tabletop|32",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 1.3867933038997904e-06,
+     "iou": 0.913,
+     "iou_object": 0.904,
+     "success": true,
+     "score_runner_up": 3.921584565429169e-08,
+     "score_other_subject": 3.921584565429169e-08,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle on laptop",
+     "bottle in front of laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 4.586493966077243e-06,
+     "iou": 0.913,
+     "iou_object": 0.904,
+     "success": true,
+     "score_runner_up": 1.7419766962836194e-07,
+     "score_other_subject": 1.7419766962836194e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle on laptop",
+     "bottle in front of laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 4.586493966077243e-06,
+     "iou": 0.913,
+     "iou_object": 0.904,
+     "success": true,
+     "score_runner_up": 1.7419766962836194e-07,
+     "score_other_subject": 1.7419766962836194e-07,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 7.10718174077446e-06,
+     "iou": 0.913,
+     "iou_object": 0.904,
+     "success": true,
+     "score_runner_up": 5.884881611760862e-06,
+     "score_other_subject": 4.8078809725413466e-06,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle in front of laptop"
+    ]
+   }
+  },
+  {
+   "case": 31,
+   "scene": "tabletop|33",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.601,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 1.786249953629861e-06,
+     "iou": 0.0,
+     "iou_object": 0.88,
+     "success": false,
+     "score_runner_up": 1.8162885194950752e-08,
+     "score_other_subject": 1.8162885194950752e-08,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup for laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 3.3621879219928805e-06,
+     "iou": 0.0,
+     "iou_object": 0.88,
+     "success": false,
+     "score_runner_up": 9.231814413973387e-08,
+     "score_other_subject": 9.231814413973387e-08,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup for laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 3.3621879219928805e-06,
+     "iou": 0.0,
+     "iou_object": 0.88,
+     "success": false,
+     "score_runner_up": 9.231814413973387e-08,
+     "score_other_subject": 9.231814413973387e-08,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup under laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 9.115896796446643e-05,
+     "iou": 0.0,
+     "iou_object": 0.88,
+     "success": false,
+     "score_runner_up": 3.8920861739396434e-05,
+     "score_other_subject": 3.8920861739396434e-05,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup under laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 32,
+   "scene": "tabletop|34",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.599,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 2.016970956726793e-07,
+     "iou": 0.911,
+     "iou_object": 0.931,
+     "success": true,
+     "score_runner_up": 1.7869612694404197e-08,
+     "score_other_subject": 1.7869612694404197e-08,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle for laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 6.806947389645726e-07,
+     "iou": 0.911,
+     "iou_object": 0.931,
+     "success": true,
+     "score_runner_up": 8.033116361369185e-08,
+     "score_other_subject": 8.033116361369185e-08,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle for laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      181,
+      54
+     ],
+     "score": 6.806947389645726e-07,
+     "iou": 0.911,
+     "iou_object": 0.931,
+     "success": true,
+     "score_runner_up": 8.033116361369185e-08,
+     "score_other_subject": 8.033116361369185e-08,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 1.2498166689729404e-05,
+     "iou": 0.795,
+     "iou_object": 0.931,
+     "success": true,
+     "score_runner_up": 1.0287263572331812e-05,
+     "score_other_subject": 4.125155823802868e-06,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 33,
+   "scene": "tabletop|35",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 1.7239704218134878e-05,
+     "iou": 0.846,
+     "iou_object": 0.934,
+     "success": true,
+     "score_runner_up": 1.7923841454885586e-06,
+     "score_other_subject": 1.7923841454885586e-06,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup mounted on laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 2.54895888958254e-05,
+     "iou": 0.846,
+     "iou_object": 0.934,
+     "success": true,
+     "score_runner_up": 2.853048765545348e-06,
+     "score_other_subject": 2.853048765545348e-06,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup mounted on laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 2.54895888958254e-05,
+     "iou": 0.846,
+     "iou_object": 0.934,
+     "success": true,
+     "score_runner_up": 2.853048765545348e-06,
+     "score_other_subject": 2.853048765545348e-06,
+     "best_rank": 1,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 0.0001155642747634189,
+     "iou": 0.0,
+     "iou_object": 0.934,
+     "success": false,
+     "score_runner_up": 6.964561969437927e-05,
+     "score_other_subject": 6.964561969437927e-05,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup in front of laptop"
+    ]
+   }
+  },
+  {
+   "case": 34,
+   "scene": "tabletop|37",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.601,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 5.161110360700126e-07,
+     "iou": 0.0,
+     "iou_object": 0.905,
+     "success": false,
+     "score_runner_up": 4.3151777077830304e-08,
+     "score_other_subject": 4.3151777077830304e-08,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 1.0585182334219576e-06,
+     "iou": 0.0,
+     "iou_object": 0.905,
+     "success": false,
+     "score_runner_up": 2.8219839462093055e-07,
+     "score_other_subject": 2.8219839462093055e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 1.0585182334219576e-06,
+     "iou": 0.0,
+     "iou_object": 0.905,
+     "success": false,
+     "score_runner_up": 2.8219839462093055e-07,
+     "score_other_subject": 2.8219839462093055e-07,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      109
+     ],
+     "score": 4.917851802288542e-05,
+     "iou": 0.824,
+     "iou_object": 0.905,
+     "success": true,
+     "score_runner_up": 4.752461131454777e-05,
+     "score_other_subject": 4.752461131454777e-05,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 35,
+   "scene": "tabletop|38",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      54
+     ],
+     "score": 5.496087221274049e-06,
+     "iou": 0.566,
+     "iou_object": 0.891,
+     "success": true,
+     "score_runner_up": 2.492000641082475e-06,
+     "score_other_subject": 2.492000641082475e-06,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      155,
+      54
+     ],
+     "score": 2.286024395773377e-05,
+     "iou": 0.566,
+     "iou_object": 0.891,
+     "success": true,
+     "score_runner_up": 1.0822076883343183e-05,
+     "score_other_subject": 1.0822076883343183e-05,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": 10,
+    "grounded_rank": 10,
+    "best_subject_iou": 0.631,
+    "matched": "#10 behind iou 0.631",
+    "act": {
+     "chosen": [
+      155,
+      54
+     ],
+     "score": 2.286024395773377e-05,
+     "iou": 0.566,
+     "iou_object": 0.891,
+     "success": true,
+     "score_runner_up": 1.0822076883343183e-05,
+     "score_other_subject": 1.0822076883343183e-05,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 10,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": 10,
+    "grounded_rank": 10,
+    "best_subject_iou": 0.631,
+    "matched": "#10 behind iou 0.631",
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 0.0007044525145666336,
+     "iou": 0.0,
+     "iou_object": 0.891,
+     "success": false,
+     "score_runner_up": 0.000627824393234222,
+     "score_other_subject": 0.000627824393234222,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": true,
+    "first_match": 10,
+    "top3": [
+     "bottle near laptop",
+     "bottle in front of laptop",
+     "bottle near laptop"
+    ]
+   }
+  },
+  {
+   "case": 36,
+   "scene": "tabletop|39",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.601,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      83
+     ],
+     "score": 6.933899682315101e-07,
+     "iou": 0.0,
+     "iou_object": 0.94,
+     "success": false,
+     "score_runner_up": 2.4588460352713433e-07,
+     "score_other_subject": 2.4588460352713433e-07,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      83
+     ],
+     "score": 3.886638444363928e-06,
+     "iou": 0.0,
+     "iou_object": 0.94,
+     "success": false,
+     "score_runner_up": 4.799659015817468e-07,
+     "score_other_subject": 4.799659015817468e-07,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup in front of laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      83
+     ],
+     "score": 3.886638444363928e-06,
+     "iou": 0.0,
+     "iou_object": 0.94,
+     "success": false,
+     "score_runner_up": 4.799659015817468e-07,
+     "score_other_subject": 4.799659015817468e-07,
+     "best_rank": 2,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      83
+     ],
+     "score": 5.498519445303572e-05,
+     "iou": 0.0,
+     "iou_object": 0.94,
+     "success": false,
+     "score_runner_up": 2.6665599207949253e-05,
+     "score_other_subject": 1.2540844914787127e-05,
+     "best_rank": 5,
+     "candidates": 99
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   }
+  },
+  {
+   "case": 37,
+   "scene": "tabletop|40",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 7.945191356147844e-07,
+     "iou": 0.924,
+     "iou_object": 0.905,
+     "success": true,
+     "score_runner_up": 2.9039886222168796e-07,
+     "score_other_subject": 1.9056450567236216e-08,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 1.6993567672415888e-06,
+     "iou": 0.924,
+     "iou_object": 0.905,
+     "success": true,
+     "score_runner_up": 4.881102161545482e-07,
+     "score_other_subject": 6.238638737787356e-08,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      43,
+      54
+     ],
+     "score": 1.6993567672415888e-06,
+     "iou": 0.924,
+     "iou_object": 0.905,
+     "success": true,
+     "score_runner_up": 4.881102161545482e-07,
+     "score_other_subject": 6.238638737787356e-08,
+     "best_rank": 1,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 1.9556016041567814e-05,
+     "iou": 0.0,
+     "iou_object": 0.905,
+     "success": false,
+     "score_runner_up": 1.0836402136241152e-05,
+     "score_other_subject": 1.0836402136241152e-05,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle in front of laptop"
+    ]
+   }
+  },
+  {
+   "case": 38,
+   "scene": "tabletop|41",
+   "instruction": "Find the cup behind the laptop",
+   "staged_occlusion": 0.6,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 2.2832920651767124e-06,
+     "iou": 0.0,
+     "iou_object": 0.875,
+     "success": false,
+     "score_runner_up": 1.194785737290668e-08,
+     "score_other_subject": 4.5465758948681266e-09,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 5.0583744302685335e-06,
+     "iou": 0.0,
+     "iou_object": 0.875,
+     "success": false,
+     "score_runner_up": 3.118385520024134e-08,
+     "score_other_subject": 1.0941005966814163e-08,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup near laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 5.0583744302685335e-06,
+     "iou": 0.0,
+     "iou_object": 0.875,
+     "success": false,
+     "score_runner_up": 3.118385520024134e-08,
+     "score_other_subject": 1.0941005966814163e-08,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup on laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      135,
+      54
+     ],
+     "score": 1.7323797906684812e-05,
+     "iou": 0.0,
+     "iou_object": 0.875,
+     "success": false,
+     "score_runner_up": 1.9248274660873393e-06,
+     "score_other_subject": 7.989532762822947e-08,
+     "best_rank": null,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "cup near laptop",
+     "cup near laptop",
+     "cup on laptop"
+    ]
+   }
+  },
+  {
+   "case": 39,
+   "scene": "tabletop|42",
+   "instruction": "Find the bottle behind the laptop",
+   "staged_occlusion": 0.601,
+   "self_test": "10/10",
+   "single": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 6.00559760598733e-06,
+     "iou": 0.0,
+     "iou_object": 0.934,
+     "success": false,
+     "score_runner_up": 2.4984217580151746e-06,
+     "score_other_subject": 2.4984217580151746e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 1.3276482466083143e-05,
+     "iou": 0.0,
+     "iou_object": 0.934,
+     "success": false,
+     "score_runner_up": 5.8584235865109975e-06,
+     "score_other_subject": 5.8584235865109975e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle for laptop"
+    ]
+   },
+   "A+C+R": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 1.3276482466083143e-05,
+     "iou": 0.0,
+     "iou_object": 0.934,
+     "success": false,
+     "score_runner_up": 5.8584235865109975e-06,
+     "score_other_subject": 5.8584235865109975e-06,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle in front of laptop"
+    ]
+   },
+   "A+C+R+M[max]": {
+    "class_rank": null,
+    "grounded_rank": null,
+    "best_subject_iou": 0.0,
+    "matched": null,
+    "act": {
+     "chosen": [
+      28,
+      109
+     ],
+     "score": 0.0002570883537849761,
+     "iou": 0.0,
+     "iou_object": 0.934,
+     "success": false,
+     "score_runner_up": 0.00023082293590417913,
+     "score_other_subject": 0.00023082293590417913,
+     "best_rank": 2,
+     "candidates": 100
+    },
+    "acts": false,
+    "first_match": null,
+    "top3": [
+     "bottle near laptop",
+     "bottle near laptop",
+     "bottle in front of laptop"
+    ]
+   }
+  }
+ ]
+}

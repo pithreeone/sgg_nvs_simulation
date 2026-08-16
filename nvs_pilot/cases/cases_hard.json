@@ -1,0 +1,2693 @@
+{
+ "predicate_families": [
+  "behind"
+ ],
+ "occlusion_band": [
+  0.5,
+  0.6,
+  0.75
+ ],
+ "procedural": true,
+ "cases": [
+  {
+   "scene": "tabletop|0",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.078578345400389,
+    "y": 0.8385906267166138,
+    "z": 2.255751476607391
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3485,
+   "target_px": 1393,
+   "distractor_px": 6212,
+   "occluder_px": 43274,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    377.0,
+    238.0,
+    423.0,
+    334.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_22",
+     "position": {
+      "x": 1.927675025087889,
+      "y": 0.8395305919647217,
+      "z": 2.605751476607391
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_22",
+     "position": {
+      "x": 1.5191222186379705,
+      "y": 0.8395305919647217,
+      "z": 2.255751476607391
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_10",
+     "position": {
+      "x": 2.078578345400389,
+      "y": 0.8385906267166138,
+      "z": 2.255751476607391
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9277,1.6058,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|1",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.8207055298052597,
+    "y": 0.8385906267166138,
+    "z": 2.3152772011814
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.598,
+   "bisected_occlusion": 0.598,
+   "clear_px": 2728,
+   "target_px": 1096,
+   "distractor_px": 5234,
+   "occluder_px": 64686,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    403.0,
+    260.0,
+    424.0,
+    337.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_27",
+     "position": {
+      "x": 2.0250146118365095,
+      "y": 0.8390339660644531,
+      "z": 2.6652772011814
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_27",
+     "position": {
+      "x": 2.344471910052468,
+      "y": 0.8390339660644531,
+      "z": 2.3152772011814
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_27",
+     "position": {
+      "x": 1.8207055298052597,
+      "y": 0.8385906267166138,
+      "z": 2.3152772011814
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0250,1.6653,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|2",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.9859855451550459,
+    "y": 0.8385906267166138,
+    "z": 2.300592853801588
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.601,
+   "bisected_occlusion": 0.601,
+   "clear_px": 2710,
+   "target_px": 1082,
+   "distractor_px": 5763,
+   "occluder_px": 42809,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    381.0,
+    247.0,
+    420.0,
+    337.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_11",
+     "position": {
+      "x": 2.144835642811296,
+      "y": 0.8385086107254028,
+      "z": 2.650592853801588
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_11",
+     "position": {
+      "x": 2.4682563025160023,
+      "y": 0.8385086107254028,
+      "z": 2.300592853801588
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_5",
+     "position": {
+      "x": 1.9859855451550459,
+      "y": 0.8385906267166138,
+      "z": 2.300592853801588
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.1448,1.6506,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|3",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.2224240841732197,
+    "y": 0.8385906267166138,
+    "z": 2.232128967829986
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.599,
+   "bisected_occlusion": 0.599,
+   "clear_px": 2620,
+   "target_px": 1050,
+   "distractor_px": 5054,
+   "occluder_px": 63125,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    373.0,
+    274.0,
+    396.0,
+    336.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_13",
+     "position": {
+      "x": 2.01794410370447,
+      "y": 0.8384654569625855,
+      "z": 2.582128967829986
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_13",
+     "position": {
+      "x": 1.6524199274223377,
+      "y": 0.8384654569625855,
+      "z": 2.232128967829986
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_30",
+     "position": {
+      "x": 2.2224240841732197,
+      "y": 0.8385906267166138,
+      "z": 2.232128967829986
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0179,1.5821,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|4",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.950401083800242,
+    "y": 0.8385906267166138,
+    "z": 2.2181341149608933
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3812,
+   "target_px": 1523,
+   "distractor_px": 6509,
+   "occluder_px": 46211,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    388.0,
+    244.0,
+    429.0,
+    335.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_14",
+     "position": {
+      "x": 2.109592978331492,
+      "y": 0.8377257633209229,
+      "z": 2.5681341149608934
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_14",
+     "position": {
+      "x": 2.4026510393408294,
+      "y": 0.8377257633209229,
+      "z": 2.2181341149608933
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_3",
+     "position": {
+      "x": 1.950401083800242,
+      "y": 0.8385906267166138,
+      "z": 2.2181341149608933
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.1096,1.5681,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|5",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.8500753130645975,
+    "y": 0.8403172540664673,
+    "z": 2.3092006847260165
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 2328,
+   "target_px": 932,
+   "distractor_px": 4417,
+   "occluder_px": 40180,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    379.0,
+    266.0,
+    423.0,
+    332.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_7",
+     "position": {
+      "x": 1.9980733599395974,
+      "y": 0.8395721960067749,
+      "z": 2.6592006847260166
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_7",
+     "position": {
+      "x": 2.380312360629049,
+      "y": 0.8395721960067749,
+      "z": 2.3092006847260165
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_7",
+     "position": {
+      "x": 1.8500753130645975,
+      "y": 0.8403172540664673,
+      "z": 2.3092006847260165
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9981,1.6592,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|6",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.729975524333006,
+    "y": 0.840425615310669,
+    "z": 2.29956202652403
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 2710,
+   "target_px": 1084,
+   "distractor_px": 6041,
+   "occluder_px": 51599,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    394.0,
+    247.0,
+    420.0,
+    337.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_11",
+     "position": {
+      "x": 1.916511168864256,
+      "y": 0.8385086107254028,
+      "z": 2.64956202652403
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_11",
+     "position": {
+      "x": 2.308956294563438,
+      "y": 0.8385086107254028,
+      "z": 2.29956202652403
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_6",
+     "position": {
+      "x": 1.729975524333006,
+      "y": 0.840425615310669,
+      "z": 2.29956202652403
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9165,1.6496,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|7",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.3170704699755933,
+    "y": 0.8385906267166138,
+    "z": 2.310323361502521
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.599,
+   "bisected_occlusion": 0.599,
+   "clear_px": 2497,
+   "target_px": 1001,
+   "distractor_px": 4655,
+   "occluder_px": 47867,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    367.0,
+    279.0,
+    395.0,
+    338.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Mug_1",
+     "position": {
+      "x": 2.1479664660693434,
+      "y": 0.838590567111969,
+      "z": 2.6603233615025212
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Mug_1",
+     "position": {
+      "x": 1.8526983676389888,
+      "y": 0.838590567111969,
+      "z": 2.310323361502521
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_11",
+     "position": {
+      "x": 2.3170704699755933,
+      "y": 0.8385906267166138,
+      "z": 2.310323361502521
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.1480,1.6603,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|8",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.724833351107182,
+    "y": 0.8389409828186035,
+    "z": 2.2289728453172
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 4063,
+   "target_px": 1626,
+   "distractor_px": 7101,
+   "occluder_px": 45344,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    380.0,
+    246.0,
+    435.0,
+    332.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_24",
+     "position": {
+      "x": 1.887443214388432,
+      "y": 0.8390280055999756,
+      "z": 2.5789728453172
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_24",
+     "position": {
+      "x": 2.3023806108247644,
+      "y": 0.8390280055999756,
+      "z": 2.2289728453172
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_laptop_props_america_1_v",
+     "position": {
+      "x": 1.724833351107182,
+      "y": 0.8389409828186035,
+      "z": 2.2289728453172
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.8874,1.5790,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|9",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.868326976443682,
+    "y": 0.8385906267166138,
+    "z": 2.2367954402979984
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3078,
+   "target_px": 1230,
+   "distractor_px": 6111,
+   "occluder_px": 47869,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    373.0,
+    251.0,
+    427.0,
+    335.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_26",
+     "position": {
+      "x": 2.028886058474932,
+      "y": 0.8390340852737427,
+      "z": 2.5867954402979985
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_26",
+     "position": {
+      "x": 2.349532188811318,
+      "y": 0.8390340852737427,
+      "z": 2.2367954402979984
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_11",
+     "position": {
+      "x": 1.868326976443682,
+      "y": 0.8385906267166138,
+      "z": 2.2367954402979984
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0289,1.5868,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|10",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.1883241414605816,
+    "y": 0.8385906267166138,
+    "z": 2.2775591767505436
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3812,
+   "target_px": 1526,
+   "distractor_px": 6501,
+   "occluder_px": 43262,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    371.0,
+    244.0,
+    425.0,
+    335.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_14",
+     "position": {
+      "x": 2.033831953960582,
+      "y": 0.8377257633209229,
+      "z": 2.6275591767505437
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_14",
+     "position": {
+      "x": 1.744160019172836,
+      "y": 0.8377257633209229,
+      "z": 2.2775591767505436
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_10",
+     "position": {
+      "x": 2.1883241414605816,
+      "y": 0.8385906267166138,
+      "z": 2.2775591767505436
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0338,1.6276,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|11",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.2604773247545547,
+    "y": 0.8385906267166138,
+    "z": 2.3137862366057815
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 2892,
+   "target_px": 1158,
+   "distractor_px": 5571,
+   "occluder_px": 43275,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    373.0,
+    264.0,
+    426.0,
+    332.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_17",
+     "position": {
+      "x": 2.1027380669420546,
+      "y": 0.8392807292938232,
+      "z": 2.6637862366057816
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_17",
+     "position": {
+      "x": 1.7054369345704823,
+      "y": 0.8392807292938232,
+      "z": 2.3137862366057815
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_10",
+     "position": {
+      "x": 2.2604773247545547,
+      "y": 0.8385906267166138,
+      "z": 2.3137862366057815
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.1027,1.6638,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|12",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.2510569719273636,
+    "y": 0.8385906267166138,
+    "z": 2.306483163180055
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 4063,
+   "target_px": 1624,
+   "distractor_px": 6991,
+   "occluder_px": 44174,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    365.0,
+    246.0,
+    416.0,
+    332.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_24",
+     "position": {
+      "x": 2.0934886125523637,
+      "y": 0.8390280055999756,
+      "z": 2.656483163180055
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_24",
+     "position": {
+      "x": 1.7323313110479788,
+      "y": 0.8390280055999756,
+      "z": 2.306483163180055
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_4",
+     "position": {
+      "x": 2.2510569719273636,
+      "y": 0.8385906267166138,
+      "z": 2.306483163180055
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0935,1.6565,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|13",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.231714516124706,
+    "y": 0.8385905075073242,
+    "z": 2.284094096999922
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.601,
+   "bisected_occlusion": 0.601,
+   "clear_px": 2497,
+   "target_px": 996,
+   "distractor_px": 4646,
+   "occluder_px": 51847,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    367.0,
+    279.0,
+    395.0,
+    338.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Mug_1",
+     "position": {
+      "x": 2.0423590473747057,
+      "y": 0.838590567111969,
+      "z": 2.634094096999922
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Mug_1",
+     "position": {
+      "x": 1.7508268290271751,
+      "y": 0.838590567111969,
+      "z": 2.284094096999922
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_9",
+     "position": {
+      "x": 2.231714516124706,
+      "y": 0.8385905075073242,
+      "z": 2.284094096999922
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0424,1.6341,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|14",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.82377866051379,
+    "y": 0.8385906267166138,
+    "z": 2.229350840127182
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3020,
+   "target_px": 1209,
+   "distractor_px": 6141,
+   "occluder_px": 63147,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    388.0,
+    230.0,
+    421.0,
+    336.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_8",
+     "position": {
+      "x": 2.02612241051379,
+      "y": 0.8392756032943726,
+      "z": 2.5793508401271823
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_8",
+     "position": {
+      "x": 2.34014739760245,
+      "y": 0.8392756032943726,
+      "z": 2.229350840127182
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_30",
+     "position": {
+      "x": 1.82377866051379,
+      "y": 0.8385906267166138,
+      "z": 2.229350840127182
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0261,1.5794,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|15",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.0726811298103485,
+    "y": 0.8389409828186035,
+    "z": 2.298247714158686
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3510,
+   "target_px": 1403,
+   "distractor_px": 6888,
+   "occluder_px": 45335,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    369.0,
+    254.0,
+    431.0,
+    333.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_25",
+     "position": {
+      "x": 1.9161381610603485,
+      "y": 0.838418607711792,
+      "z": 2.648247714158686
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_25",
+     "position": {
+      "x": 1.5764798021122084,
+      "y": 0.838418607711792,
+      "z": 2.298247714158686
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_laptop_props_america_1_v",
+     "position": {
+      "x": 2.0726811298103485,
+      "y": 0.8389409828186035,
+      "z": 2.298247714158686
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9161,1.6482,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|16",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.9385181725718168,
+    "y": 0.8385905075073242,
+    "z": 2.2118763022630294
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.601,
+   "bisected_occlusion": 0.601,
+   "clear_px": 1634,
+   "target_px": 652,
+   "distractor_px": 2868,
+   "occluder_px": 46057,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    396.0,
+    254.0,
+    415.0,
+    333.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_1",
+     "position": {
+      "x": 2.1065967858530668,
+      "y": 0.8384561586380005,
+      "z": 2.5618763022630295
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_1",
+     "position": {
+      "x": 2.3903343371057755,
+      "y": 0.8384561586380005,
+      "z": 2.2118763022630294
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_2",
+     "position": {
+      "x": 1.9385181725718168,
+      "y": 0.8385905075073242,
+      "z": 2.2118763022630294
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.1066,1.5619,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|17",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.712457114540353,
+    "y": 0.8397378969192505,
+    "z": 2.3041369329920225
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3956,
+   "target_px": 1583,
+   "distractor_px": 7215,
+   "occluder_px": 46744,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    377.0,
+    236.0,
+    423.0,
+    336.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_20",
+     "position": {
+      "x": 1.8774595559466032,
+      "y": 0.8381458568572998,
+      "z": 2.6541369329920226
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_20",
+     "position": {
+      "x": 2.1625544412122113,
+      "y": 0.8381458568572998,
+      "z": 2.3041369329920225
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_28",
+     "position": {
+      "x": 1.712457114540353,
+      "y": 0.8397378969192505,
+      "z": 2.3041369329920225
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.8775,1.6541,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|18",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.9003461073128027,
+    "y": 0.8385905075073242,
+    "z": 2.25094531649043
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.602,
+   "bisected_occlusion": 0.602,
+   "clear_px": 1634,
+   "target_px": 651,
+   "distractor_px": 3044,
+   "occluder_px": 43722,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    397.0,
+    254.0,
+    415.0,
+    333.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_1",
+     "position": {
+      "x": 2.0654339979378027,
+      "y": 0.8384561586380005,
+      "z": 2.60094531649043
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_1",
+     "position": {
+      "x": 2.476609680148044,
+      "y": 0.8384561586380005,
+      "z": 2.25094531649043
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_20",
+     "position": {
+      "x": 1.9003461073128027,
+      "y": 0.8385905075073242,
+      "z": 2.25094531649043
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0654,1.6009,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|19",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.732281120499751,
+    "y": 0.8403172540664673,
+    "z": 2.2180482518710245
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 2002,
+   "target_px": 801,
+   "distractor_px": 3943,
+   "occluder_px": 40179,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    384.0,
+    265.0,
+    417.0,
+    332.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_10",
+     "position": {
+      "x": 1.880450065812251,
+      "y": 0.838113968372345,
+      "z": 2.5680482518710246
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_10",
+     "position": {
+      "x": 2.1705261023442475,
+      "y": 0.838113968372345,
+      "z": 2.2180482518710245
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_7",
+     "position": {
+      "x": 1.732281120499751,
+      "y": 0.8403172540664673,
+      "z": 2.2180482518710245
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.8805,1.5680,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|20",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.7208922454589064,
+    "y": 0.8385906267166138,
+    "z": 2.2546057441835825
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.596,
+   "bisected_occlusion": 0.596,
+   "clear_px": 2732,
+   "target_px": 1104,
+   "distractor_px": 5162,
+   "occluder_px": 52942,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    398.0,
+    256.0,
+    428.0,
+    333.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_15",
+     "position": {
+      "x": 1.9040953704589063,
+      "y": 0.8406785774230957,
+      "z": 2.6046057441835826
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_15",
+     "position": {
+      "x": 2.2676032596263416,
+      "y": 0.8406785774230957,
+      "z": 2.2546057441835825
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_29",
+     "position": {
+      "x": 1.7208922454589064,
+      "y": 0.8385906267166138,
+      "z": 2.2546057441835825
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9041,1.6046,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|21",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.7895734263309806,
+    "y": 0.8425905752182007,
+    "z": 2.2888000143359037
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 2328,
+   "target_px": 932,
+   "distractor_px": 4417,
+   "occluder_px": 49909,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    403.0,
+    266.0,
+    423.0,
+    333.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_7",
+     "position": {
+      "x": 1.9575665903934805,
+      "y": 0.8395721960067749,
+      "z": 2.638800014335904
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_7",
+     "position": {
+      "x": 2.335244180302987,
+      "y": 0.8395721960067749,
+      "z": 2.2888000143359037
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_23",
+     "position": {
+      "x": 1.7895734263309806,
+      "y": 0.8425905752182007,
+      "z": 2.2888000143359037
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9576,1.6388,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|22",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.082032901448215,
+    "y": 0.8385905075073242,
+    "z": 2.2033533789317823
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3812,
+   "target_px": 1524,
+   "distractor_px": 6513,
+   "occluder_px": 51854,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    371.0,
+    244.0,
+    411.0,
+    335.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_14",
+     "position": {
+      "x": 1.8974625889482153,
+      "y": 0.8377257633209229,
+      "z": 2.5533533789317824
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_14",
+     "position": {
+      "x": 1.601052790806268,
+      "y": 0.8377257633209229,
+      "z": 2.2033533789317823
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_9",
+     "position": {
+      "x": 2.082032901448215,
+      "y": 0.8385905075073242,
+      "z": 2.2033533789317823
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.8975,1.5534,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|23",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.1558919214038865,
+    "y": 0.8385905075073242,
+    "z": 2.2405460777507327
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.599,
+   "bisected_occlusion": 0.599,
+   "clear_px": 2497,
+   "target_px": 1001,
+   "distractor_px": 4767,
+   "occluder_px": 44160,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    367.0,
+    279.0,
+    395.0,
+    338.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Mug_1",
+     "position": {
+      "x": 1.9914876245288864,
+      "y": 0.838590567111969,
+      "z": 2.5905460777507328
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Mug_1",
+     "position": {
+      "x": 1.620636936235301,
+      "y": 0.838590567111969,
+      "z": 2.2405460777507327
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_1",
+     "position": {
+      "x": 2.1558919214038865,
+      "y": 0.8385905075073242,
+      "z": 2.2405460777507327
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9915,1.5905,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|24",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.862406139874807,
+    "y": 0.8385905075073242,
+    "z": 2.1809257162264966
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3485,
+   "target_px": 1393,
+   "distractor_px": 5960,
+   "occluder_px": 46072,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    377.0,
+    238.0,
+    423.0,
+    337.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_22",
+     "position": {
+      "x": 2.018180065656057,
+      "y": 0.8395305919647217,
+      "z": 2.5309257162264966
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_22",
+     "position": {
+      "x": 2.3452083832823414,
+      "y": 0.8395305919647217,
+      "z": 2.1809257162264966
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_2",
+     "position": {
+      "x": 1.862406139874807,
+      "y": 0.8385905075073242,
+      "z": 2.1809257162264966
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0182,1.5309,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|25",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.0713189075041565,
+    "y": 0.8385905075073242,
+    "z": 2.322029669376269
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 4184,
+   "target_px": 1675,
+   "distractor_px": 7659,
+   "occluder_px": 46083,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    375.0,
+    247.0,
+    425.0,
+    337.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_11",
+     "position": {
+      "x": 1.9220391223479063,
+      "y": 0.8386639404296875,
+      "z": 2.6720296693762693
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_11",
+     "position": {
+      "x": 1.5566201307501428,
+      "y": 0.8386639404296875,
+      "z": 2.322029669376269
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_2",
+     "position": {
+      "x": 2.0713189075041565,
+      "y": 0.8385905075073242,
+      "z": 2.322029669376269
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9220,1.6720,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|26",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.777061442408004,
+    "y": 0.8389409828186035,
+    "z": 2.2913331505817376
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 2878,
+   "target_px": 1151,
+   "distractor_px": 5445,
+   "occluder_px": 45344,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    389.0,
+    238.0,
+    421.0,
+    335.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_16",
+     "position": {
+      "x": 1.943089274439254,
+      "y": 0.8397355127334595,
+      "z": 2.6413331505817377
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_16",
+     "position": {
+      "x": 2.2233026654991948,
+      "y": 0.8397355127334595,
+      "z": 2.2913331505817376
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_laptop_props_america_1_v",
+     "position": {
+      "x": 1.777061442408004,
+      "y": 0.8389409828186035,
+      "z": 2.2913331505817376
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9431,1.6413,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|27",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.0623033036807876,
+    "y": 0.8385905075073242,
+    "z": 2.2746701785714944
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3956,
+   "target_px": 1582,
+   "distractor_px": 7508,
+   "occluder_px": 43735,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    377.0,
+    236.0,
+    423.0,
+    335.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_20",
+     "position": {
+      "x": 1.9218247880557875,
+      "y": 0.8381458568572998,
+      "z": 2.6246701785714945
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_20",
+     "position": {
+      "x": 1.5423757914034282,
+      "y": 0.8381458568572998,
+      "z": 2.2746701785714944
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_20",
+     "position": {
+      "x": 2.0623033036807876,
+      "y": 0.8385905075073242,
+      "z": 2.2746701785714944
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9218,1.6247,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|28",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.124745063941974,
+    "y": 0.8385906267166138,
+    "z": 2.284334711992151
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 3020,
+   "target_px": 1207,
+   "distractor_px": 6445,
+   "occluder_px": 43281,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    379.0,
+    230.0,
+    417.0,
+    336.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_8",
+     "position": {
+      "x": 1.9706801225357238,
+      "y": 0.8392756032943726,
+      "z": 2.634334711992151
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_8",
+     "position": {
+      "x": 1.5825741220176148,
+      "y": 0.8392756032943726,
+      "z": 2.284334711992151
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_10",
+     "position": {
+      "x": 2.124745063941974,
+      "y": 0.8385906267166138,
+      "z": 2.284334711992151
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9707,1.6343,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|30",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.156028609706336,
+    "y": 0.8385906267166138,
+    "z": 2.2258690053646304
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.599,
+   "bisected_occlusion": 0.599,
+   "clear_px": 3278,
+   "target_px": 1313,
+   "distractor_px": 5878,
+   "occluder_px": 43276,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    374.0,
+    240.0,
+    416.0,
+    340.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_23",
+     "position": {
+      "x": 1.9983748011125861,
+      "y": 0.8396519470214844,
+      "z": 2.5758690053646305
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_23",
+     "position": {
+      "x": 1.7113948215880748,
+      "y": 0.8396519470214844,
+      "z": 2.2258690053646304
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_10",
+     "position": {
+      "x": 2.156028609706336,
+      "y": 0.8385906267166138,
+      "z": 2.2258690053646304
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9984,1.5759,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|32",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.9608896509077733,
+    "y": 0.8397378969192505,
+    "z": 2.2416830297367762
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 4228,
+   "target_px": 1690,
+   "distractor_px": 7789,
+   "occluder_px": 46742,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    391.0,
+    242.0,
+    429.0,
+    340.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_12",
+     "position": {
+      "x": 2.1348642602827734,
+      "y": 0.8384416151046753,
+      "z": 2.5916830297367763
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_12",
+     "position": {
+      "x": 2.444757712971831,
+      "y": 0.8384416151046753,
+      "z": 2.2416830297367762
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_28",
+     "position": {
+      "x": 1.9608896509077733,
+      "y": 0.8397378969192505,
+      "z": 2.2416830297367762
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.1349,1.5917,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|33",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.0277732192166735,
+    "y": 0.8385905075073242,
+    "z": 2.2764500821365226
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.601,
+   "bisected_occlusion": 0.601,
+   "clear_px": 2206,
+   "target_px": 881,
+   "distractor_px": 3957,
+   "occluder_px": 36217,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    381.0,
+    267.0,
+    418.0,
+    328.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_1",
+     "position": {
+      "x": 1.8856711684354237,
+      "y": 0.8383214521408081,
+      "z": 2.6264500821365226
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_1",
+     "position": {
+      "x": 1.5664735843696616,
+      "y": 0.8383214521408081,
+      "z": 2.2764500821365226
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_21",
+     "position": {
+      "x": 2.0277732192166735,
+      "y": 0.8385905075073242,
+      "z": 2.2764500821365226
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.8857,1.6265,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|34",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.9051194211604512,
+    "y": 0.8385906267166138,
+    "z": 2.238564695001735
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.599,
+   "bisected_occlusion": 0.599,
+   "clear_px": 4228,
+   "target_px": 1694,
+   "distractor_px": 7700,
+   "occluder_px": 63138,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    391.0,
+    242.0,
+    429.0,
+    340.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_12",
+     "position": {
+      "x": 2.1061814328792012,
+      "y": 0.8384416151046753,
+      "z": 2.588564695001735
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_12",
+     "position": {
+      "x": 2.3892398027724835,
+      "y": 0.8384416151046753,
+      "z": 2.238564695001735
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_30",
+     "position": {
+      "x": 1.9051194211604512,
+      "y": 0.8385906267166138,
+      "z": 2.238564695001735
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.1062,1.5886,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|35",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.0541741154795146,
+    "y": 0.8425905752182007,
+    "z": 2.2571900976642296
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 2497,
+   "target_px": 998,
+   "distractor_px": 4653,
+   "occluder_px": 49908,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    367.0,
+    279.0,
+    395.0,
+    338.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Mug_1",
+     "position": {
+      "x": 1.8900261662607647,
+      "y": 0.838590567111969,
+      "z": 2.6071900976642297
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Mug_1",
+     "position": {
+      "x": 1.5939108578414407,
+      "y": 0.838590567111969,
+      "z": 2.2571900976642296
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_23",
+     "position": {
+      "x": 2.0541741154795146,
+      "y": 0.8425905752182007,
+      "z": 2.2571900976642296
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.8900,1.6072,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|37",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.205826313023333,
+    "y": 0.8389409828186035,
+    "z": 2.253233119523925
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.601,
+   "bisected_occlusion": 0.601,
+   "clear_px": 2146,
+   "target_px": 856,
+   "distractor_px": 4005,
+   "occluder_px": 45337,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    378.0,
+    269.0,
+    418.0,
+    333.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_4",
+     "position": {
+      "x": 2.032278949742083,
+      "y": 0.838817720413208,
+      "z": 2.603233119523925
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_4",
+     "position": {
+      "x": 1.6626591817710317,
+      "y": 0.838817720413208,
+      "z": 2.253233119523925
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_laptop_props_america_1_v",
+     "position": {
+      "x": 2.205826313023333,
+      "y": 0.8389409828186035,
+      "z": 2.253233119523925
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0323,1.6032,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|38",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.8268094187687163,
+    "y": 0.8385905075073242,
+    "z": 2.2227155916492234
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 2878,
+   "target_px": 1151,
+   "distractor_px": 5512,
+   "occluder_px": 36215,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    384.0,
+    238.0,
+    421.0,
+    334.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_16",
+     "position": {
+      "x": 1.9626736765812163,
+      "y": 0.8397355127334595,
+      "z": 2.5727155916492235
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_16",
+     "position": {
+      "x": 2.2638169209221743,
+      "y": 0.8397355127334595,
+      "z": 2.2227155916492234
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_21",
+     "position": {
+      "x": 1.8268094187687163,
+      "y": 0.8385905075073242,
+      "z": 2.2227155916492234
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9627,1.5727,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|39",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.863120627612712,
+    "y": 0.8385906267166138,
+    "z": 2.2297986639061014
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.601,
+   "bisected_occlusion": 0.601,
+   "clear_px": 3116,
+   "target_px": 1244,
+   "distractor_px": 5639,
+   "occluder_px": 64682,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    404.0,
+    267.0,
+    429.0,
+    337.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Cup_29",
+     "position": {
+      "x": 2.065549826831462,
+      "y": 0.83863938331604,
+      "z": 2.5797986639061015
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_29",
+     "position": {
+      "x": 2.351318239762331,
+      "y": 0.83863938331604,
+      "z": 2.2297986639061014
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_27",
+     "position": {
+      "x": 1.863120627612712,
+      "y": 0.8385906267166138,
+      "z": 2.2297986639061014
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "2.0655,1.5798,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|40",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.76066296702826,
+    "y": 0.840425615310669,
+    "z": 2.2382790658503433
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 4228,
+   "target_px": 1692,
+   "distractor_px": 7816,
+   "occluder_px": 51606,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    372.0,
+    242.0,
+    429.0,
+    339.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_12",
+     "position": {
+      "x": 1.93685925609076,
+      "y": 0.8384416151046753,
+      "z": 2.5882790658503434
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_12",
+     "position": {
+      "x": 2.2579362362947872,
+      "y": 0.8384416151046753,
+      "z": 2.2382790658503433
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_6",
+     "position": {
+      "x": 1.76066296702826,
+      "y": 0.840425615310669,
+      "z": 2.2382790658503433
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9369,1.5883,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|41",
+   "instruction": "Find the cup behind the laptop",
+   "predicate": "behind",
+   "subject_class": "cup",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.7724908817848268,
+    "y": 0.8385906267166138,
+    "z": 2.3076157553379053
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.6,
+   "bisected_occlusion": 0.6,
+   "clear_px": 1966,
+   "target_px": 786,
+   "distractor_px": 3612,
+   "occluder_px": 43268,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    402.0,
+    280.0,
+    419.0,
+    336.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Mug_3",
+     "position": {
+      "x": 1.9423639286598269,
+      "y": 0.8385905373096466,
+      "z": 2.6576157553379054
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Mug_3",
+     "position": {
+      "x": 2.264737821149228,
+      "y": 0.8385905373096466,
+      "z": 2.3076157553379053
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_10",
+     "position": {
+      "x": 1.7724908817848268,
+      "y": 0.8385906267166138,
+      "z": 2.3076157553379053
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.9424,1.6576,0.00,33.48"
+  },
+  {
+   "scene": "tabletop|42",
+   "instruction": "Find the bottle behind the laptop",
+   "predicate": "behind",
+   "subject_class": "bottle",
+   "object_class": "laptop",
+   "target_name": "target",
+   "landmark_name": "occluder",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.0638332175450036,
+    "y": 0.8385906267166138,
+    "z": 2.2631847667418317
+   },
+   "occluder_yaw": 180.0,
+   "staged_occlusion": 0.601,
+   "bisected_occlusion": 0.601,
+   "clear_px": 2878,
+   "target_px": 1147,
+   "distractor_px": 5654,
+   "occluder_px": 52989,
+   "distractor_occlusion": 0.0,
+   "target_box": [
+    379.0,
+    238.0,
+    407.0,
+    335.0
+   ],
+   "table": {
+    "asset": "Dining_Table_7_1",
+    "x": 2.0,
+    "z": 2.6,
+    "top": 0.833590567111969
+   },
+   "objects": [
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_16",
+     "position": {
+      "x": 1.8825954245762535,
+      "y": 0.8397355127334595,
+      "z": 2.6131847667418318
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_16",
+     "position": {
+      "x": 1.536234773417032,
+      "y": 0.8397355127334595,
+      "z": 2.2631847667418317
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Laptop_29",
+     "position": {
+      "x": 2.0638332175450036,
+      "y": 0.8385906267166138,
+      "z": 2.2631847667418317
+     },
+     "yaw": 180.0
+    }
+   ],
+   "start": "1.8826,1.6132,0.00,33.48"
+  }
+ ]
+}
