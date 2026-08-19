@@ -33,6 +33,10 @@ demo/
 *.mp4
 *.avi
 
+# Slurm writes these next to the job script so they are one `ls` away rather
+# than off in /work; the script itself is tracked, its output is not.
+slurm/logs/
+
 # --- python -----------------------------------------------------------------
 __pycache__/
 *.py[cod]
@@ -81,6 +85,7 @@ nvs_pilot/**/*.log
 # KB of ranks and occlusions that cost a quarter of an hour of THOR and EGTR,
 # and re-running is not bit-reproducible (GPU float order flips near-ties).
 !nvs_pilot/fuse_live*.json
+nvs_pilot/real/
 
 # ---------------------------------------------------------------------------
 # DELIBERATELY TRACKED, despite looking like build output:
