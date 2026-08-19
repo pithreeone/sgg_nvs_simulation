@@ -260,7 +260,14 @@ def sweep(rc, poses: Sequence[Dict[str, Any]], target: str, fov: float,
         pixels, box = target_mask(event, target)
         row = {"pose": pose, "pixels": pixels, "box": box}
         if keep_frames:
-            row["frame"] = np.array(event.third_party_camera_frames[0])
+            # RGBA ON CLOUDRENDERING, RGB ON THE DESKTOP BUILD.  Measured: the
+            # agent's own `event.frame` is (H, W, 3) on both, but a third-party
+            # camera comes back (H, W, 4) under CloudRendering, and EGTR's
+            # feature extractor refuses a 4-channel image ("Unable to infer
+            # channel dimension format").  Dropping alpha here keeps every
+            # consumer -- `fuse_live`, `eval_move`, `eval_nvs_pointer` -- reading
+            # the same thing on a server as on a desktop.
+            row["frame"] = np.array(event.third_party_camera_frames[0])[..., :3]
         out.append(row)
     return out
 

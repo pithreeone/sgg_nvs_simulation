@@ -259,8 +259,15 @@ def perceive(rc, case, task, egtr, args, centre=None, want_record=False):
                       (ROOM - 0.3, ROOM - 0.3)),
                      key=lambda p: -math.dist(p, (camera[0], camera[2])))
         look_from(rc.controller, corner[0], corner[1], 0.0, 0.0, force=True)
+    # `--synth seva` hands the whole trajectory to the model in one pass, with
+    # the robot's own frame as the only input; `reference` is that frame, read
+    # at the top of this function before the sweep moves anything.
+    model = getattr(args, "synth_model", None)
+    if model is not None:
+        model.tag = str(case["scene"]).replace("|", "_")
     rendered = sweep(rc, poses, task["target_name"], args.fov, reachable,
-                     keep_frames=True)
+                     keep_frames=True,
+                     synth=model.for_reference(reference) if model else None)
     # The sweep parks the robot across the room; come back before measuring.
     rc.teleport(position={"x": float(camera[0]),
                           "y": float(rc.agent_position["y"]),
@@ -1148,6 +1155,32 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--views", type=int, default=20)
     ap.add_argument("--max-az", type=float, default=30.0)
     ap.add_argument("--max-el", type=float, default=15.0)
+    # WHERE THE SWEEP COMES FROM, and the only thing that separates a bound from
+    # a measurement.  `none` moves THOR's own camera to each pose -- the ground
+    # truth a synthesiser is trying to produce, so every number is an upper
+    # bound on the same pipeline driven by a model.  `seva` runs Stable Virtual
+    # Camera on the robot's single frame instead.  The ANSWER is unaffected
+    # either way: `look` grades on one real frame, never on a synthesised one.
+    ap.add_argument("--synth", choices=("none", "seva"), default="none",
+                    help="synthesise the sweep with a real NVS model instead of "
+                         "rendering it in THOR.  See robot/nvs_seva.py.")
+    ap.add_argument("--synth-steps", type=int, default=10, metavar="N",
+                    help="denoising steps per sweep.  10 and single-stage is "
+                         "the VG pipeline's own setting for a single "
+                         "conditioning image; see script/run_nvs_multiview_"
+                         "single.sh in ../sgg_nvs.")
+    ap.add_argument("--synth-camera-scale", type=float, default=1.0,
+                    metavar="S",
+                    help="SEVA normalises the baseline away and rescales to "
+                         "this, so it -- not the 0.5 m orbit radius -- is what "
+                         "sets how much parallax the model is asked for")
+    ap.add_argument("--synth-cfg", type=float, default=3.0)
+    ap.add_argument("--synth-two-pass", action="store_true",
+                    help="add the trajectory prior.  Off by default: its anchor "
+                         "pass is for long trajectories, not for one image over "
+                         "a small baseline, and it costs 5x.")
+    ap.add_argument("--synth-dump", metavar="DIR", default=None,
+                    help="write every synthesised sweep here, to look at")
     ap.add_argument("--iou", type=float, default=0.5)
     ap.add_argument("--width", type=int, default=800)
     ap.add_argument("--height", type=int, default=600)
@@ -1162,7 +1195,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         # from outside leaves an instance holding GPU memory and an X window.
         # They accumulate silently; five were once found alive at once.
         import subprocess
-        stray = subprocess.run(["pgrep", "-f", "thor-Linux64"],
+        # The server build is thor-CloudRendering, so the desktop-only pattern
+        # reaped nothing there and orphans accumulated across jobs.
+        stray = subprocess.run(["pgrep", "-u", str(os.getuid()), "-f",
+                                "thor-(Linux64|CloudRendering)"],
                                capture_output=True, text=True).stdout.split()
         if stray:
             print(f"reaping {len(stray)} orphaned THOR instances", flush=True)
@@ -1174,6 +1210,20 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         cases = cases[:args.n]
     egtr = load_egtr()
 
+    # Five GB of weights and the best part of a minute, so it is built ONCE for
+    # the whole run and carried on `args`; `perceive` binds it to the reference
+    # frame per sweep.  None keeps the old path exactly as it was.
+    args.synth_model = None
+    if args.synth == "seva":
+        from robot.nvs_seva import Synthesiser
+        from robot.nvs_lemniscate import LOOKAT_DIST
+
+        args.synth_model = Synthesiser(
+            steps=args.synth_steps, cfg=args.synth_cfg,
+            camera_scale=args.synth_camera_scale,
+            two_pass=args.synth_two_pass, lookat_dist=LOOKAT_DIST,
+            fov=args.fov, dump=args.synth_dump)
+
     results: List[Dict[str, Any]] = []
 
     def save():
@@ -1181,7 +1231,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             return
         os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
         json.dump({"steps": args.steps, "condition": args.condition,
-                   "cases": results}, open(args.out, "w"), indent=1)
+                   "synth": args.synth, "cases": results},
+                  open(args.out, "w"), indent=1)
 
     for index, case in enumerate(cases, 1):
         print(f"[{index}/{len(cases)}] {case['scene']}  {case['instruction']}",
