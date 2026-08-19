@@ -573,7 +573,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--max-occlusion", type=float, default=MAX_OCCLUSION,
                         help="drop targets hidden beyond this; nothing recovers "
                              "an object with almost no pixels left")
-    parser.add_argument("--out", default="datasets/occlusion_ds")
+    parser.add_argument("--out", default="datasets/sgg/occlusion_ds")
     args = parser.parse_args(argv)
 
     if not args.scenes:

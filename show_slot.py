@@ -20,8 +20,8 @@ No EGTR, no fusion: this asks whether the GEOMETRY is what was asked for, and
 mixing perception into that picture would make a bad slot and a bad detection
 look the same.
 
-    python show_slot.py --cases nvs_pilot/cases/cases_slot.json --case 0
-    python show_slot.py --cases nvs_pilot/cases/cases_slot.json --curves
+    python show_slot.py --cases datasets/robot/cases_slot.json --case 0
+    python show_slot.py --cases datasets/robot/cases_slot.json --curves
 """
 
 from __future__ import annotations
@@ -179,7 +179,7 @@ def curves(cases: Sequence[Dict[str, Any]], data: Dict[str, Any], out: str):
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_slot.json")
+    ap.add_argument("--cases", default="datasets/robot/cases_slot.json")
     ap.add_argument("--case", type=int, default=None,
                     help="which case to draw a filmstrip of.  Omitted with "
                          "--curves, every case is plotted")

@@ -379,7 +379,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                         default=["FloorPlan201", "FloorPlan203", "FloorPlan215",
                                  "FloorPlan227", "FloorPlan230"])
     parser.add_argument("--seeds", type=int, nargs="*", default=[1])
-    parser.add_argument("--out", default="datasets/walkaround_found")
+    parser.add_argument("--out", default="datasets/sgg/walkaround_found")
     parser.add_argument("--hide", type=float, nargs=2, default=[0.35, 0.65],
                         metavar=("MIN", "MAX"))
     parser.add_argument("--min-gain", type=float, default=MIN_GAIN,

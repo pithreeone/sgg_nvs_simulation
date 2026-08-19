@@ -15,7 +15,7 @@ The arc is the SAME one `eval_move.walk` flies -- about P-hat, at
 `--radius-scale` times the current radius -- so an angle that scores here is an
 angle the robot could actually reach.
 
-    python probe_viewpoint.py --cases nvs_pilot/cases/cases_hard.json
+    python probe_viewpoint.py --cases datasets/robot/cases_hard.json
 """
 
 from __future__ import annotations
@@ -35,7 +35,7 @@ ANGLES = (-45.0, -30.0, -20.0, -10.0, 0.0, 10.0, 20.0, 30.0, 45.0)
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_hard.json")
+    ap.add_argument("--cases", default="datasets/robot/cases_hard.json")
     ap.add_argument("--n", type=int, default=0, help="0 = all")
     ap.add_argument("--condition", type=int, default=10)
     ap.add_argument("--radius-scale", type=float, default=1.2)

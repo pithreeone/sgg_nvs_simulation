@@ -71,7 +71,7 @@ this list is whether the object can be found at all, from a viewpoint that has
 to be chosen -- but it means a number measured here says nothing about
 relational grounding and must not be pooled with `cases_easy2`.
 
-    python build_slot.py --n 40 --seed 1 --out nvs_pilot/cases/cases_slot.json
+    python build_slot.py --n 40 --seed 1 --out datasets/robot/cases_slot.json
 """
 
 from __future__ import annotations
@@ -1133,7 +1133,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "and merge.  Each costs about 2.9 GB of VRAM")
     ap.add_argument("--stagger", type=float, default=45.0, metavar="S",
                     help="seconds between worker launches")
-    ap.add_argument("--out", default="nvs_pilot/cases/cases_slot.json")
+    ap.add_argument("--out", default="datasets/robot/cases_slot.json")
     args = ap.parse_args(argv)
 
     if args.workers > 1:

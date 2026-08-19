@@ -7,7 +7,7 @@ elevation) list `camera_for` was given, which is already SEVA's `lookat_dist`
 parameterisation, so the poses are replayed rather than converted.  Only the two
 signs differ, and `--calibrate` settles them against THOR's frames.
 
-    python robot/nvs_seva.py --calibrate --cases nvs_pilot/cases/cases_slot.json
+    python robot/nvs_seva.py --calibrate --cases datasets/robot/cases_slot.json
 """
 
 from __future__ import annotations
@@ -299,7 +299,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--calibrate", action="store_true",
                     help="score the four azimuth/elevation sign conventions "
                          "against THOR's own sweep and print the winner")
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_slot.json")
+    ap.add_argument("--cases", default="datasets/robot/cases_slot.json")
     ap.add_argument("--case", type=int, default=0)
     ap.add_argument("--views", type=int, default=20)
     ap.add_argument("--max-az", type=float, default=30.0)

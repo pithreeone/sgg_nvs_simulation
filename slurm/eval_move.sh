@@ -32,7 +32,7 @@
 set -eo pipefail
 
 REPO=/home/u3997923/sgg_nvs_simulation
-CASES="${CASES:-nvs_pilot/cases/cases_slot.json}"
+CASES="${CASES:-datasets/robot/cases_slot.json}"
 SYNTH="${SYNTH:-none}"
 OUT="${OUT:-nvs_pilot/move_slot_${SYNTH}.json}"
 STEPS="${STEPS:-3}"

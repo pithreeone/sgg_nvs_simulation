@@ -214,8 +214,8 @@ def summary(pairs, args) -> int:
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    parser.add_argument("--gt", default="datasets/multiview")
-    parser.add_argument("--preds", default="datasets/multiview_ref")
+    parser.add_argument("--gt", default="datasets/sgg/multiview")
+    parser.add_argument("--preds", default="datasets/sgg/multiview_ref")
     parser.add_argument("--synonyms", default="a", choices=("none", "a", "ab"))
     parser.add_argument("--iou", type=float, default=0.5)
     parser.add_argument("--no-inverse", action="store_true")

@@ -40,7 +40,7 @@ there would select for exactly the outcome the experiment measures, and the
 cases where it succeeds are the stratum that shows whether NVS breaks what
 already worked.
 
-    python find_cases.py --n 20 --out nvs_pilot/cases.json
+    python find_cases.py --n 20 --out datasets/robot/cases.json
 """
 
 from __future__ import annotations
@@ -279,7 +279,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--width", type=int, default=800)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
-    ap.add_argument("--out", default="nvs_pilot/cases.json")
+    ap.add_argument("--out", default="datasets/robot/cases.json")
     args = ap.parse_args(argv)
 
     cases: List[Dict[str, Any]] = []

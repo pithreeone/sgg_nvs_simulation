@@ -59,7 +59,7 @@ Each package's `__init__.py` says what belongs in it and what deliberately does
 not — read those before moving a file. Two have been moved back out already
 because the import graph, not the file name, decides where something lives.
 
-`datasets/occlusion_ds4` is the dataset to use. It changes nothing about the
+`datasets/sgg/occlusion_ds4` is the dataset to use. It changes nothing about the
 headline numbers — see the ds4 section of [TASKS.md](TASKS.md) — but it doubles
 n and is the first version whose heavily-occluded band (`0.75+`, n=462) is large
 enough to read.

@@ -22,7 +22,7 @@
 set -eo pipefail
 
 REPO=/home/u3997923/sgg_nvs_simulation
-CASES="${CASES:-nvs_pilot/cases/cases_slot.json}"
+CASES="${CASES:-datasets/robot/cases_slot.json}"
 CASE="${CASE:-0}"
 DUMP="${DUMP:-$REPO/slurm/logs/calib-${SLURM_JOB_ID}}"
 

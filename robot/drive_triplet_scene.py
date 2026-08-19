@@ -919,7 +919,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--resume", metavar="SCENARIO",
                     help="reopen a scenario.json written by an earlier run and "
                          "drive from its start pose; skips the search")
-    ap.add_argument("--dataset", default="datasets/occlusion_ds4",
+    ap.add_argument("--dataset", default="datasets/sgg/occlusion_ds4",
                     help="annotated build the candidate viewpoints come from")
     ap.add_argument("--scene", default=None, help="e.g. FloorPlan203")
     ap.add_argument("--seed", type=int, default=None)

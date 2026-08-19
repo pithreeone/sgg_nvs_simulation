@@ -13,7 +13,7 @@ synthesised views to confirm what it is looking at has not found it.  Fusion is
 spent on the DECISION, never on the ANSWER -- which also keeps the control
 honest, since both arms are graded by the same single-view check.
 
-    python eval_move.py --cases nvs_pilot/cases/cases_easy2.json --steps 3
+    python eval_move.py --cases datasets/robot/cases_easy2.json --steps 3
 """
 
 from __future__ import annotations
@@ -1072,7 +1072,7 @@ def run_episode(rc, case: Dict[str, Any], task: Dict[str, Any], egtr, args,
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_easy2.json")
+    ap.add_argument("--cases", default="datasets/robot/cases_easy2.json")
     ap.add_argument("--n", type=int, default=0, help="0 = all")
     ap.add_argument("--steps", type=int, default=3)
     ap.add_argument("--condition", type=int, default=10)

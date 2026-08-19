@@ -36,8 +36,8 @@ and every occlusion at the pose they are standing in.  What changed on
 replayed, so `staged_occlusion` is a guarantee about the next run rather than a
 report about this one.
 
-    python freeze_cases.py --cases nvs_pilot/cases/cases_big.json \\
-        --out nvs_pilot/cases/cases_frozen.json     # deleted; see nvs_pilot/README.md
+    python freeze_cases.py --cases datasets/robot/cases_big.json \\
+        --out datasets/robot/cases_frozen.json     # deleted; see nvs_pilot/README.md
 """
 
 from __future__ import annotations
@@ -266,7 +266,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "own THOR instance, so this is bounded by GPU memory "
                          "and by how many Unity processes the machine tolerates, "
                          "not by CPU cores.")
-    ap.add_argument("--out", default="nvs_pilot/cases/cases_frozen.json")
+    ap.add_argument("--out", default="datasets/robot/cases_frozen.json")
     args = ap.parse_args(argv)
 
     raw: List[Dict[str, Any]] = []

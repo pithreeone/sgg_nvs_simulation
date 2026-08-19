@@ -30,7 +30,7 @@ what it does to the instructed pair.
 Chance is 51% (20.5/40).  A rule at 75% would be worth wiring into the policy;
 a rule at 55% would say the sweep does not carry side information at all.
 
-    python probe_sideview.py --cases nvs_pilot/cases/cases_hard.json
+    python probe_sideview.py --cases datasets/robot/cases_hard.json
 """
 
 from __future__ import annotations
@@ -255,7 +255,7 @@ def score_views(built, egtr, cand, task, rendered, args,
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_hard.json")
+    ap.add_argument("--cases", default="datasets/robot/cases_hard.json")
     ap.add_argument("--n", type=int, default=0, help="0 = all")
     ap.add_argument("--oracle", default="nvs_pilot/probe_viewpoint_r15.json",
                     help="which side reaches rank 1, from probe_viewpoint.py")

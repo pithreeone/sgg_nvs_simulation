@@ -37,7 +37,7 @@ the correspondence gate is recorded with `top1_group = None`, not dropped, and
 `build_views` asserts the count.  So "a row went missing" is now a crash rather
 than a quietly better number.
 
-    python probe_viewdist.py --cases nvs_pilot/cases/cases_hard.json --n 10
+    python probe_viewdist.py --cases datasets/robot/cases_hard.json --n 10
 """
 
 from __future__ import annotations
@@ -260,7 +260,7 @@ def grade_vote(views: Sequence[Dict[str, Any]], phat, key: str
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_hard.json")
+    ap.add_argument("--cases", default="datasets/robot/cases_hard.json")
     ap.add_argument("--n", type=int, default=0, help="0 = all")
     ap.add_argument("--condition", type=int, default=10)
     ap.add_argument("--cand-nms", type=float, default=0.0)

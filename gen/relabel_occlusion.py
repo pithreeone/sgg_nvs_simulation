@@ -82,7 +82,7 @@ def rederive(record: Dict[str, Any], rank_by: str, name_by: str,
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    parser.add_argument("--root", default="datasets/occlusion_ds2")
+    parser.add_argument("--root", default="datasets/sgg/occlusion_ds2")
     parser.add_argument("--rank-by", default="human", choices=("human", "geometry"))
     parser.add_argument("--name-by", default="geometry", choices=("human", "geometry"))
     parser.add_argument("--vertical-max-horizontal", type=float,

@@ -72,7 +72,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     ap.add_argument("--dist", default="nvs_pilot/probe_viewdist.json")
     ap.add_argument("--walked", default="nvs_pilot/probe_viewpoint_ladder.json")
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_hard.json",
+    ap.add_argument("--cases", default="datasets/robot/cases_hard.json",
                     help="the FULL list -- rule 1, the denominator is every "
                          "case, including ones the probe could not read")
     ap.add_argument("--score", default="rel", choices=("rel", "rel_s"))

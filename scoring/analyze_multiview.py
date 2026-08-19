@@ -187,8 +187,8 @@ def classify(gt_rel, gt_boxes, rels, predicted_labels, k: int, objects=None,
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    parser.add_argument("--gt", default="datasets/multiview")
-    parser.add_argument("--preds", default="datasets/multiview_ref")
+    parser.add_argument("--gt", default="datasets/sgg/multiview")
+    parser.add_argument("--preds", default="datasets/sgg/multiview_ref")
     parser.add_argument("--k", type=int, default=100)
     parser.add_argument("--synonyms", default="none", choices=("none","a","ab"),
                         help="treat VG150 classes the vocabulary does not separate "

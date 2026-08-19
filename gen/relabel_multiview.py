@@ -70,7 +70,7 @@ def relabel(record: dict) -> collections.Counter:
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    parser.add_argument("--dir", default="datasets/multiview")
+    parser.add_argument("--dir", default="datasets/sgg/multiview")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args(argv)
 

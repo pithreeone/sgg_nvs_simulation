@@ -14,7 +14,7 @@ comparable across views.
 
     python find_partial_triplets.py                       # ds4, table + per-scene counts
     python find_partial_triplets.py --lo 0.4 --hi 0.8
-    python find_partial_triplets.py --dataset datasets/occlusion_ds3
+    python find_partial_triplets.py --dataset datasets/sgg/occlusion_ds3
     python find_partial_triplets.py --both-endpoints      # require BOTH in the window
     python find_partial_triplets.py --json hits.json      # full listing for downstream use
     python find_partial_triplets.py --list 40             # print the first 40 hits
@@ -82,7 +82,7 @@ def totals(dataset: str) -> tuple[int, int]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dataset", default="datasets/occlusion_ds4")
+    ap.add_argument("--dataset", default="datasets/sgg/occlusion_ds4")
     ap.add_argument("--lo", type=float, default=0.4)
     ap.add_argument("--hi", type=float, default=0.8)
     ap.add_argument("--both-endpoints", action="store_true",

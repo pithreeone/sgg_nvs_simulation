@@ -12,7 +12,19 @@
 # lists, seeds, camera band and occlusion ceiling are all constants in
 # gen/build_occlusion_dataset.py.  If you change those, record the change in
 # TASKS.md or the rebuild will not match.
-datasets/
+# `datasets/*`, not `datasets/`: git cannot re-include a file whose parent
+# directory is excluded, and the two exceptions below need to.
+datasets/*
+
+# ...except the robot experiments' scene lists.  512 KB of JSON holding no
+# images -- THOR builds the room at run time -- and every number in this repo
+# was measured against a specific one.  Regenerating with a different seed does
+# not reproduce them, so by this file's own rule they are tracked.
+!datasets/robot/
+!datasets/robot/*.json
+
+# The layout note itself is documentation, not data.
+!datasets/README.md
 
 # Predictions live outside this tree (../sgg_nvs/results/) but guard against a
 # copy being dropped in here.

@@ -38,8 +38,8 @@ improvement to the generator could fix.
 Everything is re-measured at every pose.  Boxes, occlusion and the graph belong
 to the frame in front of the robot; nothing is carried from the reference.
 
-    python find_cases.py --n 20 --out nvs_pilot/cases.json
-    python eval_nvs_pointer.py --cases nvs_pilot/cases.json --out nvs_pilot
+    python find_cases.py --n 20 --out datasets/robot/cases.json
+    python eval_nvs_pointer.py --cases datasets/robot/cases.json --out nvs_pilot
 """
 
 from __future__ import annotations
@@ -628,7 +628,7 @@ def table(rows: Sequence[Dict[str, Any]], ks: Sequence[int]) -> str:
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases.json")
+    ap.add_argument("--cases", default="datasets/robot/cases.json")
     ap.add_argument("--limit", type=int, default=0, help="run only the first N cases")
     ap.add_argument("--views", type=int, default=20)
     ap.add_argument("--max-az", type=float, default=10.0,

@@ -197,8 +197,8 @@ def render_record(path: str, outdir: str, min_occlusion: float,
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    parser.add_argument("--root", default="datasets/occlusion_ds4")
-    parser.add_argument("--out", default="datasets/occlusion_ds4/_viz")
+    parser.add_argument("--root", default="datasets/sgg/occlusion_ds4")
+    parser.add_argument("--out", default="datasets/sgg/occlusion_ds4/_viz")
     parser.add_argument("--scenes", nargs="*", default=None,
                         help="directory names to render; default all")
     parser.add_argument("--min-occlusion", type=float, default=0.25,

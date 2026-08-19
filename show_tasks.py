@@ -19,7 +19,7 @@ It re-stages each case exactly as a run does (`stage_at` with the stored scene
 snapshot), so the picture is the scene the experiment scores, not a fresh
 settle that happens to look similar.
 
-    python show_tasks.py --cases nvs_pilot/cases/cases_easy2.json --n 12
+    python show_tasks.py --cases datasets/robot/cases_easy2.json --n 12
 """
 
 from __future__ import annotations

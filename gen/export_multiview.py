@@ -725,7 +725,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--width", type=int, default=576)
     parser.add_argument("--height", type=int, default=576)
     parser.add_argument("--tries", type=int, default=20)
-    parser.add_argument("--outdir", default="datasets/multiview")
+    parser.add_argument("--outdir", default="datasets/sgg/multiview")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--depth-format", default="png16",
                         choices=("png16", "npy", "none"),

@@ -165,7 +165,7 @@ def score(pairs, syn, iou_min: float, max_horizontal: Optional[float],
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    parser.add_argument("--gt", default="datasets/occlusion_ds2")
+    parser.add_argument("--gt", default="datasets/sgg/occlusion_ds2")
     parser.add_argument("--preds",
                         default="/home/pithreeone/Ben/japan_intern/sgg_nvs/"
                                 "results/occlusion_ds2_baseline")
