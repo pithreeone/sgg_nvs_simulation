@@ -282,7 +282,8 @@ def sweep(rc, poses: Sequence[Dict[str, Any]], target: str, fov: float,
     Downstream reads only `frame` (`fuse_live.record`, `eval_move.perceive`).
     `pixels` and `box` come from THOR's instance masks, which a synthesiser
     cannot produce and no decision consumes, so they are None in that mode; the
-    tools that DO read them (`eval_nvs_pointer`, this module's `main`) are
+    tools that DO read them (this module's `main`, and the archived
+    `eval_nvs_pointer`) are
     measuring the simulator and always run without `synth`.
     """
     if synth is not None:
@@ -304,7 +305,7 @@ def sweep(rc, poses: Sequence[Dict[str, Any]], target: str, fov: float,
             # camera comes back (H, W, 4) under CloudRendering, and EGTR's
             # feature extractor refuses a 4-channel image ("Unable to infer
             # channel dimension format").  Dropping alpha here keeps every
-            # consumer -- `fuse_live`, `eval_move`, `eval_nvs_pointer` -- reading
+            # consumer -- `fuse_live`, `eval_move`, `move_once` -- reading
             # the same thing on a server as on a desktop.
             row["frame"] = np.array(event.third_party_camera_frames[0])[..., :3]
         out.append(row)

@@ -1,6 +1,17 @@
 """
 eval_nvs_pointer.py -- does an oracle NVS sweep tell the robot WHERE TO STAND?
 
+SUPERSEDED by `eval_move.py`, which asks the same question with a policy that
+does not read ground truth.  Here the sweep is graded against GT and the robot
+walks to whichever view actually recovered the triplet, so the numbers are an
+UPPER BOUND -- what a perfect viewpoint chooser could reach -- not a result a
+robot could reproduce.  Kept for the tables in `reports/`.
+
+Its two ground-truth helpers were live code and outlived it: `geometry` and
+`visible_only` are in `robot/drive_triplet_scene.py` beside `measure`, whose
+THOR protocol they share, and `regrade` is in `robot/task_find.py` beside the
+`grade` it wraps.
+
 The question is not whether a synthesised view can see the triplet.  Success is
 defined here as a SINGLE REAL FRAME, taken at a pose the robot actually stands
 in, containing the instructed triplet grounded on the instructed instance.  A
@@ -54,10 +65,11 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 import numpy as np
 
 from robot import drive
-from robot.drive_triplet_scene import agent_masks, measure, pose_of
+from robot.drive_triplet_scene import (agent_masks, geometry, measure,
+                                       pose_of, visible_only)
 from robot.nvs_lemniscate import camera_for, lemniscate, look_at_point, park_once, sweep
 from robot.robot_controller import horizon_towards, yaw_towards
-from robot.task_find import build_tasks, draw, grade, put_in_front
+from robot.task_find import build_tasks, draw, grade, put_in_front, regrade
 from vg.vg150 import THOR_TO_VG150
 
 #: The body height NEVER changes when projecting a lemniscate pose, and the
@@ -83,124 +95,10 @@ def occ(value: Optional[float]) -> str:
     """Occlusion for a printout.  `--amodal` off means there is no denominator."""
     return "  n/a" if value is None else f"{value:5.2f}"
 
-def visible_only(rc, wanted: Sequence[str]) -> Dict[str, Dict[str, Any]]:
-    """
-    Just the boxes the camera actually draws.  No clearing, no extra renders.
-
-    This is the fast path and, measured, it is also the whole of the grading
-    signal.  Over twelve staged frames EGTR's box agreed with the target's
-    VISIBLE extent 6 times and with its AMODAL extent 0 times (6 ties, all at
-    low occlusion), and the agreement gap widens with occlusion -- 0.41 amodal
-    vs 0.89 visible on a half-hidden lamp.  So `max(amodal, visible)` was
-    always just `visible`: dropping the amodal branch changed the hit count
-    from 10 to 10.  `0806_progress.md` reports the same thing independently
-    ("bbox_visible is the evaluator's box ... amodal checks are systematically
-    pessimistic for occluded objects").
-
-    Clearing the scene is also what the pipeline was actually spending its time
-    on: `DisableObject`/`EnableObject` are one THOR step EACH, and a living room
-    holds 30-60 nameable or moveable objects, so an amodal reference cost ~2N
-    steps against the 20 renders of the sweep itself.
-    """
-    names_by_id = {o["objectId"]: o["name"]
-                   for o in rc.event.metadata["objects"]}
-    seen = agent_masks(rc.event, names_by_id)
-    out = {}
-    for name in wanted:
-        seen_px, seen_box = seen.get(name, (0, None))
-        out[name] = {"bbox_amodal": None, "bbox_visible": seen_box,
-                     "reference_px": None, "visible_px": seen_px,
-                     "occlusion": None}
-    return out
 
 
-def geometry(rc, wanted: Sequence[str], names: Sequence[str],
-             amodal: bool = True) -> Dict[str, Dict[str, Any]]:
-    """
-    Amodal and visible boxes of `wanted`, at the pose the robot is standing in.
-
-    With `amodal=False` this is `visible_only` -- see there for why that is the
-    default in the runners.
-
-    The same protocol as `drive_triplet_scene.measure` -- pause physics, disable
-    everything nameable, enable one object at a time -- but for a named few
-    rather than for the whole scene, and WITHOUT that function's
-    `MAX_OCCLUSION` filter.  The filter is why this exists: a staged target sits
-    at 0.7-0.8 occlusion, past the ceiling, so `measure` drops it and there is
-    nothing left to grade.  A dropped target is the outcome under test, not a
-    reason to lose the row.
-
-    Pausing is not optional; `measure` documents the failure it prevents (12 of
-    15 objects come back with no instance mask on the `EnableObject` event).
-    Ids are read fresh from the current event because staging goes through
-    `SetObjectPoses`, which renumbers every objectId.
-    """
-    if not amodal:
-        return visible_only(rc, wanted)
-
-    entries = {o["name"]: o for o in rc.event.metadata["objects"]}
-    names_by_id = {o["objectId"]: o["name"] for o in rc.event.metadata["objects"]}
-    seen = agent_masks(rc.event, names_by_id)
-
-    ids = {n: entries[n]["objectId"] for n in names if n in entries}
-    alone: Dict[str, Any] = {}
-    rc.controller.step(action="PausePhysicsAutoSim")
-    try:
-        for object_id in ids.values():
-            rc.controller.step(action="DisableObject", objectId=object_id)
-        for name in wanted:
-            if name not in ids:
-                continue
-            event = rc.controller.step(action="EnableObject",
-                                       objectId=ids[name])
-            alone[name] = agent_masks(event, names_by_id).get(name)
-            rc.controller.step(action="DisableObject", objectId=ids[name])
-        for object_id in ids.values():
-            rc.controller.step(action="EnableObject", objectId=object_id)
-    finally:
-        rc.controller.step(action="UnpausePhysicsAutoSim")
-    # A no-op step to get a frame rendered with every object back in the scene.
-    # `measure` documents that a just-re-enabled object is missing from the
-    # segmentation of that same event; the frame EGTR is asked about must not be
-    # one where half the room has yet to reappear.
-    rc.controller.step(action="Done")
-    rc.event = rc.controller.last_event
-
-    out = {}
-    for name in wanted:
-        reference = alone.get(name)
-        ref_px, ref_box = reference if reference else (0, None)
-        seen_px, seen_box = seen.get(name, (0, None))
-        out[name] = {
-            "bbox_amodal": ref_box,
-            "bbox_visible": seen_box,
-            "reference_px": ref_px,
-            "visible_px": seen_px,
-            "occlusion": round(max(0.0, 1.0 - seen_px / ref_px), 4)
-                         if ref_px else 1.0,
-        }
-    return out
 
 
-def regrade(task: Dict[str, Any], geo: Dict[str, Dict[str, Any]],
-            triplets: Sequence[Dict[str, Any]], threshold: float
-            ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
-    """Grade `task` against boxes measured at the CURRENT pose, not the reference."""
-    here = dict(task)
-    target = geo.get(task["target_name"], {})
-    here["target_box_amodal"] = target.get("bbox_amodal")
-    here["target_box_visible"] = target.get("bbox_visible")
-    here["target_occlusion"] = target.get("occlusion", 1.0)
-    # The object endpoint's own box, so `grade` can require the triplet to be
-    # grounded at BOTH ends rather than only at the subject.
-    here["landmark_box"] = {
-        "bbox_amodal": geo.get(task["receptacle_name"], {}).get("bbox_amodal"),
-        "bbox_visible": geo.get(task["receptacle_name"], {}).get("bbox_visible")}
-    here["distractors"] = [
-        {**d, "bbox_amodal": geo.get(d["name"], {}).get("bbox_amodal"),
-         "bbox_visible": geo.get(d["name"], {}).get("bbox_visible")}
-        for d in (task.get("distractors") or [])]
-    return here, grade(here, triplets, [], threshold, False)
 
 
 def stand_at(rc, xz: np.ndarray, target_xyz: np.ndarray) -> Optional[Dict[str, Any]]:

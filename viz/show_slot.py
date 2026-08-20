@@ -20,11 +20,21 @@ No EGTR, no fusion: this asks whether the GEOMETRY is what was asked for, and
 mixing perception into that picture would make a bad slot and a bad detection
 look the same.
 
-    python show_slot.py --cases datasets/robot/cases_slot.json --case 0
-    python show_slot.py --cases datasets/robot/cases_slot.json --curves
+    python viz/show_slot.py --cases datasets/robot/cases_slot.json --case 0
+    python viz/show_slot.py --cases datasets/robot/cases_slot.json --curves
 """
 
 from __future__ import annotations
+
+# `python viz/<script>.py` puts viz/ on sys.path, not the repo root, so the
+# top-level modules would not import.  Same bootstrap as analysis/ and gen/.
+import os as _os
+import sys as _sys
+
+_ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+if _ROOT not in _sys.path:
+    _sys.path.insert(0, _ROOT)
+
 
 import argparse
 import json

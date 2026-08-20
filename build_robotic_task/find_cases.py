@@ -1,7 +1,7 @@
 """
 find_cases.py -- the task instances the NVS-pointer experiment runs on.
 
-One case is everything `eval_nvs_pointer.py` needs to reproduce a question from
+One case is everything a runner needs to reproduce a question from
 scratch: a scene, a pose to stand in, which instruction to follow, and which
 object type to slide in front of the target to make the question hard.  Nothing
 measured is stored -- the eval re-derives the task, the boxes and the occlusion

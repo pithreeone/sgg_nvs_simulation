@@ -1074,6 +1074,27 @@ def draw(frame: np.ndarray, task: Dict[str, Any], result: Dict[str, Any],
     return canvas
 
 
+
+def regrade(task: Dict[str, Any], geo: Dict[str, Dict[str, Any]],
+            triplets: Sequence[Dict[str, Any]], threshold: float
+            ) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+    """Grade `task` against boxes measured at the CURRENT pose, not the reference."""
+    here = dict(task)
+    target = geo.get(task["target_name"], {})
+    here["target_box_amodal"] = target.get("bbox_amodal")
+    here["target_box_visible"] = target.get("bbox_visible")
+    here["target_occlusion"] = target.get("occlusion", 1.0)
+    # The object endpoint's own box, so `grade` can require the triplet to be
+    # grounded at BOTH ends rather than only at the subject.
+    here["landmark_box"] = {
+        "bbox_amodal": geo.get(task["receptacle_name"], {}).get("bbox_amodal"),
+        "bbox_visible": geo.get(task["receptacle_name"], {}).get("bbox_visible")}
+    here["distractors"] = [
+        {**d, "bbox_amodal": geo.get(d["name"], {}).get("bbox_amodal"),
+         "bbox_visible": geo.get(d["name"], {}).get("bbox_visible")}
+        for d in (task.get("distractors") or [])]
+    return here, grade(here, triplets, [], threshold, False)
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     ap.add_argument("--scene", default="FloorPlan203")

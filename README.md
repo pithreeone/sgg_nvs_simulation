@@ -35,18 +35,17 @@ fuse_live.py        3. the robot experiments -- run a case list against EGTR.
                        its synthesised sweep
 eval_move.py           the same perception, repeated, plus a stop rule and a
                        bearing policy -- see PIPELINE.md section 7
-eval_nvs_pointer.py    the superseded oracle pointer (ground truth in the
-                       control loop), kept for the results in reports/
-show_tasks.py          diagnostics: draw what a case list actually asks --
-show_slot.py           graded instance vs landmark, and for slot lists the
-                       swept views and the visibility curve behind them.
-                       Re-run whenever the case list changes.
 
-robot/              the robot, the sweep, EGTR, staging and grading
+robot/              the robot, the sweep, EGTR, staging and grading -- and the
+                    shared rule: grounding.py is the metric, viewpick.py the
+                    viewpoint policy, evidence.py channel B
+viz/                every figure: the tiling primitives, and the scripts that
+                    draw a case list, a sweep or a walk
 scoring/            R@K against the dataset -- a CROSS-REPO interface, read by
                     ../sgg_nvs; module names there are part of the contract
 vg/                 VG150 vocabulary and the priors fitted on it
-analysis/           report scripts nothing imports
+analysis/           report scripts nothing imports, incl. eval_grounding.py --
+                    the robot's metric over datasets/sgg/, 4528 instructions
 
 datasets/           everything a THOR run produced; see datasets/README.md
 nvs_pilot/          robot-experiment results and the frozen task list

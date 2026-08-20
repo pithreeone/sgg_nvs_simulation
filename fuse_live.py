@@ -416,7 +416,7 @@ def run_case(case: Dict[str, Any], args, egtr,
     """Stage the case, sweep it, fuse it, and score both arms on the SAME frame."""
     from robot import drive
     from robot.drive_triplet_scene import measure
-    from eval_nvs_pointer import geometry
+    from robot.drive_triplet_scene import geometry
     from robot.nvs_lemniscate import (camera_for, lemniscate, orbit_centre,
                                       park_once, sweep)
     from robot.task_find import (STAGE_GRID, build_tasks, put_in_front,
@@ -583,7 +583,7 @@ def score_case(built, egtr, task: Dict[str, Any], geo: Dict[str, Any],
     `built` onward they must stay the same computation, or the tabletop numbers
     stop being comparable to the ones already reported.
     """
-    from eval_nvs_pointer import regrade
+    from robot.task_find import regrade
     from lib.fusion import channels as ch
     from robot.sgg_live import predict
 

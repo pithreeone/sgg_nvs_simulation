@@ -161,7 +161,7 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
         # object is seen, and dedup throws that gradation away.
         #
         # A SIDE, THEN A SMALL STEP -- there is no angle in this rule.  The
-        # smoothed curve in `plot_viewdist.py` scores 35 of 40 against 36 for
+        # smoothed curve in `viz/plot_viewdist.py` scores 35 of 40 against 36 for
         # comparing the two halves, and its argmax sat on the +-30 boundary in 35
         # of 40 cases: it was only ever answering "which side".
         #

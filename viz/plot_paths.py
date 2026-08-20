@@ -19,10 +19,20 @@ An arm that stops early has a short path by definition, so read the markers
 before the length: a long confident-looking route that ends in a red ring is
 worse than a short one that ends in green.
 
-    python plot_paths.py --results nvs_pilot/move_paths.json --n 6
+    python viz/plot_paths.py --results nvs_pilot/move_paths.json --n 6
 """
 
 from __future__ import annotations
+
+# `python viz/<script>.py` puts viz/ on sys.path, not the repo root, so the
+# top-level modules would not import.  Same bootstrap as analysis/ and gen/.
+import os as _os
+import sys as _sys
+
+_ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+if _ROOT not in _sys.path:
+    _sys.path.insert(0, _ROOT)
+
 
 import argparse
 import json

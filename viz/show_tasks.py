@@ -19,10 +19,20 @@ It re-stages each case exactly as a run does (`stage_at` with the stored scene
 snapshot), so the picture is the scene the experiment scores, not a fresh
 settle that happens to look similar.
 
-    python show_tasks.py --cases datasets/robot/cases_easy2.json --n 12
+    python viz/show_tasks.py --cases datasets/robot/cases_easy2.json --n 12
 """
 
 from __future__ import annotations
+
+# `python viz/<script>.py` puts viz/ on sys.path, not the repo root, so the
+# top-level modules would not import.  Same bootstrap as analysis/ and gen/.
+import os as _os
+import sys as _sys
+
+_ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+if _ROOT not in _sys.path:
+    _sys.path.insert(0, _ROOT)
+
 
 import argparse
 import json
@@ -64,7 +74,7 @@ def one(rc, case: Dict[str, Any], args) -> Optional[Dict[str, Any]]:
     """Stage the case and return its frame with both endpoints drawn."""
     import cv2
 
-    from eval_nvs_pointer import geometry
+    from robot.drive_triplet_scene import geometry
     from robot.task_find import stage_at
     from vg.vg150 import THOR_TO_VG150
 

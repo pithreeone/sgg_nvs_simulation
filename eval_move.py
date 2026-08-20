@@ -65,7 +65,7 @@ def truth_boxes(rc, task) -> Dict[str, Any]:
         return {"target": visible_box(rc.event, task["target_name"]),
                 "landmark": visible_box(rc.event, task["receptacle_name"])}
 
-    from eval_nvs_pointer import geometry
+    from robot.drive_triplet_scene import geometry
     from vg.vg150 import THOR_TO_VG150
 
     names = sorted({o["name"] for o in rc.event.metadata["objects"]

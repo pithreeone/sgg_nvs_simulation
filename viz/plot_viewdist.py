@@ -15,10 +15,20 @@ facing +z that is its left hand.  So the x axis is drawn INVERTED, and the left
 of every panel is the robot's left.  This costs nothing and it is the difference
 between reading the figure and mis-reading it.
 
-    python plot_viewdist.py --sweep nvs_pilot/probe_sideview4.json
+    python viz/plot_viewdist.py --sweep nvs_pilot/probe_sideview4.json
 """
 
 from __future__ import annotations
+
+# `python viz/<script>.py` puts viz/ on sys.path, not the repo root, so the
+# top-level modules would not import.  Same bootstrap as analysis/ and gen/.
+import os as _os
+import sys as _sys
+
+_ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+if _ROOT not in _sys.path:
+    _sys.path.insert(0, _ROOT)
+
 
 import argparse
 import json

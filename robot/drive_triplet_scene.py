@@ -212,6 +212,105 @@ def agent_masks(event, names_by_id: Dict[str, str]
     return out
 
 
+def visible_only(rc, wanted: Sequence[str]) -> Dict[str, Dict[str, Any]]:
+    """
+    Just the boxes the camera actually draws.  No clearing, no extra renders.
+
+    This is the fast path and, measured, it is also the whole of the grading
+    signal.  Over twelve staged frames EGTR's box agreed with the target's
+    VISIBLE extent 6 times and with its AMODAL extent 0 times (6 ties, all at
+    low occlusion), and the agreement gap widens with occlusion -- 0.41 amodal
+    vs 0.89 visible on a half-hidden lamp.  So `max(amodal, visible)` was
+    always just `visible`: dropping the amodal branch changed the hit count
+    from 10 to 10.  `0806_progress.md` reports the same thing independently
+    ("bbox_visible is the evaluator's box ... amodal checks are systematically
+    pessimistic for occluded objects").
+
+    Clearing the scene is also what the pipeline was actually spending its time
+    on: `DisableObject`/`EnableObject` are one THOR step EACH, and a living room
+    holds 30-60 nameable or moveable objects, so an amodal reference cost ~2N
+    steps against the 20 renders of the sweep itself.
+    """
+    names_by_id = {o["objectId"]: o["name"]
+                   for o in rc.event.metadata["objects"]}
+    seen = agent_masks(rc.event, names_by_id)
+    out = {}
+    for name in wanted:
+        seen_px, seen_box = seen.get(name, (0, None))
+        out[name] = {"bbox_amodal": None, "bbox_visible": seen_box,
+                     "reference_px": None, "visible_px": seen_px,
+                     "occlusion": None}
+    return out
+
+
+def geometry(rc, wanted: Sequence[str], names: Sequence[str],
+             amodal: bool = True) -> Dict[str, Dict[str, Any]]:
+    """
+    Amodal and visible boxes of `wanted`, at the pose the robot is standing in.
+
+    With `amodal=False` this is `visible_only` -- see there for why that is the
+    default in the runners.
+
+    The same protocol as `drive_triplet_scene.measure` -- pause physics, disable
+    everything nameable, enable one object at a time -- but for a named few
+    rather than for the whole scene, and WITHOUT that function's
+    `MAX_OCCLUSION` filter.  The filter is why this exists: a staged target sits
+    at 0.7-0.8 occlusion, past the ceiling, so `measure` drops it and there is
+    nothing left to grade.  A dropped target is the outcome under test, not a
+    reason to lose the row.
+
+    Pausing is not optional; `measure` documents the failure it prevents (12 of
+    15 objects come back with no instance mask on the `EnableObject` event).
+    Ids are read fresh from the current event because staging goes through
+    `SetObjectPoses`, which renumbers every objectId.
+    """
+    if not amodal:
+        return visible_only(rc, wanted)
+
+    entries = {o["name"]: o for o in rc.event.metadata["objects"]}
+    names_by_id = {o["objectId"]: o["name"] for o in rc.event.metadata["objects"]}
+    seen = agent_masks(rc.event, names_by_id)
+
+    ids = {n: entries[n]["objectId"] for n in names if n in entries}
+    alone: Dict[str, Any] = {}
+    rc.controller.step(action="PausePhysicsAutoSim")
+    try:
+        for object_id in ids.values():
+            rc.controller.step(action="DisableObject", objectId=object_id)
+        for name in wanted:
+            if name not in ids:
+                continue
+            event = rc.controller.step(action="EnableObject",
+                                       objectId=ids[name])
+            alone[name] = agent_masks(event, names_by_id).get(name)
+            rc.controller.step(action="DisableObject", objectId=ids[name])
+        for object_id in ids.values():
+            rc.controller.step(action="EnableObject", objectId=object_id)
+    finally:
+        rc.controller.step(action="UnpausePhysicsAutoSim")
+    # A no-op step to get a frame rendered with every object back in the scene.
+    # `measure` documents that a just-re-enabled object is missing from the
+    # segmentation of that same event; the frame EGTR is asked about must not be
+    # one where half the room has yet to reappear.
+    rc.controller.step(action="Done")
+    rc.event = rc.controller.last_event
+
+    out = {}
+    for name in wanted:
+        reference = alone.get(name)
+        ref_px, ref_box = reference if reference else (0, None)
+        seen_px, seen_box = seen.get(name, (0, None))
+        out[name] = {
+            "bbox_amodal": ref_box,
+            "bbox_visible": seen_box,
+            "reference_px": ref_px,
+            "visible_px": seen_px,
+            "occlusion": round(max(0.0, 1.0 - seen_px / ref_px), 4)
+                         if ref_px else 1.0,
+        }
+    return out
+
+
 def measure(rc: RobotController, targets: Sequence[str], fov: float,
             max_occlusion: float = MAX_OCCLUSION) -> Dict[str, Any]:
     """
