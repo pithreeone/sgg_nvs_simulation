@@ -100,6 +100,45 @@ def look_at_point(camera: np.ndarray, yaw: float, pitch: float,
 LOOKAT_DIST = 0.5
 
 
+def orbit_depth(depth: Optional[np.ndarray],
+                fraction: float = 0.2) -> Optional[float]:
+    """The sweep's radius: the median depth of the image's centre patch.
+
+    A SCALAR OFF THE OPTICAL AXIS, WITH NO DETECTOR IN IT.  The sweep's centre
+    must lie on the reference camera's own axis or az = el = 0 stops reproducing
+    the reference frame, which is the identity the whole trajectory is built on
+    (`nvs_lemniscate.camera_for`).  So this asks only "how far is whatever is
+    straight ahead", and nothing that can name the wrong object enters.
+
+    A PATCH, NOT THE CENTRE PIXEL: one pixel lands on a specular highlight or a
+    stereo dropout often enough to matter, and the median over a fifth of the
+    frame is the same quantity with that removed.
+
+    NAN-TOLERANT, which the simulator never needed.  THOR's depth buffer is
+    dense; a real sensor returns nothing for dark, glossy or too-near surfaces,
+    and `real_robot.load_depth` marks those NaN rather than 0 so they cannot be
+    read as "at the camera".  A plain median over a patch holding one NaN is
+    NaN, which would poison the orbit silently.
+
+    None when the patch is entirely invalid -- the radius is then undefined and
+    the caller must not invent one.  A simulator's depth buffer never is, so the
+    iTHOR path has never seen that branch; a real sensor hits it on a dark wall.
+
+    HERE RATHER THAN IN `viewpick`, where this started: that module's contract is
+    that it touches no sensor -- a fused record, the poses, the instruction, and
+    nothing else -- and a depth image is exactly the thing it must not read.
+    This is the sweep's own geometry, which is what the rest of this file is.
+    """
+    if depth is None:
+        return None
+    height, width = depth.shape[:2]
+    low, high = 0.5 - fraction / 2, 0.5 + fraction / 2
+    patch = depth[int(height * low):int(height * high),
+                  int(width * low):int(width * high)]
+    valid = patch[np.isfinite(patch)]
+    return float(np.median(valid)) if valid.size else None
+
+
 def orbit_centre(rc, radius: float = LOOKAT_DIST) -> np.ndarray:
     """
     The lemniscate's centre: a point along the reference camera's optical axis.

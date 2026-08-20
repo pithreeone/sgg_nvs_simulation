@@ -36,6 +36,9 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
+from robot.grounding import (CLASS_ALIASES, candidates, class_mass,
+                             rank_pairs)
+
 #: Sparse width of a view's own relation field.  The disk cache stores 500; the
 #: pair an INSTRUCTION names is nowhere near any view's 500 strongest (measured:
 #: 0, 0, 0 and 1 views speaking about the chosen pair).  Nothing is cached here,
@@ -241,71 +244,21 @@ def consensus_relabel(built: Dict[str, Any], egtr, corr: str = "argmax",
 #: GRADING NEVER SEES THIS.  `top1_correct` overlaps boxes with the ground truth
 #: and reads no class at all, so the metric is not loosened; and both arms and
 #: every rule share `conditioned`, so no comparison is tilted.
-CLASS_ALIASES: Dict[str, Sequence[str]] = {
-    "laptop": ("laptop", "screen"),
-}
+#: `CLASS_ALIASES` now lives in `robot.grounding`, beside the ranking that
+#: spends it, and is re-exported here because half the repo imports it from this
+#: module.  See the import at the top of the file.
 
 
 def conditioned(built: Dict[str, Any], egtr, task: Dict[str, Any],
                 width: int = 10, nms: float = 0.0):
-    """The candidate pairs an INSTRUCTION licenses -> ([subjects], [objects]).
+    """`grounding.candidates` read off a fused record -- see there for the rule.
 
-    Two class names is all the task provides, so this uses no oracle: the model
-    still has to say WHICH query is the bottle.  Free-form SGDet reached no rank
-    at all in 70 of 71 cases; conditioned, every case yields one.  NOT comparable
-    to any free-form SGG number.
-
-    THE PREDICATE IS NOT CONDITIONED HERE -- it is the quantity under test, so
-    fixing it would hand over the answer.  `decide` does spend it, in the SCORE.
+    A thin wrapper because every caller in this repo holds a `built` and the
+    shared function must not: `move_once` builds the same list from a single
+    VIEW's probabilities, which is not a record and never will be.
     """
-    import numpy as _np
-
-    classes = {v: k - 1 for k, v in egtr["obj_names"].items()}
-    probs = built["probs_ref"]
-
-    def mass(name: str):
-        """p(the instruction's word), summed over the classes that mean it."""
-        columns = [classes[c] for c in CLASS_ALIASES.get(name, (name,))
-                   if c in classes]
-        return probs[:, columns].sum(-1) if columns else None
-
-    subject_p = mass(task["subject_class"])
-    object_p = mass(task["object_class"])
-    if subject_p is None or object_p is None:
-        return None
-
-    # By p(INSTRUCTED class), not by argmax: a query sitting on the bottle often
-    # argmaxes to something else (median p(class) on these targets is 0.07).
-    if not nms:
-        subjects = _np.argsort(-subject_p)[:width]
-        objects = _np.argsort(-object_p)[:width]
-        return [int(q) for q in subjects], [int(q) for q in objects]
-
-    # ONE SLOT PER OBJECT: the subject side's top 10 covers a median of FIVE
-    # distinct objects, so the 100-pair set is ~25 pairs padded out.  By BOX
-    # OVERLAP ALONE -- `slot_groups_xyxy` also requires the same argmax class,
-    # and two queries on one cup can argmax to `cup` and `bottle`.
-    #
-    # MEASURED NEGATIVE (fuse_easy2_nms.json): it does not promote the target,
-    # because the query outranking it is the DISTRACTOR, a different object.
-    # Rank 1 stays 22/40, rank <= 3 goes 37 to 38/40, top-1 loses 1.
-    from robot.task_find import iou
-
-    boxes = built["boxes"]
-
-    def pick(column) -> List[int]:
-        # WITHIN the top-`width` window, never backfilling past it: with 200
-        # queries there are always more distinct boxes on the wall, so a
-        # count-preserving dedup would swap duplicates of the right object for
-        # lower-ranked boxes on wrong ones.  Shrinking the list is the point.
-        keep: List[int] = []
-        for q in _np.argsort(-column)[:width]:
-            box = boxes[int(q)].tolist()
-            if all(iou(box, boxes[k].tolist()) <= nms for k in keep):
-                keep.append(int(q))
-        return keep
-
-    return pick(subject_p), pick(object_p)
+    return candidates(built["probs_ref"], built["boxes"], egtr, task,
+                      width, nms)
 
 
 def decide(built: Dict[str, Any], egtr, task: Dict[str, Any], rank,
@@ -329,14 +282,10 @@ def decide(built: Dict[str, Any], egtr, task: Dict[str, Any], rank,
     boxes per object, and `rel` scores such a self-pair highly -- a thing is
     trivially `behind` itself.  The top-1 landed on the LANDMARK in 12 of 40.
     """
-    subjects, objects = candidates
-    predicate = egtr["rel_names"].index(task["predicate"])
-    rel = built["rel"]
-    sub_w = obj_w = built["s"].float()
-    scored = [(float(rel[i, j, predicate]) * float(sub_w[i]) * float(obj_w[j]),
-               i, j)
-              for i in subjects for j in objects
-              if i != j and (groups is None or groups[i] != groups[j])]
+    weights = built["s"].float()
+    scored = rank_pairs(built["rel"], candidates,
+                        egtr["rel_names"].index(task["predicate"]),
+                        weights, weights, groups=groups)
     if not scored:
         return {"chosen": None, "success": False, "iou": 0.0}
     return _grade_choice(built, task, geo, scored, iou_hit)

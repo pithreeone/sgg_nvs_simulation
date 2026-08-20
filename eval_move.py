@@ -29,29 +29,27 @@ import numpy as np
 
 from robot.proc_scene import Robot as ProcRobot
 
-#: Bins for the bearing vote, degrees.  Votes are often bimodal -- the target is
-#: recoverable from either side -- and the mean of "25 left" and "25 right" is
-#: "do not move".
-BIN = 10.0
+def random_pose(rc, azimuth: float, elevation: float):
+    """A pose from the family the sweep samples, WITHOUT synthesising it.
 
+    THE CONTROL ARM'S MOVE.  It draws (azimuth, elevation) from the same box the
+    lemniscate spans and walks the pose that implies -- so both arms have the
+    same action space and the only difference between them is WHICH pose was
+    chosen.  The control used to fly an arc about P-hat instead, a different
+    motion entirely, which left "moving helps" and "the rule chooses well"
+    entangled in every comparison.
 
-#: The smoothed version of `--bearing side` -- a Gaussian kernel regression of
-#: the same counts over azimuth -- lives in `plot_viewdist.py`, where it is the
-#: FIGURE.  It is not here because it is not the policy: its argmax landed on the
-#: +-30 boundary in 35 of 40 cases, so the curve was only ever answering "which
-#: side", and comparing the two halves directly scores 36 of 40 against its 35.
+    No sweep and no detector: the orbit is a depth reading on the optical axis,
+    the same one `perceive` centres its sweep on.
+    """
+    from robot.nvs_lemniscate import camera_for, look_at_point, orbit_depth
 
-
-def bearing_from(votes: Sequence[float], bin_width: float = BIN
-                 ) -> Optional[float]:
-    """Bin the voting azimuths, take the heaviest bin, average inside it."""
-    if not votes:
-        return None
-    bins: Dict[int, List[float]] = {}
-    for az in votes:
-        bins.setdefault(int(round(az / bin_width)), []).append(az)
-    best = max(bins.values(), key=len)
-    return sum(best) / len(best)
+    radius = orbit_depth(getattr(rc.event, "depth_frame", None))
+    if radius is None:
+        return None, None
+    camera = rc.camera_xyz.copy()
+    orbit = look_at_point(camera, rc.agent_yaw, rc.camera_horizon, radius)
+    return camera_for(orbit, camera, azimuth, elevation), orbit
 
 
 def truth_boxes(rc, task) -> Dict[str, Any]:
@@ -104,33 +102,26 @@ def look(rc, task, egtr, args) -> Dict[str, Any]:
                       miss was.
       `stops`, `matched_at`   diagnostics only.  See above.
     """
-    from fuse_live import conditioned
+    from robot.grounding import single_frame
     from robot.sgg_live import raw_predict
     from robot.task_find import iou
 
     raw = raw_predict(egtr, rc.event.frame)
-    built = {"probs_ref": raw["probs_softmax"].detach().cpu().numpy(),
-             "rel": raw["rel"].detach().cpu(),
-             "boxes": raw["boxes"].detach().cpu(),
-             "s": raw["probs_softmax"].detach().cpu().max(-1).values}
-    cand = conditioned(built, egtr, task, args.condition, args.cand_nms)
-    if cand is None:
+    probs = raw["probs_softmax"].detach().cpu()
+    rel = raw["rel"].detach().cpu()
+    boxes = raw["boxes"].detach().cpu()
+    # THE METRIC, and the SAME CALL `move_once` grades a photograph with.
+    read = single_frame(probs.float(), boxes, rel, egtr, task,
+                        width=args.condition, nms=args.cand_nms,
+                        weight=args.weight, pair_iou=args.pair_iou)
+    if read is None:
         return {"top1_correct": False, "stops": False, "stop_correct": False,
                 "iou": 0.0, "matched_at": None, "recall": None,
                 "candidates": 0,
                 "frame": rc.event.frame.copy()
-                         if args.save_trail else None}
-
-    rel, s = built["rel"], built["s"].float()
-    subjects, objects = cand
+                         if args.figures else None}
+    order = read["order"]
     predicate = egtr["rel_names"].index(task["predicate"])
-    # `fuse_live.decide`'s score exactly, so a walked-to pose is judged by the
-    # rule the static experiment reports.  Weighting by p(instructed class)
-    # instead of `s` moved 2 of 40 rankings: `rel` spans 20 orders of magnitude
-    # against `s`'s 1.5, so anything multiplied in is a rounding error.
-    order = sorted(((float(rel[i, j, predicate]) * float(s[i]) * float(s[j]),
-                     i, j)
-                    for i in subjects for j in objects if i != j), reverse=True)
 
     # Ground truth enters HERE and nowhere else: the ORDER above, and the
     # top-1 the robot acts on, are computed without it.
@@ -138,8 +129,8 @@ def look(rc, task, egtr, args) -> Dict[str, Any]:
 
     def grounded(a: int, b: int) -> bool:
         return (bool(truth["target"]) and bool(truth["landmark"])
-                and iou(built["boxes"][a].tolist(), truth["target"]) >= args.iou
-                and iou(built["boxes"][b].tolist(),
+                and iou(boxes[a].tolist(), truth["target"]) >= args.iou
+                and iou(boxes[b].tolist(),
                         truth["landmark"]) >= args.iou)
 
     recall = next((position for position, (_, i, j) in enumerate(order, 1)
@@ -149,7 +140,7 @@ def look(rc, task, egtr, args) -> Dict[str, Any]:
     # exists at only 15% of poses, so rendering that instead left most panels
     # with no box and a caption reporting a different quantity.
     def box_of(q: int) -> List[float]:
-        return [round(v, 1) for v in built["boxes"][int(q)].tolist()]
+        return [round(v, 1) for v in boxes[int(q)].tolist()]
 
     # THE TOP-1'S OWN SCORE, so "is the robot confident here?" can be asked of a
     # REAL frame.  The same quantity on NVS-mapped views separates a correct
@@ -161,8 +152,8 @@ def look(rc, task, egtr, args) -> Dict[str, Any]:
     # emits several boxes per object, so the raw rank 2 is usually the same thing
     # again.  Both in log10, and None when there is nothing to compare.
     rival = next((v for v, a, _ in order[1:]
-                  if iou(built["boxes"][a].tolist(),
-                         built["boxes"][order[0][1]].tolist()) < args.iou),
+                  if iou(boxes[a].tolist(),
+                         boxes[order[0][1]].tolist()) < args.iou),
                  None) if order else None
     top1 = {"top1_box": box_of(order[0][1]),
             "top1_object_box": box_of(order[0][2]),
@@ -186,11 +177,11 @@ def look(rc, task, egtr, args) -> Dict[str, Any]:
                 "truth_box": None if not truth["target"] else
                              [round(float(v), 1) for v in truth["target"]],
                 "frame": rc.event.frame.copy()
-                         if args.save_trail else None}
+                         if args.figures else None}
 
-    overlap = (iou(built["boxes"][chosen[0]].tolist(), truth["target"])
+    overlap = (iou(boxes[chosen[0]].tolist(), truth["target"])
                if truth["target"] else 0.0)
-    on_landmark = (iou(built["boxes"][chosen[1]].tolist(), truth["landmark"])
+    on_landmark = (iou(boxes[chosen[1]].tolist(), truth["landmark"])
                    if truth["landmark"] else 0.0)
     return {"top1_correct": recall == 1,
             "stops": True,
@@ -201,46 +192,40 @@ def look(rc, task, egtr, args) -> Dict[str, Any]:
             # Kept so a stop can be RENDERED: "IoU 0.03" does not say whether the
             # robot mistook another bottle, a plant, or boxed the right one badly.
             "chosen_box": [round(v, 1) for v in
-                           built["boxes"][chosen[0]].tolist()],
+                           boxes[chosen[0]].tolist()],
             "object_box": [round(v, 1) for v in
-                           built["boxes"][chosen[1]].tolist()],
+                           boxes[chosen[1]].tolist()],
             "truth_box": None if not truth["target"] else
                          [round(float(v), 1) for v in truth["target"]],
             "frame": rc.event.frame.copy()
-                     if args.save_trail else None}
+                     if args.figures else None}
 
 
-def perceive(rc, case, task, egtr, args, centre=None, want_record=False):
+def perceive(rc, case, task, egtr, args, want_record=False):
     """THE DECISION.  A sweep, fused with A+C+R, read for WHERE TO GO.
 
     Whether the robot has ARRIVED is `look`'s job, from one real frame.  Returns
-    None when the scene cannot be read.  `centre` is P-hat: derived here on the
-    first call and returned for the caller to carry.
+    None when the scene cannot be read.
     """
     from lib.fusion import channels as ch
-    from fuse_live import (CORR, GATE_COS, OBJSCORE, OBJSCORE_CLASS,
-                           OBJSCORE_COS, conditioned, consensus_relabel, record)
+    from fuse_live import (OBJSCORE, OBJSCORE_CLASS, OBJSCORE_COS, conditioned,
+                           consensus_relabel, record)
+    from robot import evidence, viewpick
+    from robot.grounding import pair_cells, rank_pairs
     from robot.nvs_lemniscate import (camera_for, lemniscate, look_at_point,
-                                      park_once, sweep)
-    from robot.robot_controller import point_in_box
-
-    import torch
+                                      orbit_depth, park_once, sweep)
 
     reference, camera = rc.event.frame.copy(), rc.camera_xyz.copy()
 
-    # TWO CENTRES, different jobs.  The SWEEP's must lie on the reference
-    # camera's optical axis -- that is what makes az = el = 0 reproduce the
-    # reference frame -- so it is the pose plus a scalar depth read at the image
-    # centre, with no detection in the loop.  The ARC centre, refined below from
-    # the top-ranked pair, is the one that decides where the robot walks.
-    depth = getattr(rc.event, "depth_frame", None)
-    if depth is None:
+    # THE SWEEP'S CENTRE must lie on the reference camera's optical axis -- that
+    # is what makes az = el = 0 reproduce the reference frame -- so it is the
+    # pose plus a scalar depth read at the image centre, with NO DETECTION IN
+    # THE LOOP.  It is also the point the step is executed about, so nothing
+    # that can name the wrong object decides where the robot walks.
+    radius = orbit_depth(getattr(rc.event, "depth_frame", None))
+    if radius is None:
         return None
-    height, width = depth.shape[:2]
-    patch = depth[int(height * 0.4):int(height * 0.6),
-                  int(width * 0.4):int(width * 0.6)]
-    orbit = look_at_point(camera, rc.agent_yaw, rc.camera_horizon,
-                          float(np.median(patch)))
+    orbit = look_at_point(camera, rc.agent_yaw, rc.camera_horizon, radius)
 
     poses = [camera_for(orbit, camera, az, el)
              for az, el in lemniscate(args.views, args.max_az, args.max_el)]
@@ -283,11 +268,26 @@ def perceive(rc, case, task, egtr, args, centre=None, want_record=False):
     s = ch.object_scores(built["rec"], mode=OBJSCORE,
                          class_mode=OBJSCORE_CLASS, cos=OBJSCORE_COS)
     rel = built["rel"]
-    subjects, objects = cand
-    order = sorted(((float(rel[i, j].max()) * float(s[i]) * float(s[j]), i, j)
-                    for i in subjects for j in objects if i != j), reverse=True)
-
+    boxes = built["boxes"]
     predicate = egtr["rel_names"].index(task["predicate"])
+
+    # THE PAIR THE SWEEP IS AIMED AT -- `move_once.decide_step`'s ranking, the
+    # same call.  It is NOT the answer: `look` grades the pose this walks to,
+    # from one real frame.  All it does here is tell `edge`, `acr` and `attrib`
+    # which pair to ask the views about.
+    #
+    # `--w 0` and `--pair-iou 0` reproduce the predicate-free `rel.max()` ranking
+    # this replaced closely but not exactly, so numbers from before the change
+    # are not comparable pair-for-pair.
+    cells = pair_cells(cand, boxes=boxes, pair_iou=args.pair_iou)
+    ev = None
+    if args.w:
+        _, contrib, spoke = evidence.pair_contributions(built, cells, predicate)
+        ev = evidence.pooled(cells, contrib, spoke, args.pool)
+    order = rank_pairs(rel, cand, predicate, s, s, boxes=boxes,
+                       pair_iou=args.pair_iou, mix=ev, weight=args.w)
+    if not order:
+        return None
     chosen, at = None, None
     for position, (_, i, j) in enumerate(order, 1):
         label = int(which[i, j]) if float(margin[i, j]) >= 0.0 \
@@ -296,392 +296,29 @@ def perceive(rc, case, task, egtr, args, centre=None, want_record=False):
             chosen, at = (i, j), position
             break
 
-    if centre is None:
-        # `order[0]`, never `chosen`: a pair passing the lexical gate fires the
-        # stop rule, so the `chosen` branch was dead for motion in 32 of 32
-        # walked episodes.  The OBJECT endpoint either way -- the landmark ranks
-        # 1st in 40 of 40, and P-hat lands a median 0.07 m from it against 0.48 m
-        # for an independent argmax over p(landmark class).
-        endpoint = order[0][2]
-        centre = point_in_box(rc, built["boxes"][endpoint].tolist(), args.fov)
-        if centre is None:
-            return None
-
-    # THE VIEW THE RULE PICKED, when it can name one.  A sweep view is already a
-    # full pose -- `nvs_lemniscate.camera_for` returns position, yaw and pitch --
-    # so a policy that names a view needs nothing predicted to execute it: the
-    # relative transform is that pose minus this one.  `votes` is the older,
-    # lossier channel, a scalar azimuth that `walk` then re-derives a motion from
-    # about a DIFFERENT centre; see `step_to` for why that is worth removing.
-    view: Optional[Dict[str, Any]] = None
-    votes: List[float] = []
-    if args.bearing == "side":
-        # HOW MANY OF THE INSTRUCTION'S OWN CANDIDATES THIS VIEW STILL SEES.
-        #
-        # No predicate, no identity, no P-hat: a candidate that does not
-        # correspond in a view can never be selected FROM that view, so this is
-        # the necessary condition, and answering it needs no idea which triplet
-        # is the right one.  That is why it beats the rules that do -- agreement
-        # with a voted pair was right in 4 of 10, and the class-probability gain
-        # is carried by the unoccluded twin, which every viewpoint sees.
-        #
-        # ONLY THE SUBJECT SIDE, which is an open choice and not a claim.  The
-        # landmark corresponds from nearly everywhere (it ranks 1st in 40 of 40),
-        # so its count is near constant across azimuth and a constant cannot move
-        # an argmax -- multiplying it in measured 34 of 40 against 35 here.
-        # Taking the `min` of the two sides instead scored 37, and would drop the
-        # assumption that the SUBJECT is the hard end, which is `behind`'s
-        # property rather than a general one; 2 cases in 40 is not evidence for
-        # it, so it is left as the next thing to try, not adopted.
-        #
-        # The count is at SLOT level, NOT deduplicated to objects.  Dedup was
-        # tried on the belief that duplicate boxes are a detector habit: 31 of 40
-        # against 36.  How many of an object's boxes survive is a graded measure
-        # of how clearly it is seen, and dedup throws that gradation away.
-        #
-        # A SIDE, THEN A SMALL STEP -- there is no angle in this rule, and that is
-        # the honest shape of what was measured.  The smoothed estimator in
-        # `plot_viewdist.py` reads the same counts as a curve over azimuth and
-        # picks its argmax; it scores 35 of 40 against 36 for comparing the two
-        # halves and stepping a fixed amount.  The curve's SHAPE carries nothing:
-        # its argmax sat on the +-30 boundary in 35 of 40 cases, so it was only
-        # ever answering "which side".  Reporting it as a side is not a
-        # simplification of the result, it IS the result.
-        #
-        # The step is small and the side is re-measured every step, so the walk
-        # self-corrects: overshoot flips the sign of the next reading and the
-        # robot comes back.  At 30 degrees a step it could not -- three of those
-        # compound to 90, past anything the sweep ever saw, and top-1 correct
-        # went 32 -> 9 -> 0 over three steps.
-        hn = torch.nn.functional.normalize(
-            built["rec"]["h_ref"].float(), dim=-1)
-        # POSITIVE AZIMUTH IS THE ROBOT'S LEFT; see `nvs_lemniscate.camera_for`.
-        left: List[float] = []
-        right: List[float] = []
-        counted: List[Tuple[float, int]] = []
-        for index, sweep_view in enumerate(built["rec"]["views"]):
-            if int(sweep_view["v"]) in ch.SKIP_VIEWS:
-                continue
-            _, ok = ch.correspond(hn, sweep_view["h"], CORR, GATE_COS)
-            # A view that corresponds to nothing counts as 0, never skipped:
-            # that is the reading on the side the target is hidden on, and
-            # dropping it is the one line that pre-sorted this measurement
-            # toward the answer once already.  So both halves always have a
-            # value, and the guided arm never falls back to the control.
-            count = (0.0 if ok is None
-                     else float(sum(1 for q in cand[0] if bool(ok[q]))))
-            azimuth = float(rendered[index]["pose"]["azimuth"])
-            (left if azimuth > 0 else right).append(count)
-            counted.append((count, index))
-        if left and right:
-            votes = [args.side_step
-                     if sum(left) / len(left) >= sum(right) / len(right)
-                     else -args.side_step]
-            # THE BEST VIEW ON THE SIDE IT CHOSE.  The side is what was measured
-            # -- the two halves against each other -- but a side is not a place,
-            # and `--side-step` degrees is an angle no view was rendered at.  A
-            # policy that walks to a POSE has to name one, so the rule reports
-            # its own strongest view on the side it just voted for.
-            want = votes[0] > 0
-            on_side = [(c, i) for c, i in counted
-                       if (float(rendered[i]["pose"]["azimuth"]) > 0) == want]
-            if on_side:
-                view = rendered[max(on_side, key=lambda p: p[0])[1]]["pose"]
-    elif args.bearing == "volatility":
-        # WEIGHT EACH CANDIDATE TRIPLET BY HOW MUCH ITS RANK MOVES ACROSS THE
-        # SWEEP, then score a view by how highly it ranks the unstable ones.
-        #
-        # A triplet visible from every angle holds the same rank everywhere, so
-        # it cannot tell two viewpoints apart -- and it is what the top-1 vote
-        # keeps electing.  A triplet that was occluded and then appears is the
-        # one whose rank swings, and on `cases_hard` the instructed triplet sits
-        # at the 99th percentile of that swing.  Ranks only, so the ~17 orders of
-        # magnitude that `rel` drifts across views cancel; no predicate label, no
-        # class gate, no P-hat.
-        #
-        # Against `side`'s count: same side accuracy (37/37 against 36/37, both
-        # saturated) but it ranks VIEWS far better -- AUC 0.88 against 0.76, and
-        # its best sweep view is the right one in 32 of 38 against 26.  Dropping
-        # the weight scores 0.77, so the weight is what works.
-        predicate = egtr["rel_names"].index(task["predicate"])
-        s = built["s"].float()
-        nq = built["rec"]["s_ref"].shape[0]
-        hn = torch.nn.functional.normalize(
-            built["rec"]["h_ref"].float(), dim=-1)
-        subjects, objects = cand
-        # A pair this view cannot score gets the worst rank, never dropped: not
-        # being findable from here is the measurement, not missing data.
-        miss = float(len(subjects) * len(objects) + 1)
-        # THIS SCORE CHOOSES A DIRECTION AND NOTHING ELSE.  Putting the two
-        # az = el = 0 views -- which re-render the pose the robot is at -- on the
-        # ballot was tried, so that "stay" could win the same argmax: it never
-        # did, one sample against the maximum of eighteen being biased towards
-        # moving by construction.  Comparing it to the MEDIAN instead does fire,
-        # and stops on a bad pose as readily as a good one, because this quantity
-        # separates a correct pose from a wrong one by the 83rd percentile
-        # against the 72nd.  Stopping is `--stop-score`, on the real frame, where
-        # the separation is 1.05 decades.
-        ranks, azimuths, taken = [], [], []
-        for index, sweep_view in enumerate(built["rec"]["views"]):
-            if int(sweep_view["v"]) in ch.SKIP_VIEWS:
-                continue
-            field, ok = ch._pair_field(sweep_view, nq, hn, CORR, GATE_COS)
-            scored = []
-            for i in subjects:
-                for j in objects:
-                    if i == j:
-                        continue
-                    if ok is not None and not (bool(ok[i]) and bool(ok[j])):
-                        continue
-                    value = (float(field[i, j, predicate])
-                             * float(s[i]) * float(s[j]))
-                    if value > 0:
-                        scored.append((value, int(i), int(j)))
-            scored.sort(reverse=True)
-            place = {(i, j): rank for rank, (_, i, j) in enumerate(scored, 1)}
-            ranks.append([place.get((int(i), int(j)), miss)
-                          for i in subjects for j in objects])
-            azimuths.append(float(rendered[index]["pose"]["azimuth"]))
-            taken.append(index)
-        rank = np.array(ranks, float)
-        weight = rank.std(0)
-        weight = weight / max(weight.max(), 1e-9)
-        score = (weight[None, :] / rank).sum(1)
-        azimuth = np.array(azimuths, float)
-        # POSITIVE AZIMUTH IS THE ROBOT'S LEFT; see `nvs_lemniscate.camera_for`.
-        left_half, right_half = score[azimuth > 0], score[azimuth < 0]
-        if len(left_half) and len(right_half):
-            votes = [args.side_step
-                     if left_half.mean() >= right_half.mean()
-                     else -args.side_step]
-        # THE HIGHEST-SCORING VIEW, and this is the whole point of the score.
-        # Comparing the two halves throws away the ordering WITHIN a side, which
-        # is the only axis this rule beats the count on -- AUC 0.88 against 0.76
-        # -- so a side vote cannot show what it is for.  Reported unconditionally:
-        # unlike the halves it needs no view on both sides to exist.
-        if len(score):
-            view = rendered[taken[int(np.argmax(score))]]["pose"]
-    elif args.bearing in ("reveal", "acr", "node", "edge"):
-        # A VIEWPOINT HELPS IN ONE OF TWO WAYS, AND THE TWO LISTS NEED DIFFERENT
-        # ONES.  On `cases_hard` the target and its distractor are the same class
-        # by construction, so no appearance score can separate them and what
-        # changes with the viewpoint is whether the target CORRESPONDS at all.
-        # On `cases_slot` there is no distractor and nothing to disambiguate;
-        # what changes is whether the object can be NAMED.  Correlated against
-        # each list's own yardstick over 6 cases, correspondence scores -0.60 and
-        # -0.33, appearance -0.02 and -0.40: each is blind on the list it was not
-        # built for.  Standardised within the case and added, -0.50 and -0.39 --
-        # the only quantity measured that speaks on both, at almost no cost where
-        # a single one already worked.
-        #
-        # THE APPEARANCE HALF COMPARES A CANDIDATE TO ITSELF.  Taking the best
-        # p(class) over candidates is pinned by the unoccluded twin, which looks
-        # the same from everywhere; dividing each candidate by its OWN spread
-        # across the sweep sends every flat candidate -- the twin, and the walls
-        # -- to zero without anyone saying which is which.  What survives is a
-        # candidate that looks more like the instructed class from here than it
-        # usually does.
-        from fuse_live import CLASS_ALIASES
-
-        subjects = cand[0]
-        classes = {v: k - 1 for k, v in egtr["obj_names"].items()}
-        columns = [classes[c]
-                   for c in CLASS_ALIASES.get(task["subject_class"],
-                                              (task["subject_class"],))
-                   if c in classes]
-        hn = torch.nn.functional.normalize(
-            built["rec"]["h_ref"].float(), dim=-1)
-        counts, appearance, azimuths, taken = [], [], [], []
-        for index, sweep_view in enumerate(built["rec"]["views"]):
-            if int(sweep_view["v"]) in ch.SKIP_VIEWS:
-                continue
-            match, ok = ch.correspond(hn, sweep_view["h"], CORR, GATE_COS)
-            probs = sweep_view["probs"].float()
-            counts.append(float(sum(1 for q in subjects
-                                    if ok is None or bool(ok[q]))))
-            # A candidate that does not correspond reads 0: not findable here.
-            appearance.append([float(probs[int(match[q]), columns].sum())
-                               if (ok is None or bool(ok[q])) else 0.0
-                               for q in subjects])
-            azimuths.append(float(rendered[index]["pose"]["azimuth"]))
-            taken.append(index)
-        if counts:
-            def unit(values: np.ndarray) -> np.ndarray:
-                return (values - values.mean()) / max(float(values.std()), 1e-9)
-
-            appear = np.array(appearance, float)
-            revealed = ((appear - appear.mean(0)[None, :])
-                        / np.maximum(appear.std(0)[None, :], 1e-6)).max(1)
-
-            # NODE AND EDGE, WHICH IS WHAT A AND R ACTUALLY ARE.  A view helps a
-            # grounding in one of two ways and the two lists are built to
-            # separate them: `cases_slot`'s target cannot be NAMED from the start
-            # pose (a node problem), `cases_hard`'s target is named perfectly and
-            # is indistinguishable from a same-class twin, so only the RELATION
-            # picks it out (an edge problem).  C is neither -- without a
-            # correspondence there is no cross-view quantity at all -- so it
-            # enters as the gate that zeroes a candidate the view cannot see,
-            # not as a third term to be weighed against the other two.
-            #
-            #   node   A's class-probability gain, each candidate against its
-            #          OWN spread across the sweep, so a candidate that looks
-            #          the same from everywhere contributes nothing.
-            #   edge   R's ballot for the pair being pursued: did this view
-            #          speak about it, and did it name the instructed predicate.
-            #          BINARY on purpose -- `rel` drifts ~17 orders of magnitude
-            #          across views for numerical reasons, so its magnitude is
-            #          not comparable between them while its ARGMAX is.
-            pursued = chosen if chosen is not None else (
-                (order[0][1], order[0][2]) if order else None)
-            edge = np.zeros(len(taken), float)
-            if pursued is not None:
-                si, sj = pursued
-                spoke = {int(b["v"]): (bool(b["spoke"][si, sj])
-                                       and int(b["named"][si, sj]) == predicate)
-                         for b in ballots}
-                edge = np.array([1.0 if spoke.get(
-                    int(built["rec"]["views"][index]["v"]), False) else 0.0
-                    for index in taken], float)
-            node = unit(revealed)
-            if args.bearing == "node":
-                score = node
-            elif args.bearing == "edge":
-                score = unit(edge)
-            elif args.bearing == "acr":
-                score = node + unit(edge)
-            else:
-                score = unit(np.array(counts, float)) + unit(revealed)
-            azimuth = np.array(azimuths, float)
-            # POSITIVE AZIMUTH IS THE ROBOT'S LEFT; see `nvs_lemniscate.camera_for`.
-            left_half, right_half = score[azimuth > 0], score[azimuth < 0]
-            if len(left_half) and len(right_half):
-                votes = [args.side_step
-                         if left_half.mean() >= right_half.mean()
-                         else -args.side_step]
-            view = rendered[taken[int(np.argmax(score))]]["pose"]
-    elif args.bearing == "visible":
-        # WHICH VIEW SEES THE TARGET, not which view says `behind`.  A visibility
-        # question needs no predicate and only the SUBJECT endpoint to
-        # correspond, where the `bin` rule's lexical gate left 39% of guided
-        # steps with no NVS input at all.  It also avoids `rel`, whose cross-view
-        # variation is numerical rather than photometric (~17 orders for the same
-        # pair, equally for an occluded target, its unoccluded twin, and the
-        # symmetric `near`); a class probability is a softmax output, so a
-        # difference between views is a difference in what was visible.
-        #
-        # THE GAIN, NOT THE MAXIMUM: raw p(cup) picks whichever view sees the
-        # DISTRACTOR best, since it is unoccluded from every angle.
-        index = {v: k - 1 for k, v in egtr["obj_names"].items()}.get(
-            task["subject_class"])
-        if index is not None:
-            hn = torch.nn.functional.normalize(
-                built["rec"]["h_ref"].float(), dim=-1)
-            ref_p = built["probs_ref"][:, index]
-            az_list = [r["pose"]["azimuth"] for r in rendered]
-            best, top = None, 0.0
-            for view in built["rec"]["views"]:
-                if int(view["v"]) in ch.SKIP_VIEWS:
-                    continue
-                match, ok = ch.correspond(hn, view["h"], "mutual", OBJSCORE_COS)
-                probs = view["probs"].float()
-                for q in cand[0]:
-                    if not bool(ok[q]):
-                        continue
-                    gain = float(probs[int(match[q]), index]) - float(ref_p[q])
-                    if gain > top:
-                        best, top = int(view["v"]), gain
-            if best is not None:
-                votes = [az_list[best]]
-    elif chosen is not None:
-        si, sj = chosen
-        az_list = [r["pose"]["azimuth"] for r in rendered]
-        votes = [az_list[b["v"]] for b in ballots
-                 if bool(b["spoke"][si, sj])
-                 and int(b["named"][si, sj]) == predicate]
-        if not votes:
-            # A's attribution: one endpoint is enough, so it survives where R's
-            # two-endpoint gate does not.
-            hn = torch.nn.functional.normalize(
-                built["rec"]["h_ref"].float(), dim=-1)
-            best, top = None, -1.0
-            for view in built["rec"]["views"]:
-                if int(view["v"]) in ch.SKIP_VIEWS:
-                    continue
-                match, ok = ch.correspond(hn, view["h"], "mutual", OBJSCORE_COS)
-                if not bool(ok[si]):
-                    continue
-                value = float(view["probs"].float()[int(match[si])].max())
-                if value > top:
-                    best, top = int(view["v"]), value
-            if best is not None:
-                votes = [az_list[best]]
-    out = {"votes": votes, "matched_at": at, "centre": centre,
-           # BOTH HALVES OF A POSE-EXECUTING STEP: the view to go to, and the
-           # point the sweep itself orbits.  `orbit` is a depth reading at the
-           # image centre and passes through no detector, so `step_to` needs
-           # nothing that can name the wrong object.
-           "view": view, "orbit": orbit}
+    # THE VIEW THE RULE PICKED, when it can name one -- `viewpick.pick_view` is
+    # the policy, shared with `move_once` so the simulator and the robot cannot
+    # run different rules.  A sweep view is already a full pose, so naming one
+    # needs nothing predicted to execute: the relative transform is that pose
+    # minus this one.  `votes` -- the older scalar-azimuth channel -- had only
+    # one consumer, the arc about P-hat, and went with it.  The per-view scores
+    # are `move_once`'s to print.
+    _, view, _ = viewpick.pick_view(
+        args.bearing, args.side_step, built, rendered, cand, egtr, task,
+        order, chosen, ballots)
+    # BOTH HALVES OF A POSE-EXECUTING STEP: the view to go to, and the point the
+    # sweep itself orbits.  `orbit` is a depth reading at the image centre and
+    # passes through no detector, so `step_to` needs nothing that can name the
+    # wrong object.
+    out = {"matched_at": at, "view": view, "orbit": orbit}
     if want_record:
         # `probe_sideview.py` re-scores the reference's candidates through each
-        # view's own field, which needs the record and the poses.  Off by
-        # default: an episode would otherwise carry 20 frames per step.
-        out.update({"built": built, "rendered": rendered})
+        # view's own field, and `save_sweep` draws them; both need the record,
+        # the poses and the frame they came from.  Off by default: an episode
+        # would otherwise carry 20 frames per step.
+        out.update({"built": built, "rendered": rendered,
+                    "reference": reference})
     return out
-
-
-#: How much further out than the current standoff the arc is flown, as a factor
-#: on the radius.  See `walk` for the arithmetic that fixes it above 1.13.
-RADIUS_SCALE = 1.2
-
-#: Multipliers ON TOP of `--radius-scale`, tried in order until THOR accepts the
-#: pose, because a refused pose would otherwise be scored as a policy failure.
-#: The last rung is 2.5x nominal, past which the object is too small to read and
-#: failing is the honest answer.
-RADIUS_LADDER = (1.0, 1.25, 1.5, 1.8, 2.1, 2.5)
-
-
-def walk(rc, centre: np.ndarray, azimuth: float, args) -> Optional[float]:
-    """Swing about P-hat by `azimuth` and re-aim.  Returns metres moved.
-
-    THE ARC IS FLOWN AT A LARGER RADIUS THAN THE ROBOT STANDS AT, because the
-    nearest one is illegal by construction: an arc about a point ON THE TABLE
-    closes depth by `r (1 - cos theta)`, and the generator already spent that
-    margin.  `(RADIUS_SCALE - 1) * r` must cover it; the r cancels, so the factor
-    must exceed 1.13 at 30 degrees whatever the radius.  At 1.0 THOR refused 17
-    of 71 guided steps and 14 of 35 episodes could not move at all.  The trade is
-    pixel area: the target sits ~1.15 m away instead of 1.00.
-
-    ONE FACTOR IS NOT ENOUGH -- which pose is legal depends on where the walls
-    and furniture fall, and a refused angle is indistinguishable, in the result,
-    from an angle the robot chose badly.  So the scale ESCALATES until THOR
-    accepts one.  Nothing here reads ground truth.
-    """
-    from robot.nvs_lemniscate import arc_step
-    from robot.robot_controller import horizon_towards, yaw_towards
-
-    here = rc.camera_xyz[[0, 2]]
-    hub = centre[[0, 2]]
-    turned = arc_step(hub, here, azimuth)
-    y = float(rc.agent_position["y"])
-    for scale in RADIUS_LADDER:
-        goal = hub + (turned - hub) * args.radius_scale * scale
-        if rc.teleport(position={"x": float(goal[0]), "y": y,
-                                 "z": float(goal[1])},
-                       yaw=yaw_towards(goal, hub), horizon=0.0):
-            break
-    else:
-        # Normally useless in a procedural room -- the navmesh this reads is
-        # empty -- but the iTHOR path has one, so it stays.
-        goal = hub + (turned - hub) * args.radius_scale
-        spot = rc.nearest_reachable(goal)
-        if spot is None or not rc.teleport(
-                position={"x": float(spot[0]), "y": y, "z": float(spot[1])},
-                yaw=yaw_towards(spot, hub), horizon=0.0):
-            return None
-        goal = spot
-    rc.teleport(yaw=yaw_towards(goal, hub),
-                horizon=horizon_towards(rc.camera_xyz, centre))
-    return float(np.linalg.norm(goal - here))
 
 
 #: How far out to back off when the chosen view's own pose is refused, as a
@@ -703,11 +340,11 @@ def step_to(rc, view: Dict[str, Any], orbit: np.ndarray,
 
     THERE IS NOTHING TO PREDICT.  `nvs_lemniscate.camera_for` already returned
     position, yaw and pitch for every sweep view, so the motion is that pose
-    minus the current one.  `walk` instead keeps only the scalar azimuth and
-    re-derives an arc about P-hat -- a DIFFERENT centre from the one the sweep
-    orbits -- so the pose it reaches is not the pose that was rendered and
-    scored.  On a list whose viewpoint windows are 15 degrees wide that gap is
-    the measurement.
+    minus the current one.  The arc this replaced kept only a scalar azimuth and
+    swung about P-hat, a DIFFERENT centre from the one the sweep orbits, so the
+    pose it reached was not the pose that had been rendered and scored.  On a
+    list whose viewpoint windows are 15 degrees wide that gap is the
+    measurement.
 
     THREE THINGS THE ROBOT CANNOT COPY.  The sweep's elevation lifts the virtual
     camera off the floor and a body cannot follow, so only the ground-plane
@@ -753,8 +390,7 @@ def arms_in(row) -> tuple:
 
 
 def rollout(rc, case, task, egtr, args, guided: bool, bearings, start_pose,
-            centre, start, seed_votes, seed_view=None,
-            seed_orbit=None) -> Dict[str, Any]:
+            start, seed_view=None, seed_orbit=None) -> Dict[str, Any]:
     """One policy from the start pose.
 
     FIXED LENGTH: the episode always walks `--steps` steps and is graded at each
@@ -765,9 +401,8 @@ def rollout(rc, case, task, egtr, args, guided: bool, bearings, start_pose,
     inside the policy is what made the two unreadable together.
 
     `start` is the shared step-0 single-view answer, so both arms begin from the
-    same frame and verdict.  `seed_votes` is the sweep already taken there to
-    establish P-hat: re-sweeping would ask the same question from the same pose,
-    and when it came back empty the guided arm left along the control's heading.
+    same frame and verdict, and `seed_view` is the sweep already taken there --
+    re-sweeping would ask the same question from the same pose.
     """
     rc.teleport(position=start_pose["position"], yaw=start_pose["yaw"],
                 horizon=start_pose["horizon"])
@@ -798,31 +433,31 @@ def rollout(rc, case, task, egtr, args, guided: bool, bearings, start_pose,
                 and seen.get("top1_score") is not None
                 and seen["top1_score"] >= args.stop_score)
 
-    metres, sweeps, votes = 0.0, 0, list(seed_votes)
+    metres, sweeps = 0.0, 0
     stopped_at = 0 if confident(start) else None
     for k in range(args.steps if stopped_at is None else 0):
-        source, azimuth = "random", bearings[k]
-        reading = None
+        # BOTH ARMS WALK TO A POSE, and it is the same executor -- `step_to`,
+        # about the sweep's own orbit.  The guided arm's pose is the rule's
+        # choice, the control's is drawn from the same box the sweep spans, so
+        # the comparison isolates the CHOICE and nothing else.
         if guided:
             if k > 0:                       # step 0 reuses the start-pose sweep
-                reading = perceive(rc, case, task, egtr, args, centre)
+                # ONLY THE GUIDED ARM SWEEPS, so only it has figures to write;
+                # the control never asks the question.
+                want = bool(args.figures)
+                reading = perceive(rc, case, task, egtr, args, want_record=want)
                 sweeps += 1
-                votes = reading["votes"] if reading else []
+                if want and reading:
+                    save_sweep(reading, case, task, egtr, args, step=k)
                 seed_view, seed_orbit = ((reading["view"], reading["orbit"])
                                          if reading else (None, None))
-            voted = bearing_from(votes)
-            if voted is not None:
-                azimuth, source = voted, "evidence"
+            view, orbit, source = seed_view, seed_orbit, "evidence"
+        else:
+            view, orbit = random_pose(rc, *bearings[k])
+            source = "random"
 
-        # THE GUIDED ARM GOES TO A POSE, the control still flies an arc: a random
-        # heading names no view, so there is no rendered pose for it to reach.
-        # Both arms move the same WAY under `--motion arc`, which is what makes
-        # the two comparable, so the switch is reported per step rather than
-        # assumed.
-        pose_step = (args.motion == "pose" and guided
-                     and seed_view is not None and seed_orbit is not None)
-        moved = (step_to(rc, seed_view, seed_orbit, args) if pose_step
-                 else walk(rc, centre, azimuth, args))
+        moved = (None if view is None or orbit is None
+                 else step_to(rc, view, orbit, args))
         if moved is None:
             trail.append({"step": k + 1, "unreachable": True})
             break
@@ -833,12 +468,10 @@ def rollout(rc, case, task, egtr, args, guided: bool, bearings, start_pose,
             sheet.append({"frame": frame, "step": k + 1, **seen})
             if seen["stops"]:
                 stops.append({"frame": frame, "step": k + 1, **seen})
-        trail.append({"step": k + 1,
-                      "source": "evidence-pose" if pose_step else source,
-                      "azimuth": round(float(seed_view["azimuth"]), 1)
-                                 if pose_step else round(azimuth, 1),
-                      "moved": round(moved, 3),
-                      "votes": len(votes), "xz": here(), **seen})
+        trail.append({"step": k + 1, "source": source,
+                      "azimuth": round(float(view["azimuth"]), 1),
+                      "elevation": round(float(view["elevation"]), 1),
+                      "moved": round(moved, 3), "xz": here(), **seen})
         if confident(seen):
             stopped_at = k + 1
             break
@@ -870,6 +503,53 @@ def rollout(rc, case, task, egtr, args, guided: bool, bearings, start_pose,
             "sweeps": sweeps, "stops": stops, "sheet": sheet}
 
 
+def case_dir(case: Dict[str, Any], args, step: Optional[int] = None) -> str:
+    """`<--figures>/<scene>_<target>[/stepN]/`, made on demand.
+
+    `move_once`'s layout: one folder per case, one subfolder per step holding
+    the sweep taken there.  A real episode is a sequence of `move_once` runs
+    laid out exactly this way, so the two are readable side by side.
+    """
+    out = os.path.join(args.figures,
+                       f"{case['scene']}_{case['target_name']}"
+                       .replace("/", "_").replace("|", "_"))
+    if step is not None:
+        out = os.path.join(out, f"step{step}")
+    os.makedirs(out, exist_ok=True)
+    return out
+
+
+def save_sweep(read: Dict[str, Any], case: Dict[str, Any], task, egtr, args,
+               step: int) -> None:
+    """`move_once`'s two sweep figures, for the sweep taken at one pose.
+
+    The same call the real robot makes, so a rendered sweep and a synthesised
+    one can be put side by side: `sweep.png` is what the views look like,
+    `sweep_pred.png` is what each of them alone grounds the instruction to.
+    """
+    from robot.grounding import per_view_answers
+    from viz import sweep as figures
+
+    built, rendered = read["built"], read["rendered"]
+    out = case_dir(case, args, step)
+    reference = read["reference"]
+    # THE RAW SHEET ONLY WHEN A MODEL MADE THE VIEWS.  It exists to show what the
+    # synthesiser INVENTED; under `--synth none` the frames are THOR's own
+    # renders, so there is nothing to judge and `sweep_pred` shows the same
+    # pictures with the answer drawn on them.
+    if args.synth != "none":
+        figures.contact_sheet(reference, [r["frame"] for r in rendered],
+                              [r["pose"] for r in rendered],
+                              os.path.join(out, "sweep.png"))
+    rows, ref_row = per_view_answers(built, rendered, task, egtr,
+                                     width=args.condition, nms=args.cand_nms,
+                                     weight=args.weight,
+                                     pair_iou=args.pair_iou)
+    figures.answer_sheet(reference, rendered, rows, ref_row,
+                         task["subject_class"], task["object_class"],
+                         os.path.join(out, "sweep_pred.png"))
+
+
 def render_trail(out: Dict[str, Any], case: Dict[str, Any], args) -> None:
     """One row per arm, one panel per pose: what the robot saw as it walked.
 
@@ -880,6 +560,8 @@ def render_trail(out: Dict[str, Any], case: Dict[str, Any], args) -> None:
     """
     import cv2
 
+    from viz import sheets
+
     rows = []
     for arm in arms_in(out):
         panels = out[arm].get("sheet", [])
@@ -887,13 +569,6 @@ def render_trail(out: Dict[str, Any], case: Dict[str, Any], args) -> None:
             continue
         tiles = []
         for pose in panels:
-            canvas = np.ascontiguousarray(pose["frame"][:, :, ::-1])
-            for key, colour, thick in (("truth_box", (140, 255, 140), 2),
-                                       ("top1_box", (230, 120, 230), 2),
-                                       ("top1_object_box", (90, 200, 255), 1)):
-                if pose.get(key):
-                    x0, y0, x1, y1 = (int(v) for v in pose[key])
-                    cv2.rectangle(canvas, (x0, y0), (x1, y1), colour, thick)
             # Verdict by the METRIC, which is top-1.  THE LEXICAL `stops` FLAG IS
             # NOT DRAWN: it decides nothing in the policy -- `--stop-score` does
             # -- so captioning a panel `STOP(wrong)` next to an episode that
@@ -907,35 +582,23 @@ def render_trail(out: Dict[str, Any], case: Dict[str, Any], args) -> None:
                      + (f"correct pair ranked {place}" if place
                         else "correct pair not ranked")
                      + ("  CORRECT" if hit else "  wrong"))
-            # THE CAPTION IS DRAWN AFTER THE RESIZE.  Lettering it at 800x600 and
-            # then scaling the panel to 400x300 puts the strokes through the same
-            # interpolation as the picture, and a 0.42-scale font does not
-            # survive it -- the words were the least readable thing in a figure
-            # whose whole job is to be read.
-            tile = cv2.resize(canvas, (400, 300))
-            cv2.rectangle(tile, (0, 0), (tile.shape[1], 20), (20, 20, 20), -1)
-            cv2.putText(tile, label, (4, 14), cv2.FONT_HERSHEY_SIMPLEX, 0.44,
-                        (140, 255, 140) if hit else (215, 215, 215),
-                        1, cv2.LINE_AA)
-            tiles.append(tile)
-        rows.append(np.hstack(tiles))
+            # OVER THE FRAME, not above it: these tiles are a fixed 400x300 so a
+            # row of them lines up across arms, and there is nowhere to put the
+            # extra band.  `sheets.tile` letters it after the resize either way.
+            tiles.append(sheets.tile(
+                pose["frame"], [label],
+                colours=[sheets.TRUTH if hit else sheets.DIM],
+                size=(400, 300), over=True,
+                boxes=[(pose.get(key), colour, thick) for key, colour, thick in
+                       (("truth_box", sheets.TRUTH, 2),
+                        ("top1_box", sheets.SUBJECT, 2),
+                        ("top1_object_box", sheets.OBJECT, 1))]))
+        rows.append(sheets.row(tiles))
     if not rows:
         return
-    # The arms can walk different numbers of steps, so pad to the wider row.
-    width = max(r.shape[1] for r in rows)
-    rows = [r if r.shape[1] == width else
-            np.hstack([r, np.zeros((r.shape[0], width - r.shape[1], 3),
-                                   dtype=r.dtype)]) for r in rows]
-    # THE INSTRUCTION, ONCE, ACROSS THE TOP.  Every panel below it is a pose
-    # answering this one question, and a sheet of frames without it is a sheet of
-    # rooms -- the reader cannot tell a failure from a different task.
-    banner = np.full((30, width, 3), 32, dtype=rows[0].dtype)
-    cv2.putText(banner, f"{case['scene']}   {case['instruction']}", (6, 21),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 1, cv2.LINE_AA)
-    os.makedirs(args.save_trail, exist_ok=True)
-    stem = f"{case['scene']}_{case['target_name']}".replace("/", "_")
-    cv2.imwrite(os.path.join(args.save_trail, f"{stem}.png"),
-                np.vstack([banner, *rows]))
+    # The arms can walk different numbers of steps, so `stack` pads to the wider.
+    cv2.imwrite(os.path.join(case_dir(case, args), "trail.png"),
+                sheets.stack(rows, f"{case['scene']}   {case['instruction']}"))
 
 
 def run_case(case: Dict[str, Any], args, egtr) -> Optional[Dict[str, Any]]:
@@ -1004,21 +667,22 @@ def run_episode(rc, case: Dict[str, Any], task: Dict[str, Any], egtr, args,
                   "yaw": rc.agent_yaw, "horizon": rc.camera_horizon}
     # The ANSWER at step 0, from the single real frame.
     start = look(rc, task, egtr, args)
-    # P-hat, which the arc turns about, from the pair the fusion settled on.
-    seed_read = perceive(rc, case, task, egtr, args)
+    # The start-pose sweep, taken once and given to both arms.
+    seed_read = perceive(rc, case, task, egtr, args,
+                         want_record=bool(args.figures))
     if seed_read is None:
         return None
-    centre, seed_votes = seed_read["centre"], seed_read["votes"]
     seed_view, seed_orbit = seed_read["view"], seed_read["orbit"]
+    if args.figures:
+        save_sweep(seed_read, case, task, egtr, args, step=0)
     rc.teleport(position=start_pose["position"], yaw=start_pose["yaw"],
                 horizon=start_pose["horizon"])
 
-    # One bearing sequence, both arms, seeded on the CASE rather than consumed
-    # from a shared stream: an episode where the evidence never speaks then
-    # reproduces the control exactly, and dropping the control does not shift the
-    # guided arm's fallback headings.
+    # THE CONTROL'S POSES, drawn from the same box the lemniscate spans, and
+    # seeded on the CASE so a rerun walks the same control trajectory.
     rng = random.Random(f"{case['scene']}/{case['target_name']}")
-    bearings = [rng.uniform(-args.max_az, args.max_az)
+    bearings = [(rng.uniform(-args.max_az, args.max_az),
+                 rng.uniform(-args.max_el, args.max_el))
                 for _ in range(args.steps)]
 
     out = {"scene": case["scene"], "instruction": case["instruction"],
@@ -1026,19 +690,18 @@ def run_episode(rc, case: Dict[str, Any], task: Dict[str, Any], egtr, args,
            # every arm is read against.
            "start_correct": bool(start["top1_correct"]),
            "start_stops": start["stops"], "start_iou": start["iou"],
-           # For the top-down plot: the point both arms orbit, and the two
+           # For the top-down plot: the point the sweep orbits, and the two
            # objects the instruction names.
-           "centre_xz": [round(float(centre[0]), 3),
-                         round(float(centre[2]), 3)],
+           "centre_xz": [round(float(seed_orbit[0]), 3),
+                         round(float(seed_orbit[2]), 3)],
            "target_xz": [round(v, 3) for v in target_xz],
            "landmark_xz": [round(v, 3) for v in landmark_xz]}
     arms = (("evidence", True),) if args.no_control else (("evidence", True),
                                                           ("random", False))
     for arm, guided in arms:
         out[arm] = rollout(rc, case, task, egtr, args, guided, bearings,
-                           start_pose, centre, start, seed_votes,
-                           seed_view, seed_orbit)
-    if args.save_trail:
+                           start_pose, start, seed_view, seed_orbit)
+    if args.figures:
         render_trail(out, case, args)
     for arm in arms_in(out):
         for stop in out[arm].get("stops", []):
@@ -1071,6 +734,8 @@ def run_episode(rc, case: Dict[str, Any], task: Dict[str, Any], egtr, args,
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
+    from robot.grounding import WEIGHTS
+
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     ap.add_argument("--cases", default="datasets/robot/cases_easy2.json")
     ap.add_argument("--n", type=int, default=0, help="0 = all")
@@ -1082,9 +747,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                     help="how far down its own ranking the robot believes a "
                          "match.  0 = the whole conditioned list, which stops on "
                          "rank-74 matches and is not recognition.")
-    ap.add_argument("--save-trail", metavar="DIR", default=None,
-                    help="write EVERY pose the robot looked from, one row per "
-                         "arm, with the boxes and the correct pair's rank")
+    ap.add_argument("--figures", metavar="DIR", default=None,
+                    help="one folder per case, laid out as `move_once` lays out "
+                         "a step:  <DIR>/<scene>_<target>/{sweep.png, "
+                         "sweep_pred.png, trail.png}.  `sweep*` are the start "
+                         "pose's views and what each grounds the instruction "
+                         "to; `trail` is every pose the robot then looked from, "
+                         "one row per arm.")
     ap.add_argument("--no-control", action="store_true",
                     help="run only the `evidence` arm, halving the wall clock.  "
                          "For RENDERS, not for claims: with no control there is "
@@ -1116,16 +785,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "looks than it usually does.  The only rule measured to "
                          "carry signal on BOTH cases_hard and cases_slot, which "
                          "need different evidence.")
-    ap.add_argument("--motion", choices=("arc", "pose"), default="arc",
-                    help="how a chosen view becomes a move.  `arc` keeps only "
-                         "the azimuth and swings about P-hat, the detected "
-                         "landmark -- a DIFFERENT centre from the one the sweep "
-                         "orbits, so the pose reached is not the pose that was "
-                         "rendered and scored.  `pose` walks the ground-plane "
-                         "part of the chosen view's own relative transform, "
-                         "which needs no P-hat and no prediction.  The control "
-                         "arm always flies an arc: a random heading names no "
-                         "view.")
     ap.add_argument("--stop-score", type=float, default=None, metavar="LOG10",
                     help="stop at the first pose whose top-1 scores at least "
                          "this, in log10 of `rel * s * s` on a REAL frame.  "
@@ -1145,13 +804,27 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "chances to correct the side on the way.")
     ap.add_argument("--cand-nms", type=float, default=0.0, metavar="IOU",
                     help="deduplicate the candidate list by box overlap before "
-                         "taking the top-K.  See `fuse_live.conditioned`.")
-    ap.add_argument("--radius-scale", type=float, default=RADIUS_SCALE,
-                    metavar="K",
-                    help="fly the arc at K times the current radius.  Must "
-                         "exceed 1 / cos(max azimuth) ~ 1.13 at 30 degrees, or "
-                         "the arc closes depth the generator already spent and "
-                         "40%% of episodes cannot move at all.  See `walk`.")
+                         "taking the top-K.  See `grounding.candidates`.")
+    ap.add_argument("--weight", choices=WEIGHTS, default="s",
+                    help="what the METRIC's ranking weights a query by.  `s` is "
+                         "its confidence over all classes and is what every "
+                         "number in this repo was measured with; `class` is "
+                         "p(the instruction's own noun).  On a real photograph "
+                         "`s` elects whichever query is confident about "
+                         "anything -- see `move_once`.")
+    ap.add_argument("--pair-iou", type=float, default=0.0, metavar="IOU",
+                    help="reject a pair whose two boxes overlap this much: it is "
+                         "one object related to itself.  Applies to BOTH the "
+                         "metric and the pair the sweep is aimed at.  0 keeps "
+                         "every published number reproducible; `move_once` uses "
+                         "0.15.  See `grounding.pair_cells`.")
+    ap.add_argument("--w", type=float, default=0.0, metavar="W",
+                    help="mixing weight on channel B -- whether the other views "
+                         "agree this PAIR stands in the instructed relation -- "
+                         "in the ranking the sweep is aimed at.  0 = A+C only. "
+                         "Does not touch the metric, which is one real frame.")
+    ap.add_argument("--pool", choices=("mean", "max"), default="max",
+                    help="how channel B pools a pair's evidence across views.")
     ap.add_argument("--views", type=int, default=20)
     ap.add_argument("--max-az", type=float, default=30.0)
     ap.add_argument("--max-el", type=float, default=15.0)

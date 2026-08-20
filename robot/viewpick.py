@@ -1,20 +1,15 @@
 """
 viewpick.py -- a swept record becomes a heading and a view.  The shared rule.
 
-THIS IS THE POLICY, and it is the one thing the simulator and a real robot must
-run the same code for.  `eval_move.perceive` staged it inline while there was
-only one caller; a robot driven from photographs is the second, and a rule that
-exists twice is a rule whose two copies will disagree about which one produced a
-number in a table.
+THIS IS THE POLICY, and the simulator and a real robot must run the same copy of
+it or a number in a table cannot be attributed to a rule.
 
-WHAT IT DOES NOT TOUCH: the robot.  Nothing here reads a controller, a pose or a
-simulator -- the inputs are a fused record, the poses that record was swept at,
-and the instruction.  Where the robot then GOES is `eval_move.step_to`'s
-arithmetic; whether it ARRIVED is `eval_move.look`'s single real frame.
+WHAT IT DOES NOT TOUCH: the robot.  In come a fused record, the poses it was
+swept at, and the instruction -- no controller, no pose, no sensor.  Where the
+robot then GOES is `eval_move.step_to`; whether it ARRIVED is `eval_move.look`.
 
-The rules and the numbers behind each of them are documented at their branches
-below, carried over verbatim from `perceive`: they are measurements, and
-rewriting them as prose would lose the counts they turn on.
+Each branch below carries the counts it was chosen on.  Those are measurements;
+they stay.
 """
 
 from __future__ import annotations
@@ -23,38 +18,37 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
+#: Bins for the azimuth vote, degrees.  Votes are often bimodal -- the target is
+#: recoverable from either side -- and the mean of "25 left" and "25 right" is
+#: "do not move".
+BIN = 10.0
 
-def orbit_depth(depth: Optional[np.ndarray],
-                fraction: float = 0.2) -> Optional[float]:
-    """The sweep's radius: the median depth of the image's centre patch.
 
-    A SCALAR OFF THE OPTICAL AXIS, WITH NO DETECTOR IN IT.  The sweep's centre
-    must lie on the reference camera's own axis or az = el = 0 stops reproducing
-    the reference frame, which is the identity the whole trajectory is built on
-    (`nvs_lemniscate.camera_for`).  So this asks only "how far is whatever is
-    straight ahead", and nothing that can name the wrong object enters.
-
-    A PATCH, NOT THE CENTRE PIXEL: one pixel lands on a specular highlight or a
-    stereo dropout often enough to matter, and the median over a fifth of the
-    frame is the same quantity with that removed.
-
-    NAN-TOLERANT, which the simulator never needed.  THOR's depth buffer is
-    dense; a real sensor returns nothing for dark, glossy or too-near surfaces,
-    and `real_robot.load_depth` marks those NaN rather than 0 so they cannot be
-    read as "at the camera".  A plain median over a patch holding one NaN is
-    NaN, which would poison the orbit silently.
-
-    None when the patch is entirely invalid -- the radius is then undefined and
-    the caller must not invent one.
-    """
-    if depth is None:
+def bearing_from(votes: Sequence[float], bin_width: float = BIN
+                 ) -> Optional[float]:
+    """Bin the voting azimuths, take the heaviest bin, average inside it."""
+    if not votes:
         return None
-    height, width = depth.shape[:2]
-    low, high = 0.5 - fraction / 2, 0.5 + fraction / 2
-    patch = depth[int(height * low):int(height * high),
-                  int(width * low):int(width * high)]
-    valid = patch[np.isfinite(patch)]
-    return float(np.median(valid)) if valid.size else None
+    bins: Dict[int, List[float]] = {}
+    for az in votes:
+        bins.setdefault(int(round(az / bin_width)), []).append(az)
+    best = max(bins.values(), key=len)
+    return sum(best) / len(best)
+
+
+def nearest_view(rendered, azimuth: Optional[float]):
+    """The rendered pose closest to an azimuth a rule voted for.
+
+    A RULE THAT ONLY NAMES AN ANGLE CANNOT BE EXECUTED.  The robot walks to a
+    POSE -- a sweep view's own relative transform -- so the two scalar rules
+    (`bin`, `visible`) report the view their vote lands on rather than leaving
+    the caller with a number and nothing to reach.
+    """
+    if azimuth is None or not len(rendered):
+        return None
+    return min(rendered,
+               key=lambda r: abs(float(r["pose"]["azimuth"]) - azimuth))["pose"]
+
 
 
 def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
@@ -67,33 +61,30 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
     """`(votes, view, detail)` -- a side, the pose the rule picked, and the
     per-view scores it picked from.
 
-    A SWEEP VIEW IS ALREADY A FULL POSE -- `nvs_lemniscate.camera_for` returns
-    position, yaw and pitch -- so a policy that names a view needs nothing
-    predicted to execute it: the relative transform is that pose minus this one.
-    `votes` is the older, lossier channel, a scalar azimuth that `eval_move.walk`
-    then re-derives a motion from about a DIFFERENT centre; see `step_to` for why
-    that is worth removing.
+    A SWEEP VIEW IS ALREADY A FULL POSE (`nvs_lemniscate.camera_for` returns
+    position, yaw and pitch), so naming a view needs nothing predicted to
+    execute: the relative transform is that pose minus this one.  `votes` is the
+    older, lossier channel -- a scalar azimuth that `eval_move.walk` re-derives a
+    motion from about a DIFFERENT centre.  See `step_to`.
     """
     from lib.fusion import channels as ch
-    from fuse_live import (CLASS_ALIASES, CORR, GATE_COS, OBJSCORE_COS)
+    from fuse_live import CORR, GATE_COS, OBJSCORE_COS
+    from robot.grounding import class_columns
 
     import torch
 
     view: Optional[Dict[str, Any]] = None
     votes: List[float] = []
     # THE SCORES ARE THE MECHANISM, so they come back out.  Every rule here is
-    # "put a number on each view and take the argmax"; returning only the winner
-    # left the one quantity a reader has to see -- and the one a different rule
-    # would replace -- trapped inside this function.
+    # "put a number on each view and take the argmax".
     detail: List[Dict[str, Any]] = []
     predicate = egtr["rel_names"].index(task["predicate"])
 
     def note(indices, values, **terms) -> None:
         for k, index in enumerate(indices):
             pose = rendered[index]["pose"]
-            # SIGNIFICANT DIGITS, not decimal places.  These rules span many
-            # orders of magnitude -- `attrib`'s terms are ~1e-5 -- and rounding
-            # to 4 dp reported every one of them as 0.0.
+            # Significant digits, not decimal places: `attrib`'s terms are
+            # ~1e-5 and 4 dp reported every one of them as 0.0.
             def keep(v):
                 return float(f"{float(v):.6g}")
 
@@ -105,62 +96,39 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
 
     if bearing == "attrib":
         # THE RULE FALLS OUT OF B.  `ev[i,j]` is the mean over views of that
-        # view's own `_pair_field(v)[i, j, predicate]`, so B is already a sum of
-        # per-view terms.  Once the fusion has settled on a pair, scoring a view
-        # by ITS OWN summand for that pair is not a new quantity -- it is the
-        # attribution of the decision.  Go where the evidence came from.
+        # view's own `_pair_field(v)[i, j, predicate]`, so once the fusion has
+        # settled on a pair, scoring a view by ITS OWN summand for that pair is
+        # the attribution of the decision.  Go where the evidence came from.
+        # A view that cannot see both endpoints scores zero: not selectable there.
         #
-        # A view that cannot see both endpoints contributes zero and scores zero,
-        # which is the honest reading: the pair is not selectable from there.
-        #
-        # THE SCORE IS THE SUPPORT ALONE.  `rival` -- the best pair this view backs
-        # whose SUBJECT is a different object -- is computed and reported, but it
-        # is not subtracted: on the first real episode the two rank the views
-        # identically, and the simpler quantity is the one that can be described
-        # in a sentence.  It stays in the output because a view with no support
-        # and a large rival is not neutral but actively misleading, and that is
-        # worth being able to see.
-        #
-        # `edge` below is this rule already, but binary and tracking `order`'s
-        # predicate-free ranking -- which on a real frame is the unoccluded
-        # distractor.  The pair comes from the caller here.
+        # THE SCORE IS THE SUPPORT ALONE.  `rival` -- the best pair this view
+        # backs whose SUBJECT is a different object -- is reported but not
+        # subtracted; on the first real episode the two rank the views
+        # identically.  It stays visible because a view with no support and a
+        # large rival is actively misleading, not neutral.
         pursued = chosen if chosen is not None else (
             (order[0][1], order[0][2]) if order else None)
         if pursued is None:
             return votes, view, detail
         si, sj = pursued
         subjects, objects = cand
-        nq = built["rec"]["s_ref"].shape[0]
-        hn = torch.nn.functional.normalize(
-            built["rec"]["h_ref"].float(), dim=-1)
         boxes = built["boxes"]
 
         from robot.task_find import iou
+        from robot.evidence import pair_contributions
 
-        support, rival, taken = [], [], []
-        for index, sweep_view in enumerate(built["rec"]["views"]):
-            if int(sweep_view["v"]) in ch.SKIP_VIEWS:
-                continue
-            field, ok = ch._pair_field(sweep_view, nq, hn, CORR, GATE_COS)
-            seen = ok is None or (bool(ok[si]) and bool(ok[sj]))
-            mine = float(field[si, sj, predicate]) if seen else 0.0
-            # The best pair this view backs whose SUBJECT is a different object.
-            other = 0.0
-            for a in subjects:
-                if iou(boxes[a].tolist(), boxes[si].tolist()) >= 0.5:
-                    continue
-                for b in objects:
-                    if a == b or (ok is not None
-                                  and not (bool(ok[a]) and bool(ok[b]))):
-                        continue
-                    other = max(other, float(field[a, b, predicate]))
-            support.append(mine)
-            rival.append(other)
-            taken.append(index)
+        # THE PURSUED PAIR FIRST, then every pair whose SUBJECT is a different
+        # object -- one table, read as support and as rival.
+        rivals = [(a, b) for a in subjects
+                  if iou(boxes[a].tolist(), boxes[si].tolist()) < 0.5
+                  for b in objects if a != b]
+        taken, contrib, _ = pair_contributions(built, [pursued] + rivals,
+                                               predicate)
 
         if taken:
-            mine = np.array(support, float)
-            other = np.array(rival, float)
+            mine = contrib[:, 0]
+            other = (contrib[:, 1:].max(1) if rivals
+                     else np.zeros(len(taken)))
             score = mine
             note(taken, score, support=mine, rival=other)
             azimuth = np.array([float(rendered[i]["pose"]["azimuth"])
@@ -183,34 +151,23 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
         # with a voted pair was right in 4 of 10, and the class-probability gain
         # is carried by the unoccluded twin, which every viewpoint sees.
         #
-        # ONLY THE SUBJECT SIDE, which is an open choice and not a claim.  The
-        # landmark corresponds from nearly everywhere (it ranks 1st in 40 of 40),
-        # so its count is near constant across azimuth and a constant cannot move
-        # an argmax -- multiplying it in measured 34 of 40 against 35 here.
-        # Taking the `min` of the two sides instead scored 37, and would drop the
-        # assumption that the SUBJECT is the hard end, which is `behind`'s
-        # property rather than a general one; 2 cases in 40 is not evidence for
-        # it, so it is left as the next thing to try, not adopted.
+        # ONLY THE SUBJECT SIDE.  The landmark ranks 1st in 40 of 40, so its
+        # count is near constant across azimuth: multiplying it in scored 34 of
+        # 40 against 35.  `min` of the two sides scored 37 and is the next thing
+        # to try -- 2 cases is not yet evidence.
         #
-        # The count is at SLOT level, NOT deduplicated to objects.  Dedup was
-        # tried on the belief that duplicate boxes are a detector habit: 31 of 40
-        # against 36.  How many of an object's boxes survive is a graded measure
-        # of how clearly it is seen, and dedup throws that gradation away.
+        # SLOT level, not deduplicated to objects: dedup scored 31 of 40 against
+        # 36.  How many boxes survive is a graded measure of how clearly an
+        # object is seen, and dedup throws that gradation away.
         #
-        # A SIDE, THEN A SMALL STEP -- there is no angle in this rule, and that is
-        # the honest shape of what was measured.  The smoothed estimator in
-        # `plot_viewdist.py` reads the same counts as a curve over azimuth and
-        # picks its argmax; it scores 35 of 40 against 36 for comparing the two
-        # halves and stepping a fixed amount.  The curve's SHAPE carries nothing:
-        # its argmax sat on the +-30 boundary in 35 of 40 cases, so it was only
-        # ever answering "which side".  Reporting it as a side is not a
-        # simplification of the result, it IS the result.
+        # A SIDE, THEN A SMALL STEP -- there is no angle in this rule.  The
+        # smoothed curve in `plot_viewdist.py` scores 35 of 40 against 36 for
+        # comparing the two halves, and its argmax sat on the +-30 boundary in 35
+        # of 40 cases: it was only ever answering "which side".
         #
-        # The step is small and the side is re-measured every step, so the walk
-        # self-corrects: overshoot flips the sign of the next reading and the
-        # robot comes back.  At 30 degrees a step it could not -- three of those
-        # compound to 90, past anything the sweep ever saw, and top-1 correct
-        # went 32 -> 9 -> 0 over three steps.
+        # The step is small and the side is re-measured every step, so an
+        # overshoot flips the next reading and the robot comes back.  At 30
+        # degrees it could not -- three compound to 90 and top-1 went 32 -> 9 -> 0.
         hn = torch.nn.functional.normalize(
             built["rec"]["h_ref"].float(), dim=-1)
         # POSITIVE AZIMUTH IS THE ROBOT'S LEFT; see `nvs_lemniscate.camera_for`.
@@ -271,15 +228,11 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
         # A pair this view cannot score gets the worst rank, never dropped: not
         # being findable from here is the measurement, not missing data.
         miss = float(len(subjects) * len(objects) + 1)
-        # THIS SCORE CHOOSES A DIRECTION AND NOTHING ELSE.  Putting the two
-        # az = el = 0 views -- which re-render the pose the robot is at -- on the
-        # ballot was tried, so that "stay" could win the same argmax: it never
-        # did, one sample against the maximum of eighteen being biased towards
-        # moving by construction.  Comparing it to the MEDIAN instead does fire,
-        # and stops on a bad pose as readily as a good one, because this quantity
-        # separates a correct pose from a wrong one by the 83rd percentile
-        # against the 72nd.  Stopping is `--stop-score`, on the real frame, where
-        # the separation is 1.05 decades.
+        # THIS SCORE CHOOSES A DIRECTION AND NOTHING ELSE.  It cannot also say
+        # "stay": one sample against the max of eighteen is biased toward moving,
+        # and against the median it fires on bad poses as readily as good ones
+        # (83rd percentile against 72nd).  Stopping is `--stop-score`, on the
+        # real frame, where the separation is 1.05 decades.
         ranks, azimuths, taken = [], [], []
         for index, sweep_view in enumerate(built["rec"]["views"]):
             if int(sweep_view["v"]) in ch.SKIP_VIEWS:
@@ -314,11 +267,10 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
             votes = [side_step
                      if left_half.mean() >= right_half.mean()
                      else -side_step]
-        # THE HIGHEST-SCORING VIEW, and this is the whole point of the score.
-        # Comparing the two halves throws away the ordering WITHIN a side, which
-        # is the only axis this rule beats the count on -- AUC 0.88 against 0.76
-        # -- so a side vote cannot show what it is for.  Reported unconditionally:
-        # unlike the halves it needs no view on both sides to exist.
+        # THE HIGHEST-SCORING VIEW, which is the point of the score: the halves
+        # throw away the ordering WITHIN a side, the only axis this beats the
+        # count on (AUC 0.88 against 0.76).  Unconditional -- unlike the halves
+        # it needs no view on both sides.
         if len(score):
             view = rendered[taken[int(np.argmax(score))]]["pose"]
 
@@ -335,19 +287,14 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
         # the only quantity measured that speaks on both, at almost no cost where
         # a single one already worked.
         #
-        # THE APPEARANCE HALF COMPARES A CANDIDATE TO ITSELF.  Taking the best
-        # p(class) over candidates is pinned by the unoccluded twin, which looks
-        # the same from everywhere; dividing each candidate by its OWN spread
-        # across the sweep sends every flat candidate -- the twin, and the walls
-        # -- to zero without anyone saying which is which.  What survives is a
-        # candidate that looks more like the instructed class from here than it
-        # usually does.
+        # THE APPEARANCE HALF COMPARES A CANDIDATE TO ITSELF.  Best p(class)
+        # over candidates is pinned by the unoccluded twin, which looks the same
+        # from everywhere; dividing each candidate by its OWN spread across the
+        # sweep sends every flat candidate to zero without anyone saying which is
+        # which.  What survives looks more like the instructed class from HERE
+        # than it usually does.
         subjects = cand[0]
-        classes = {v: k - 1 for k, v in egtr["obj_names"].items()}
-        columns = [classes[c]
-                   for c in CLASS_ALIASES.get(task["subject_class"],
-                                              (task["subject_class"],))
-                   if c in classes]
+        columns = class_columns(egtr, task["subject_class"])
         hn = torch.nn.functional.normalize(
             built["rec"]["h_ref"].float(), dim=-1)
         counts, appearance, azimuths, taken = [], [], [], []
@@ -372,15 +319,11 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
             revealed = ((appear - appear.mean(0)[None, :])
                         / np.maximum(appear.std(0)[None, :], 1e-6)).max(1)
 
-            # NODE AND EDGE, WHICH IS WHAT A AND R ACTUALLY ARE.  A view helps a
-            # grounding in one of two ways and the two lists are built to
-            # separate them: `cases_slot`'s target cannot be NAMED from the start
-            # pose (a node problem), `cases_hard`'s target is named perfectly and
-            # is indistinguishable from a same-class twin, so only the RELATION
-            # picks it out (an edge problem).  C is neither -- without a
-            # correspondence there is no cross-view quantity at all -- so it
-            # enters as the gate that zeroes a candidate the view cannot see,
-            # not as a third term to be weighed against the other two.
+            # NODE AND EDGE, WHICH IS WHAT A AND R ACTUALLY ARE.  `cases_slot`'s
+            # target cannot be NAMED from the start pose (node); `cases_hard`'s
+            # is named perfectly but indistinguishable from a same-class twin, so
+            # only the RELATION picks it out (edge).  C is neither -- it enters
+            # as the gate that zeroes a candidate the view cannot see.
             #
             #   node   A's class-probability gain, each candidate against its
             #          OWN spread across the sweep, so a candidate that looks
@@ -422,17 +365,15 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
             view = rendered[taken[int(np.argmax(score))]]["pose"]
 
     elif bearing == "visible":
-        # WHICH VIEW SEES THE TARGET, not which view says `behind`.  A visibility
-        # question needs no predicate and only the SUBJECT endpoint to
-        # correspond, where the `bin` rule's lexical gate left 39% of guided
-        # steps with no NVS input at all.  It also avoids `rel`, whose cross-view
-        # variation is numerical rather than photometric (~17 orders for the same
-        # pair, equally for an occluded target, its unoccluded twin, and the
-        # symmetric `near`); a class probability is a softmax output, so a
-        # difference between views is a difference in what was visible.
+        # WHICH VIEW SEES THE TARGET, not which view says `behind`.  Needs no
+        # predicate and only the SUBJECT endpoint, where `bin`'s lexical gate
+        # left 39% of guided steps with no NVS input.  It also avoids `rel`,
+        # whose cross-view variation is numerical rather than photometric (~17
+        # orders for the same pair); a softmax difference between views is a
+        # difference in what was VISIBLE.
         #
         # THE GAIN, NOT THE MAXIMUM: raw p(cup) picks whichever view sees the
-        # DISTRACTOR best, since it is unoccluded from every angle.
+        # DISTRACTOR best, it being unoccluded from every angle.
         index = {v: k - 1 for k, v in egtr["obj_names"].items()}.get(
             task["subject_class"])
         if index is not None:
@@ -455,6 +396,7 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
                         best, top = int(sweep_view["v"]), gain
             if best is not None:
                 votes = [az_list[best]]
+                view = rendered[best]["pose"]
 
     elif chosen is not None:
         si, sj = chosen
@@ -480,5 +422,6 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
                     best, top = int(sweep_view["v"]), value
             if best is not None:
                 votes = [az_list[best]]
+        view = nearest_view(rendered, bearing_from(votes))
 
     return votes, view, detail
