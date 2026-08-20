@@ -372,9 +372,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "Does NOT drive the ranking -- `--w` does.")
     ap.add_argument("--weight", choices=WEIGHTS, default="class",
                     help="what the METRIC's ranking weights a query by; see "
-                         "eval_move.py, which shares the call.  `class` here "
-                         "because on a real photograph the target read p 0.07 "
-                         "with s 0.09 while a distractor read s 0.21.")
+                         "eval_move.py, which shares the call and the default.")
     ap.add_argument("--pair-iou", type=float, default=0.15, metavar="IOU",
                     help="reject a pair whose two boxes overlap this much -- it "
                          "is one object related to itself.  Low because the "

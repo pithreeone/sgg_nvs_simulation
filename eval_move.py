@@ -805,13 +805,16 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--cand-nms", type=float, default=0.0, metavar="IOU",
                     help="deduplicate the candidate list by box overlap before "
                          "taking the top-K.  See `grounding.candidates`.")
-    ap.add_argument("--weight", choices=WEIGHTS, default="s",
-                    help="what the METRIC's ranking weights a query by.  `s` is "
-                         "its confidence over all classes and is what every "
-                         "number in this repo was measured with; `class` is "
-                         "p(the instruction's own noun).  On a real photograph "
-                         "`s` elects whichever query is confident about "
-                         "anything -- see `move_once`.")
+    ap.add_argument("--weight", choices=WEIGHTS, default="class",
+                    help="what the METRIC's ranking weights a query by.  `class` "
+                         "is p(the instruction's own noun); `s` is the query's "
+                         "confidence over ALL classes, so it can be high for a "
+                         "box the detector is merely sure is a chair.  Measured "
+                         "over 4528 instructions on datasets/sgg/occlusion_ds4 "
+                         "(analysis/eval_grounding.py): 30.6% against 29.9%, and "
+                         "`s` degrades faster as the shortlist grows -- 23.1% "
+                         "against 28.2% at K=40.  `s` was the default until "
+                         "then, so numbers from before that are not comparable.")
     ap.add_argument("--pair-iou", type=float, default=0.0, metavar="IOU",
                     help="reject a pair whose two boxes overlap this much: it is "
                          "one object related to itself.  Applies to BOTH the "

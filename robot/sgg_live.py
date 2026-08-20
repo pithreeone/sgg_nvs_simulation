@@ -152,10 +152,18 @@ def raw_predict(state: Dict[str, Any], frame: np.ndarray) -> Dict[str, Any]:
                                  output_hidden_states=True)
 
     logits = outputs.logits[0]
-    rel = torch.clamp(outputs.pred_rel[0], 0.0, 1.0)
+    # TWO THINGS THE MODEL PREDICTS SEPARATELY, and EGTR's own ranking multiplies
+    # them: `pred_rel` is p(this predicate) and `pred_connectivity` is p(these
+    # two are related at all).  Only the first answers an instruction -- the
+    # second is the same number for all 50 predicates -- so both are returned
+    # and the caller says which it wants.  `rel` keeps the product, which is
+    # what every number in this repo was measured with.
+    predicate = torch.clamp(outputs.pred_rel[0], 0.0, 1.0)
+    rel = predicate
     if outputs.pred_connectivity is not None:
         rel = torch.mul(rel, torch.clamp(outputs.pred_connectivity[0], 0.0, 1.0))
     return {
+        "rel_predicate": predicate,
         "probs_softmax": logits.softmax(-1)[:, :state["num_labels"]],
         "probs_sigmoid": logits.sigmoid()[:, :state["num_labels"]],
         # The decoder's own object representation, one vector per query.  The
