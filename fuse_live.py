@@ -22,7 +22,7 @@ Two metrics per arm, answering different questions -- see PIPELINE.md.
 `top-1 decision` ranks the conditioned pairs by `rel[behind] * s * s`;
 `robot succeeds` additionally demands the model UTTER the instructed predicate.
 
-    python fuse_live.py --cases datasets/robot/cases_easy2.json \
+    python fuse_live.py --cases datasets/robot/cases_slot.json \
         --condition 10 --case $(seq 0 39)
 """
 
@@ -687,7 +687,7 @@ def score_case(built, egtr, task: Dict[str, Any], geo: Dict[str, Any],
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="datasets/robot/cases_easy2.json")
+    ap.add_argument("--cases", default="datasets/robot/cases_slot.json")
     ap.add_argument("--case", type=int, nargs="*", default=[0])
     ap.add_argument("--condition", type=int, default=0, metavar="N",
                     help="restrict candidates to the top-N queries per "

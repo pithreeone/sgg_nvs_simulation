@@ -10,17 +10,22 @@ input.
     build_tabletop.py   procedural tabletop, target + SAME-ASSET DISTRACTOR +
                         occluder.  The relation has to say which copy, so this
                         is the list that measures relational grounding.
-                        -> cases_easy2, cases_hard, cases_tabletop
+                        -> cases_hard
     build_slot.py       procedural tabletop, target + landmark + blocker, with
                         the target visible only over an interval of viewpoints.
                         One target, so the relation is stated but not needed;
                         this is the list that measures viewpoint choice.
                         -> cases_slot
-    find_cases.py       the older iTHOR line: search stock floor plans for a
-    freeze_cases.py     nameable object something can be slid in front of, then
-                        pin what was found.  -> cases_wide, cases_behind
 
-`build_tabletop.py`'s docstring says why the procedural pair exists at all: an
-iTHOR scene holds no two instances of one objectType, so `find_cases` cannot
-produce a same-class distractor, and all 71 frozen iTHOR cases had zero.
+TWO LISTS, and they are built to need different evidence: `cases_slot`'s target
+cannot be NAMED from the start pose, `cases_hard`'s is named perfectly and is
+indistinguishable from its twin, so only the RELATION picks it out.  A viewpoint
+rule that works on one and not the other has not been shown to generalise.
+
+An older iTHOR line -- `find_cases.py` searching stock floor plans and
+`freeze_cases.py` pinning what it found -- was deleted along with the lists it
+produced (`cases_easy`, `cases_easy2`, `cases_tabletop`).  `build_tabletop.py`'s
+docstring says why it could not survive: an iTHOR scene holds no two instances of
+one objectType, so it cannot produce a same-class distractor, and all 71 frozen
+iTHOR cases had zero.  Recover with `git log -- build_robotic_task/`.
 """

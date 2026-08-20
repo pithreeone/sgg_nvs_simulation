@@ -24,7 +24,7 @@ instances, exact occlusion, geometry comparable across cases.  Paid: bare
 scenes, so these numbers are about perception under controlled geometry and not
 about a robot in a house.  Both belong in any write-up.
 
-    python build_tabletop.py --n 12 --out datasets/robot/cases_tabletop.json
+    python build_tabletop.py --n 12 --out datasets/robot/cases_hard.json
 """
 
 from __future__ import annotations
@@ -530,7 +530,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                     help="cap on the landmark's horizontal extent.  0.30 (the "
                          "old hardcoded value) admits only 2 `box` assets; 0.40 "
                          "admits 11.  See `catalogue`.")
-    ap.add_argument("--out", default="datasets/robot/cases_tabletop.json")
+    ap.add_argument("--out", default="datasets/robot/cases_hard.json")
     args = ap.parse_args(argv)
 
     band = (args.min_occlusion, args.target_occlusion, args.max_occlusion)

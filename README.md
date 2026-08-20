@@ -28,8 +28,7 @@ build_robotic_task/ 2. build a case list -- an instruction, the objects that
                        no model.  `build_tabletop.py` (target + same-asset
                        distractor: the relation has to say WHICH), `build_slot.py`
                        (target behind two occluders: the viewpoint has to be
-                       CHOSEN), and the older iTHOR pair `find_cases.py` ->
-                       `freeze_cases.py` that discovers cases and pins them.
+                       CHOSEN).
 fuse_live.py        3. the robot experiments -- run a case list against EGTR.
                        The current one: the paper's A+C+R over a live frame and
                        its synthesised sweep
