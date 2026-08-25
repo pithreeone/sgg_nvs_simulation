@@ -39,15 +39,32 @@ import numpy as np
 from robot.grounding import (CLASS_ALIASES, candidates, class_mass,
                              rank_pairs)
 
+#: `lib.fusion` is normally imported inside functions, because `SGG_ROOT` only
+#: reaches `sys.path` when `top1.load_egtr` runs.  The module-level constants
+#: below are derived from it, so do that bootstrap here too.
+import sys as _sys
+
+import top1 as _top1
+
+_sys.path.insert(0, os.path.abspath(os.path.expanduser(_top1.SGG_ROOT)))
+from lib.fusion import channels as _ch  # noqa: E402
+
 #: Sparse width of a view's own relation field.  The disk cache stores 500; the
 #: pair an INSTRUCTION names is nowhere near any view's 500 strongest (measured:
 #: 0, 0, 0 and 1 views speaking about the chosen pair).  Nothing is cached here,
 #: so keeping every pair costs 4 MB per view.
 VIEW_TOPK = 40000
 
+#: RELATION-SIDE correspondence -- `_pair_field`, hence channels B and R and the
+#: `attrib` / `volatility` view rules.  It does NOT reach channel A, which reads
+#: `OBJSCORE_CORR` below.  STILL `assign` while A moved to `argmax` on 2026-08-21,
+#: so this file is HALF unified: every robot number in `reports/` was produced
+#: under `assign` here, and changing it re-opens them.  Unlike A, whose four modes
+#: the SGG harness measures within 0.02 R@100 of each other, this one has no such
+#: licence -- nothing has measured the robot task under `argmax`.
 #: `logs/occlusion_ds4_refpred_assign.log`.  Recorded in the output; `CORR` is
 #: also imported by `probe_sideview.py` and `probe_viewdist.py`.
-GATE_COS = 0.80
+GATE_COS = _ch.CORR_COS
 CORR = "assign"
 POOL = "mean"
 
@@ -61,8 +78,17 @@ OBJSCORE = "max"
 #: It also contradicts `conditioned`, which ranks by p(instructed class)
 #: precisely because the argmax is often something else.
 OBJSCORE_CLASS = "gate"
+OBJSCORE_COS = _ch.CORR_COS
 
-OBJSCORE_COS = 0.80
+#: Channel A's correspondence, stated rather than inherited: until it was named
+#: in `channels.CORR_MODES` this file got the rule by NOT passing the argument, so
+#: a change to that function's default would have silently moved the robot
+#: numbers.  `argmax` matches `CORR` above -- ONE rule for the pipeline.  It gives
+#: up injectivity, and with it the FloorPlan21_s2__view_05 rejection that
+#: `revmax` bought (an occluded Cup 'repaired' from the SoapBottle in front of
+#: it); pass `revmax` for any figure that has to defend the correspondence.
+OBJSCORE_CORR = "argmax"
+
 
 #: Channel C: same object at box IoU above this AND the same argmax class, then
 #: one triplet per (group, group, argmax predicate).  `--dedup_iou` upstream.
@@ -174,7 +200,7 @@ def fuse(built: Dict[str, Any], objscore: str = "none",
     from lib.fusion import channels as ch
 
     s = (ch.object_scores(built["rec"], mode=objscore, class_mode=class_mode,
-                          cos=objscore_cos)
+                          cos=objscore_cos, corr=OBJSCORE_CORR)
          if objscore != "none" else built["s"].float())
     return ch.pair_rank(built["rel"], s, None, 0.0)[1], {}
 
@@ -620,7 +646,8 @@ def score_case(built, egtr, task: Dict[str, Any], geo: Dict[str, Any],
         if objscore != "none":
             built_row["s"] = ch.object_scores(
                 built["rec"], mode=objscore,
-                class_mode=args.objscore_class, cos=OBJSCORE_COS)
+                class_mode=args.objscore_class, cos=OBJSCORE_COS,
+                corr=OBJSCORE_CORR)
         if cand:
             # C only where the arm claims C, or the arms stop being comparable.
             act = decide(built_row, egtr, task, rank, cand, geo, args.iou,
@@ -761,6 +788,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                        "relabel_mode": RELABEL_MODE, "relabel_tau": RELABEL_TAU,
                        "gate": GATE_COS, "corr": CORR, "pool": POOL,
                        "objscore_class": args.objscore_class,
+                       "objscore_corr": OBJSCORE_CORR, "objscore_cos": OBJSCORE_COS,
                        "cases": results}, fh, indent=1)
 
     for index in args.case:
