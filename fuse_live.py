@@ -92,6 +92,14 @@ def task_for(case: Dict[str, Any]) -> Dict[str, Any]:
     answer.  A number measured there says nothing about relational grounding and
     must not be pooled with a list that has distractors.
 
+    THE LANDMARK IS NOT ALWAYS THE OCCLUDER.  In `cases_hard` and `cases_slot`
+    one object is both -- the thing the sentence names is the thing that hides
+    the target -- and this read `occluder_name`, which happened to be right.
+    `cases_on` names the TABLE and hides the target behind something the
+    sentence never mentions, so the two fields differ and the landmark is the
+    one the grading needs.  `occluder_name` remains the fallback, so a list
+    written before the split still reads correctly.
+
     This used to be four identical literals, each indexing `distractor_name`
     unconditionally, so the first case without one raised `KeyError` before a
     single frame was rendered.
@@ -102,7 +110,8 @@ def task_for(case: Dict[str, Any]) -> Dict[str, Any]:
             "subject_class": case["subject_class"],
             "object_class": case["object_class"],
             "target_name": case["target_name"],
-            "receptacle_name": case["occluder_name"],
+            "receptacle_name": (case.get("landmark_name")
+                                or case["occluder_name"]),
             "distractors": [{"name": name}] if name else []}
 
 

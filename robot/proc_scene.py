@@ -213,8 +213,14 @@ def rebuild(controller, case: Dict[str, Any]):
     Returns the event at the case's own camera pose.
     """
     controller.reset()
-    table = case["table"]
-    spawn(controller, table["asset"], "table", table["x"], 0.0, table["z"])
+    # THE TABLE IS OPTIONAL.  Both tabletop lists put every object on one, and it
+    # is recorded apart from `objects` because it is the room rather than a prop.
+    # `cases_on` has no table at all -- its landmark is a chair on the floor, and
+    # it is in `objects` like everything else -- so a missing key means "this
+    # scene is its objects", not a broken case.
+    table = case.get("table")
+    if table:
+        spawn(controller, table["asset"], "table", table["x"], 0.0, table["z"])
     for entry in case["objects"]:
         # `yaw` defaults to 0 so the older case files, written before the
         # occluder was turned, replay exactly as they always did.

@@ -1,0 +1,2893 @@
+{
+ "predicate_families": [
+  "on"
+ ],
+ "occlusion_band": [
+  0.25,
+  0.35,
+  0.5
+ ],
+ "procedural": true,
+ "cases": [
+  {
+   "scene": "on|0",
+   "instruction": "Find the bottle on the chair",
+   "predicate": "on",
+   "subject_class": "bottle",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.224867936268724,
+    "y": 0.00498021125793457,
+    "z": 2.520459894834585
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.349,
+   "bisected_occlusion": 0.349,
+   "clear_px": 2012,
+   "target_px": 1310,
+   "distractor_px": 1540,
+   "landmark_px": 14246,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    380.0,
+    260.0,
+    420.0,
+    328.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_12",
+     "position": {
+      "x": 1.999452897206224,
+      "y": 0.6173908758163452,
+      "z": 2.895459894834585
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_12",
+     "position": {
+      "x": 1.21283589186557,
+      "y": 0.004851137399673462,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 2.224867936268724,
+      "y": 0.00498021125793457,
+      "z": 2.520459894834585
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "1.9995,1.3955,0.00,30.47"
+  },
+  {
+   "scene": "on|2",
+   "instruction": "Find the box on the chair",
+   "predicate": "on",
+   "subject_class": "box",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.903787172845509,
+    "y": 0.005,
+    "z": 2.4828060627527977
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 7320,
+   "target_px": 4759,
+   "distractor_px": 5842,
+   "landmark_px": 10211,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    387.0,
+    251.0,
+    446.0,
+    343.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "DecorativeBox3",
+     "position": {
+      "x": 2.048110903314259,
+      "y": 0.6175398278236389,
+      "z": 2.8578060627527977
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "DecorativeBox3",
+     "position": {
+      "x": 2.792974743971908,
+      "y": 0.005000089406967163,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.903787172845509,
+      "y": 0.005,
+      "z": 2.4828060627527977
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0481,1.3578,0.00,30.47"
+  },
+  {
+   "scene": "on|14",
+   "instruction": "Find the bottle on the chair",
+   "predicate": "on",
+   "subject_class": "bottle",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.883918377423072,
+    "y": 0.005,
+    "z": 2.5050433927866114
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.347,
+   "bisected_occlusion": 0.347,
+   "clear_px": 860,
+   "target_px": 562,
+   "distractor_px": 614,
+   "landmark_px": 9155,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    397.0,
+    266.0,
+    410.0,
+    324.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_1",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_1",
+     "position": {
+      "x": 2.004230877423072,
+      "y": 0.7569787549972534,
+      "z": 2.8800433927866114
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_1",
+     "position": {
+      "x": 2.7937625595963,
+      "y": 0.0048655617237091065,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.883918377423072,
+      "y": 0.005,
+      "z": 2.5050433927866114
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0042,1.3800,0.00,26.35"
+  },
+  {
+   "scene": "on|15",
+   "instruction": "Find the bowl on the chair",
+   "predicate": "on",
+   "subject_class": "bowl",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.8217060691152427,
+    "y": 0.005,
+    "z": 2.4815566892763035
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.351,
+   "bisected_occlusion": 0.351,
+   "clear_px": 1794,
+   "target_px": 1165,
+   "distractor_px": 1474,
+   "landmark_px": 14119,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    394.0,
+    280.0,
+    423.0,
+    327.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Bowl_28",
+     "position": {
+      "x": 1.9500507956777426,
+      "y": 0.6184315729141235,
+      "z": 2.8565566892763035
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Bowl_28",
+     "position": {
+      "x": 2.7262943812246236,
+      "y": 0.0058917637169361116,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.8217060691152427,
+      "y": 0.005,
+      "z": 2.4815566892763035
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "1.9501,1.3566,0.00,30.47"
+  },
+  {
+   "scene": "on|16",
+   "instruction": "Find the box on the chair",
+   "predicate": "on",
+   "subject_class": "box",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.257455973039878,
+    "y": 0.00498021125793457,
+    "z": 2.4966505024163785
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 7320,
+   "target_px": 4759,
+   "distractor_px": 5806,
+   "landmark_px": 13592,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    354.0,
+    251.0,
+    446.0,
+    343.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "DecorativeBox3",
+     "position": {
+      "x": 2.035629801164878,
+      "y": 0.6175398278236389,
+      "z": 2.8716505024163785
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "DecorativeBox3",
+     "position": {
+      "x": 1.4647751876056239,
+      "y": 0.005000089406967163,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 2.257455973039878,
+      "y": 0.00498021125793457,
+      "z": 2.4966505024163785
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0356,1.3717,0.00,30.47"
+  },
+  {
+   "scene": "on|20",
+   "instruction": "Find the vegetable on the chair",
+   "predicate": "on",
+   "subject_class": "vegetable",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.7415744300884715,
+    "y": 0.006700013875961304,
+    "z": 2.535643873484774
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 1751,
+   "target_px": 1138,
+   "distractor_px": 1537,
+   "landmark_px": 4969,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.586,
+   "standoff": 1.5,
+   "target_box": [
+    388.0,
+    281.0,
+    423.0,
+    336.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Lettuce_10",
+     "position": {
+      "x": 1.9770724769634715,
+      "y": 0.6605529236793518,
+      "z": 2.910643873484774
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Lettuce_10",
+     "position": {
+      "x": 2.660773031866187,
+      "y": 0.07423691928386689,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_6",
+     "position": {
+      "x": 1.7415744300884715,
+      "y": 0.006700013875961304,
+      "z": 2.535643873484774
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "1.9771,1.4106,0.00,31.21"
+  },
+  {
+   "scene": "on|23",
+   "instruction": "Find the box on the chair",
+   "predicate": "on",
+   "subject_class": "box",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.2682973829379707,
+    "y": 0.00498021125793457,
+    "z": 2.5079541234357148
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 8616,
+   "target_px": 5600,
+   "distractor_px": 7862,
+   "landmark_px": 13758,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    350.0,
+    253.0,
+    447.0,
+    344.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "DecorativeBox1",
+     "position": {
+      "x": 2.0429677930942205,
+      "y": 0.6175397682189941,
+      "z": 2.8829541234357148
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "DecorativeBox1",
+     "position": {
+      "x": 1.2698151574940841,
+      "y": 0.0050000596046447755,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 2.2682973829379707,
+      "y": 0.00498021125793457,
+      "z": 2.5079541234357148
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0430,1.3830,0.00,30.47"
+  },
+  {
+   "scene": "on|24",
+   "instruction": "Find the cup on the chair",
+   "predicate": "on",
+   "subject_class": "cup",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.95412753001824,
+    "y": 0.0048321533203125,
+    "z": 2.5565078490053033
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 1270,
+   "target_px": 825,
+   "distractor_px": 1011,
+   "landmark_px": 23270,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    384.0,
+    274.0,
+    416.0,
+    325.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Cup_8",
+     "position": {
+      "x": 2.00727694408074,
+      "y": 0.6179275560379028,
+      "z": 2.9315078490053033
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_8",
+     "position": {
+      "x": 2.8459372816349853,
+      "y": 0.005387720763683319,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Houseplant_16",
+     "position": {
+      "x": 1.95412753001824,
+      "y": 0.0048321533203125,
+      "z": 2.5565078490053033
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0073,1.4315,0.00,30.47"
+  },
+  {
+   "scene": "on|25",
+   "instruction": "Find the food on the chair",
+   "predicate": "on",
+   "subject_class": "food",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.1141307999358867,
+    "y": 0.0048321533203125,
+    "z": 2.5173709087548723
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.351,
+   "bisected_occlusion": 0.351,
+   "clear_px": 624,
+   "target_px": 405,
+   "distractor_px": 435,
+   "landmark_px": 16619,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    388.0,
+    289.0,
+    412.0,
+    322.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_Master",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Egg_20",
+     "position": {
+      "x": 2.0007396866546365,
+      "y": 0.812044267654419,
+      "z": 2.8923709087548723
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Egg_20",
+     "position": {
+      "x": 1.42103207782275,
+      "y": 0.05993112653493881,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Houseplant_16",
+     "position": {
+      "x": 2.1141307999358867,
+      "y": 0.0048321533203125,
+      "z": 2.5173709087548723
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0007,1.3924,0.00,26.35"
+  },
+  {
+   "scene": "on|28",
+   "instruction": "Find the bottle on the chair",
+   "predicate": "on",
+   "subject_class": "bottle",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.21834020573003,
+    "y": 0.00498021125793457,
+    "z": 2.533485268258764
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.351,
+   "bisected_occlusion": 0.351,
+   "clear_px": 1326,
+   "target_px": 861,
+   "distractor_px": 1119,
+   "landmark_px": 4753,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.586,
+   "standoff": 1.5,
+   "target_box": [
+    386.0,
+    258.0,
+    411.0,
+    324.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_16",
+     "position": {
+      "x": 1.9813895221362798,
+      "y": 0.592460994720459,
+      "z": 2.908485268258764
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_16",
+     "position": {
+      "x": 1.1517332805681917,
+      "y": 0.006145020127296448,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 2.21834020573003,
+      "y": 0.00498021125793457,
+      "z": 2.533485268258764
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "1.9814,1.4085,0.00,31.21"
+  },
+  {
+   "scene": "on|30",
+   "instruction": "Find the box on the chair",
+   "predicate": "on",
+   "subject_class": "box",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.0090366763911893,
+    "y": 0.00498021125793457,
+    "z": 2.5463267539787227
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.323,
+   "bisected_occlusion": 0.323,
+   "clear_px": 2411,
+   "target_px": 1632,
+   "distractor_px": 1925,
+   "landmark_px": 5153,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    371.0,
+    275.0,
+    429.0,
+    315.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_3",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Tissue_Box_1",
+     "position": {
+      "x": 2.0083530826411895,
+      "y": 0.7581565427780151,
+      "z": 2.9213267539787227
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Tissue_Box_1",
+     "position": {
+      "x": 1.356697608320498,
+      "y": 0.006043260097503662,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 2.0090366763911893,
+      "y": 0.00498021125793457,
+      "z": 2.5463267539787227
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0084,1.4213,0.00,26.35"
+  },
+  {
+   "scene": "on|32",
+   "instruction": "Find the food on the chair",
+   "predicate": "on",
+   "subject_class": "food",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.752282485092183,
+    "y": 0.00498021125793457,
+    "z": 2.5142342353702167
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 634,
+   "target_px": 412,
+   "distractor_px": 477,
+   "landmark_px": 15477,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    390.0,
+    289.0,
+    413.0,
+    320.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Egg_2",
+     "position": {
+      "x": 1.988805922592183,
+      "y": 0.6735246825218201,
+      "z": 2.8892342353702167
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Egg_2",
+     "position": {
+      "x": 2.7873577140329173,
+      "y": 0.06098492547869682,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 1.752282485092183,
+      "y": 0.00498021125793457,
+      "z": 2.5142342353702167
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "1.9888,1.3892,0.00,30.47"
+  },
+  {
+   "scene": "on|33",
+   "instruction": "Find the fruit on the chair",
+   "predicate": "on",
+   "subject_class": "fruit",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.8984009124707377,
+    "y": 0.005,
+    "z": 2.517375334654252
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.347,
+   "bisected_occlusion": 0.347,
+   "clear_px": 956,
+   "target_px": 624,
+   "distractor_px": 721,
+   "landmark_px": 9391,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    395.0,
+    286.0,
+    417.0,
+    323.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_Master",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Apple_3",
+     "position": {
+      "x": 2.0234985687207376,
+      "y": 0.8080452728271484,
+      "z": 2.892375334654252
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Apple_3",
+     "position": {
+      "x": 2.743288523923399,
+      "y": 0.0559321391582489,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.8984009124707377,
+      "y": 0.005,
+      "z": 2.517375334654252
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0235,1.3924,0.00,26.35"
+  },
+  {
+   "scene": "on|37",
+   "instruction": "Find the box on the chair",
+   "predicate": "on",
+   "subject_class": "box",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.2584504159118044,
+    "y": 0.00498021125793457,
+    "z": 2.5270878380300106
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.349,
+   "bisected_occlusion": 0.349,
+   "clear_px": 8552,
+   "target_px": 5566,
+   "distractor_px": 7888,
+   "landmark_px": 3836,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.586,
+   "standoff": 1.5,
+   "target_box": [
+    351.0,
+    253.0,
+    446.0,
+    344.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "DecorativeBox1",
+     "position": {
+      "x": 2.019876197161804,
+      "y": 0.5913159894943237,
+      "z": 2.9020878380300106
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "DecorativeBox1",
+     "position": {
+      "x": 1.3048134717964706,
+      "y": 0.0050000596046447755,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 2.2584504159118044,
+      "y": 0.00498021125793457,
+      "z": 2.5270878380300106
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0199,1.4021,0.00,31.21"
+  },
+  {
+   "scene": "on|41",
+   "instruction": "Find the vegetable on the chair",
+   "predicate": "on",
+   "subject_class": "vegetable",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.8561068828756309,
+    "y": 0.005,
+    "z": 2.5091443701193916
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.349,
+   "bisected_occlusion": 0.349,
+   "clear_px": 1911,
+   "target_px": 1244,
+   "distractor_px": 1633,
+   "landmark_px": 9627,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    394.0,
+    273.0,
+    422.0,
+    326.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_1",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Lettuce_25",
+     "position": {
+      "x": 1.983938914125631,
+      "y": 0.8379240083694458,
+      "z": 2.8841443701193916
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Lettuce_25",
+     "position": {
+      "x": 2.7799320282709994,
+      "y": 0.08581088215112687,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.8561068828756309,
+      "y": 0.005,
+      "z": 2.5091443701193916
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "1.9839,1.3841,0.00,26.35"
+  },
+  {
+   "scene": "on|45",
+   "instruction": "Find the cup on the chair",
+   "predicate": "on",
+   "subject_class": "cup",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.1839388443629546,
+    "y": 0.006700013875961304,
+    "z": 2.5512636605378525
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.351,
+   "bisected_occlusion": 0.351,
+   "clear_px": 1238,
+   "target_px": 804,
+   "distractor_px": 1008,
+   "landmark_px": 13053,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    381.0,
+    282.0,
+    419.0,
+    321.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Cup_13",
+     "position": {
+      "x": 1.9749300553004547,
+      "y": 0.6174146580696106,
+      "z": 2.9262636605378525
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_13",
+     "position": {
+      "x": 1.2842797355543576,
+      "y": 0.004874863773584366,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_6",
+     "position": {
+      "x": 2.1839388443629546,
+      "y": 0.006700013875961304,
+      "z": 2.5512636605378525
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "1.9749,1.4263,0.00,30.47"
+  },
+  {
+   "scene": "on|46",
+   "instruction": "Find the food on the chair",
+   "predicate": "on",
+   "subject_class": "food",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.8327299687954095,
+    "y": 0.005,
+    "z": 2.5530846371838
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.349,
+   "bisected_occlusion": 0.349,
+   "clear_px": 3272,
+   "target_px": 2129,
+   "distractor_px": 2916,
+   "landmark_px": 10587,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    392.0,
+    266.0,
+    428.0,
+    335.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_3",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Bread_15",
+     "position": {
+      "x": 1.9647490117641595,
+      "y": 0.8418760347366333,
+      "z": 2.9280846371838
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Bread_15",
+     "position": {
+      "x": 2.5686189396835375,
+      "y": 0.08976289361715317,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.8327299687954095,
+      "y": 0.005,
+      "z": 2.5530846371838
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "1.9647,1.4281,0.00,26.35"
+  },
+  {
+   "scene": "on|48",
+   "instruction": "Find the vegetable on the chair",
+   "predicate": "on",
+   "subject_class": "vegetable",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.9050969530506483,
+    "y": 0.005,
+    "z": 2.5538564633977647
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.349,
+   "bisected_occlusion": 0.349,
+   "clear_px": 1882,
+   "target_px": 1225,
+   "distractor_px": 1550,
+   "landmark_px": 14222,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    394.0,
+    277.0,
+    425.0,
+    325.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Lettuce_22",
+     "position": {
+      "x": 2.0335271288318983,
+      "y": 0.6938008117675781,
+      "z": 2.9288564633977647
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Lettuce_22",
+     "position": {
+      "x": 2.6369735885251955,
+      "y": 0.081261006295681,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.9050969530506483,
+      "y": 0.005,
+      "z": 2.5538564633977647
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0335,1.4289,0.00,30.47"
+  },
+  {
+   "scene": "on|52",
+   "instruction": "Find the cup on the chair",
+   "predicate": "on",
+   "subject_class": "cup",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.092742160252999,
+    "y": 0.005,
+    "z": 2.555209554039316
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.352,
+   "bisected_occlusion": 0.352,
+   "clear_px": 1304,
+   "target_px": 845,
+   "distractor_px": 1024,
+   "landmark_px": 10294,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    382.0,
+    274.0,
+    404.0,
+    326.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_1",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Cup_3",
+     "position": {
+      "x": 1.9698661836904992,
+      "y": 0.7568601417541504,
+      "z": 2.930209554039316
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_3",
+     "position": {
+      "x": 1.3005269897710372,
+      "y": 0.004747090041637421,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 2.092742160252999,
+      "y": 0.005,
+      "z": 2.555209554039316
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "1.9699,1.4302,0.00,26.35"
+  },
+  {
+   "scene": "on|53",
+   "instruction": "Find the food on the chair",
+   "predicate": "on",
+   "subject_class": "food",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.099142748322787,
+    "y": 0.005,
+    "z": 2.4807285177087297
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 3215,
+   "target_px": 2089,
+   "distractor_px": 2861,
+   "landmark_px": 11442,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    374.0,
+    268.0,
+    407.0,
+    338.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Bread_7",
+     "position": {
+      "x": 1.9680636467602868,
+      "y": 0.6968066143989563,
+      "z": 2.8557285177087297
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Bread_7",
+     "position": {
+      "x": 1.267793760893119,
+      "y": 0.08426684617996216,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 2.099142748322787,
+      "y": 0.005,
+      "z": 2.4807285177087297
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "1.9681,1.3557,0.00,30.47"
+  },
+  {
+   "scene": "on|61",
+   "instruction": "Find the fruit on the chair",
+   "predicate": "on",
+   "subject_class": "fruit",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.9465833056895563,
+    "y": 0.0048321533203125,
+    "z": 2.5537220744636224
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.311,
+   "bisected_occlusion": 0.311,
+   "clear_px": 956,
+   "target_px": 659,
+   "distractor_px": 745,
+   "landmark_px": 17362,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    383.0,
+    286.0,
+    417.0,
+    323.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_Master",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Apple_3",
+     "position": {
+      "x": 2.034083305689556,
+      "y": 0.8080452728271484,
+      "z": 2.9287220744636224
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Apple_3",
+     "position": {
+      "x": 2.713461455945562,
+      "y": 0.0559321391582489,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Houseplant_16",
+     "position": {
+      "x": 1.9465833056895563,
+      "y": 0.0048321533203125,
+      "z": 2.5537220744636224
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0341,1.4287,0.00,26.35"
+  },
+  {
+   "scene": "on|65",
+   "instruction": "Find the box on the chair",
+   "predicate": "on",
+   "subject_class": "box",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.8546538132893697,
+    "y": 0.005,
+    "z": 2.547237353817358
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 7674,
+   "target_px": 4988,
+   "distractor_px": 6634,
+   "landmark_px": 8690,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    387.0,
+    251.0,
+    447.0,
+    343.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_3",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "DecorativeBox3",
+     "position": {
+      "x": 1.9992338914143697,
+      "y": 0.7571131634712219,
+      "z": 2.922237353817358
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "DecorativeBox3",
+     "position": {
+      "x": 2.7203972802304803,
+      "y": 0.005000089406967163,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.8546538132893697,
+      "y": 0.005,
+      "z": 2.547237353817358
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "1.9992,1.4222,0.00,26.35"
+  },
+  {
+   "scene": "on|66",
+   "instruction": "Find the cup on the chair",
+   "predicate": "on",
+   "subject_class": "cup",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.8212118826016415,
+    "y": 0.00498021125793457,
+    "z": 2.4822272484997243
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 924,
+   "target_px": 601,
+   "distractor_px": 649,
+   "landmark_px": 12321,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    388.0,
+    277.0,
+    412.0,
+    322.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Cup_5",
+     "position": {
+      "x": 2.0484213552578914,
+      "y": 0.6177681732177734,
+      "z": 2.8572272484997243
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_5",
+     "position": {
+      "x": 2.762007482188335,
+      "y": 0.005228404998779297,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 1.8212118826016415,
+      "y": 0.00498021125793457,
+      "z": 2.4822272484997243
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0484,1.3572,0.00,30.47"
+  },
+  {
+   "scene": "on|85",
+   "instruction": "Find the bowl on the chair",
+   "predicate": "on",
+   "subject_class": "bowl",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.9157838775486353,
+    "y": 0.005,
+    "z": 2.4995221824222105
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 2506,
+   "target_px": 1629,
+   "distractor_px": 2052,
+   "landmark_px": 12624,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    393.0,
+    270.0,
+    429.0,
+    326.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Bowl_2",
+     "position": {
+      "x": 2.0466066314548854,
+      "y": 0.6186691570281982,
+      "z": 2.8745221824222105
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Bowl_2",
+     "position": {
+      "x": 2.7449447653799144,
+      "y": 0.006129381358623505,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.9157838775486353,
+      "y": 0.005,
+      "z": 2.4995221824222105
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0466,1.3745,0.00,30.47"
+  },
+  {
+   "scene": "on|89",
+   "instruction": "Find the fruit on the chair",
+   "predicate": "on",
+   "subject_class": "fruit",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.2464822310528016,
+    "y": 0.006700013875961304,
+    "z": 2.508782057052237
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.351,
+   "bisected_occlusion": 0.351,
+   "clear_px": 1049,
+   "target_px": 681,
+   "distractor_px": 809,
+   "landmark_px": 14828,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    384.0,
+    282.0,
+    417.0,
+    316.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Apple_18",
+     "position": {
+      "x": 2.042856742771552,
+      "y": 0.6942933249473572,
+      "z": 2.883782057052237
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Apple_18",
+     "position": {
+      "x": 1.23848265908809,
+      "y": 0.08175355672836304,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_6",
+     "position": {
+      "x": 2.2464822310528016,
+      "y": 0.006700013875961304,
+      "z": 2.508782057052237
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0429,1.3838,0.00,30.47"
+  },
+  {
+   "scene": "on|90",
+   "instruction": "Find the vegetable on the chair",
+   "predicate": "on",
+   "subject_class": "vegetable",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.0315926314625647,
+    "y": 0.00498021125793457,
+    "z": 2.541164574446599
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.348,
+   "bisected_occlusion": 0.348,
+   "clear_px": 1427,
+   "target_px": 930,
+   "distractor_px": 1403,
+   "landmark_px": 5488,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    380.0,
+    285.0,
+    420.0,
+    314.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_1",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Lettuce_27",
+     "position": {
+      "x": 2.031678080681315,
+      "y": 0.8155723857879639,
+      "z": 2.916164574446599
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Lettuce_27",
+     "position": {
+      "x": 2.819797833193472,
+      "y": 0.06345921486616135,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 2.0315926314625647,
+      "y": 0.00498021125793457,
+      "z": 2.541164574446599
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0317,1.4162,0.00,26.35"
+  },
+  {
+   "scene": "on|93",
+   "instruction": "Find the box on the chair",
+   "predicate": "on",
+   "subject_class": "box",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.7413755569117215,
+    "y": 0.00498021125793457,
+    "z": 2.52496962297881
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 7320,
+   "target_px": 4755,
+   "distractor_px": 6117,
+   "landmark_px": 14411,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    354.0,
+    251.0,
+    446.0,
+    343.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "DecorativeBox3",
+     "position": {
+      "x": 1.9628599319117215,
+      "y": 0.6175398278236389,
+      "z": 2.89996962297881
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "DecorativeBox3",
+     "position": {
+      "x": 2.7362442122936783,
+      "y": 0.005000089406967163,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 1.7413755569117215,
+      "y": 0.00498021125793457,
+      "z": 2.52496962297881
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "1.9629,1.4000,0.00,30.47"
+  },
+  {
+   "scene": "on|95",
+   "instruction": "Find the food on the chair",
+   "predicate": "on",
+   "subject_class": "food",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.7636438181869942,
+    "y": 0.00498021125793457,
+    "z": 2.52793085129619
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 563,
+   "target_px": 366,
+   "distractor_px": 428,
+   "landmark_px": 5082,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.586,
+   "standoff": 1.5,
+   "target_box": [
+    392.0,
+    289.0,
+    412.0,
+    320.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Egg_20",
+     "position": {
+      "x": 2.0068322947494943,
+      "y": 0.6462470936775208,
+      "z": 2.90293085129619
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Egg_20",
+     "position": {
+      "x": 2.828346393140195,
+      "y": 0.05993112653493881,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 1.7636438181869942,
+      "y": 0.00498021125793457,
+      "z": 2.52793085129619
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0068,1.4029,0.00,31.21"
+  },
+  {
+   "scene": "on|97",
+   "instruction": "Find the vegetable on the chair",
+   "predicate": "on",
+   "subject_class": "vegetable",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.9889353920377544,
+    "y": 0.0048321533203125,
+    "z": 2.562631028906627
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 2194,
+   "target_px": 1427,
+   "distractor_px": 1995,
+   "landmark_px": 23117,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    378.0,
+    276.0,
+    427.0,
+    332.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Lettuce_13",
+     "position": {
+      "x": 1.9581736732877544,
+      "y": 0.7068553614616394,
+      "z": 2.937631028906627
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Lettuce_13",
+     "position": {
+      "x": 1.1525243859337642,
+      "y": 0.09431557834148407,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Houseplant_16",
+     "position": {
+      "x": 1.9889353920377544,
+      "y": 0.0048321533203125,
+      "z": 2.562631028906627
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "1.9582,1.4376,0.00,30.47"
+  },
+  {
+   "scene": "on|98",
+   "instruction": "Find the bottle on the chair",
+   "predicate": "on",
+   "subject_class": "bottle",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.1206419875926237,
+    "y": 0.005,
+    "z": 2.5055096023433436
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.345,
+   "bisected_occlusion": 0.345,
+   "clear_px": 780,
+   "target_px": 511,
+   "distractor_px": 549,
+   "landmark_px": 4968,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.586,
+   "standoff": 1.5,
+   "target_box": [
+    390.0,
+    268.0,
+    403.0,
+    323.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_1",
+     "position": {
+      "x": 2.0000731399363736,
+      "y": 0.5911815214157105,
+      "z": 2.8805096023433436
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_1",
+     "position": {
+      "x": 1.4380377593494815,
+      "y": 0.0048655617237091065,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 2.1206419875926237,
+      "y": 0.005,
+      "z": 2.5055096023433436
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0001,1.3805,0.00,31.21"
+  },
+  {
+   "scene": "on|109",
+   "instruction": "Find the food on the chair",
+   "predicate": "on",
+   "subject_class": "food",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.1545442376928623,
+    "y": 0.005,
+    "z": 2.5163461789659927
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 4363,
+   "target_px": 2838,
+   "distractor_px": 4278,
+   "landmark_px": 9293,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    370.0,
+    260.0,
+    408.0,
+    342.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_Master",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Bread_30",
+     "position": {
+      "x": 2.0205598626928625,
+      "y": 0.8299090313911438,
+      "z": 2.8913461789659927
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Bread_30",
+     "position": {
+      "x": 1.3497874801338574,
+      "y": 0.07779586791992188,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 2.1545442376928623,
+      "y": 0.005,
+      "z": 2.5163461789659927
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0206,1.3913,0.00,26.35"
+  },
+  {
+   "scene": "on|111",
+   "instruction": "Find the vegetable on the chair",
+   "predicate": "on",
+   "subject_class": "vegetable",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.049998216706953,
+    "y": 0.00498021125793457,
+    "z": 2.4999443610350225
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 1330,
+   "target_px": 864,
+   "distractor_px": 1255,
+   "landmark_px": 5885,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    382.0,
+    286.0,
+    419.0,
+    320.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_Master",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Lettuce_16",
+     "position": {
+      "x": 1.9624982167069527,
+      "y": 0.8146770644187927,
+      "z": 2.8749443610350225
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Lettuce_16",
+     "position": {
+      "x": 1.1981008724747415,
+      "y": 0.0625639232993126,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 2.049998216706953,
+      "y": 0.00498021125793457,
+      "z": 2.4999443610350225
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "1.9625,1.3749,0.00,26.35"
+  },
+  {
+   "scene": "on|113",
+   "instruction": "Find the bowl on the chair",
+   "predicate": "on",
+   "subject_class": "bowl",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.106735306416389,
+    "y": 0.005,
+    "z": 2.518584788218428
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 3210,
+   "target_px": 2087,
+   "distractor_px": 2773,
+   "landmark_px": 4181,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.586,
+   "standoff": 1.5,
+   "target_box": [
+    364.0,
+    275.0,
+    410.0,
+    329.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Bowl_21",
+     "position": {
+      "x": 1.9689911657913892,
+      "y": 0.5923931646347046,
+      "z": 2.893584788218428
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Bowl_21",
+     "position": {
+      "x": 1.2059076419648225,
+      "y": 0.006077145338058472,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 2.106735306416389,
+      "y": 0.005,
+      "z": 2.518584788218428
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "1.9690,1.3936,0.00,31.21"
+  },
+  {
+   "scene": "on|115",
+   "instruction": "Find the cup on the chair",
+   "predicate": "on",
+   "subject_class": "cup",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.2657006061016602,
+    "y": 0.00498021125793457,
+    "z": 2.5697781875248986
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 1025,
+   "target_px": 666,
+   "distractor_px": 794,
+   "landmark_px": 17124,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    385.0,
+    278.0,
+    415.0,
+    322.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Cup_4",
+     "position": {
+      "x": 2.0376366412579103,
+      "y": 0.6177669811248779,
+      "z": 2.9447781875248986
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Cup_4",
+     "position": {
+      "x": 1.365443526348313,
+      "y": 0.005227123498916626,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 2.2657006061016602,
+      "y": 0.00498021125793457,
+      "z": 2.5697781875248986
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0376,1.4448,0.00,30.47"
+  },
+  {
+   "scene": "on|120",
+   "instruction": "Find the bowl on the chair",
+   "predicate": "on",
+   "subject_class": "bowl",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.8251384633837047,
+    "y": 0.00498021125793457,
+    "z": 2.5462255322691782
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 2366,
+   "target_px": 1539,
+   "distractor_px": 1987,
+   "landmark_px": 12797,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    373.0,
+    276.0,
+    429.0,
+    329.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Bowl_9",
+     "position": {
+      "x": 2.0592693227587047,
+      "y": 0.6184445667266846,
+      "z": 2.9212255322691782
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Bowl_9",
+     "position": {
+      "x": 2.7197782685386573,
+      "y": 0.005904742628335953,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 1.8251384633837047,
+      "y": 0.00498021125793457,
+      "z": 2.5462255322691782
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0593,1.4212,0.00,30.47"
+  },
+  {
+   "scene": "on|125",
+   "instruction": "Find the vegetable on the chair",
+   "predicate": "on",
+   "subject_class": "vegetable",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.1550929835291646,
+    "y": 0.005,
+    "z": 2.520228766441503
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.347,
+   "bisected_occlusion": 0.347,
+   "clear_px": 1059,
+   "target_px": 691,
+   "distractor_px": 808,
+   "landmark_px": 5688,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.586,
+   "standoff": 1.5,
+   "target_box": [
+    382.0,
+    285.0,
+    405.0,
+    322.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Tomato_14",
+     "position": {
+      "x": 2.0291408350916647,
+      "y": 0.654665117263794,
+      "z": 2.895228766441503
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Tomato_14",
+     "position": {
+      "x": 1.4517276641629155,
+      "y": 0.06834909796714783,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 2.1550929835291646,
+      "y": 0.005,
+      "z": 2.520228766441503
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0291,1.3952,0.00,31.21"
+  },
+  {
+   "scene": "on|127",
+   "instruction": "Find the bowl on the chair",
+   "predicate": "on",
+   "subject_class": "bowl",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.9505903510143066,
+    "y": 0.0048321533203125,
+    "z": 2.5350576509845997
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.338,
+   "bisected_occlusion": 0.338,
+   "clear_px": 2506,
+   "target_px": 1658,
+   "distractor_px": 2133,
+   "landmark_px": 22152,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    373.0,
+    270.0,
+    428.0,
+    326.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Bowl_2",
+     "position": {
+      "x": 1.9507612494518065,
+      "y": 0.6186691570281982,
+      "z": 2.9100576509845997
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Bowl_2",
+     "position": {
+      "x": 2.665640040020241,
+      "y": 0.006129381358623505,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Houseplant_16",
+     "position": {
+      "x": 1.9505903510143066,
+      "y": 0.0048321533203125,
+      "z": 2.5350576509845997
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "1.9508,1.4101,0.00,30.47"
+  },
+  {
+   "scene": "on|130",
+   "instruction": "Find the food on the chair",
+   "predicate": "on",
+   "subject_class": "food",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 2.2562295570263182,
+    "y": 0.00498021125793457,
+    "z": 2.5065055156720843
+   },
+   "occluder_yaw": 90.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 546,
+   "target_px": 355,
+   "distractor_px": 399,
+   "landmark_px": 15668,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.613,
+   "standoff": 1.5,
+   "target_box": [
+    389.0,
+    288.0,
+    409.0,
+    320.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Footstool_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Egg_29",
+     "position": {
+      "x": 2.020218814838818,
+      "y": 0.6750906157493591,
+      "z": 2.8815055156720843
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Egg_29",
+     "position": {
+      "x": 1.1986953062757406,
+      "y": 0.06255086243152619,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "Desk_Lamp_9",
+     "position": {
+      "x": 2.2562295570263182,
+      "y": 0.00498021125793457,
+      "z": 2.5065055156720843
+     },
+     "yaw": 90.0
+    }
+   ],
+   "start": "2.0202,1.3815,0.00,30.47"
+  },
+  {
+   "scene": "on|134",
+   "instruction": "Find the bowl on the chair",
+   "predicate": "on",
+   "subject_class": "bowl",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.858590696730912,
+    "y": 0.005,
+    "z": 2.5446594034581578
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.349,
+   "bisected_occlusion": 0.349,
+   "clear_px": 1777,
+   "target_px": 1156,
+   "distractor_px": 1511,
+   "landmark_px": 5484,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.586,
+   "standoff": 1.5,
+   "target_box": [
+    394.0,
+    280.0,
+    423.0,
+    327.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_4",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Bowl_28",
+     "position": {
+      "x": 1.987020872512162,
+      "y": 0.5922077941894531,
+      "z": 2.9196594034581578
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Bowl_28",
+     "position": {
+      "x": 2.6055889207837297,
+      "y": 0.0058917637169361116,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.858590696730912,
+      "y": 0.005,
+      "z": 2.5446594034581578
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "1.9870,1.4197,0.00,31.21"
+  },
+  {
+   "scene": "on|140",
+   "instruction": "Find the bottle on the chair",
+   "predicate": "on",
+   "subject_class": "bottle",
+   "object_class": "chair",
+   "target_name": "target",
+   "landmark_name": "landmark",
+   "distractor_name": "distract",
+   "occluder_name": "occluder",
+   "occluder_position": {
+    "x": 1.902158071403249,
+    "y": 0.005,
+    "z": 2.496869034769367
+   },
+   "occluder_yaw": 0.0,
+   "staged_occlusion": 0.35,
+   "bisected_occlusion": 0.35,
+   "clear_px": 2003,
+   "target_px": 1301,
+   "distractor_px": 1343,
+   "landmark_px": 8641,
+   "distractor_occlusion": 0.0,
+   "seat_height": 0.752,
+   "standoff": 1.5,
+   "target_box": [
+    395.0,
+    259.0,
+    421.0,
+    326.0
+   ],
+   "objects": [
+    {
+     "name": "landmark",
+     "asset": "Stool_2_Master",
+     "position": {
+      "x": 2.0,
+      "y": 0.0,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "target",
+     "asset": "Soap_Bottle_14",
+     "position": {
+      "x": 2.027426626090749,
+      "y": 0.7562483596801758,
+      "z": 2.871869034769367
+     }
+    },
+    {
+     "name": "distract",
+     "asset": "Soap_Bottle_14",
+     "position": {
+      "x": 2.782856650467568,
+      "y": 0.004135226011276245,
+      "z": 2.9
+     }
+    },
+    {
+     "name": "occluder",
+     "asset": "RoboTHOR_floor_lamp_holmo_v",
+     "position": {
+      "x": 1.902158071403249,
+      "y": 0.005,
+      "z": 2.496869034769367
+     },
+     "yaw": 0.0
+    }
+   ],
+   "start": "2.0274,1.3719,0.00,26.35"
+  }
+ ]
+}
