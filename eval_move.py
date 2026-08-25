@@ -759,8 +759,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "For RENDERS, not for claims: with no control there is "
                          "nothing to attribute a success to.")
     ap.add_argument("--bearing",
-                    choices=("bin", "visible", "side", "volatility", "reveal",
-                             "node", "edge", "acr"),
+                    choices=("attrib", "bin", "visible", "side", "volatility",
+                             "reveal", "node", "edge", "acr"),
                     default="bin",
                     help="how the sweep becomes a heading.  `bin` averages the "
                          "azimuths of views that named the instructed predicate "
