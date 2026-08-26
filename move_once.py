@@ -3,7 +3,7 @@ move_once.py -- one look at one real frame, before anything is asked to move.
 
 The simulator's numbers say what this pipeline does when the sweep is RENDERED
 by the thing it is trying to predict.  On a real robot the sweep is SEVA's, from
-one photograph, and nothing in `nvs_pilot/` says what that looks like.  So this
+one photograph, and nothing in `results/` says what that looks like.  So this
 reports one step and stops -- nothing here walks.
 
     THE DEPTH        the only place metric scale enters.  SEVA never sees it, so
@@ -12,7 +12,7 @@ reports one step and stops -- nothing here walks.
                      can be read by a detector, checked so far only on THOR renders.
     THE STEP         with `--task`: the pair, the chosen view, and a ROS2 goal.
 
-    python move_once.py --dir nvs_pilot/real --camera-height 0.15
+    python move_once.py --dir results/real --camera-height 0.15
 """
 
 from __future__ import annotations
@@ -24,8 +24,8 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from robot.nvs_lemniscate import orbit_depth
-from robot.real_robot import FOV_V, RealRobot, aligned, load_depth, newest_pair
+from robot.world.nvs_lemniscate import orbit_depth
+from robot.world.real_robot import FOV_V, RealRobot, aligned, load_depth, newest_pair
 
 
 
@@ -47,8 +47,8 @@ def decide_step(rc, egtr, reference, rendered, orbit, task, args) -> Dict:
     from fuse_live import (OBJSCORE, OBJSCORE_CLASS, OBJSCORE_COS, conditioned,
                            consensus_relabel, record)
     from eval_move import step_to
-    from robot import evidence, viewpick
-    from robot.grounding import (class_mass, pair_cells, per_view_answers,
+    from robot.policy import evidence, viewpick
+    from robot.policy.grounding import (class_mass, pair_cells, per_view_answers,
                                  rank_pairs)
 
     built = record(egtr, reference, [(i, r["frame"])
@@ -96,7 +96,7 @@ def decide_step(rc, egtr, reference, rendered, orbit, task, args) -> Dict:
     ev, evs = None, {}
     if args.beta or args.w or args.pool == "both":
         # ONE PASS OVER THE VIEWS for both poolings -- and it is the same table
-        # `--bearing attrib` reads down the other axis.  See `robot.evidence`.
+        # `--bearing attrib` reads down the other axis.  See `robot.policy.evidence`.
         _, contrib, spoke = evidence.pair_contributions(built, cells, predicate)
         stats = evidence.coverage(spoke)
         print(f"  channel B  {stats['n_views']} views, "
@@ -321,10 +321,10 @@ def decide_step(rc, egtr, reference, rendered, orbit, task, args) -> Dict:
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    from robot.grounding import WEIGHTS
+    from robot.policy.grounding import WEIGHTS
 
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--dir", default="nvs_pilot/real",
+    ap.add_argument("--dir", default="results/real",
                     help="folder the robot drops its frames in; the newest "
                          "rgb/depth pair is used")
     ap.add_argument("--rgb", default=None, help="override --dir")
@@ -417,7 +417,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     # THE SAME POSES `perceive` WOULD BUILD, from the same two lines, so the
     # sheet below is the sweep this pipeline actually reasons over and not a
     # look-alike.
-    from robot.nvs_lemniscate import (LOOKAT_DIST, camera_for, lemniscate,
+    from robot.world.nvs_lemniscate import (LOOKAT_DIST, camera_for, lemniscate,
                                       look_at_point)
 
     orbit = look_at_point(rc.camera_xyz, rc.agent_yaw, rc.camera_horizon,
@@ -430,7 +430,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
           f"point {radius:.2f} m ahead")
     print(f"             the furthest view stands {span:.2f} m from here")
 
-    from robot.nvs_seva import Synthesiser
+    from robot.world.nvs_seva import Synthesiser
 
     print("\n  loading SEVA (5 GB, ~1 min) ...", flush=True)
     synth = Synthesiser(steps=args.synth_steps, cfg=args.synth_cfg,

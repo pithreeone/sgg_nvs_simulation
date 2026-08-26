@@ -19,7 +19,7 @@ no ranking, no second endpoint.  If it fails at small sizes and succeeds at
 large ones, the case list is mis-framed rather than the predicate mis-chosen,
 and no amount of fusion will help until the robot stands closer.
 
-    python probe_size.py --cases nvs_pilot/cases/cases_easy2.json
+    python probe_size.py --cases results/cases/cases_easy2.json
 """
 
 from __future__ import annotations
@@ -37,7 +37,7 @@ IOU_HIT = 0.5
 def probe(rc, case: Dict[str, Any], egtr, args) -> Optional[Dict[str, Any]]:
     from eval_nvs_pointer import geometry
     from robot.sgg_live import raw_predict
-    from robot.task_find import iou, stage_at
+    from robot.task.task_find import iou, stage_at
     from vg.vg150 import THOR_TO_VG150
 
     graded = case["target_name"]
@@ -81,7 +81,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--out", default=None)
     args = ap.parse_args(argv)
 
-    from robot import drive
+    from robot.world import proc_scene
     from robot.sgg_live import load_egtr
 
     cases = json.load(open(args.cases))["cases"]
@@ -91,7 +91,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     rows: List[Dict[str, Any]] = []
     for index, case in enumerate(cases, 1):
-        rc = drive.open_scene(case["scene"], args.width, args.height, args.fov,
+        rc = proc_scene.open_scene(case["scene"], args.width, args.height, args.fov,
                               case["start"])
         try:
             row = probe(rc, case, egtr, args)

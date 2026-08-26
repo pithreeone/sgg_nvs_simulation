@@ -27,7 +27,7 @@ look the same.
 from __future__ import annotations
 
 # `python viz/<script>.py` puts viz/ on sys.path, not the repo root, so the
-# top-level modules would not import.  Same bootstrap as analysis/ and gen/.
+# top-level modules would not import.  Same bootstrap as analysis/ and build/sgg/.
 import os as _os
 import sys as _sys
 
@@ -44,8 +44,8 @@ from typing import Any, Dict, List, Optional, Sequence
 import cv2
 import numpy as np
 
-from build_robotic_task.build_slot import look_along
-from robot.proc_scene import open_room, rebuild, visible_box
+from build.robot.build_slot import look_along
+from robot.world.proc_scene import open_room, rebuild, visible_box
 
 #: BGR, and chosen so the two OCCLUDERS are told apart at a glance: the blue one
 #: is in the instruction, the red one never is.
@@ -218,13 +218,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     stem = os.path.splitext(os.path.basename(args.cases))[0]
     if args.curves:
-        out = args.out or f"nvs_pilot/{stem}_curves.png"
+        out = args.out or f"results/{stem}_curves.png"
         os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
         curves(cases, data, out)
         return 0
 
     if args.refs:
-        out = args.out or f"nvs_pilot/{stem}_refs.png"
+        out = args.out or f"results/{stem}_refs.png"
         os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
         print(f"  {len(cases)} reference views, {args.columns} per row")
         cv2.imwrite(out, contact(cases, args))
@@ -236,7 +236,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     print(f"[{index}] {case['scene']}  {case['instruction']}")
     print(f"    landmark {case['objects'][1]['asset']}  "
           f"blocker {case['objects'][2]['asset']} ({case['blocker_class']})")
-    out = args.out or f"nvs_pilot/{stem}_{index}.png"
+    out = args.out or f"results/{stem}_{index}.png"
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
     cv2.imwrite(out, filmstrip(case, args))
     print(f"  -> {out}")

@@ -15,13 +15,13 @@ The marker uses GROUND TRUTH and is a diagnostic, never an input to a policy.
 POSITIVE AZIMUTH MOVES THE CAMERA LEFT, so the x axis is inverted -- see
 `plot_viewdist.py`.
 
-    python viz/plot_viewhits.py --sweep nvs_pilot/probe_sideview4.json
+    python viz/plot_viewhits.py --sweep results/probe_sideview4.json
 """
 
 from __future__ import annotations
 
 # `python viz/<script>.py` puts viz/ on sys.path, not the repo root, so the
-# top-level modules would not import.  Same bootstrap as analysis/ and gen/.
+# top-level modules would not import.  Same bootstrap as analysis/ and build/sgg/.
 import os as _os
 import sys as _sys
 
@@ -44,9 +44,9 @@ from matplotlib.lines import Line2D
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--sweep", default="nvs_pilot/probe_sideview4.json")
-    ap.add_argument("--ladder", default="nvs_pilot/probe_viewpoint_ladder.json")
-    ap.add_argument("--out", default="nvs_pilot/viewgrid/viewhits.png")
+    ap.add_argument("--sweep", default="results/probe_sideview4.json")
+    ap.add_argument("--ladder", default="results/probe_viewpoint_ladder.json")
+    ap.add_argument("--out", default="results/viewgrid/viewhits.png")
     args = ap.parse_args(argv)
 
     sweep = json.load(open(args.sweep))["cases"]

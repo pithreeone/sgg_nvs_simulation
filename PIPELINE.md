@@ -13,7 +13,7 @@ that implements it; if a line moves, fix the anchor rather than the claim.
 
 ## 1. The scene
 
-`build_robotic_task/build_tabletop.py` stages three objects on a table:
+`build/robot/build_tabletop.py` stages three objects on a table:
 
 ```
             [target]         the thing the instruction names, 35% hidden
@@ -277,7 +277,7 @@ asks a question with several true answers and accepts one of them.
 * A change that should affect the RANKING must modify `rel[i, j, predicate]`
   itself. A, C and R structurally cannot; `--pool-predicate` (channel M) is the
   only path that does, and it measured net 0 with its own `mean` control
-  scoring the same — see `nvs_pilot/README.md`.
+  scoring the same — see `results/README.md`.
 * Anything built on cross-view differences in `rel` should be treated as
   suspect until shown otherwise. The same pair's `rel` varies by ~17 orders of
   magnitude across views, and it does so equally for the occluded target
@@ -340,7 +340,7 @@ distinct (`"unreachable"` vs `null`).
 
 Worth knowing: the ladder changed **0 of 280** case-by-angle outcomes at radius
 1.5, so reachability was never the constraint on these scenes. Every `null` in
-`nvs_pilot/probe_viewpoint_ladder.json` is a perception failure.
+`results/probe_viewpoint_ladder.json` is a perception failure.
 
 ### Small samples decided direction twice, wrongly
 

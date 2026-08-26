@@ -14,11 +14,11 @@ and reports, per endpoint and jointly, how often a query COVERING the real
 object (IoU >= 0.5) survives.  Joint is the ceiling: `conditioned` needs both
 ends, so a rule that keeps the landmark but loses the target scores zero.
 
-    python probe_argmax.py nvs_pilot/cases/cases_easy2.json
+    python probe_argmax.py results/cases/cases_easy2.json
 
 The joint column is what motivated rebuilding the case list on 08-12.  On
 `cases_easy` it was 25/40 even at K=40, so 15 cases could not be won by any
-decision rule; on `cases_easy2` it is 40/40 at K=10.  See nvs_pilot/README.md.
+decision rule; on `cases_easy2` it is 40/40 at K=10.  See results/README.md.
 """
 import json
 import sys
@@ -27,13 +27,13 @@ import numpy as np
 
 sys.path.insert(0, "/home/pithreeone/Ben/japan_intern/simulation")
 
-from robot.proc_scene import open_room, rebuild, visible_box       # noqa: E402
+from robot.world.proc_scene import open_room, rebuild, visible_box       # noqa: E402
 from robot.sgg_live import load_egtr, raw_predict                  # noqa: E402
-from robot.task_find import iou                                    # noqa: E402
+from robot.task.task_find import iou                                    # noqa: E402
 
 IOU_HIT = 0.5
 KS = (1, 2, 3, 5, 10, 20, 40)
-CASES = sys.argv[1] if len(sys.argv) > 1 else "nvs_pilot/cases/cases_tabletop.json"
+CASES = sys.argv[1] if len(sys.argv) > 1 else "results/cases/cases_tabletop.json"
 cases = json.load(open(CASES))["cases"]
 print(f"  cases: {CASES}")
 egtr = load_egtr()
@@ -111,6 +111,6 @@ for role, lab in (("target", "target"), ("occluder", "landmark")):
 both = sum(1 for r in rows if r.get("target") and r.get("occluder")
            and r["target"]["argmax_rank"] and r["occluder"]["argmax_rank"])
 print(f"    both ends survive the filter at any K: {both}/{n}")
-out = "nvs_pilot/probe_argmax_" + CASES.split("/")[-1]
+out = "results/probe_argmax_" + CASES.split("/")[-1]
 json.dump(rows, open(out, "w"), indent=1)
 print(f"\n  wrote {out}")

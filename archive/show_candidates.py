@@ -16,7 +16,7 @@ VISIBLE extent: a 35%-occluded target has a green box around the third of it
 that shows.  A prediction covering the whole object is therefore expected to
 look too big, which is the first thing to check before calling a box loose.
 
-    python show_candidates.py --cases nvs_pilot/cases/cases_easy2.json --n 4 --topk 5
+    python show_candidates.py --cases results/cases/cases_easy2.json --n 4 --topk 5
 """
 
 from __future__ import annotations
@@ -28,8 +28,8 @@ from typing import Any, Dict, List, Optional, Sequence
 
 import numpy as np
 
-from robot.proc_scene import open_room, rebuild, visible_box
-from robot.task_find import iou
+from robot.world.proc_scene import open_room, rebuild, visible_box
+from robot.task.task_find import iou
 
 #: BGR.  Rank 1 is the brightest; later ranks fade, so the eye reads the
 #: ordering without having to parse the labels.
@@ -64,7 +64,7 @@ def panel(frame, boxes, ranked, probs_col, truth, title: str, topk: int):
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_easy2.json")
+    ap.add_argument("--cases", default="results/cases/cases_easy2.json")
     ap.add_argument("--n", type=int, default=4, help="how many cases to draw")
     ap.add_argument("--topk", type=int, default=5,
                     help="candidates per side to draw.  The pipeline's own K is "
@@ -76,7 +76,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "same rule `fuse_live --cand-nms` applies.  0 draws the "
                          "list as the published pipeline forms it, in which the "
                          "top 10 covers a median of five objects.")
-    ap.add_argument("--out", default="nvs_pilot/candidates")
+    ap.add_argument("--out", default="results/candidates")
     ap.add_argument("--width", type=int, default=800)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)

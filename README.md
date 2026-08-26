@@ -22,8 +22,8 @@ The repo does two things. The top level shows exactly those two and nothing
 else; everything a run needs but no one reads first is one level down.
 
 ```
-gen/                1. build the occlusion dataset  (needs AI2-THOR)
-build_robotic_task/ 2. build a case list -- an instruction, the objects that
+build/sgg/                1. build the occlusion dataset  (needs AI2-THOR)
+build/robot/ 2. build a case list -- an instruction, the objects that
                        make it true, and a camera pose it is true from.  Reads
                        no model.  `build_tabletop.py` (target + same-asset
                        distractor: the relation has to say WHICH), `build_slot.py`
@@ -47,7 +47,7 @@ analysis/           report scripts nothing imports, incl. eval_grounding.py --
                     the robot's metric over datasets/sgg/, 4528 instructions
 
 datasets/           everything a THOR run produced; see datasets/README.md
-nvs_pilot/          robot-experiment results and the frozen task list
+results/          robot-experiment results and the frozen task list
 experiments/
   build_logs/       provenance for each dataset
 reports/            one file per weekly write-up; reports/README.md indexes them

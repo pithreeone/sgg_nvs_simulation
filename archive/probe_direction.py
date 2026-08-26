@@ -42,7 +42,7 @@ from __future__ import annotations
 
 # `python archive/<script>.py` puts archive/ on sys.path, not the repo root.
 # These were moved here without it, so they could not import the generators at
-# all; same shim as `gen/` and `build_robotic_task/`.
+# all; same shim as `build/sgg/` and `build/robot/`.
 import os as _os
 import sys as _sys
 if __package__ in (None, ""):
@@ -55,11 +55,11 @@ from typing import Any, Dict, List, Optional, Sequence
 
 import numpy as np
 
-from build_robotic_task.build_tabletop import (NEAR_EDGE_INSET, OCCLUDER_CLASSES, OCCLUDER_SIZE,
+from build.robot.build_tabletop import (NEAR_EDGE_INSET, OCCLUDER_CLASSES, OCCLUDER_SIZE,
                             TABLE, TABLE_MARGIN, TARGET_CLASSES, TARGET_SIZE,
                             bisect_occluder, catalogue, on_table, stand_back)
 from probe_behind import GAP, SPATIAL
-from robot.proc_scene import (ROOM, aim_at, open_room, place_on, spawn,
+from robot.world.proc_scene import (ROOM, aim_at, open_room, place_on, spawn,
                               surface_top, visible_box, visible_pixels)
 
 #: The band the tabletop CASES are staged to, `(min, target, max)` -- not
@@ -193,8 +193,8 @@ def sweep_views(controller, egtr, event, views: int, lookat: float,
     import math
 
     from probe_corr import SKIP_VIEWS, seg_box
-    from robot.nvs_lemniscate import camera_for, lemniscate, orbit_centre
-    from robot.proc_scene import View, look_from
+    from robot.world.nvs_lemniscate import camera_for, lemniscate, orbit_centre
+    from robot.world.proc_scene import View, look_from
 
     rc = View(event)
     rc.controller = controller

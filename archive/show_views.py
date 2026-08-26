@@ -19,7 +19,7 @@ embeddings cannot tell two copies of one asset apart; and a view where the
 target has genuinely left the frame says the sweep is too wide, which is a
 different problem with a different fix.
 
-    python show_views.py --cases nvs_pilot/cases/cases_tabletop.json --case 5
+    python show_views.py --cases results/cases/cases_tabletop.json --case 5
 """
 
 from __future__ import annotations
@@ -32,7 +32,7 @@ from typing import Any, Dict, List, Optional, Sequence
 import numpy as np
 
 from probe_corr import GATE_COS, SKIP_VIEWS, iou, mutual_match, seg_box
-from robot.nvs_lemniscate import LOOKAT_DIST
+from robot.world.nvs_lemniscate import LOOKAT_DIST
 
 #: BGR, matching `show_tasks.py` so the two sheets read the same way.
 TARGET = (140, 255, 140)
@@ -42,8 +42,8 @@ MATCH = (230, 120, 230)
 
 def sweep_views(controller, case: Dict[str, Any], egtr, args):
     """Render the lemniscate and return per-view frames, truth and matches."""
-    from robot.nvs_lemniscate import camera_for, lemniscate, orbit_centre
-    from robot.proc_scene import ROOM, View, look_from, rebuild, visible_box
+    from robot.world.nvs_lemniscate import camera_for, lemniscate, orbit_centre
+    from robot.world.proc_scene import ROOM, View, look_from, rebuild, visible_box
     from robot.sgg_live import raw_predict
 
     from fuse_live import record
@@ -166,7 +166,7 @@ def sheet(cv2, reference, panels: Sequence[Dict[str, Any]], columns: int,
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_tabletop.json")
+    ap.add_argument("--cases", default="results/cases/cases_tabletop.json")
     ap.add_argument("--case", type=int, default=0)
     ap.add_argument("--views", type=int, default=20)
     ap.add_argument("--max-az", type=float, default=30.0)
@@ -183,7 +183,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     import cv2
 
-    from robot.proc_scene import open_room
+    from robot.world.proc_scene import open_room
     from robot.sgg_live import load_egtr
 
     case = json.load(open(args.cases))["cases"][args.case]
@@ -194,7 +194,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     finally:
         controller.stop()
 
-    out = args.out or f"nvs_pilot/views_case{args.case}.png"
+    out = args.out or f"results/views_case{args.case}.png"
     cv2.imwrite(out, sheet(cv2, reference, panels, args.columns))
     counts: Dict[str, int] = {}
     for panel in panels:

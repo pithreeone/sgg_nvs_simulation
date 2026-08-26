@@ -13,7 +13,7 @@ Both invocation styles work:
 The second only works because each runnable module bootstraps the repo root
 onto `sys.path` -- Python puts the SCRIPT's directory on the path, not the cwd,
 so without that `from task_find import ...` would fail from in here.  Same
-convention as `gen/`.
+convention as `build/sgg/`.
 
 NOT here, and each for a reason worth knowing:
 
@@ -25,7 +25,7 @@ NOT here, and each for a reason worth knowing:
                            library -- `build_synonyms`, `iou`, `same_class`,
                            `ranked` -- imported by eval_occlusion and by two of
                            the scripts in here.
-  find_partial_triplets.py Same story: `drive_triplet_scene.py` imports
+  find_partial_triplets.py Same story: `measure.py` imports
                            `qualifying` from it, so it is on the live path.
 
 Both were moved in here once and moved straight back out; the import graph, not

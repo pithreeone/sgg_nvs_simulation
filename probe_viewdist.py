@@ -101,7 +101,7 @@ def build_groups(built, cand, iou_hit: float) -> Dict[int, int]:
     two slots on one cup can argmax to `cup` and `bottle`, and that rule keeps
     them apart, which is the case this has to merge.
     """
-    from robot.task_find import iou
+    from robot.task.task_find import iou
 
     boxes = built["boxes"]
     group: Dict[int, int] = {}
@@ -222,7 +222,7 @@ def grade_views(views: List[Dict[str, Any]], built, truth,
     REFERENCE box space, because the mapped field lives in reference slot space
     and a synthesised view has no ground truth of its own.
     """
-    from robot.task_find import iou
+    from robot.task.task_find import iou
 
     boxes = built["boxes"]
     for row in views:
@@ -276,12 +276,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--width", type=int, default=800)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
-    ap.add_argument("--out", default="nvs_pilot/probe_viewdist.json")
+    ap.add_argument("--out", default="results/probe_viewdist.json")
     args = ap.parse_args(argv)
 
     from eval_move import perceive, truth_boxes
     from fuse_live import CORR, GATE_COS, conditioned, task_for
-    from robot.proc_scene import Robot, open_room, rebuild
+    from robot.world.proc_scene import Robot, open_room, rebuild
     from robot.sgg_live import load_egtr
 
     cases = json.load(open(args.cases))["cases"]

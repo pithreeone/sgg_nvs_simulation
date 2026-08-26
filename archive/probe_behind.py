@@ -26,7 +26,7 @@ from __future__ import annotations
 
 # `python archive/<script>.py` puts archive/ on sys.path, not the repo root.
 # These were moved here without it, so they could not import the generators at
-# all; same shim as `gen/` and `build_robotic_task/`.
+# all; same shim as `build/sgg/` and `build/robot/`.
 import os as _os
 import sys as _sys
 if __package__ in (None, ""):
@@ -40,10 +40,10 @@ from typing import Any, Dict, List, Optional, Sequence
 
 import numpy as np
 
-from build_robotic_task.build_tabletop import (NEAR_EDGE_INSET, OCCLUDER_CLASSES, OCCLUDER_SIZE,
+from build.robot.build_tabletop import (NEAR_EDGE_INSET, OCCLUDER_CLASSES, OCCLUDER_SIZE,
                             TABLE, TARGET_CLASSES, TARGET_SIZE, catalogue,
                             on_table, stand_back)
-from robot.proc_scene import (ROOM, aim_at, open_room, place_on, spawn,
+from robot.world.proc_scene import (ROOM, aim_at, open_room, place_on, spawn,
                               surface_top, visible_box, visible_pixels)
 
 #: The seven VG150 spatial predicates, `in` dropped: nothing on a table is
@@ -95,8 +95,8 @@ def sweep_ranks(controller, egtr, rc, views: int) -> List[Dict[str, Any]]:
     how many.  A predicate that never wins from any angle is one no amount of
     multi-view agreement can recover.
     """
-    from robot.nvs_lemniscate import camera_for, lemniscate, orbit_centre
-    from robot.proc_scene import look_from
+    from robot.world.nvs_lemniscate import camera_for, lemniscate, orbit_centre
+    from robot.world.proc_scene import look_from
     from probe_corr import SKIP_VIEWS, seg_box
 
     camera = rc.camera_xyz.copy()
@@ -133,7 +133,7 @@ def sweep_ranks(controller, egtr, rc, views: int) -> List[Dict[str, Any]]:
 def one(controller, egtr, target_asset: str, occ_asset: str,
         views: int = 0) -> Optional[Dict[str, Any]]:
     """Stage one pair and return where `behind` ranks for it."""
-    from robot.proc_scene import View
+    from robot.world.proc_scene import View
 
     controller.reset()
     centre = ROOM / 2.0

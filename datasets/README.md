@@ -1,7 +1,7 @@
 # datasets
 
 Everything that is INPUT to something else. Nothing here is code and nothing
-here is a result; results live in `../nvs_pilot/` and in `../../sgg_nvs/results/`.
+here is a result; results live in `../results/` and in `../../sgg_nvs/results/`.
 
 Split by which line of work it feeds:
 
@@ -43,6 +43,6 @@ the disk is needed.
 
 ## Not here
 
-The 59 frozen robot tasks are `../nvs_pilot/cases_frozen.json`. They are a
+The 59 frozen robot tasks are `../results/cases_frozen.json`. They are a
 pointer to a question (scene, pose, instruction, occluder type), not rendered
 data, so they are tracked in git and live with the results they generated.

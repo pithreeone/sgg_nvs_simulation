@@ -38,13 +38,13 @@ Grading an instance against an ambiguous instruction measures nothing; this is
 `robot/task_find.py`'s rule and it is applied here too.
 
     python analysis/eval_grounding.py
-    python analysis/eval_grounding.py --grid --out nvs_pilot/grounding_ds4.json
+    python analysis/eval_grounding.py --grid --out results/grounding_ds4.json
 """
 
 from __future__ import annotations
 
 # `python analysis/<script>.py` puts analysis/ on sys.path, not the repo root, so
-# the top-level modules would not import.  Same bootstrap as gen/.
+# the top-level modules would not import.  Same bootstrap as build/sgg/.
 import os as _os
 import sys as _sys
 
@@ -62,7 +62,7 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from robot.grounding import WEIGHTS
+from robot.policy.grounding import WEIGHTS
 from scoring.eval_occlusion import BANDS, band_of, best_iou
 
 #: The settings `--grid` sweeps -- 24 of them, and they cost one re-ranking
@@ -122,7 +122,7 @@ def instructions(scene: Dict[str, Any], view: Dict[str, Any], image: str
 def links(shot: Dict[str, Any], ask: Dict[str, Any], egtr,
           setting: Dict[str, Any], iou_hit: float) -> Dict[str, Any]:
     """The chain, for one instruction on one frame."""
-    from robot.grounding import single_frame
+    from robot.policy.grounding import single_frame
 
     rel = shot["rel" if setting.get("connectivity", "on") == "on"
               else "rel_predicate"]

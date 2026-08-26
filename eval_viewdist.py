@@ -30,8 +30,8 @@ that survived several rounds of analysis:
     Older probe_viewpoint JSONs wrote both as null; those files cannot separate
     the two and are read here as plain failures.
 
-    python eval_viewdist.py --dist nvs_pilot/probe_viewdist.json \
-                            --walked nvs_pilot/probe_viewpoint_ladder.json
+    python eval_viewdist.py --dist results/probe_viewdist.json \
+                            --walked results/probe_viewpoint_ladder.json
 """
 
 from __future__ import annotations
@@ -70,8 +70,8 @@ def oracle_side(walked: Dict[float, Any]) -> Optional[str]:
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--dist", default="nvs_pilot/probe_viewdist.json")
-    ap.add_argument("--walked", default="nvs_pilot/probe_viewpoint_ladder.json")
+    ap.add_argument("--dist", default="results/probe_viewdist.json")
+    ap.add_argument("--walked", default="results/probe_viewpoint_ladder.json")
     ap.add_argument("--cases", default="datasets/robot/cases_hard.json",
                     help="the FULL list -- rule 1, the denominator is every "
                          "case, including ones the probe could not read")

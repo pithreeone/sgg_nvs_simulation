@@ -52,8 +52,8 @@ camera ends 0.18-0.37 m below the view that earned the pointer.  Synthesising a
 viewpoint the robot cannot occupy is a capability, not a defect; what this
 measures is whether the AZIMUTH component alone still carries the recovery.
 
-    python eval_nvs_loop.py --cases nvs_pilot/cases10.json \
-        --max-az 30 --max-el 15 --steps 3 --out nvs_pilot/loop_k10
+    python eval_nvs_loop.py --cases results/cases10.json \
+        --max-az 30 --max-el 15 --steps 3 --out results/loop_k10
 """
 
 from __future__ import annotations
@@ -67,11 +67,11 @@ from typing import Any, Dict, List, Optional, Sequence
 
 import numpy as np
 
-from robot import drive
-from robot.drive_triplet_scene import measure, pose_of
+from robot.world import proc_scene
+from robot.task.measure import measure, pose_of
 from eval_nvs_pointer import (DEFAULT_STEP, contact_sheet, geometry, occ,
                               regrade, sweep_at, walk)
-from robot.task_find import build_tasks, draw, put_in_front
+from robot.task.task_find import build_tasks, draw, put_in_front
 from vg.vg150 import THOR_TO_VG150
 
 #: How close a candidate pose may come to one the robot has already stood in
@@ -248,7 +248,7 @@ def rollout(rc, task: Dict[str, Any], names: Sequence[str],
 
 def run_case(case: Dict[str, Any], args, egtr, predict, cv2,
              rng: random.Random) -> Optional[Dict[str, Any]]:
-    rc = drive.open_scene(case["scene"], args.width, args.height, args.fov,
+    rc = proc_scene.open_scene(case["scene"], args.width, args.height, args.fov,
                           case["start"])
     try:
         # Two lists, and the difference matters.  Tasks are built only from what
@@ -356,7 +356,7 @@ def table(rows: Sequence[Dict[str, Any]], steps: int) -> str:
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases10.json")
+    ap.add_argument("--cases", default="results/cases10.json")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--steps", type=int, default=3, help="the move budget K")
     ap.add_argument("--views", type=int, default=20)
@@ -373,7 +373,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                     help="also measure each target's unoccluded extent; costs "
                          "~2N THOR steps per frame and changes no verdict")
     ap.add_argument("--sgg-root", default=None)
-    ap.add_argument("--out", default="nvs_pilot/loop_k10")
+    ap.add_argument("--out", default="results/loop_k10")
     args = ap.parse_args(argv)
 
     import cv2

@@ -19,13 +19,13 @@ An arm that stops early has a short path by definition, so read the markers
 before the length: a long confident-looking route that ends in a red ring is
 worse than a short one that ends in green.
 
-    python viz/plot_paths.py --results nvs_pilot/move_paths.json --n 6
+    python viz/plot_paths.py --results results/move_paths.json --n 6
 """
 
 from __future__ import annotations
 
 # `python viz/<script>.py` puts viz/ on sys.path, not the repo root, so the
-# top-level modules would not import.  Same bootstrap as analysis/ and gen/.
+# top-level modules would not import.  Same bootstrap as analysis/ and build/sgg/.
 import os as _os
 import sys as _sys
 
@@ -111,11 +111,11 @@ def draw(ax, case: Dict[str, Any], staged: Optional[Dict[str, Any]] = None
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--results", default="nvs_pilot/move_paths.json")
+    ap.add_argument("--results", default="results/move_paths.json")
     ap.add_argument("--n", type=int, default=6)
     ap.add_argument("--walked-only", action="store_true", default=True,
                     help="skip cases answered without moving; they plot as a dot")
-    ap.add_argument("--out", default="nvs_pilot/move_paths.png")
+    ap.add_argument("--out", default="results/move_paths.png")
     args = ap.parse_args(argv)
 
     import matplotlib

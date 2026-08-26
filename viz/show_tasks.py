@@ -25,7 +25,7 @@ settle that happens to look similar.
 from __future__ import annotations
 
 # `python viz/<script>.py` puts viz/ on sys.path, not the repo root, so the
-# top-level modules would not import.  Same bootstrap as analysis/ and gen/.
+# top-level modules would not import.  Same bootstrap as analysis/ and build/sgg/.
 import os as _os
 import sys as _sys
 
@@ -74,8 +74,8 @@ def one(rc, case: Dict[str, Any], args) -> Optional[Dict[str, Any]]:
     """Stage the case and return its frame with both endpoints drawn."""
     import cv2
 
-    from robot.drive_triplet_scene import geometry
-    from robot.task_find import stage_at
+    from robot.task.measure import geometry
+    from robot.task.task_find import stage_at
     from vg.vg150 import THOR_TO_VG150
 
     # The OTHER endpoint of the sentence, which is not the same field for
@@ -105,7 +105,7 @@ def one(rc, case: Dict[str, Any], args) -> Optional[Dict[str, Any]]:
 
     anchor_box = anchor_err = None
     if args.anchor and case.get("object_class"):
-        from robot.robot_controller import point_in_box
+        from robot.geometry import point_in_box
         from robot.sgg_live import raw_predict
 
         raw = raw_predict(args.egtr, rc.event.frame)
@@ -162,7 +162,7 @@ def one_proc(controller, case: Dict[str, Any], args) -> Optional[Dict[str, Any]]
     """
     import cv2
 
-    from robot.proc_scene import View, rebuild, visible_box
+    from robot.world.proc_scene import View, rebuild, visible_box
 
     event = rebuild(controller, case)
     graded = case["target_name"]
@@ -172,7 +172,7 @@ def one_proc(controller, case: Dict[str, Any], args) -> Optional[Dict[str, Any]]
     canvas = np.ascontiguousarray(event.frame[:, :, ::-1])
     anchor_err = None
     if args.anchor and case.get("object_class"):
-        from robot.robot_controller import point_in_box
+        from robot.geometry import point_in_box
         from robot.sgg_live import raw_predict
 
         raw = raw_predict(args.egtr, event.frame)
@@ -266,7 +266,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     import cv2
 
-    from robot import drive
+    from robot.world import proc_scene
 
     args.egtr = None
     if args.anchor:
@@ -282,7 +282,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     # list of floor plans, which reads as a missing asset rather than as the
     # wrong loader.
     if data.get("procedural"):
-        from robot.proc_scene import open_room
+        from robot.world.proc_scene import open_room
 
         controller = open_room(args.width, args.height, args.fov)
         try:
@@ -302,7 +302,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         for index, case in enumerate(cases, 1):
             print(f"[{index}/{len(cases)}] {case['scene']}  "
                   f"{case['instruction']}")
-            rc = drive.open_scene(case["scene"], args.width, args.height,
+            rc = proc_scene.open_scene(case["scene"], args.width, args.height,
                                   args.fov, case["start"])
             try:
                 panel = one(rc, case, args)

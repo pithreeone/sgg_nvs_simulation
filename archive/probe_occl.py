@@ -20,7 +20,7 @@ Reported for both selection rules, since they can disagree:
 Measured on `cases_easy` (08-12): both copies named 17, only the unoccluded twin
 7, only the target 4, NEITHER 12.  `neither` being the largest failure bucket is
 why the case list was rebuilt on class grounds rather than on geometry -- see
-`probe_class.py` and nvs_pilot/README.md.
+`probe_class.py` and results/README.md.
 """
 import collections
 import json
@@ -30,12 +30,12 @@ import numpy as np
 
 sys.path.insert(0, "/home/pithreeone/Ben/japan_intern/simulation")
 
-from robot.proc_scene import open_room, rebuild, visible_box       # noqa: E402
+from robot.world.proc_scene import open_room, rebuild, visible_box       # noqa: E402
 from robot.sgg_live import load_egtr, raw_predict                  # noqa: E402
-from robot.task_find import iou                                    # noqa: E402
+from robot.task.task_find import iou                                    # noqa: E402
 
 IOU_HIT = 0.5
-CASES = sys.argv[1] if len(sys.argv) > 1 else "nvs_pilot/cases/cases_easy.json"
+CASES = sys.argv[1] if len(sys.argv) > 1 else "results/cases/cases_easy.json"
 cases = json.load(open(CASES))["cases"]
 egtr = load_egtr()
 controller = open_room(800, 600, 60.0)
@@ -118,5 +118,5 @@ for r in ok:
 print(f"\n  {'class':8} {'target':>8} {'twin':>8} {'n':>4}")
 for cls, (t, d, m) in sorted(byc.items(), key=lambda kv: -kv[1][2]):
     print(f"  {cls:8} {t:>6}/{m:<2} {d:>6}/{m:<2} {m:>4}")
-json.dump(rows, open("nvs_pilot/probe_occl.json", "w"), indent=1)
-print("\n  wrote nvs_pilot/probe_occl.json")
+json.dump(rows, open("results/probe_occl.json", "w"), indent=1)
+print("\n  wrote results/probe_occl.json")

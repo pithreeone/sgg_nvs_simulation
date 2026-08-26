@@ -17,7 +17,7 @@ Reported per role, because they fail differently:
               test disambiguation at all
   occluder    the landmark, unoccluded and larger
 
-    python probe_tabletop.py --cases nvs_pilot/cases/cases_tabletop.json
+    python probe_tabletop.py --cases results/cases/cases_tabletop.json
 """
 
 from __future__ import annotations
@@ -33,9 +33,9 @@ IOU_HIT = 0.5
 
 
 def probe(controller, case: Dict[str, Any], egtr) -> Dict[str, Any]:
-    from robot.proc_scene import rebuild, visible_box
+    from robot.world.proc_scene import rebuild, visible_box
     from robot.sgg_live import raw_predict
-    from robot.task_find import iou
+    from robot.task.task_find import iou
 
     event = rebuild(controller, case)
     raw = raw_predict(egtr, event.frame)
@@ -69,14 +69,14 @@ def probe(controller, case: Dict[str, Any], egtr) -> Dict[str, Any]:
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_tabletop.json")
+    ap.add_argument("--cases", default="results/cases/cases_tabletop.json")
     ap.add_argument("--width", type=int, default=800)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
     ap.add_argument("--out", default=None)
     args = ap.parse_args(argv)
 
-    from robot.proc_scene import open_room
+    from robot.world.proc_scene import open_room
     from robot.sgg_live import load_egtr
 
     cases = json.load(open(args.cases))["cases"]

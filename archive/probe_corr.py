@@ -19,7 +19,7 @@ What this measures, per case: take the reference slot that best localises the
 TARGET, follow its correspondence into each swept view, and ask which object the
 matched slot's box actually covers there.
 
-    python probe_corr.py --cases nvs_pilot/cases/cases_tabletop.json --n 12
+    python probe_corr.py --cases results/cases/cases_tabletop.json --n 12
 """
 
 from __future__ import annotations
@@ -31,7 +31,7 @@ from typing import Any, Dict, List, Optional, Sequence
 
 import numpy as np
 
-from robot.nvs_lemniscate import LOOKAT_DIST
+from robot.world.nvs_lemniscate import LOOKAT_DIST
 
 #: The lemniscate's duplicates of the reference pose, which `object_scores`
 #: skips; counting them here would inflate agreement with free copies of the
@@ -83,8 +83,8 @@ def mutual_match(h_ref: np.ndarray, h_view: np.ndarray, q: int,
 
 def one(controller, case: Dict[str, Any], egtr, args) -> Optional[Dict[str, Any]]:
     """Sweep one case and tally where the target's correspondences land."""
-    from robot.nvs_lemniscate import camera_for, lemniscate, orbit_centre
-    from robot.proc_scene import ROOM, View, look_from, rebuild, visible_box
+    from robot.world.nvs_lemniscate import camera_for, lemniscate, orbit_centre
+    from robot.world.proc_scene import ROOM, View, look_from, rebuild, visible_box
     from robot.sgg_live import raw_predict
 
     from fuse_live import record
@@ -166,7 +166,7 @@ def one(controller, case: Dict[str, Any], egtr, args) -> Optional[Dict[str, Any]
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
-    ap.add_argument("--cases", default="nvs_pilot/cases/cases_tabletop.json")
+    ap.add_argument("--cases", default="results/cases/cases_tabletop.json")
     ap.add_argument("--n", type=int, default=12)
     ap.add_argument("--views", type=int, default=20)
     ap.add_argument("--max-az", type=float, default=30.0)
@@ -178,7 +178,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--fov", type=float, default=60.0)
     args = ap.parse_args(argv)
 
-    from robot.proc_scene import open_room
+    from robot.world.proc_scene import open_room
     from robot.sgg_live import load_egtr
 
     cases = json.load(open(args.cases))["cases"][:args.n]

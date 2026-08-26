@@ -27,7 +27,7 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from robot.proc_scene import Robot as ProcRobot
+from robot.world.proc_scene import Robot as ProcRobot
 
 def random_pose(rc, azimuth: float, elevation: float):
     """A pose from the family the sweep samples, WITHOUT synthesising it.
@@ -42,7 +42,7 @@ def random_pose(rc, azimuth: float, elevation: float):
     No sweep and no detector: the orbit is a depth reading on the optical axis,
     the same one `perceive` centres its sweep on.
     """
-    from robot.nvs_lemniscate import camera_for, look_at_point, orbit_depth
+    from robot.world.nvs_lemniscate import camera_for, look_at_point, orbit_depth
 
     radius = orbit_depth(getattr(rc.event, "depth_frame", None))
     if radius is None:
@@ -60,12 +60,12 @@ def truth_boxes(rc, task) -> Dict[str, Any]:
     to either copy of the target -- the one thing these cases exist to tell apart.
     """
     if isinstance(rc, ProcRobot):
-        from robot.proc_scene import visible_box
+        from robot.world.proc_scene import visible_box
 
         return {"target": visible_box(rc.event, task["target_name"]),
                 "landmark": visible_box(rc.event, task["receptacle_name"])}
 
-    from robot.drive_triplet_scene import geometry
+    from robot.task.measure import geometry
     from vg.vg150 import THOR_TO_VG150
 
     names = sorted({o["name"] for o in rc.event.metadata["objects"]
@@ -102,9 +102,9 @@ def look(rc, task, egtr, args) -> Dict[str, Any]:
                       miss was.
       `stops`, `matched_at`   diagnostics only.  See above.
     """
-    from robot.grounding import single_frame
+    from robot.policy.grounding import single_frame
     from robot.sgg_live import raw_predict
-    from robot.task_find import iou
+    from robot.task.task_find import iou
 
     raw = raw_predict(egtr, rc.event.frame)
     probs = raw["probs_softmax"].detach().cpu()
@@ -210,9 +210,9 @@ def perceive(rc, case, task, egtr, args, want_record=False):
     from lib.fusion import channels as ch
     from fuse_live import (OBJSCORE, OBJSCORE_CLASS, OBJSCORE_COS, conditioned,
                            consensus_relabel, record)
-    from robot import evidence, viewpick
-    from robot.grounding import pair_cells, rank_pairs
-    from robot.nvs_lemniscate import (camera_for, lemniscate, look_at_point,
+    from robot.policy import evidence, viewpick
+    from robot.policy.grounding import pair_cells, rank_pairs
+    from robot.world.nvs_lemniscate import (camera_for, lemniscate, look_at_point,
                                       orbit_depth, park_once, sweep)
 
     reference, camera = rc.event.frame.copy(), rc.camera_xyz.copy()
@@ -238,7 +238,7 @@ def perceive(rc, case, task, egtr, args, want_record=False):
         # A procedural house has no navmesh, so `park_once` has nothing to pick
         # from.  Its point is only that the robot's shadow stays put across the
         # sweep, which a fixed far corner satisfies just as well.
-        from robot.proc_scene import ROOM, look_from
+        from robot.world.proc_scene import ROOM, look_from
 
         corner = min(((0.3, 0.3), (0.3, ROOM - 0.3), (ROOM - 0.3, 0.3),
                       (ROOM - 0.3, ROOM - 0.3)),
@@ -305,7 +305,8 @@ def perceive(rc, case, task, egtr, args, want_record=False):
     # are `move_once`'s to print.
     _, view, _ = viewpick.pick_view(
         args.bearing, args.side_step, built, rendered, cand, egtr, task,
-        order, chosen, ballots)
+        order, chosen, ballots, reference=reference,
+        vlm=getattr(args, "vlm_model_obj", None))
     # BOTH HALVES OF A POSE-EXECUTING STEP: the view to go to, and the point the
     # sweep itself orbits.  `orbit` is a depth reading at the image centre and
     # passes through no detector, so `step_to` needs nothing that can name the
@@ -361,7 +362,7 @@ def step_to(rc, view: Dict[str, Any], orbit: np.ndarray,
     bearing the sweep chose and only stands further away.  It is a fallback and
     not a policy: applying it unconditionally compounds, and did -- see `BACKOFF`.
     """
-    from robot.robot_controller import horizon_towards, yaw_towards
+    from robot.geometry import horizon_towards, yaw_towards
 
     here = rc.camera_xyz[[0, 2]]
     hub = orbit[[0, 2]]
@@ -527,7 +528,7 @@ def save_sweep(read: Dict[str, Any], case: Dict[str, Any], task, egtr, args,
     one can be put side by side: `sweep.png` is what the views look like,
     `sweep_pred.png` is what each of them alone grounds the instruction to.
     """
-    from robot.grounding import per_view_answers
+    from robot.policy.grounding import per_view_answers
     from viz import sweep as figures
 
     built, rendered = read["built"], read["rendered"]
@@ -602,12 +603,12 @@ def render_trail(out: Dict[str, Any], case: Dict[str, Any], args) -> None:
 
 
 def run_case(case: Dict[str, Any], args, egtr) -> Optional[Dict[str, Any]]:
-    from robot import drive
-    from robot.drive_triplet_scene import measure
-    from robot.task_find import build_tasks, stage_at
+    from robot.world import proc_scene
+    from robot.task.measure import measure
+    from robot.task.task_find import build_tasks, stage_at
     from vg.vg150 import THOR_TO_VG150
 
-    rc = drive.open_scene(case["scene"], args.width, args.height, args.fov,
+    rc = proc_scene.open_scene(case["scene"], args.width, args.height, args.fov,
                           case["start"])
     try:
         nameable = sorted(o["name"] for o in rc.event.metadata["objects"]
@@ -643,7 +644,7 @@ def run_case_proc(case: Dict[str, Any], args, egtr) -> Optional[Dict[str, Any]]:
     Only the setup differs; everything from the start pose on is `run_episode`,
     shared, so the two backends cannot drift into measuring different things.
     """
-    from robot.proc_scene import Robot, open_room, rebuild
+    from robot.world.proc_scene import Robot, open_room, rebuild
 
     from fuse_live import task_for
 
@@ -734,7 +735,7 @@ def run_episode(rc, case: Dict[str, Any], task: Dict[str, Any], egtr, args,
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
-    from robot.grounding import WEIGHTS
+    from robot.policy.grounding import WEIGHTS
 
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     ap.add_argument("--cases", default="datasets/robot/cases_slot.json")
@@ -760,7 +761,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "nothing to attribute a success to.")
     ap.add_argument("--bearing",
                     choices=("attrib", "bin", "visible", "side", "volatility",
-                             "reveal", "node", "edge", "acr"),
+                             "reveal", "node", "edge", "acr", "vlm"),
                     default="bin",
                     help="how the sweep becomes a heading.  `bin` averages the "
                          "azimuths of views that named the instructed predicate "
@@ -851,6 +852,21 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "this, so it -- not the 0.5 m orbit radius -- is what "
                          "sets how much parallax the model is asked for")
     ap.add_argument("--synth-cfg", type=float, default=3.0)
+    ap.add_argument("--synth-T", type=int, default=21, metavar="N",
+                    help="frames SEVA denoises per chunk.  The sweep is 20 "
+                         "views, so 21 is one pass; smaller chunks the "
+                         "trajectory and is the knob that fits it on a small "
+                         "card, at the cost of cross-chunk consistency.")
+    ap.add_argument("--vlm-model", default="Qwen/Qwen2.5-VL-3B-Instruct",
+                    help="the VLM `--bearing vlm` reads the frame with")
+    ap.add_argument("--vlm-bits", type=int, default=4, choices=(4, 8, 16),
+                    help="4-bit NF4 is ~2.5 GB and is what fits beside THOR "
+                         "and EGTR on an 8 GB card; 16 is bf16 at 7.5 GB")
+    ap.add_argument("--synth-fp16", action="store_true",
+                    help="build SEVA's three modules in fp16 (~3.5 GB instead "
+                         "of 6.8).  Needed to load at all on an 8 GB card; "
+                         "watch for black frames, which is the SD-2.1 VAE "
+                         "going NaN.")
     ap.add_argument("--synth-two-pass", action="store_true",
                     help="add the trajectory prior.  Off by default: its anchor "
                          "pass is for long trajectories, not for one image over "
@@ -861,7 +877,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--width", type=int, default=800)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
-    ap.add_argument("--out", default="nvs_pilot/move.json")
+    ap.add_argument("--out", default="results/move.json")
     args = ap.parse_args(argv)
 
     from robot.sgg_live import load_egtr
@@ -891,14 +907,23 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     # frame per sweep.  None keeps the old path exactly as it was.
     args.synth_model = None
     if args.synth == "seva":
-        from robot.nvs_seva import Synthesiser
-        from robot.nvs_lemniscate import LOOKAT_DIST
+        from robot.world.nvs_seva import Synthesiser
+        from robot.world.nvs_lemniscate import LOOKAT_DIST
 
         args.synth_model = Synthesiser(
             steps=args.synth_steps, cfg=args.synth_cfg,
             camera_scale=args.synth_camera_scale,
             two_pass=args.synth_two_pass, lookat_dist=LOOKAT_DIST,
-            fov=args.fov, dump=args.synth_dump)
+            fov=args.fov, dump=args.synth_dump, T=args.synth_T,
+            fp16=args.synth_fp16)
+
+    # ONE MODEL FOR THE WHOLE RUN, like the synthesiser above: loading is tens
+    # of seconds and this arm decides once per step.
+    args.vlm_model_obj = None
+    if args.bearing == "vlm":
+        from robot.policy.vlm import Director
+
+        args.vlm_model_obj = Director(model=args.vlm_model, bits=args.vlm_bits)
 
     results: List[Dict[str, Any]] = []
 
@@ -907,7 +932,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             return
         os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
         json.dump({"steps": args.steps, "condition": args.condition,
-                   "synth": args.synth, "cases": results},
+                   "vlm_model": args.vlm_model if args.bearing == "vlm" else None,
+                   "vlm_bits": args.vlm_bits if args.bearing == "vlm" else None,
+                   "synth": args.synth, "synth_T": args.synth_T,
+                   "synth_fp16": args.synth_fp16,
+                   "synth_steps": args.synth_steps, "cases": results},
                   open(args.out, "w"), indent=1)
 
     for index, case in enumerate(cases, 1):

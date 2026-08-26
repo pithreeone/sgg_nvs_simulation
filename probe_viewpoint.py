@@ -53,12 +53,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--width", type=int, default=800)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
-    ap.add_argument("--out", default="nvs_pilot/probe_viewpoint.json")
+    ap.add_argument("--out", default="results/probe_viewpoint.json")
     args = ap.parse_args(argv)
 
     from eval_move import look, perceive, walk
     from fuse_live import task_for
-    from robot.proc_scene import Robot, open_room, rebuild
+    from robot.world.proc_scene import Robot, open_room, rebuild
     from robot.sgg_live import load_egtr
 
     cases = json.load(open(args.cases))["cases"]

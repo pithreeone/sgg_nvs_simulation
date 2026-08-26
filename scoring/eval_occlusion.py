@@ -60,7 +60,7 @@ import sys
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 from scoring.analyze_multiview import build_synonyms, iou, same_class
-from gen.occlusion import MAX_OCCLUSION
+from build.sgg.occlusion import MAX_OCCLUSION
 
 INVERSE = {
     "above": "under", "under": "above",

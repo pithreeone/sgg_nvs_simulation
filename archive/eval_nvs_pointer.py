@@ -50,7 +50,7 @@ Everything is re-measured at every pose.  Boxes, occlusion and the graph belong
 to the frame in front of the robot; nothing is carried from the reference.
 
     python find_cases.py --n 20 --out datasets/robot/cases.json
-    python eval_nvs_pointer.py --cases datasets/robot/cases.json --out nvs_pilot
+    python eval_nvs_pointer.py --cases datasets/robot/cases.json --out results
 """
 
 from __future__ import annotations
@@ -64,12 +64,12 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from robot import drive
-from robot.drive_triplet_scene import (agent_masks, geometry, measure,
+from robot.world import proc_scene
+from robot.task.measure import (agent_masks, geometry, measure,
                                        pose_of, visible_only)
-from robot.nvs_lemniscate import camera_for, lemniscate, look_at_point, park_once, sweep
-from robot.robot_controller import horizon_towards, yaw_towards
-from robot.task_find import build_tasks, draw, grade, put_in_front, regrade
+from robot.world.nvs_lemniscate import camera_for, lemniscate, look_at_point, park_once, sweep
+from robot.world.robot_controller import horizon_towards, yaw_towards
+from robot.task.task_find import build_tasks, draw, grade, put_in_front, regrade
 from vg.vg150 import THOR_TO_VG150
 
 #: The body height NEVER changes when projecting a lemniscate pose, and the
@@ -112,7 +112,7 @@ def stand_at(rc, xz: np.ndarray, target_xyz: np.ndarray) -> Optional[Dict[str, A
     was already standing on.  Measured on the first 20-case run: 6 of the 9
     cases that had a pointer moved 0.00 m.
 
-    `snapToGrid` is off (see `drive.py`), so THOR accepts an arbitrary position
+    `snapToGrid` is off (see `proc_scene.py`), so THOR accepts an arbitrary position
     and reports whether it was legal.  Trying the exact spot first and keeping
     the navmesh only as the fallback preserves sub-grid moves without letting
     the agent be teleported into a wall.
@@ -328,7 +328,7 @@ def sweep_at(rc, task: Dict[str, Any], names: Sequence[str],
 
 def run_case(case: Dict[str, Any], args, egtr, predict, cv2,
              rng: random.Random) -> Optional[Dict[str, Any]]:
-    rc = drive.open_scene(case["scene"], args.width, args.height, args.fov,
+    rc = proc_scene.open_scene(case["scene"], args.width, args.height, args.fov,
                           case["start"])
     try:
         # Two lists, and the difference matters.  Tasks are built only from what
@@ -550,7 +550,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                     help="also write each synthesised view at full resolution "
                          "(~16 MB per case); the contact sheet is always written")
     ap.add_argument("--sgg-root", default=None)
-    ap.add_argument("--out", default="nvs_pilot")
+    ap.add_argument("--out", default="results")
     args = ap.parse_args(argv)
 
     import cv2

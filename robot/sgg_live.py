@@ -1,7 +1,7 @@
 """
 sgg_live.py -- drive the robot and run EGTR on what it sees.
 
-The scene comes from `drive.py` (stock THOR, no clutter, no ground truth) and the
+The scene comes from `proc_scene.py` (stock THOR, no clutter, no ground truth) and the
 scene graph comes from `../sgg_nvs`, loaded once and kept on the GPU.  Press
 SPACE and the current frame goes through EGTR; the top-K triplets are drawn on
 it.  Nothing here is scored against anything -- what you see is what the network
@@ -27,7 +27,7 @@ Keys
 from __future__ import annotations
 
 # `python robot/<script>.py` puts robot/ on sys.path, not the repo root, so the
-# top-level packages would not import.  Same bootstrap as gen/.
+# top-level packages would not import.  Same bootstrap as build/sgg/.
 import os as _os
 import sys as _sys
 
@@ -90,10 +90,19 @@ def load_egtr(sgg_root: str = SGG_ROOT, artifact: str = ARTIFACT,
     artifact_path = os.path.join(root, artifact)
     architecture_path = os.path.join(root, architecture)
 
-    with open(os.path.join(root, "obj_categories.json")) as fh:
-        obj_names = {int(k): v for k, v in json.load(fh).items()}
-    with open(os.path.join(root, "rel_categories.json")) as fh:
-        raw = json.load(fh)
+    # THE CATEGORY LISTS MOVED into `data/` when sgg_nvs was reorganised; older
+    # checkouts keep them at the root.  Both are looked at, so this file does not
+    # break on either layout.
+    def categories(name):
+        for where in (os.path.join(root, "data", name),
+                      os.path.join(root, name)):
+            if os.path.exists(where):
+                with open(where) as fh:
+                    return json.load(fh)
+        raise FileNotFoundError(f"{name} in neither {root} nor {root}/data")
+
+    obj_names = {int(k): v for k, v in categories("obj_categories.json").items()}
+    raw = categories("rel_categories.json")
     # Stored 1-based as a dict; the model's relation index is 0-based over the
     # same order (VG's `rel_categories` minus `__background__`), so it has to be
     # rebuilt as a list rather than indexed by the integer.
@@ -324,7 +333,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     import cv2
 
-    from robot import drive
+    from robot.world import proc_scene
 
     state = load_egtr(args.sgg_root)
 
@@ -354,11 +363,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         store(frame, triplets, elapsed, 0)
         return 0
 
-    rc = drive.open_scene(args.scene, args.width, args.height, args.fov,
+    rc = proc_scene.open_scene(args.scene, args.width, args.height, args.fov,
                           args.start,
-                          step=args.step or drive.STEP_M,
-                          turn=args.turn or drive.TURN_DEG)
-    look = args.look or drive.LOOK_DEG
+                          step=args.step or proc_scene.STEP_M,
+                          turn=args.turn or proc_scene.TURN_DEG)
+    look = args.look or proc_scene.LOOK_DEG
     try:
         triplets, elapsed = run(rc.event.frame)
         stale, saves = False, 0
@@ -389,7 +398,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 rc.set_height_level(
                     "crouch" if rc.height_level == "stand" else "stand")
             elif key == ord(" "):
-                print(drive.pose_line(rc))
+                print(proc_scene.pose_line(rc))
                 triplets, elapsed = run(rc.event.frame)
                 moved, stale = False, False
             elif key == ord("p"):
@@ -399,7 +408,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             else:
                 moved = False
             if moved:
-                print(drive.pose_line(rc))
+                print(proc_scene.pose_line(rc))
                 if args.auto:
                     triplets, elapsed = run(rc.event.frame)
                     stale = False

@@ -30,7 +30,7 @@ reason measured rather than assumed:
 from __future__ import annotations
 
 # `python analysis/<script>.py` puts analysis/ on sys.path, not the repo root, so
-# the top-level modules would not import.  Same bootstrap as gen/.
+# the top-level modules would not import.  Same bootstrap as build/sgg/.
 import os as _os
 import sys as _sys
 

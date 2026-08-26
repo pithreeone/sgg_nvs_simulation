@@ -74,7 +74,7 @@ def score_views(built, egtr, cand, task, rendered, args,
 
     from lib.fusion import channels as ch
     from fuse_live import GATE_COS, CORR
-    from robot.task_find import iou
+    from robot.task.task_find import iou
     from typing import Dict as _D
 
     subjects, objects = cand
@@ -257,7 +257,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     ap.add_argument("--cases", default="datasets/robot/cases_hard.json")
     ap.add_argument("--n", type=int, default=0, help="0 = all")
-    ap.add_argument("--oracle", default="nvs_pilot/probe_viewpoint_r15.json",
+    ap.add_argument("--oracle", default="results/probe_viewpoint_r15.json",
                     help="which side reaches rank 1, from probe_viewpoint.py")
     ap.add_argument("--condition", type=int, default=10)
     ap.add_argument("--cand-nms", type=float, default=0.0)
@@ -272,12 +272,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--width", type=int, default=800)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
-    ap.add_argument("--out", default="nvs_pilot/probe_sideview.json")
+    ap.add_argument("--out", default="results/probe_sideview.json")
     args = ap.parse_args(argv)
 
     from eval_move import perceive
     from fuse_live import conditioned, task_for
-    from robot.proc_scene import Robot, open_room, rebuild
+    from robot.world.proc_scene import Robot, open_room, rebuild
     from robot.sgg_live import load_egtr
 
     # The oracle side, from the viewpoint sweep.

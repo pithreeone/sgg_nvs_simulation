@@ -14,7 +14,7 @@ and moving it means editing `load_eval` in the same commit.
     analyze_multiview.py  the shared matching primitives underneath it --
                           `build_synonyms`, `iou`, `same_class`, `ranked`
 
-Note the robot experiment does NOT score through here.  `robot.task_find.grade`
+Note the robot experiment does NOT score through here.  `robot.task.task_find.grade`
 answers a different question -- did THIS instruction ground on THAT instance --
 and the two graders are deliberately separate.
 """

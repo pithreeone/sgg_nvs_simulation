@@ -26,14 +26,14 @@ the dataset's own geometry (gap 0.35 m behind where the landmark would be,
 camera 1.00 m back), WITH NO OCCLUDER AT ALL.  Whatever a class scores here is
 the best any decision rule could do on it, because nothing is hidden.
 
-    python probe_class.py --assets 5 --out nvs_pilot/probe_class.json
+    python probe_class.py --assets 5 --out results/probe_class.json
 """
 
 from __future__ import annotations
 
 # `python archive/<script>.py` puts archive/ on sys.path, not the repo root.
 # These were moved here without it, so they could not import the generators at
-# all; same shim as `gen/` and `build_robotic_task/`.
+# all; same shim as `build/sgg/` and `build/robot/`.
 import os as _os
 import sys as _sys
 if __package__ in (None, ""):
@@ -47,9 +47,9 @@ from typing import Any, Dict, List, Optional, Sequence
 
 import numpy as np
 
-from build_robotic_task.build_tabletop import (NEAR_EDGE_INSET, TABLE, TABLE_MARGIN, TARGET_SIZE,
+from build.robot.build_tabletop import (NEAR_EDGE_INSET, TABLE, TABLE_MARGIN, TARGET_SIZE,
                             catalogue, on_table)
-from robot.proc_scene import (ROOM, aim_at, open_room, place_on, spawn,
+from robot.world.proc_scene import (ROOM, aim_at, open_room, place_on, spawn,
                               surface_top, visible_box, visible_pixels)
 
 #: Every VG150 class with an asset in `TARGET_SIZE` narrow enough to be hidden
@@ -77,7 +77,7 @@ def name_scores(egtr, frame, truth: Sequence[float],
     wide margin on the landmark classes.
     """
     from robot.sgg_live import raw_predict
-    from robot.task_find import iou
+    from robot.task.task_find import iou
 
     raw = raw_predict(egtr, frame)
     probs = raw["probs_softmax"].cpu().numpy()

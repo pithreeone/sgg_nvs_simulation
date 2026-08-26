@@ -432,11 +432,11 @@ before it is rationale (why the relation definition is what it is).
 One command builds it:
 
 ```bash
-python gen/build_occlusion_dataset.py --rooms all --out occlusion_ds4
+python build/sgg/build_occlusion_dataset.py --rooms all --out occlusion_ds4
 ```
 
 Everything that command resolves to, from the constants and CLI defaults in
-`gen/build_occlusion_dataset.py`:
+`build/sgg/build_occlusion_dataset.py`:
 
 | | value |
 |---|---|
@@ -463,7 +463,7 @@ three of its seeds the same sample.
 
 ### The six steps
 
-`build()` in `gen/build_occlusion_dataset.py`, run once per (scene, seed) pair.
+`build()` in `build/sgg/build_occlusion_dataset.py`, run once per (scene, seed) pair.
 
 1. **Open THOR** with `renderInstanceSegmentation=True` and
    `visibilityDistance=15.0`. Every measurement downstream is a pixel count off
@@ -778,7 +778,7 @@ of 60 for `occlusion_ds3`. Per-scene-seed yields are in
 `experiments/build_logs/ds4_build.log` rather than repeated here.
 
 Two generator constants changed. Both are documented at their definitions in
-`gen/build_occlusion_dataset.py`; what follows is what they did to the data.
+`build/sgg/build_occlusion_dataset.py`; what follows is what they did to the data.
 
 **`--rooms all` no longer means all four families.** `DEFAULT_FAMILIES` is
 kitchen / living / bedroom at **ten** scenes each, ranked by `survey_scenes.py`
@@ -927,14 +927,14 @@ So the set that extra views can rescue and one view cannot is 236 relations, 3.3
 of the dataset. Any multi-view or NVS result measured on ds4 is measured on that
 subset, and 236 is a small n to carry a claim. Raising it means staging the
 occlusion rather than letting it arise from scattered clutter — which is what
-`gen/find_walkaround.py` and, in the end, `find_cases.py`'s staged occluders exist
+`build/sgg/find_walkaround.py` and, in the end, `find_cases.py`'s staged occluders exist
 to do, at the cost of leaving this dataset behind.
 
 ### `occlusion_ds4` is not backed up in git
 
 `.gitignore` excludes `occlusion_ds*/` on the grounds that the generator plus a
 seed reproduces them. That holds for ds4 **only against the constants currently
-in `gen/build_occlusion_dataset.py`** — the ten-scene lists, `HEIGHT_RANGE =
+in `build/sgg/build_occlusion_dataset.py`** — the ten-scene lists, `HEIGHT_RANGE =
 (1.0, 1.5)`, `radius = (1.2, 2.0)`, `MAX_OCCLUSION = 0.90`. Changing any of them
 without rebuilding makes the on-disk ds4 unreproducible from HEAD. Rebuild cost
 is ~2 hours of THOR; keep a copy outside git.

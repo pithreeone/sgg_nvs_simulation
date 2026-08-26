@@ -104,10 +104,18 @@ def load_egtr(sgg_root: str = SGG_ROOT, num_queries: int = 200) -> Dict[str, Any
     from model.egtr import DetrForSceneGraphGeneration
 
     artifact = os.path.join(root, ARTIFACT)
-    with open(os.path.join(root, "obj_categories.json")) as fh:
-        obj_names = {int(k): v for k, v in json.load(fh).items()}
-    with open(os.path.join(root, "rel_categories.json")) as fh:
-        raw = json.load(fh)
+    # The lists moved into `data/` when sgg_nvs was reorganised; older checkouts
+    # keep them at the root.  Both are looked at.
+    def categories(name):
+        for where in (os.path.join(root, "data", name),
+                      os.path.join(root, name)):
+            if os.path.exists(where):
+                with open(where) as fh:
+                    return json.load(fh)
+        raise FileNotFoundError(f"{name} in neither {root} nor {root}/data")
+
+    obj_names = {int(k): v for k, v in categories("obj_categories.json").items()}
+    raw = categories("rel_categories.json")
     # Stored 1-based as a dict; the model's relation index is 0-based over the
     # same order, so it is rebuilt as a list rather than indexed by the integer.
     rel_names = [raw[str(i)] for i in range(1, len(raw) + 1)]

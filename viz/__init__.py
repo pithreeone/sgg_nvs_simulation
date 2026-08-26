@@ -14,5 +14,5 @@ and the runnable scripts, which read a file and draw it:
     plot_viewhits.py  which sweep views got the triplet right
 
 Both invocation styles work; each script bootstraps the repo root onto
-sys.path, the same convention as `analysis/` and `gen/`.
+sys.path, the same convention as `analysis/` and `build/sgg/`.
 """

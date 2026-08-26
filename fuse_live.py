@@ -36,7 +36,7 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
-from robot.grounding import (CLASS_ALIASES, candidates, class_mass,
+from robot.policy.grounding import (CLASS_ALIASES, candidates, class_mass,
                              rank_pairs)
 
 #: `lib.fusion` is normally imported inside functions, because `SGG_ROOT` only
@@ -105,7 +105,7 @@ RELABEL_TAU = 0.0
 #: ground truth happens to contain -- that would be peeking at test labels.
 from vg.vg_conventions import TARGET_PREDICATES as RELABEL_VOCAB  # noqa: E402
 
-from robot.nvs_lemniscate import LOOKAT_DIST  # noqa: E402
+from robot.world.nvs_lemniscate import LOOKAT_DIST  # noqa: E402
 
 
 def task_for(case: Dict[str, Any]) -> Dict[str, Any]:
@@ -279,7 +279,7 @@ def consensus_relabel(built: Dict[str, Any], egtr, corr: str = "argmax",
 #: GRADING NEVER SEES THIS.  `top1_correct` overlaps boxes with the ground truth
 #: and reads no class at all, so the metric is not loosened; and both arms and
 #: every rule share `conditioned`, so no comparison is tilted.
-#: `CLASS_ALIASES` now lives in `robot.grounding`, beside the ranking that
+#: `CLASS_ALIASES` now lives in `robot.policy.grounding`, beside the ranking that
 #: spends it, and is re-exported here because half the repo imports it from this
 #: module.  See the import at the top of the file.
 
@@ -335,7 +335,7 @@ def _grade_choice(built: Dict[str, Any], task: Dict[str, Any], geo,
     passed 4 of 40 pairs whose object endpoint was on nothing at all -- the right
     bowl reached by way of a relation to a box that does not exist.
     """
-    from robot.task_find import iou
+    from robot.task.task_find import iou
 
     score, i, j = max(scored)
     truth = geo.get(task["target_name"], {}).get("bbox_visible")
@@ -449,16 +449,16 @@ def run_case(case: Dict[str, Any], args, egtr,
              band: Optional[Sequence[float]] = None
              ) -> Optional[Dict[str, Any]]:
     """Stage the case, sweep it, fuse it, and score both arms on the SAME frame."""
-    from robot import drive
-    from robot.drive_triplet_scene import measure
-    from robot.drive_triplet_scene import geometry
-    from robot.nvs_lemniscate import (camera_for, lemniscate, orbit_centre,
+    from robot.world import proc_scene
+    from robot.task.measure import measure
+    from robot.task.measure import geometry
+    from robot.world.nvs_lemniscate import (camera_for, lemniscate, orbit_centre,
                                       park_once, sweep)
-    from robot.task_find import (STAGE_GRID, build_tasks, put_in_front,
+    from robot.task.task_find import (STAGE_GRID, build_tasks, put_in_front,
                                  stage_at)
     from vg.vg150 import THOR_TO_VG150
 
-    rc = drive.open_scene(case["scene"], args.width, args.height, args.fov,
+    rc = proc_scene.open_scene(case["scene"], args.width, args.height, args.fov,
                           case["start"])
     try:
         nameable = sorted(o["name"] for o in rc.event.metadata["objects"]
@@ -567,9 +567,9 @@ def run_case_proc(case: Dict[str, Any], args, egtr) -> Optional[Dict[str, Any]]:
     room lacks.  `park_once` did, and is replaced by parking in a corner -- the
     point is only that the robot's shadow stays put across all views.
     """
-    from robot.nvs_lemniscate import (camera_for, lemniscate, orbit_centre,
+    from robot.world.nvs_lemniscate import (camera_for, lemniscate, orbit_centre,
                                       sweep)
-    from robot.proc_scene import (ROOM, View, look_from, open_room, rebuild,
+    from robot.world.proc_scene import (ROOM, View, look_from, open_room, rebuild,
                                   visible_box)
 
     controller = open_room(args.width, args.height, args.fov)
@@ -618,7 +618,7 @@ def score_case(built, egtr, task: Dict[str, Any], geo: Dict[str, Any],
     `built` onward they must stay the same computation, or the tabletop numbers
     stop being comparable to the ones already reported.
     """
-    from robot.task_find import regrade
+    from robot.task.task_find import regrade
     from lib.fusion import channels as ch
     from robot.sgg_live import predict
 
@@ -761,7 +761,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--width", type=int, default=800)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
-    ap.add_argument("--out", default="nvs_pilot/fuse_live.json")
+    ap.add_argument("--out", default="results/fuse_live.json")
     args = ap.parse_args(argv)
 
     from robot.sgg_live import load_egtr
