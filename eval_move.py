@@ -371,10 +371,17 @@ def step_to(rc, view: Dict[str, Any], orbit: np.ndarray,
     y = float(rc.agent_position["y"])
     for backoff in BACKOFF:
         spot = hub + (seen_at - hub) * backoff
+        # THE POSE'S OWN AIM, when it has one.  `camera_for`'s views all look at
+        # the orbit centre, so for those the offset is absent and the yaw is
+        # exactly what recomputing gives.  `viewgrid`'s carry a `yaw_offset`,
+        # which is a real degree of freedom -- where the robot LOOKS is a
+        # separate variable from where it STANDS -- and dropping it collapsed
+        # every position's three candidates onto one.
+        aim = yaw_towards(spot, hub) + float(view.get("yaw_offset", 0.0))
         if rc.teleport(position={"x": float(spot[0]), "y": y,
                                  "z": float(spot[1])},
-                       yaw=yaw_towards(spot, hub), horizon=0.0):
-            rc.teleport(yaw=yaw_towards(spot, hub),
+                       yaw=aim, horizon=0.0):
+            rc.teleport(yaw=aim,
                         horizon=horizon_towards(rc.camera_xyz, orbit))
             return float(np.linalg.norm(spot - here))
     return None
@@ -384,6 +391,10 @@ def step_to(rc, view: Dict[str, Any], orbit: np.ndarray,
 #: rather than assuming both.
 ARMS = ("evidence", "random")
 
+#: The view rules `--policy` accepts, in `viewpick.pick_view`'s own order.
+BEARINGS = ("reveal", "attrib", "bin", "visible", "side", "volatility",
+            "node", "edge", "acr", "vlm")
+
 
 def arms_in(row) -> tuple:
     """The arms this result row actually carries, in ARMS order."""
@@ -391,7 +402,8 @@ def arms_in(row) -> tuple:
 
 
 def rollout(rc, case, task, egtr, args, guided: bool, bearings, start_pose,
-            start, seed_view=None, seed_orbit=None) -> Dict[str, Any]:
+            start, seed_view=None, seed_orbit=None, drawn=None,
+            grid_centre=None) -> Dict[str, Any]:
     """One policy from the start pose.
 
     FIXED LENGTH: the episode always walks `--steps` steps and is graded at each
@@ -453,6 +465,9 @@ def rollout(rc, case, task, egtr, args, guided: bool, bearings, start_pose,
                 seed_view, seed_orbit = ((reading["view"], reading["orbit"])
                                          if reading else (None, None))
             view, orbit, source = seed_view, seed_orbit, "evidence"
+        elif drawn:
+            view, orbit = drawn[k], grid_centre
+            source = "random"
         else:
             view, orbit = random_pose(rc, *bearings[k])
             source = "random"
@@ -668,23 +683,62 @@ def run_episode(rc, case: Dict[str, Any], task: Dict[str, Any], egtr, args,
                   "yaw": rc.agent_yaw, "horizon": rc.camera_horizon}
     # The ANSWER at step 0, from the single real frame.
     start = look(rc, task, egtr, args)
-    # The start-pose sweep, taken once and given to both arms.
-    seed_read = perceive(rc, case, task, egtr, args,
-                         want_record=bool(args.figures))
-    if seed_read is None:
-        return None
-    seed_view, seed_orbit = seed_read["view"], seed_read["orbit"]
-    if args.figures:
-        save_sweep(seed_read, case, task, egtr, args, step=0)
-    rc.teleport(position=start_pose["position"], yaw=start_pose["yaw"],
-                horizon=start_pose["horizon"])
+    # The start-pose sweep.  ONLY THE EVIDENCE ARM ASKS FOR IT -- a control that
+    # draws its pose at random never reads the answer, and taking it anyway cost
+    # one EGTR pass over 20 views per case for nothing.  `orbit` it also returns
+    # is needed either way, so when there is no sweep it is read straight off
+    # the depth frame, which is where `perceive` gets it too.
+    seed_view = seed_orbit = None
+    if args.arm == "evidence":
+        seed_read = perceive(rc, case, task, egtr, args,
+                             want_record=bool(args.figures))
+        if seed_read is None:
+            return None
+        seed_view, seed_orbit = seed_read["view"], seed_read["orbit"]
+        if args.figures:
+            save_sweep(seed_read, case, task, egtr, args, step=0)
+        rc.teleport(position=start_pose["position"], yaw=start_pose["yaw"],
+                    horizon=start_pose["horizon"])
+    else:
+        from robot.world.nvs_lemniscate import LOOKAT_DIST, look_at_point
 
-    # THE CONTROL'S POSES, drawn from the same box the lemniscate spans, and
-    # seeded on the CASE so a rerun walks the same control trajectory.
+        seed_orbit = look_at_point(rc.camera_xyz.copy(), rc.agent_yaw,
+                                   rc.camera_horizon, LOOKAT_DIST)
+
+    # THE CONTROL'S POSES, seeded on the CASE so a rerun walks the same control
+    # trajectory.  TWO CONTROLS, answering two questions:
+    #
+    #   wedge  the same box the lemniscate spans, so both arms choose from one
+    #          action space and the comparison isolates the CHOICE.  This is the
+    #          ablation: does scoring beat picking at random from the same menu.
+    #   grid   anywhere in the room the robot can stand with the pair in frame.
+    #          A larger space than the method's own, on purpose -- the method
+    #          decides where to synthesise and that decision is part of it.  So
+    #          this reads as system against an aimless robot, and the gap is NOT
+    #          attributable to scoring alone.  Report it beside `wedge`.
     rng = random.Random(f"{case['scene']}/{case['target_name']}")
+    grid: List[Dict[str, Any]] = []
+    grid_centre = None
+    if args.control == "grid":
+        from robot.world.proc_scene import ROOM
+        from robot.world.viewgrid import feasible
+
+        from robot.world import viewgrid
+
+        # LANDMARK FIRST: it is the object nearer the camera in
+        # "find the {target} behind the {landmark}", which is what fixes
+        # azimuth 0 -- see `viewgrid`.
+        grid, centre_xz, why = feasible(
+            rc, landmark_xz, target_xz, args.fov, args.width, args.height,
+            ROOM, span=(viewgrid.SPAN if args.control_span is None
+                        else args.control_span))
+        grid_centre = np.array([centre_xz[0], float(rc.agent_position["y"]),
+                                centre_xz[1]], float)
+        print(f"    grid {len(grid)} poses  rejected {why}", flush=True)
     bearings = [(rng.uniform(-args.max_az, args.max_az),
                  rng.uniform(-args.max_el, args.max_el))
                 for _ in range(args.steps)]
+    drawn = [rng.choice(grid) for _ in range(args.steps)] if grid else []
 
     out = {"scene": case["scene"], "instruction": case["instruction"],
            # The verdict at the START pose, which is the "do not move" control
@@ -697,11 +751,11 @@ def run_episode(rc, case: Dict[str, Any], task: Dict[str, Any], egtr, args,
                          round(float(seed_orbit[2]), 3)],
            "target_xz": [round(v, 3) for v in target_xz],
            "landmark_xz": [round(v, 3) for v in landmark_xz]}
-    arms = (("evidence", True),) if args.no_control else (("evidence", True),
-                                                          ("random", False))
+    arms = ((args.arm, args.arm == "evidence"),)
     for arm, guided in arms:
         out[arm] = rollout(rc, case, task, egtr, args, guided, bearings,
-                           start_pose, start, seed_view, seed_orbit)
+                           start_pose, start, seed_view, seed_orbit,
+                           drawn=drawn, grid_centre=grid_centre)
     if args.figures:
         render_trail(out, case, args)
     for arm in arms_in(out):
@@ -755,37 +809,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "pose's views and what each grounds the instruction "
                          "to; `trail` is every pose the robot then looked from, "
                          "one row per arm.")
-    ap.add_argument("--no-control", action="store_true",
-                    help="run only the `evidence` arm, halving the wall clock.  "
-                         "For RENDERS, not for claims: with no control there is "
-                         "nothing to attribute a success to.")
-    ap.add_argument("--bearing",
-                    choices=("attrib", "bin", "visible", "side", "volatility",
-                             "reveal", "node", "edge", "acr", "vlm"),
-                    default="bin",
-                    help="how the sweep becomes a heading.  `bin` averages the "
-                         "azimuths of views that named the instructed predicate "
-                         "and is gated on the lexical match -- 39%% of guided "
-                         "steps then had no NVS input.  `visible` heads for the "
-                         "single view that most INCREASED p(subject class).  "
-                         "`side` compares how many of the instruction's "
-                         "candidates the LEFT half of the sweep still sees "
-                         "against the right half, and steps `--side-step` "
-                         "degrees toward the better one: 36 of 40 on "
-                         "cases_hard against 20 for the best fixed angle, 17.4 "
-                         "for random and 13 for standing still.  It always "
-                         "speaks, so no step falls back to the control.  "
-                         "`volatility` weights each candidate triplet by how "
-                         "much its RANK moves across the sweep and scores a view "
-                         "by how highly it ranks the unstable ones: same side "
-                         "accuracy, but it separates views within a side far "
-                         "better (AUC 0.88 against 0.76).  Steps `--side-step` "
-                         "the same way.  `reveal` adds two standardised halves: "
-                         "how many of the instruction's candidates the view sees, "
-                         "and how much more like the instructed class one of them "
-                         "looks than it usually does.  The only rule measured to "
-                         "carry signal on BOTH cases_hard and cases_slot, which "
-                         "need different evidence.")
     ap.add_argument("--stop-score", type=float, default=None, metavar="LOG10",
                     help="stop at the first pose whose top-1 scores at least "
                          "this, in log10 of `rel * s * s` on a REAL frame.  "
@@ -812,9 +835,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "confidence over ALL classes, so it can be high for a "
                          "box the detector is merely sure is a chair.  Measured "
                          "over 4528 instructions on datasets/sgg/occlusion_ds4 "
-                         "(analysis/eval_grounding.py): 30.6% against 29.9%, and "
-                         "`s` degrades faster as the shortlist grows -- 23.1% "
-                         "against 28.2% at K=40.  `s` was the default until "
+                         "(analysis/eval_grounding.py): 30.6%% against 29.9%%, and "
+                         "`s` degrades faster as the shortlist grows -- 23.1%% "
+                         "against 28.2%% at K=40.  `s` was the default until "
                          "then, so numbers from before that are not comparable.")
     ap.add_argument("--pair-iou", type=float, default=0.0, metavar="IOU",
                     help="reject a pair whose two boxes overlap this much: it is "
@@ -857,8 +880,26 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "views, so 21 is one pass; smaller chunks the "
                          "trajectory and is the knob that fits it on a small "
                          "card, at the cost of cross-chunk consistency.")
-    ap.add_argument("--vlm-model", default="Qwen/Qwen2.5-VL-3B-Instruct",
-                    help="the VLM `--bearing vlm` reads the frame with")
+    ap.add_argument("--policy", default="reveal",
+                    choices=tuple(BEARINGS) + ("random", "random-grid"),
+                    help="THE ONE ARM THIS RUN WALKS.  A rule name runs the "
+                         "method; `random` draws from the box the sweep spans "
+                         "and `random-grid` from every pose in the room that "
+                         "keeps the pair in frame.  One run, one row -- the two "
+                         "arms used to walk together, which made a run that "
+                         "changed one of them re-measure the other.")
+    ap.add_argument("--control-span", type=float, default=None, metavar="DEG",
+                    help="degrees of azimuth `--control grid` keeps about the "
+                         "pair's own axis (default: viewgrid.SPAN, 150).  360 "
+                         "keeps the whole floor, including the far side where "
+                         "the instructed predicate is no longer true.")
+    # THE DEFAULT IS READ FROM THE MODULE, not repeated here.  Repeating it meant
+    # a run asking for one model silently got the other: `vlm.MODEL` moved to 7B
+    # and this string did not, so two runs an hour apart produced byte-identical
+    # results and both were 3B.
+    ap.add_argument("--vlm-model", default=None,
+                    help="the VLM `--policy vlm` reads the frame with "
+                         "(default: robot.policy.vlm.MODEL)")
     ap.add_argument("--vlm-bits", type=int, default=4, choices=(4, 8, 16),
                     help="4-bit NF4 is ~2.5 GB and is what fits beside THOR "
                          "and EGTR on an 8 GB card; 16 is bf16 at 7.5 GB")
@@ -874,7 +915,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--synth-dump", metavar="DIR", default=None,
                     help="write every synthesised sweep here, to look at")
     ap.add_argument("--iou", type=float, default=0.5)
-    ap.add_argument("--width", type=int, default=800)
+    # SQUARE, because SEVA works on a square latent grid and a 4:3 input is
+    # letterboxed into it.  THOR's `fieldOfView` is VERTICAL, so 60 degrees at
+    # 800x600 was 75.6 degrees WIDE and at 600x600 is 60 -- the robot sees a
+    # narrower slice of the room, and the case lists were staged at the old
+    # aspect.  Recorded in the output either way.
+    ap.add_argument("--width", type=int, default=600)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
     ap.add_argument("--out", default="results/move.json")
@@ -917,12 +963,21 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             fov=args.fov, dump=args.synth_dump, T=args.synth_T,
             fp16=args.synth_fp16)
 
+    # ONE FLAG, THREE THINGS IT USED TO TAKE.  `--policy` names the arm this run
+    # walks; `--bearing`, `--control` and `--no-control` were three flags whose
+    # legal combinations were not all meaningful (a `--bearing` with
+    # `--no-control` off silently measured a second arm nobody asked for).
+    args.arm = "random" if args.policy.startswith("random") else "evidence"
+    args.control = "grid" if args.policy == "random-grid" else "wedge"
+    args.bearing = args.policy if args.arm == "evidence" else None
+
     # ONE MODEL FOR THE WHOLE RUN, like the synthesiser above: loading is tens
     # of seconds and this arm decides once per step.
     args.vlm_model_obj = None
-    if args.bearing == "vlm":
-        from robot.policy.vlm import Director
+    if args.policy == "vlm":
+        from robot.policy.vlm import MODEL, Director
 
+        args.vlm_model = args.vlm_model or MODEL
         args.vlm_model_obj = Director(model=args.vlm_model, bits=args.vlm_bits)
 
     results: List[Dict[str, Any]] = []
@@ -932,8 +987,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             return
         os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
         json.dump({"steps": args.steps, "condition": args.condition,
-                   "vlm_model": args.vlm_model if args.bearing == "vlm" else None,
-                   "vlm_bits": args.vlm_bits if args.bearing == "vlm" else None,
+                   "policy": args.policy,
+                   "control_span": args.control_span,
+                   "vlm_model": args.vlm_model if args.policy == "vlm" else None,
+                   "vlm_bits": args.vlm_bits if args.policy == "vlm" else None,
                    "synth": args.synth, "synth_T": args.synth_T,
                    "synth_fp16": args.synth_fp16,
                    "synth_steps": args.synth_steps, "cases": results},
@@ -977,14 +1034,30 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             print(f"  {arm:16s}"
                   + "".join(f"{v:>6}/{n:<3}" for v in row)
                   + f"{sum(1 for r in results if r[arm]['best']):>7}/{n:<3}")
-        print("\n  `stay` is the same pose for both arms, so that column is the "
-              "control.\n  `best pose` is any pose after moving -- the ceiling a "
+        print("\n  `stay` is the start pose, which every policy shares, so that "
+              "column is\n  the do-not-move control and is comparable across "
+              "runs.\n  `best pose` is any pose after moving -- the ceiling a "
               "stopping rule could reach.")
         print("\n  Walking the fixed steps, then returning to the "
               "highest-scoring pose:\n")
         for arm in arms_in(results[0]):
             print(f"  {arm:16s}"
                   f"{sum(1 for r in results if r[arm]['revisit']):>6}/{n:<3}")
+        # HOW FAR IT WALKED FOR THAT.  Two policies at the same accuracy are not
+        # the same policy if one crossed the room to get there, and the action
+        # spaces differ by design: `random` draws from the wedge the sweep
+        # spans, `random-grid` from the whole feasible floor.  The median as
+        # well as the mean, because one case that backed off across the room
+        # moves a 40-case mean by more than it should.
+        print("\n  Metres walked over the fixed steps:\n")
+        for arm in arms_in(results[0]):
+            walked = sorted(float(r[arm]["metres"]) for r in results)
+            mid = (walked[len(walked) // 2] if len(walked) % 2
+                   else (walked[len(walked) // 2 - 1]
+                         + walked[len(walked) // 2]) / 2.0)
+            print(f"  {arm:16s}{sum(walked) / n:>6.2f} m mean"
+                  f"{mid:>8.2f} m median"
+                  f"{walked[-1]:>8.2f} m max")
         if args.stop_score is not None:
             # WHERE THE ROBOT ACTUALLY STOPPED, which is the only column a
             # deployed robot gets.  The columns above are diagnostics: they

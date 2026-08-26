@@ -29,5 +29,7 @@ One line each: what it asked, and what it found.
 
 `probe_viewpoint.py` (which angles work — the ceiling) -> `probe_sideview.py`
 (per-view sweep data) -> `probe_viewdist.py` (the distribution) ->
-`eval_viewdist.py` (grade it against the ladder) -> `eval_move.py` (walk it).
+`eval_move.py` (walk it).  `eval_viewdist.py`, which graded the
+distribution's heading against the ladder, went on 2026-08-26 with the P-hat
+it graded.
 See `reports/0821.md`.

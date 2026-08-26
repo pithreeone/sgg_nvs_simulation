@@ -501,7 +501,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--min-occlusion", type=float, default=0.25)
     ap.add_argument("--target-occlusion", type=float, default=0.35)
     ap.add_argument("--max-occlusion", type=float, default=0.50)
-    ap.add_argument("--width", type=int, default=800)
+    # SQUARE, to match the experiment; see `build_slot`.
+    ap.add_argument("--width", type=int, default=600)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
     # WHICH CLASSES, as flags rather than by editing the constants, because those

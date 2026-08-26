@@ -98,8 +98,9 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
     if bearing == "vlm":
         # THE BASELINE ARM.  It reads the robot's own frame and nothing else --
         # no sweep, no fusion, no detector -- so it is the number a policy that
-        # looks at the picture has to beat.  See `robot/vlm.py` for what the
-        # model is and is not asked.
+        # looks at the picture has to beat.  The DIRECTION is the model's own
+        # answer; see `robot/policy/vlm.py` for the wording that gets one, and
+        # for the several that get a constant instead.
         #
         # ONE BIT BUYS ONE AXIS.  A side is not a pose, so the vote goes through
         # `nearest_view` exactly as `bin` and `visible` do, and the elevation is
@@ -109,8 +110,7 @@ def pick_view(bearing: str, side_step: float, built: Dict[str, Any],
             return votes, view, detail
         said = vlm.direction(reference, task["subject_class"],
                              task["object_class"])
-        detail.append({"said": said, **{k: v for k, v in vlm.last.items()
-                                        if k != "reply"}})
+        detail.append(dict(vlm.last))
         if said is None:
             return votes, view, detail
         # POSITIVE AZIMUTH IS THE ROBOT'S LEFT; see `nvs_lemniscate.camera_for`.

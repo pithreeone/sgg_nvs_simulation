@@ -269,7 +269,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--trust", type=int, default=10)
     ap.add_argument("--radius-scale", type=float, default=1.5)
     ap.add_argument("--save-trail", default=None)
-    ap.add_argument("--width", type=int, default=800)
+    # SQUARE, because SEVA works on a square latent grid and a 4:3 input is
+    # letterboxed into it.  THOR's `fieldOfView` is VERTICAL, so 60 degrees at
+    # 800x600 was 75.6 degrees WIDE and at 600x600 is 60 -- the robot sees a
+    # narrower slice of the room, and the case lists were staged at the old
+    # aspect.  Recorded in the output either way.
+    ap.add_argument("--width", type=int, default=600)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
     ap.add_argument("--out", default="results/probe_sideview.json")

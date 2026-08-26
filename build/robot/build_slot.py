@@ -238,12 +238,19 @@ STANDING = False
 #: 0.45` is the other side of it and nothing else needs changing to take it.
 GAP = 0.55
 
-#: How far the camera stands from the target, metres, nearest-first.  Longer
-#: than `build_tabletop.STANDOFF` because `GAP` pushes the target onto the far
-#: half of the table while the agent capsule still has to clear the near edge:
-#: at `gap` 0.50 the target sits ~0.85 m in from that edge and nothing under
-#: about 1.05 m is legal.
-STANDOFF = (1.05, 1.15, 1.30, 1.45, 1.60)
+#: How far the camera stands from the target, metres, nearest-first.  1.05 was
+#: the geometric floor -- `GAP` pushes the target onto the far half of the table
+#: while the agent capsule still has to clear the near edge -- and standing at
+#: that floor filled the frame with the landmark, which `--max-landmark-ratio`
+#: then rejected as "it swallows the picture".  Standing back is the fix for
+#: that; the ratio cap was treating the symptom, and is off by default now.
+#:
+#: Still nearest-first, so a case takes the closest LEGAL distance and only
+#: backs off when the room refuses.  The short end is gone rather than the order
+#: reversed: 2.40 m is against the wall for a target at z ~ 2.7 in a 4 m room, so
+#: farthest-first would put most cases at whichever distance happened to be
+#: legal rather than at a distance the list chose.
+STANDOFF = (2.00, 2.20, 2.40)
 
 #: Azimuths swept, degrees.  Past +-30 ON PURPOSE: the sweep has to show that
 #: the window CLOSES inside the reachable range, and a curve stopping at the
@@ -847,7 +854,7 @@ def one_case(controller, rng: random.Random, index: int, args,
     if best["px"] >= occluder_px:
         return reject(f"target is {best['px']} px against the landmark's "
                       f"{occluder_px}: the target is the bigger object")
-    if occluder_px > args.max_landmark_ratio * best["px"]:
+    if args.max_landmark_ratio and occluder_px > args.max_landmark_ratio * best["px"]:
         return reject(f"landmark is {occluder_px / best['px']:.1f}x the target "
                       f"({occluder_px} px, {occluder_px / (args.width * args.height):.0%} "
                       f"of the frame): it swallows the picture")
@@ -884,6 +891,24 @@ def one_case(controller, rng: random.Random, index: int, args,
         if not solved_at(open_event, egtr, task, args.condition,
                          args.solved_iou):
             return reject("the top-1 pair is wrong even at the best view")
+        # AND IT MUST NOT ALREADY BE ANSWERED FROM THE START POSE.  Without this
+        # the list keeps cases the robot solves standing still -- 21 of the 40 in
+        # `cases_slot` -- and every arm is then scored on a mixture of two
+        # different questions: "can moving fix a wrong answer" on one half, and
+        # "can moving avoid breaking a right one" on the other.  They pull in
+        # opposite directions, so an arm that moves well and an arm that refuses
+        # to move can score the same.  Requiring the start to fail makes every
+        # case ask the first question only.
+        #
+        # Occlusion at the reference view does NOT imply this: `--ref-occlusion`
+        # hides half the target and the top-1 pair is still right about half the
+        # time, because the ranking needs the pair, not the whole silhouette.
+        if args.unsolved_start:
+            start_event = look_along(controller, target_xz, top, radius, 0.0,
+                                     args.standing, pitch, reach=False)[0]
+            if solved_at(start_event, egtr, task, args.condition,
+                         args.solved_iou):
+                return reject("the start pose already answers it")
         step = float(args.sweep[2])
         solved = [best["azimuth"]]
         for row in inside:
@@ -1061,7 +1086,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                          "of zero")
     ap.add_argument("--sweep", type=float, nargs=3, default=list(SWEEP),
                     metavar=("LO", "HI", "STEP"))
-    ap.add_argument("--width", type=int, default=800)
+    # SQUARE, to match the experiment: SEVA works on a square latent grid, and a
+    # case staged at 4:3 would be measured through a different frame than the one
+    # the robot is given.  THOR's `fieldOfView` is VERTICAL, so 60 degrees here
+    # is 60 wide, where at 800x600 it was 75.6.
+    ap.add_argument("--width", type=int, default=600)
     ap.add_argument("--height", type=int, default=600)
     ap.add_argument("--fov", type=float, default=60.0)
     # Classes as flags, size bands as `ROLES`, on the split `build_tabletop`
@@ -1107,15 +1136,26 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                     help="reject a case unless `fuse_live.decide`'s top-1 pair "
                          "is correct across a contiguous arc at least this "
                          "wide.  0 turns the screen off")
+    ap.add_argument("--allow-solved-start", dest="unsolved_start",
+                    action="store_false",
+                    help="keep cases the robot already answers from the start "
+                         "pose.  Off by default: such a case cannot show what "
+                         "moving buys, since there is nothing left to fix, and "
+                         "mixing them in scores every arm on two questions at "
+                         "once.")
     ap.add_argument("--solved-iou", type=float, default=0.5, metavar="IOU",
                     help="IoU both endpoints of the top-1 pair must reach for "
                          "the angle to count as solved; `eval_move`'s `--iou`")
     ap.add_argument("--condition", type=int, default=10, metavar="K",
                     help="candidates per side the screen scores, "
                          "`eval_move`'s `--condition`")
-    ap.add_argument("--max-landmark-ratio", type=float, default=10.0,
+    ap.add_argument("--max-landmark-ratio", type=float, default=0.0,
                     metavar="X", help="reject a case whose landmark renders "
-                                      "more than X times the target's pixels")
+                                      "more than X times the target's pixels.  "
+                                      "0 turns it off, which is the default now "
+                                      "that `STANDOFF` starts at 1.60 m: the "
+                                      "cap existed because standing at 1.05 m "
+                                      "filled the frame with the landmark.")
     # 6 was right when geometry was the only screen and roughly one attempt in
     # five survived.  Asking the metric costs about three times that, so the cap
     # became the binding constraint rather than the backstop it is meant to be.

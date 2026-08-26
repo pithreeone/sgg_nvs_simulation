@@ -70,9 +70,14 @@ def draw(ax, case: Dict[str, Any], staged: Optional[Dict[str, Any]] = None
     centre = case.get("centre_xz")
     if staged:
         window(ax, staged)
+    # WHICHEVER ARMS THIS ROW CARRIES.  `--policy` walks ONE arm per run, so a
+    # result file holds `evidence` or `random` and not both; asking for the
+    # missing one raised `KeyError` before the first panel was drawn.
     for name, style, colour in (("evidence", "-", "#1f77b4"),
                                 ("random", "--", "#888888")):
-        arm = case[name]
+        arm = case.get(name)
+        if arm is None:
+            continue
         xs = [s["xz"][0] for s in arm["trail"] if "xz" in s]
         zs = [s["xz"][1] for s in arm["trail"] if "xz" in s]
         if not xs:
@@ -91,7 +96,8 @@ def draw(ax, case: Dict[str, Any], staged: Optional[Dict[str, Any]] = None
     # The shared start.  Drawn last of the path elements and larger than a step
     # marker, because "which end is the beginning" is the first thing anyone
     # asks of a route and the step markers do not say.
-    first = next((s["xz"] for s in case["evidence"]["trail"] if "xz" in s), None)
+    walked = case.get("evidence") or case.get("random") or {"trail": []}
+    first = next((s["xz"] for s in walked["trail"] if "xz" in s), None)
     if first:
         ax.plot(first[0], first[1], "s", color="#ff7f0e", markersize=9,
                 zorder=6, label="start")
