@@ -1,0 +1,8550 @@
+{
+ "steps": 3,
+ "condition": 10,
+ "policy": "reveal",
+ "control_span": null,
+ "vlm_model": null,
+ "vlm_bits": null,
+ "synth": "none",
+ "synth_T": 21,
+ "synth_fp16": false,
+ "synth_steps": 10,
+ "cases": [
+  {
+   "scene": "slot|40",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.067,
+    2.249
+   ],
+   "target_xz": [
+    2.067,
+    2.733
+   ],
+   "landmark_xz": [
+    2.338,
+    2.183
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       322.8,
+       229.8,
+       424.4,
+       326.5
+      ],
+      "top1_object_box": [
+       281.8,
+       215.5,
+       466.8,
+       323.6
+      ],
+      "top1_score": -8.978,
+      "top1_margin": 1.163,
+      "truth_box": [
+       258.0,
+       253.0,
+       323.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.067,
+       0.733
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.244,
+      "xz": [
+       1.826,
+       0.769
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       242.7,
+       245.1,
+       324.1,
+       317.4
+      ],
+      "top1_object_box": [
+       278.9,
+       211.8,
+       466.7,
+       325.0
+      ],
+      "top1_score": -8.814,
+      "top1_margin": 0.622,
+      "truth_box": [
+       235.0,
+       252.0,
+       319.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.243,
+      "xz": [
+       1.594,
+       0.843
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       222.1,
+       240.4,
+       323.8,
+       323.8
+      ],
+      "top1_object_box": [
+       277.4,
+       212.2,
+       466.7,
+       324.5
+      ],
+      "top1_score": -8.987,
+      "top1_margin": 1.045,
+      "truth_box": [
+       215.0,
+       251.0,
+       315.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.242,
+      "xz": [
+       1.832,
+       0.801
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       251.3,
+       242.5,
+       324.7,
+       317.5
+      ],
+      "top1_object_box": [
+       279.8,
+       210.1,
+       467.7,
+       324.4
+      ],
+      "top1_score": -9.017,
+      "top1_margin": 0.585,
+      "truth_box": [
+       233.0,
+       251.0,
+       319.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     true,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.729,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|85",
+   "instruction": "Find the vase behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.978,
+    2.062
+   ],
+   "target_xz": [
+    1.978,
+    2.779
+   ],
+   "landmark_xz": [
+    2.204,
+    2.229
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       146.8,
+       246.6,
+       213.9,
+       321.7
+      ],
+      "top1_object_box": [
+       292.5,
+       147.1,
+       484.0,
+       324.4
+      ],
+      "top1_score": -7.747,
+      "top1_margin": 4.238,
+      "truth_box": [
+       275.0,
+       255.0,
+       300.0,
+       320.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.978,
+       0.779
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -30.0,
+      "elevation": 0.0,
+      "moved": 0.664,
+      "xz": [
+       2.62,
+       0.951
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.534,
+      "matched_at": 10,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       201.9,
+       254.4,
+       264.2,
+       322.6
+      ],
+      "top1_object_box": [
+       297.1,
+       116.5,
+       516.4,
+       327.2
+      ],
+      "top1_score": -8.115,
+      "top1_margin": 1.165,
+      "chosen_box": [
+       193.3,
+       244.7,
+       273.7,
+       325.3
+      ],
+      "object_box": [
+       149.0,
+       114.8,
+       525.2,
+       339.6
+      ],
+      "truth_box": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -28.5,
+      "elevation": 8.8,
+      "moved": 0.616,
+      "xz": [
+       3.051,
+       1.39
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       262.7,
+       253.1,
+       314.5,
+       322.0
+      ],
+      "top1_object_box": [
+       301.4,
+       84.8,
+       545.5,
+       328.6
+      ],
+      "top1_score": -7.322,
+      "top1_margin": 1.476,
+      "truth_box": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": -8.8,
+      "moved": 0.196,
+      "xz": [
+       2.924,
+       1.241
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       242.0,
+       253.3,
+       301.1,
+       320.4
+      ],
+      "top1_object_box": [
+       299.8,
+       93.7,
+       541.7,
+       329.6
+      ],
+      "top1_score": -7.347,
+      "top1_margin": 0.847,
+      "truth_box": null
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 1.476,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|189",
+   "instruction": "Find the vase behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.002,
+    2.056
+   ],
+   "target_xz": [
+    2.002,
+    2.734
+   ],
+   "landmark_xz": [
+    1.964,
+    2.184
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       74.7,
+       273.5,
+       529.7,
+       582.7
+      ],
+      "top1_object_box": [
+       137.4,
+       189.4,
+       322.2,
+       322.0
+      ],
+      "top1_score": -8.643,
+      "top1_margin": 1.694,
+      "truth_box": [
+       300.0,
+       255.0,
+       325.0,
+       320.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.002,
+       0.734
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.213,
+      "xz": [
+       2.213,
+       0.765
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.847,
+      "iou_object": 0.711,
+      "matched_at": 4,
+      "recall": 1,
+      "candidates": 100,
+      "top1_box": [
+       311.4,
+       250.9,
+       355.2,
+       318.2
+      ],
+      "top1_object_box": [
+       139.7,
+       191.4,
+       329.0,
+       324.9
+      ],
+      "top1_score": -7.646,
+      "top1_margin": 1.363,
+      "chosen_box": [
+       311.4,
+       250.9,
+       355.2,
+       318.2
+      ],
+      "object_box": [
+       122.2,
+       177.4,
+       357.0,
+       330.7
+      ],
+      "truth_box": [
+       313.0,
+       255.0,
+       354.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.213,
+      "xz": [
+       2.0,
+       0.762
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       396.6,
+       235.4,
+       448.6,
+       327.7
+      ],
+      "top1_object_box": [
+       133.9,
+       191.2,
+       304.1,
+       325.8
+      ],
+      "top1_score": -11.286,
+      "top1_margin": 0.088,
+      "truth_box": [
+       301.0,
+       255.0,
+       326.0,
+       321.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.208,
+      "xz": [
+       2.206,
+       0.793
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 51,
+      "candidates": 100,
+      "top1_box": [
+       282.9,
+       360.1,
+       363.1,
+       551.6
+      ],
+      "top1_object_box": [
+       136.9,
+       189.3,
+       331.3,
+       324.9
+      ],
+      "top1_score": -9.365,
+      "top1_margin": 1.387,
+      "truth_box": [
+       315.0,
+       254.0,
+       356.0,
+       321.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.635,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|242",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.977,
+    2.524
+   ],
+   "target_xz": [
+    1.977,
+    2.821
+   ],
+   "landmark_xz": [
+    2.403,
+    2.271
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 2,
+      "candidates": 96,
+      "top1_box": [
+       325.7,
+       234.5,
+       483.5,
+       322.2
+      ],
+      "top1_object_box": [
+       315.3,
+       190.0,
+       495.2,
+       325.7
+      ],
+      "top1_score": -9.672,
+      "top1_margin": 0.076,
+      "truth_box": [
+       239.0,
+       251.0,
+       326.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.977,
+       0.821
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.274,
+      "xz": [
+       1.706,
+       0.861
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.915,
+      "matched_at": 10,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       266.0,
+       242.9,
+       337.7,
+       315.4
+      ],
+      "top1_object_box": [
+       310.9,
+       192.2,
+       510.9,
+       323.6
+      ],
+      "top1_score": -8.743,
+      "top1_margin": 2.291,
+      "chosen_box": [
+       472.3,
+       446.0,
+       597.1,
+       595.1
+      ],
+      "object_box": [
+       310.9,
+       192.2,
+       510.9,
+       323.6
+      ],
+      "truth_box": [
+       224.0,
+       249.0,
+       333.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.304,
+      "xz": [
+       2.01,
+       0.857
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       317.1,
+       232.9,
+       474.9,
+       322.7
+      ],
+      "top1_object_box": [
+       294.9,
+       187.6,
+       486.6,
+       324.8
+      ],
+      "top1_score": -10.239,
+      "top1_margin": 0.38,
+      "truth_box": [
+       230.0,
+       250.0,
+       316.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.214,
+      "xz": [
+       1.799,
+       0.888
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.483,
+      "iou_object": 0.922,
+      "matched_at": 1,
+      "recall": 43,
+      "candidates": 99,
+      "top1_box": [
+       243.6,
+       243.6,
+       309.4,
+       316.3
+      ],
+      "top1_object_box": [
+       279.6,
+       188.4,
+       484.1,
+       324.6
+      ],
+      "top1_score": -8.782,
+      "top1_margin": 0.37,
+      "chosen_box": [
+       243.6,
+       243.6,
+       309.4,
+       316.3
+      ],
+      "object_box": [
+       279.6,
+       188.4,
+       484.1,
+       324.6
+      ],
+      "truth_box": [
+       199.0,
+       248.0,
+       304.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.792,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|277",
+   "instruction": "Find the vase behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.012,
+   "centre_xz": [
+    1.98,
+    2.148
+   ],
+   "target_xz": [
+    1.98,
+    2.799
+   ],
+   "landmark_xz": [
+    2.139,
+    2.249
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.012,
+      "iou_object": 0.931,
+      "matched_at": 1,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       131.0,
+       155.7,
+       500.0,
+       562.4
+      ],
+      "top1_object_box": [
+       288.3,
+       170.4,
+       430.8,
+       324.9
+      ],
+      "top1_score": -10.129,
+      "top1_margin": 0.547,
+      "chosen_box": [
+       131.0,
+       155.7,
+       500.0,
+       562.4
+      ],
+      "object_box": [
+       288.3,
+       170.4,
+       430.8,
+       324.9
+      ],
+      "truth_box": [
+       275.0,
+       255.0,
+       302.0,
+       320.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.98,
+       0.799
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.217,
+      "xz": [
+       2.196,
+       0.831
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       173.3,
+       249.8,
+       218.3,
+       326.4
+      ],
+      "top1_object_box": [
+       291.2,
+       167.3,
+       436.6,
+       326.3
+      ],
+      "top1_score": -10.168,
+      "top1_margin": 2.158,
+      "truth_box": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -30.0,
+      "elevation": 0.0,
+      "moved": 0.685,
+      "xz": [
+       2.82,
+       1.113
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.901,
+      "matched_at": 1,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       187.6,
+       131.2,
+       494.1,
+       368.0
+      ],
+      "top1_object_box": [
+       301.1,
+       151.0,
+       458.9,
+       326.3
+      ],
+      "top1_score": -10.881,
+      "top1_margin": 0.83,
+      "chosen_box": [
+       187.6,
+       131.2,
+       494.1,
+       368.0
+      ],
+      "object_box": [
+       301.1,
+       151.0,
+       458.9,
+       326.3
+      ],
+      "truth_box": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -24.3,
+      "elevation": 14.3,
+      "moved": 0.538,
+      "xz": [
+       3.126,
+       1.555
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 2,
+      "candidates": 99,
+      "top1_box": [
+       269.1,
+       175.4,
+       310.6,
+       324.2
+      ],
+      "top1_object_box": [
+       294.8,
+       133.4,
+       466.9,
+       329.1
+      ],
+      "top1_score": -6.133,
+      "top1_margin": 0.981,
+      "truth_box": [
+       464.0,
+       242.0,
+       533.0,
+       325.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 1.441,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|328",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.931,
+    2.36
+   ],
+   "target_xz": [
+    1.931,
+    2.845
+   ],
+   "landmark_xz": [
+    2.172,
+    2.295
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       333.5,
+       204.4,
+       478.9,
+       318.2
+      ],
+      "top1_object_box": [
+       279.0,
+       170.9,
+       502.3,
+       326.5
+      ],
+      "top1_score": -9.993,
+      "top1_margin": 0.115,
+      "truth_box": [
+       245.0,
+       251.0,
+       325.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.931,
+       0.845
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.244,
+      "xz": [
+       1.689,
+       0.881
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 97,
+      "top1_box": [
+       252.4,
+       245.7,
+       327.2,
+       316.5
+      ],
+      "top1_object_box": [
+       284.0,
+       181.6,
+       513.7,
+       327.7
+      ],
+      "top1_score": -19.572,
+      "top1_margin": 1.864,
+      "truth_box": [
+       223.0,
+       248.0,
+       326.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.251,
+      "xz": [
+       1.94,
+       0.877
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.839,
+      "iou_object": 0.502,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       244.5,
+       245.2,
+       324.6,
+       319.2
+      ],
+      "top1_object_box": [
+       248.7,
+       149.1,
+       527.1,
+       409.5
+      ],
+      "top1_score": -10.555,
+      "top1_margin": 1.054,
+      "chosen_box": [
+       244.5,
+       245.2,
+       324.6,
+       319.2
+      ],
+      "object_box": [
+       248.7,
+       149.1,
+       527.1,
+       409.5
+      ],
+      "truth_box": [
+       241.0,
+       250.0,
+       322.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.227,
+      "xz": [
+       1.716,
+       0.91
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       220.8,
+       244.4,
+       320.2,
+       318.6
+      ],
+      "top1_object_box": [
+       277.9,
+       177.8,
+       511.2,
+       328.9
+      ],
+      "top1_score": -18.156,
+      "top1_margin": 2.334,
+      "truth_box": [
+       215.0,
+       248.0,
+       319.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     true,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": false,
+    "steps": 3,
+    "metres": 0.722,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|381",
+   "instruction": "Find the vase behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.091,
+    2.098
+   ],
+   "target_xz": [
+    2.091,
+    2.761
+   ],
+   "landmark_xz": [
+    2.281,
+    2.211
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.59,
+      "matched_at": 9,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       143.3,
+       260.9,
+       215.5,
+       323.6
+      ],
+      "top1_object_box": [
+       292.6,
+       146.4,
+       447.3,
+       324.0
+      ],
+      "top1_score": -8.175,
+      "top1_margin": 2.886,
+      "chosen_box": [
+       131.5,
+       244.5,
+       227.9,
+       331.4
+      ],
+      "object_box": [
+       264.5,
+       131.5,
+       492.2,
+       341.5
+      ],
+      "truth_box": [
+       275.0,
+       255.0,
+       301.0,
+       320.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.091,
+       0.761
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -17.6,
+      "elevation": 14.3,
+      "moved": 0.406,
+      "xz": [
+       2.484,
+       0.861
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.621,
+      "matched_at": 4,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       160.4,
+       252.8,
+       241.7,
+       330.0
+      ],
+      "top1_object_box": [
+       298.0,
+       133.1,
+       471.8,
+       329.8
+      ],
+      "top1_score": -10.922,
+      "top1_margin": 0.209,
+      "chosen_box": [
+       167.8,
+       264.2,
+       236.7,
+       322.9
+      ],
+      "object_box": [
+       254.0,
+       114.1,
+       491.7,
+       342.8
+      ],
+      "truth_box": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -24.3,
+      "elevation": 14.3,
+      "moved": 0.533,
+      "xz": [
+       2.928,
+       1.156
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.781,
+      "matched_at": 7,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       211.9,
+       264.7,
+       277.0,
+       319.9
+      ],
+      "top1_object_box": [
+       301.7,
+       105.7,
+       498.4,
+       328.0
+      ],
+      "top1_score": -7.376,
+      "top1_margin": 2.043,
+      "chosen_box": [
+       153.3,
+       101.9,
+       524.9,
+       361.5
+      ],
+      "object_box": [
+       283.3,
+       94.7,
+       517.3,
+       343.4
+      ],
+      "truth_box": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -24.3,
+      "elevation": 14.3,
+      "moved": 0.51,
+      "xz": [
+       3.198,
+       1.589
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.843,
+      "matched_at": 10,
+      "recall": 12,
+      "candidates": 99,
+      "top1_box": [
+       262.1,
+       263.0,
+       319.7,
+       322.4
+      ],
+      "top1_object_box": [
+       301.1,
+       76.6,
+       506.9,
+       334.0
+      ],
+      "top1_score": -7.559,
+      "top1_margin": 1.148,
+      "chosen_box": [
+       244.7,
+       247.0,
+       337.9,
+       334.8
+      ],
+      "object_box": [
+       290.1,
+       68.8,
+       523.4,
+       341.4
+      ],
+      "truth_box": [
+       489.0,
+       239.0,
+       556.0,
+       327.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 1.449,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|406",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.374,
+   "centre_xz": [
+    2.042,
+    2.6
+   ],
+   "target_xz": [
+    2.042,
+    2.781
+   ],
+   "landmark_xz": [
+    2.322,
+    2.231
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.374,
+      "iou_object": 0.486,
+      "matched_at": 3,
+      "recall": 4,
+      "candidates": 96,
+      "top1_box": [
+       366.5,
+       165.4,
+       466.9,
+       324.0
+      ],
+      "top1_object_box": [
+       303.3,
+       131.2,
+       496.1,
+       325.0
+      ],
+      "top1_score": -10.563,
+      "top1_margin": 1.192,
+      "chosen_box": [
+       295.5,
+       249.3,
+       333.2,
+       310.2
+      ],
+      "object_box": [
+       254.6,
+       100.8,
+       539.7,
+       358.4
+      ],
+      "truth_box": [
+       249.0,
+       250.0,
+       334.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.042,
+       0.781
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.293,
+      "xz": [
+       2.332,
+       0.824
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       0.1,
+       44.3,
+       38.5,
+       446.5
+      ],
+      "top1_object_box": [
+       283.0,
+       119.7,
+       485.0,
+       331.1
+      ],
+      "top1_score": -11.94,
+      "top1_margin": 0.189,
+      "truth_box": [
+       258.0,
+       313.0,
+       312.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "elevation": 0.0,
+      "moved": 0.696,
+      "xz": [
+       1.639,
+       0.893
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       206.7,
+       246.7,
+       281.1,
+       312.5
+      ],
+      "top1_object_box": [
+       268.6,
+       136.2,
+       445.0,
+       327.0
+      ],
+      "top1_score": -7.776,
+      "top1_margin": 3.567,
+      "truth_box": [
+       175.0,
+       246.0,
+       287.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.22,
+      "xz": [
+       1.447,
+       1.001
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.81,
+      "iou_object": 0.97,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       171.5,
+       241.2,
+       258.0,
+       316.0
+      ],
+      "top1_object_box": [
+       268.0,
+       137.6,
+       440.8,
+       326.6
+      ],
+      "top1_score": -9.343,
+      "top1_margin": 0.763,
+      "chosen_box": [
+       171.5,
+       241.2,
+       258.0,
+       316.0
+      ],
+      "object_box": [
+       268.0,
+       137.6,
+       440.8,
+       326.6
+      ],
+      "truth_box": [
+       168.0,
+       245.0,
+       261.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     true,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.209,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|442",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.791,
+   "centre_xz": [
+    2.003,
+    2.089
+   ],
+   "target_xz": [
+    2.003,
+    2.789
+   ],
+   "landmark_xz": [
+    1.857,
+    2.239
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.791,
+      "iou_object": 0.923,
+      "matched_at": 4,
+      "recall": 4,
+      "candidates": 97,
+      "top1_box": [
+       184.5,
+       122.6,
+       307.0,
+       291.0
+      ],
+      "top1_object_box": [
+       155.5,
+       103.3,
+       332.2,
+       327.9
+      ],
+      "top1_score": -9.99,
+      "top1_margin": 2.075,
+      "chosen_box": [
+       323.6,
+       236.4,
+       363.8,
+       313.9
+      ],
+      "object_box": [
+       155.5,
+       103.3,
+       332.2,
+       327.9
+      ],
+      "truth_box": [
+       323.0,
+       243.0,
+       362.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.003,
+       0.789
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -17.6,
+      "elevation": 14.3,
+      "moved": 0.394,
+      "xz": [
+       2.386,
+       0.886
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.844,
+      "iou_object": 0.759,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       350.7,
+       235.9,
+       425.8,
+       320.1
+      ],
+      "top1_object_box": [
+       162.7,
+       81.5,
+       371.5,
+       331.1
+      ],
+      "top1_score": -10.945,
+      "top1_margin": 1.745,
+      "chosen_box": [
+       350.7,
+       235.9,
+       425.8,
+       320.1
+      ],
+      "object_box": [
+       162.7,
+       81.5,
+       371.5,
+       331.1
+      ],
+      "truth_box": [
+       347.0,
+       238.0,
+       421.0,
+       323.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.206,
+      "xz": [
+       2.183,
+       0.853
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.822,
+      "iou_object": 0.0,
+      "matched_at": 2,
+      "recall": 4,
+      "candidates": 98,
+      "top1_box": [
+       178.9,
+       115.8,
+       321.5,
+       296.8
+      ],
+      "top1_object_box": [
+       162.7,
+       96.9,
+       339.5,
+       330.3
+      ],
+      "top1_score": -9.999,
+      "top1_margin": 1.159,
+      "chosen_box": [
+       332.3,
+       235.3,
+       396.9,
+       320.1
+      ],
+      "object_box": [
+       66.4,
+       450.6,
+       215.0,
+       526.9
+      ],
+      "truth_box": [
+       334.0,
+       240.0,
+       392.0,
+       323.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.203,
+      "xz": [
+       2.376,
+       0.912
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.864,
+      "iou_object": 0.764,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       350.5,
+       234.2,
+       427.2,
+       320.5
+      ],
+      "top1_object_box": [
+       159.2,
+       79.2,
+       370.3,
+       334.5
+      ],
+      "top1_score": -10.578,
+      "top1_margin": 2.915,
+      "chosen_box": [
+       350.5,
+       234.2,
+       427.2,
+       320.5
+      ],
+      "object_box": [
+       159.2,
+       79.2,
+       370.3,
+       334.5
+      ],
+      "truth_box": [
+       348.0,
+       237.0,
+       423.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": false,
+    "steps": 3,
+    "metres": 0.802,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|490",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.361,
+   "centre_xz": [
+    1.972,
+    2.578
+   ],
+   "target_xz": [
+    1.972,
+    2.815
+   ],
+   "landmark_xz": [
+    2.285,
+    2.265
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.361,
+      "iou_object": 0.855,
+      "matched_at": 2,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       289.4,
+       242.4,
+       330.8,
+       310.8
+      ],
+      "top1_object_box": [
+       303.5,
+       209.5,
+       444.9,
+       326.8
+      ],
+      "top1_score": -8.269,
+      "top1_margin": 1.324,
+      "chosen_box": [
+       289.4,
+       242.4,
+       330.8,
+       310.8
+      ],
+      "object_box": [
+       293.9,
+       206.7,
+       462.5,
+       324.3
+      ],
+      "truth_box": [
+       239.0,
+       243.0,
+       328.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.972,
+       0.815
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.284,
+      "xz": [
+       1.691,
+       0.857
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       268.8,
+       239.0,
+       341.9,
+       316.6
+      ],
+      "top1_object_box": [
+       305.2,
+       210.3,
+       485.8,
+       326.6
+      ],
+      "top1_score": -6.727,
+      "top1_margin": 2.319,
+      "truth_box": [
+       227.0,
+       242.0,
+       339.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.326,
+      "xz": [
+       2.017,
+       0.852
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.327,
+      "iou_object": 0.615,
+      "matched_at": 3,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       279.1,
+       243.0,
+       314.9,
+       309.5
+      ],
+      "top1_object_box": [
+       278.4,
+       204.7,
+       446.3,
+       323.0
+      ],
+      "top1_score": -8.411,
+      "top1_margin": 1.571,
+      "chosen_box": [
+       279.1,
+       243.0,
+       314.9,
+       309.5
+      ],
+      "object_box": [
+       312.9,
+       208.1,
+       428.1,
+       327.3
+      ],
+      "truth_box": [
+       226.0,
+       242.0,
+       314.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "elevation": 0.0,
+      "moved": 0.674,
+      "xz": [
+       1.366,
+       1.026
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 100,
+      "top1_box": [
+       168.4,
+       235.5,
+       263.2,
+       321.4
+      ],
+      "top1_object_box": [
+       242.8,
+       208.5,
+       418.1,
+       326.6
+      ],
+      "top1_score": -7.658,
+      "top1_margin": 2.819,
+      "truth_box": [
+       125.0,
+       238.0,
+       263.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.284,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|512",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.881,
+    2.437
+   ],
+   "target_xz": [
+    1.881,
+    2.812
+   ],
+   "landmark_xz": [
+    2.191,
+    2.262
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.879,
+      "matched_at": 10,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       288.7,
+       250.2,
+       325.9,
+       312.0
+      ],
+      "top1_object_box": [
+       293.3,
+       197.7,
+       465.5,
+       325.1
+      ],
+      "top1_score": -8.32,
+      "top1_margin": 0.532,
+      "chosen_box": [
+       218.3,
+       449.5,
+       594.8,
+       595.1
+      ],
+      "object_box": [
+       293.3,
+       197.7,
+       465.5,
+       325.1
+      ],
+      "truth_box": [
+       244.0,
+       252.0,
+       325.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.881,
+       0.812
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "elevation": 0.0,
+      "moved": 0.841,
+      "xz": [
+       1.068,
+       1.03
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.508,
+      "iou_object": 0.955,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 95,
+      "top1_box": [
+       246.5,
+       248.1,
+       308.4,
+       321.2
+      ],
+      "top1_object_box": [
+       309.3,
+       209.9,
+       474.8,
+       325.4
+      ],
+      "top1_score": -9.016,
+      "top1_margin": 0.032,
+      "chosen_box": [
+       246.5,
+       248.1,
+       308.4,
+       321.2
+      ],
+      "object_box": [
+       309.3,
+       209.9,
+       474.8,
+       325.4
+      ],
+      "truth_box": [
+       195.0,
+       251.0,
+       306.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -28.5,
+      "elevation": 8.8,
+      "moved": 0.765,
+      "xz": [
+       1.809,
+       0.838
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.449,
+      "iou_object": 0.899,
+      "matched_at": 1,
+      "recall": 6,
+      "candidates": 99,
+      "top1_box": [
+       291.2,
+       247.8,
+       338.3,
+       316.0
+      ],
+      "top1_object_box": [
+       303.8,
+       198.1,
+       480.4,
+       325.8
+      ],
+      "top1_score": -7.096,
+      "top1_margin": 2.136,
+      "chosen_box": [
+       291.2,
+       247.8,
+       338.3,
+       316.0
+      ],
+      "object_box": [
+       303.8,
+       198.1,
+       480.4,
+       325.8
+      ],
+      "truth_box": [
+       249.0,
+       251.0,
+       336.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -30.0,
+      "elevation": 0.0,
+      "moved": 1.06,
+      "xz": [
+       2.839,
+       1.086
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 8,
+      "candidates": 97,
+      "top1_box": [
+       94.7,
+       240.3,
+       150.9,
+       295.7
+      ],
+      "top1_object_box": [
+       176.0,
+       193.7,
+       351.9,
+       326.5
+      ],
+      "top1_score": -8.525,
+      "top1_margin": 0.803,
+      "truth_box": [
+       327.0,
+       245.0,
+       348.0,
+       321.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": true,
+    "revisit": false,
+    "steps": 3,
+    "metres": 2.666,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|550",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": true,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.902,
+    2.143
+   ],
+   "target_xz": [
+    1.902,
+    2.821
+   ],
+   "landmark_xz": [
+    1.902,
+    2.271
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 97,
+      "top1_box": [
+       312.6,
+       242.9,
+       360.4,
+       318.3
+      ],
+      "top1_object_box": [
+       153.1,
+       191.7,
+       316.5,
+       322.2
+      ],
+      "top1_score": -8.05,
+      "top1_margin": 0.968,
+      "truth_box": [
+       315.0,
+       248.0,
+       357.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.902,
+       0.821
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -17.6,
+      "elevation": 14.3,
+      "moved": 0.401,
+      "xz": [
+       2.291,
+       0.92
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 41,
+      "candidates": 99,
+      "top1_box": [
+       349.9,
+       241.0,
+       416.6,
+       318.6
+      ],
+      "top1_object_box": [
+       314.4,
+       195.1,
+       351.9,
+       244.2
+      ],
+      "top1_score": -9.96,
+      "top1_margin": 1.079,
+      "truth_box": [
+       339.0,
+       244.0,
+       414.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -17.6,
+      "elevation": 14.3,
+      "moved": 0.395,
+      "xz": [
+       2.626,
+       1.129
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       421.7,
+       235.2,
+       472.4,
+       315.6
+      ],
+      "top1_object_box": [
+       169.4,
+       185.3,
+       368.4,
+       327.8
+      ],
+      "top1_score": -8.236,
+      "top1_margin": 1.054,
+      "truth_box": [
+       363.0,
+       238.0,
+       471.0,
+       324.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.205,
+      "xz": [
+       2.443,
+       1.036
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       386.5,
+       236.6,
+       443.1,
+       317.4
+      ],
+      "top1_object_box": [
+       159.3,
+       182.5,
+       358.2,
+       328.0
+      ],
+      "top1_score": -7.615,
+      "top1_margin": 2.527,
+      "truth_box": [
+       352.0,
+       240.0,
+       444.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     true,
+     false,
+     false,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.002,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|552",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.008,
+   "centre_xz": [
+    2.001,
+    2.13
+   ],
+   "target_xz": [
+    2.001,
+    2.83
+   ],
+   "landmark_xz": [
+    1.855,
+    2.28
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.008,
+      "iou_object": 0.0,
+      "matched_at": 5,
+      "recall": 3,
+      "candidates": 96,
+      "top1_box": [
+       188.9,
+       121.7,
+       300.9,
+       288.2
+      ],
+      "top1_object_box": [
+       156.8,
+       102.8,
+       329.7,
+       326.5
+      ],
+      "top1_score": -10.458,
+      "top1_margin": 2.054,
+      "chosen_box": [
+       158.3,
+       104.9,
+       327.3,
+       325.4
+      ],
+      "object_box": [
+       67.7,
+       453.6,
+       207.0,
+       528.1
+      ],
+      "truth_box": [
+       323.0,
+       243.0,
+       362.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.001,
+       0.83
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -30.0,
+      "elevation": 0.0,
+      "moved": 0.673,
+      "xz": [
+       2.651,
+       1.004
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.674,
+      "iou_object": 0.927,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 94,
+      "top1_box": [
+       382.9,
+       228.7,
+       463.3,
+       321.4
+      ],
+      "top1_object_box": [
+       199.3,
+       99.6,
+       367.3,
+       327.2
+      ],
+      "top1_score": -8.944,
+      "top1_margin": 1.998,
+      "chosen_box": [
+       382.9,
+       228.7,
+       463.3,
+       321.4
+      ],
+      "object_box": [
+       199.3,
+       99.6,
+       367.3,
+       327.2
+      ],
+      "truth_box": [
+       362.0,
+       236.0,
+       457.0,
+       323.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.212,
+      "xz": [
+       2.454,
+       0.927
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.958,
+      "matched_at": 2,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       361.7,
+       234.1,
+       433.7,
+       319.3
+      ],
+      "top1_object_box": [
+       170.0,
+       86.4,
+       369.8,
+       331.9
+      ],
+      "top1_score": -10.712,
+      "top1_margin": 0.771,
+      "chosen_box": [
+       183.4,
+       295.8,
+       348.6,
+       328.8
+      ],
+      "object_box": [
+       182.7,
+       100.4,
+       356.9,
+       328.5
+      ],
+      "truth_box": [
+       351.0,
+       238.0,
+       430.0,
+       323.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.21,
+      "xz": [
+       2.637,
+       1.029
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.664,
+      "iou_object": 0.929,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 94,
+      "top1_box": [
+       381.4,
+       223.9,
+       467.9,
+       320.9
+      ],
+      "top1_object_box": [
+       199.5,
+       95.7,
+       368.0,
+       327.5
+      ],
+      "top1_score": -10.873,
+      "top1_margin": 0.939,
+      "chosen_box": [
+       381.4,
+       223.9,
+       467.9,
+       320.9
+      ],
+      "object_box": [
+       199.5,
+       95.7,
+       368.0,
+       327.5
+      ],
+      "truth_box": [
+       363.0,
+       235.0,
+       460.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     true,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.094,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|806",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.001,
+    2.029
+   ],
+   "target_xz": [
+    2.001,
+    2.729
+   ],
+   "landmark_xz": [
+    1.86,
+    2.179
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 31,
+      "candidates": 96,
+      "top1_box": [
+       191.9,
+       123.1,
+       298.7,
+       287.0
+      ],
+      "top1_object_box": [
+       158.1,
+       103.1,
+       334.5,
+       327.4
+      ],
+      "top1_score": -9.506,
+      "top1_margin": 2.426,
+      "truth_box": [
+       325.0,
+       238.0,
+       362.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.001,
+       0.729
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.209,
+      "xz": [
+       1.794,
+       0.76
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.927,
+      "matched_at": 5,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       161.9,
+       111.0,
+       317.4,
+       312.7
+      ],
+      "top1_object_box": [
+       148.5,
+       94.4,
+       331.0,
+       328.9
+      ],
+      "top1_score": -10.692,
+      "top1_margin": 1.488,
+      "chosen_box": [
+       155.8,
+       308.4,
+       313.3,
+       342.3
+      ],
+      "object_box": [
+       148.5,
+       94.4,
+       331.0,
+       328.9
+      ],
+      "truth_box": [
+       321.0,
+       242.0,
+       332.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.206,
+      "xz": [
+       1.598,
+       0.823
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.957,
+      "matched_at": 2,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       162.4,
+       108.6,
+       310.5,
+       295.7
+      ],
+      "top1_object_box": [
+       140.8,
+       82.9,
+       322.0,
+       330.4
+      ],
+      "top1_score": -10.606,
+      "top1_margin": 1.505,
+      "chosen_box": [
+       144.1,
+       97.5,
+       322.4,
+       318.0
+      ],
+      "object_box": [
+       140.8,
+       82.9,
+       322.0,
+       330.4
+      ],
+      "truth_box": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.203,
+      "xz": [
+       1.797,
+       0.787
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.01,
+      "iou_object": 0.714,
+      "matched_at": 6,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       147.6,
+       96.7,
+       327.0,
+       325.6
+      ],
+      "top1_object_box": [
+       146.0,
+       89.6,
+       329.4,
+       329.2
+      ],
+      "top1_score": -9.971,
+      "top1_margin": 1.99,
+      "chosen_box": [
+       147.6,
+       96.7,
+       327.0,
+       325.6
+      ],
+      "object_box": [
+       127.4,
+       75.0,
+       351.7,
+       337.6
+      ],
+      "truth_box": [
+       322.0,
+       241.0,
+       332.0,
+       321.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 0.618,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|866",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.946,
+    2.635
+   ],
+   "target_xz": [
+    1.946,
+    2.845
+   ],
+   "landmark_xz": [
+    2.23,
+    2.295
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.0,
+      "matched_at": 10,
+      "recall": null,
+      "candidates": 96,
+      "top1_box": [
+       329.0,
+       104.0,
+       490.1,
+       324.6
+      ],
+      "top1_object_box": [
+       322.6,
+       103.1,
+       491.2,
+       326.4
+      ],
+      "top1_score": -10.323,
+      "top1_margin": 0.559,
+      "chosen_box": [
+       329.0,
+       104.0,
+       490.1,
+       324.6
+      ],
+      "object_box": [
+       141.4,
+       450.3,
+       290.3,
+       518.7
+      ],
+      "truth_box": [
+       245.0,
+       238.0,
+       326.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.946,
+       0.845
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.288,
+      "xz": [
+       1.66,
+       0.888
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.592,
+      "iou_object": 0.942,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 94,
+      "top1_box": [
+       268.7,
+       233.4,
+       341.7,
+       317.7
+      ],
+      "top1_object_box": [
+       332.4,
+       104.8,
+       508.7,
+       326.8
+      ],
+      "top1_score": -8.241,
+      "top1_margin": 3.321,
+      "chosen_box": [
+       268.7,
+       233.4,
+       341.7,
+       317.7
+      ],
+      "object_box": [
+       332.4,
+       104.8,
+       508.7,
+       326.8
+      ],
+      "truth_box": [
+       234.0,
+       238.0,
+       339.0,
+       323.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.327,
+      "xz": [
+       1.349,
+       0.987
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.616,
+      "iou_object": 0.0,
+      "matched_at": 3,
+      "recall": 4,
+      "candidates": 98,
+      "top1_box": [
+       364.1,
+       293.5,
+       531.0,
+       327.6
+      ],
+      "top1_object_box": [
+       358.6,
+       106.6,
+       531.3,
+       326.8
+      ],
+      "top1_score": -10.677,
+      "top1_margin": 0.029,
+      "chosen_box": [
+       274.5,
+       244.3,
+       347.2,
+       305.5
+      ],
+      "object_box": [
+       200.2,
+       238.0,
+       352.3,
+       318.3
+      ],
+      "truth_box": [
+       268.0,
+       237.0,
+       352.0,
+       323.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.286,
+      "xz": [
+       1.631,
+       0.937
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.58,
+      "iou_object": 0.938,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 95,
+      "top1_box": [
+       280.4,
+       231.3,
+       355.3,
+       316.8
+      ],
+      "top1_object_box": [
+       343.9,
+       96.8,
+       532.6,
+       328.4
+      ],
+      "top1_score": -8.794,
+      "top1_margin": 1.23,
+      "chosen_box": [
+       280.4,
+       231.3,
+       355.3,
+       316.8
+      ],
+      "object_box": [
+       343.9,
+       96.8,
+       532.6,
+       328.4
+      ],
+      "truth_box": [
+       243.0,
+       236.0,
+       353.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.901,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|956",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.047,
+   "centre_xz": [
+    1.938,
+    2.326
+   ],
+   "target_xz": [
+    1.938,
+    2.809
+   ],
+   "landmark_xz": [
+    2.181,
+    2.259
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.047,
+      "iou_object": 0.859,
+      "matched_at": 5,
+      "recall": 26,
+      "candidates": 96,
+      "top1_box": [
+       335.9,
+       201.6,
+       481.6,
+       319.7
+      ],
+      "top1_object_box": [
+       263.8,
+       168.7,
+       505.6,
+       327.9
+      ],
+      "top1_score": -9.975,
+      "top1_margin": 0.086,
+      "chosen_box": [
+       255.7,
+       155.8,
+       522.6,
+       560.9
+      ],
+      "object_box": [
+       263.8,
+       168.7,
+       505.6,
+       327.9
+      ],
+      "truth_box": [
+       238.0,
+       248.0,
+       325.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.938,
+       0.809
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.244,
+      "xz": [
+       1.697,
+       0.845
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.046,
+      "iou_object": 0.945,
+      "matched_at": 1,
+      "recall": 11,
+      "candidates": 97,
+      "top1_box": [
+       258.7,
+       161.8,
+       536.8,
+       548.6
+      ],
+      "top1_object_box": [
+       281.4,
+       181.3,
+       514.9,
+       327.9
+      ],
+      "top1_score": -10.563,
+      "top1_margin": 8.416,
+      "chosen_box": [
+       258.7,
+       161.8,
+       536.8,
+       548.6
+      ],
+      "object_box": [
+       281.4,
+       181.3,
+       514.9,
+       327.9
+      ],
+      "truth_box": [
+       216.0,
+       246.0,
+       326.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "elevation": 0.0,
+      "moved": 0.806,
+      "xz": [
+       0.962,
+       1.176
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 96,
+      "top1_box": [
+       305.5,
+       198.3,
+       436.3,
+       321.5
+      ],
+      "top1_object_box": [
+       309.4,
+       195.4,
+       515.9,
+       326.2
+      ],
+      "top1_score": -9.171,
+      "top1_margin": 0.063,
+      "truth_box": [
+       156.0,
+       244.0,
+       282.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.241,
+      "xz": [
+       1.169,
+       1.052
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 96,
+      "top1_box": [
+       164.8,
+       241.0,
+       307.6,
+       320.2
+      ],
+      "top1_object_box": [
+       304.4,
+       190.3,
+       527.7,
+       328.3
+      ],
+      "top1_score": -8.451,
+      "top1_margin": 0.793,
+      "truth_box": [
+       174.0,
+       244.0,
+       303.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.292,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|1162",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.044,
+    2.379
+   ],
+   "target_xz": [
+    2.044,
+    2.754
+   ],
+   "landmark_xz": [
+    2.464,
+    2.204
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 96,
+      "top1_box": [
+       36.0,
+       285.7,
+       556.1,
+       588.3
+      ],
+      "top1_object_box": [
+       315.5,
+       190.1,
+       492.4,
+       325.2
+      ],
+      "top1_score": -10.49,
+      "top1_margin": 1.023,
+      "truth_box": [
+       245.0,
+       255.0,
+       325.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.044,
+       0.754
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -17.6,
+      "elevation": 14.3,
+      "moved": 0.493,
+      "xz": [
+       2.522,
+       0.875
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       296.4,
+       228.3,
+       455.8,
+       323.7
+      ],
+      "top1_object_box": [
+       275.6,
+       179.5,
+       459.7,
+       328.3
+      ],
+      "top1_score": -9.651,
+      "top1_margin": 0.837,
+      "truth_box": [
+       279.0,
+       315.0,
+       291.0,
+       320.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 28.5,
+      "elevation": 8.8,
+      "moved": 0.611,
+      "xz": [
+       1.911,
+       0.852
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 32,
+      "candidates": 99,
+      "top1_box": [
+       276.0,
+       235.8,
+       441.0,
+       325.4
+      ],
+      "top1_object_box": [
+       254.9,
+       185.9,
+       450.8,
+       323.6
+      ],
+      "top1_score": -9.65,
+      "top1_margin": 0.612,
+      "truth_box": [
+       177.0,
+       252.0,
+       273.0,
+       323.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 28.5,
+      "elevation": 8.8,
+      "moved": 0.618,
+      "xz": [
+       1.358,
+       1.127
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       142.2,
+       241.6,
+       210.9,
+       322.2
+      ],
+      "top1_object_box": [
+       216.9,
+       186.2,
+       424.7,
+       334.7
+      ],
+      "top1_score": -7.75,
+      "top1_margin": 3.224,
+      "truth_box": [
+       144.0,
+       247.0,
+       210.0,
+       325.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.722,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|1186",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.35,
+   "centre_xz": [
+    2.054,
+    2.238
+   ],
+   "target_xz": [
+    2.054,
+    2.751
+   ],
+   "landmark_xz": [
+    2.292,
+    2.201
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.35,
+      "iou_object": 0.2,
+      "matched_at": 2,
+      "recall": 11,
+      "candidates": 96,
+      "top1_box": [
+       277.4,
+       192.8,
+       335.4,
+       311.9
+      ],
+      "top1_object_box": [
+       278.4,
+       170.4,
+       503.9,
+       331.7
+      ],
+      "top1_score": -7.903,
+      "top1_margin": 0.375,
+      "chosen_box": [
+       293.1,
+       253.7,
+       324.8,
+       306.1
+      ],
+      "object_box": [
+       277.4,
+       192.8,
+       335.4,
+       311.9
+      ],
+      "truth_box": [
+       258.0,
+       254.0,
+       323.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.054,
+       0.751
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.24,
+      "xz": [
+       1.817,
+       0.786
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       322.9,
+       247.2,
+       488.9,
+       325.7
+      ],
+      "top1_object_box": [
+       277.3,
+       179.7,
+       514.4,
+       329.3
+      ],
+      "top1_score": -9.246,
+      "top1_margin": 0.762,
+      "truth_box": [
+       233.0,
+       252.0,
+       323.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.238,
+      "xz": [
+       1.59,
+       0.858
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 2,
+      "candidates": 99,
+      "top1_box": [
+       241.2,
+       255.8,
+       305.0,
+       305.4
+      ],
+      "top1_object_box": [
+       281.4,
+       184.2,
+       516.4,
+       331.6
+      ],
+      "top1_score": -18.771,
+      "top1_margin": 1.129,
+      "truth_box": [
+       209.0,
+       251.0,
+       312.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.237,
+      "xz": [
+       1.378,
+       0.966
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.552,
+      "iou_object": 0.0,
+      "matched_at": 1,
+      "recall": 19,
+      "candidates": 98,
+      "top1_box": [
+       165.9,
+       243.1,
+       291.7,
+       320.8
+      ],
+      "top1_object_box": [
+       169.5,
+       245.7,
+       214.7,
+       315.2
+      ],
+      "top1_score": -7.539,
+      "top1_margin": 1.322,
+      "chosen_box": [
+       165.9,
+       243.1,
+       291.7,
+       320.8
+      ],
+      "object_box": [
+       169.5,
+       245.7,
+       214.7,
+       315.2
+      ],
+      "truth_box": [
+       212.0,
+       251.0,
+       290.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 0.715,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|1190",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.899,
+    2.593
+   ],
+   "target_xz": [
+    1.899,
+    2.807
+   ],
+   "landmark_xz": [
+    2.197,
+    2.257
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 94,
+      "top1_box": [
+       288.9,
+       240.8,
+       331.6,
+       310.3
+      ],
+      "top1_object_box": [
+       316.8,
+       204.7,
+       528.7,
+       327.4
+      ],
+      "top1_score": -7.377,
+      "top1_margin": 2.909,
+      "truth_box": [
+       239.0,
+       244.0,
+       328.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.899,
+       0.807
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.288,
+      "xz": [
+       2.183,
+       0.849
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.004,
+      "iou_object": 0.881,
+      "matched_at": 3,
+      "recall": null,
+      "candidates": 95,
+      "top1_box": [
+       298.0,
+       250.4,
+       491.5,
+       327.5
+      ],
+      "top1_object_box": [
+       289.6,
+       201.4,
+       500.0,
+       327.3
+      ],
+      "top1_score": -8.644,
+      "top1_margin": 1.572,
+      "chosen_box": [
+       256.8,
+       176.0,
+       532.6,
+       408.3
+      ],
+      "object_box": [
+       289.6,
+       201.4,
+       500.0,
+       327.3
+      ],
+      "truth_box": [
+       251.0,
+       314.0,
+       297.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 17.6,
+      "elevation": 14.3,
+      "moved": 0.369,
+      "xz": [
+       1.816,
+       0.882
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 3,
+      "candidates": 96,
+      "top1_box": [
+       231.5,
+       238.1,
+       287.3,
+       309.4
+      ],
+      "top1_object_box": [
+       269.4,
+       201.2,
+       488.4,
+       327.4
+      ],
+      "top1_score": -7.573,
+      "top1_margin": 1.127,
+      "truth_box": [
+       181.0,
+       238.0,
+       298.0,
+       323.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.193,
+      "xz": [
+       2.009,
+       0.882
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.885,
+      "matched_at": 1,
+      "recall": 21,
+      "candidates": 96,
+      "top1_box": [
+       513.7,
+       456.7,
+       598.1,
+       593.5
+      ],
+      "top1_object_box": [
+       287.7,
+       199.4,
+       502.2,
+       327.6
+      ],
+      "top1_score": -13.006,
+      "top1_margin": 7.545,
+      "chosen_box": [
+       513.7,
+       456.7,
+       598.1,
+       593.5
+      ],
+      "object_box": [
+       287.7,
+       199.4,
+       502.2,
+       327.6
+      ],
+      "truth_box": [
+       216.0,
+       242.0,
+       296.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 0.85,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|1199",
+   "instruction": "Find the vase behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.076,
+    2.157
+   ],
+   "target_xz": [
+    2.076,
+    2.814
+   ],
+   "landmark_xz": [
+    2.314,
+    2.264
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.519,
+      "matched_at": 5,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       158.1,
+       186.6,
+       213.6,
+       328.3
+      ],
+      "top1_object_box": [
+       270.3,
+       197.5,
+       436.8,
+       326.3
+      ],
+      "top1_score": -10.584,
+      "top1_margin": 0.164,
+      "chosen_box": [
+       158.1,
+       186.6,
+       213.6,
+       328.3
+      ],
+      "object_box": [
+       238.5,
+       170.8,
+       456.7,
+       346.3
+      ],
+      "truth_box": [
+       275.0,
+       255.0,
+       300.0,
+       320.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.076,
+       0.814
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -30.0,
+      "elevation": 0.0,
+      "moved": 0.695,
+      "xz": [
+       2.748,
+       0.994
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       112.0,
+       158.1,
+       580.6,
+       564.9
+      ],
+      "top1_object_box": [
+       275.3,
+       189.9,
+       457.6,
+       332.3
+      ],
+      "top1_score": -8.119,
+      "top1_margin": 3.338,
+      "truth_box": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 17.6,
+      "elevation": 14.3,
+      "moved": 0.399,
+      "xz": [
+       2.363,
+       0.886
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       171.8,
+       249.3,
+       219.0,
+       327.2
+      ],
+      "top1_object_box": [
+       266.3,
+       190.9,
+       440.3,
+       329.4
+      ],
+      "top1_score": -10.186,
+      "top1_margin": 9.178,
+      "truth_box": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -30.0,
+      "elevation": 0.0,
+      "moved": 0.668,
+      "xz": [
+       2.957,
+       1.193
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.656,
+      "matched_at": 2,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       307.8,
+       363.5,
+       422.4,
+       573.2
+      ],
+      "top1_object_box": [
+       240.2,
+       173.0,
+       469.2,
+       332.1
+      ],
+      "top1_score": -9.882,
+      "top1_margin": 0.743,
+      "chosen_box": [
+       307.8,
+       363.5,
+       422.4,
+       573.2
+      ],
+      "object_box": [
+       232.2,
+       148.6,
+       470.0,
+       328.4
+      ],
+      "truth_box": [
+       440.0,
+       250.0,
+       457.0,
+       321.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 1.763,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|52",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.361,
+   "centre_xz": [
+    1.94,
+    2.407
+   ],
+   "target_xz": [
+    1.94,
+    2.782
+   ],
+   "landmark_xz": [
+    2.208,
+    2.232
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.361,
+      "iou_object": 0.924,
+      "matched_at": 1,
+      "recall": 4,
+      "candidates": 96,
+      "top1_box": [
+       289.0,
+       250.7,
+       329.0,
+       309.0
+      ],
+      "top1_object_box": [
+       298.2,
+       131.7,
+       491.9,
+       325.6
+      ],
+      "top1_score": -7.409,
+      "top1_margin": 2.503,
+      "chosen_box": [
+       289.0,
+       250.7,
+       329.0,
+       309.0
+      ],
+      "object_box": [
+       298.2,
+       131.7,
+       491.9,
+       325.6
+      ],
+      "truth_box": [
+       238.0,
+       250.0,
+       329.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.94,
+       0.782
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.262,
+      "xz": [
+       1.681,
+       0.82
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.528,
+      "iou_object": 0.846,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       265.9,
+       248.1,
+       337.9,
+       311.8
+      ],
+      "top1_object_box": [
+       304.3,
+       122.8,
+       495.5,
+       328.4
+      ],
+      "top1_score": -9.987,
+      "top1_margin": 0.713,
+      "chosen_box": [
+       265.9,
+       248.1,
+       337.9,
+       311.8
+      ],
+      "object_box": [
+       304.3,
+       122.8,
+       495.5,
+       328.4
+      ],
+      "truth_box": [
+       220.0,
+       248.0,
+       339.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.321,
+      "xz": [
+       1.375,
+       0.918
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.848,
+      "iou_object": 0.0,
+      "matched_at": 1,
+      "recall": 2,
+      "candidates": 97,
+      "top1_box": [
+       258.5,
+       248.4,
+       346.2,
+       315.9
+      ],
+      "top1_object_box": [
+       186.7,
+       238.0,
+       263.9,
+       328.2
+      ],
+      "top1_score": -9.074,
+      "top1_margin": 1.556,
+      "chosen_box": [
+       258.5,
+       248.4,
+       346.2,
+       315.9
+      ],
+      "object_box": [
+       186.7,
+       238.0,
+       263.9,
+       328.2
+      ],
+      "truth_box": [
+       254.0,
+       247.0,
+       347.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.322,
+      "xz": [
+       1.088,
+       1.064
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.37,
+      "iou_object": 0.974,
+      "matched_at": 1,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       297.6,
+       246.8,
+       346.9,
+       318.1
+      ],
+      "top1_object_box": [
+       368.0,
+       145.0,
+       544.9,
+       327.1
+      ],
+      "top1_score": -9.327,
+      "top1_margin": 0.912,
+      "chosen_box": [
+       297.6,
+       246.8,
+       346.9,
+       318.1
+      ],
+      "object_box": [
+       368.0,
+       145.0,
+       544.9,
+       327.1
+      ],
+      "truth_box": [
+       221.0,
+       247.0,
+       347.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": true,
+    "revisit": false,
+    "steps": 3,
+    "metres": 0.905,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|63",
+   "instruction": "Find the vase behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.106,
+    2.188
+   ],
+   "target_xz": [
+    2.106,
+    2.837
+   ],
+   "landmark_xz": [
+    2.429,
+    2.287
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.537,
+      "matched_at": 3,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       158.0,
+       186.1,
+       213.8,
+       328.2
+      ],
+      "top1_object_box": [
+       286.3,
+       208.2,
+       448.8,
+       324.5
+      ],
+      "top1_score": -10.362,
+      "top1_margin": 1.084,
+      "chosen_box": [
+       158.0,
+       186.1,
+       213.8,
+       328.2
+      ],
+      "object_box": [
+       270.5,
+       206.9,
+       500.9,
+       368.2
+      ],
+      "truth_box": [
+       275.0,
+       255.0,
+       300.0,
+       320.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.106,
+       0.837
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "elevation": 0.0,
+      "moved": 0.699,
+      "xz": [
+       1.43,
+       1.018
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.131,
+      "iou_object": 0.279,
+      "matched_at": 9,
+      "recall": 1,
+      "candidates": 100,
+      "top1_box": [
+       183.7,
+       249.0,
+       240.0,
+       319.2
+      ],
+      "top1_object_box": [
+       252.4,
+       208.7,
+       422.3,
+       323.5
+      ],
+      "top1_score": -6.978,
+      "top1_margin": 3.143,
+      "chosen_box": [
+       139.6,
+       154.2,
+       300.1,
+       326.0
+      ],
+      "object_box": [
+       253.1,
+       209.0,
+       423.6,
+       248.3
+      ],
+      "truth_box": [
+       185.0,
+       253.0,
+       238.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -24.3,
+      "elevation": 14.3,
+      "moved": 0.58,
+      "xz": [
+       1.994,
+       0.879
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.849,
+      "matched_at": 4,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       204.2,
+       368.3,
+       284.0,
+       570.6
+      ],
+      "top1_object_box": [
+       266.2,
+       206.3,
+       443.8,
+       328.5
+      ],
+      "top1_score": -9.8,
+      "top1_margin": 1.543,
+      "chosen_box": [
+       204.2,
+       368.3,
+       284.0,
+       570.6
+      ],
+      "object_box": [
+       260.0,
+       199.2,
+       448.0,
+       329.1
+      ],
+      "truth_box": [
+       252.0,
+       255.0,
+       287.0,
+       321.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.213,
+      "xz": [
+       1.787,
+       0.931
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 100,
+      "top1_box": [
+       223.6,
+       250.5,
+       276.5,
+       319.8
+      ],
+      "top1_object_box": [
+       258.3,
+       206.5,
+       438.5,
+       327.6
+      ],
+      "top1_score": -7.679,
+      "top1_margin": 4.039,
+      "truth_box": [
+       223.0,
+       254.0,
+       276.0,
+       321.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.493,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|234",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": true,
+   "start_stops": true,
+   "start_iou": 0.84,
+   "centre_xz": [
+    1.962,
+    2.032
+   ],
+   "target_xz": [
+    1.962,
+    2.732
+   ],
+   "landmark_xz": [
+    1.818,
+    2.182
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.84,
+      "iou_object": 0.911,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 96,
+      "top1_box": [
+       323.5,
+       245.5,
+       363.2,
+       318.7
+      ],
+      "top1_object_box": [
+       160.5,
+       153.8,
+       332.9,
+       317.2
+      ],
+      "top1_score": -9.519,
+      "top1_margin": 1.963,
+      "chosen_box": [
+       323.5,
+       245.5,
+       363.2,
+       318.7
+      ],
+      "object_box": [
+       160.5,
+       153.8,
+       332.9,
+       317.2
+      ],
+      "truth_box": [
+       323.0,
+       249.0,
+       360.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.962,
+       0.732
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "elevation": 0.0,
+      "moved": 0.673,
+      "xz": [
+       1.312,
+       0.906
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.946,
+      "matched_at": 3,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       132.0,
+       281.0,
+       320.9,
+       324.7
+      ],
+      "top1_object_box": [
+       129.5,
+       136.1,
+       317.5,
+       320.7
+      ],
+      "top1_score": -9.888,
+      "top1_margin": 2.54,
+      "chosen_box": [
+       105.4,
+       316.7,
+       360.8,
+       344.1
+      ],
+      "object_box": [
+       129.5,
+       136.1,
+       317.5,
+       320.7
+      ],
+      "truth_box": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -28.5,
+      "elevation": 8.8,
+      "moved": 0.626,
+      "xz": [
+       1.918,
+       0.749
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.016,
+      "iou_object": 0.942,
+      "matched_at": 2,
+      "recall": 28,
+      "candidates": 96,
+      "top1_box": [
+       172.4,
+       157.1,
+       321.6,
+       283.8
+      ],
+      "top1_object_box": [
+       161.1,
+       151.3,
+       333.5,
+       319.4
+      ],
+      "top1_score": -9.703,
+      "top1_margin": 1.612,
+      "chosen_box": [
+       164.6,
+       152.0,
+       334.2,
+       315.9
+      ],
+      "object_box": [
+       161.1,
+       151.3,
+       333.5,
+       319.4
+      ],
+      "truth_box": [
+       327.0,
+       249.0,
+       359.0,
+       321.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.207,
+      "xz": [
+       1.715,
+       0.785
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       163.0,
+       153.0,
+       320.6,
+       286.0
+      ],
+      "top1_object_box": [
+       153.3,
+       146.0,
+       330.9,
+       317.7
+      ],
+      "top1_score": -9.975,
+      "top1_margin": 2.21,
+      "truth_box": [
+       323.0,
+       249.0,
+       329.0,
+       320.0
+      ]
+     }
+    ],
+    "per_step": [
+     true,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.506,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|258",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.324,
+   "centre_xz": [
+    2.085,
+    2.255
+   ],
+   "target_xz": [
+    2.085,
+    2.766
+   ],
+   "landmark_xz": [
+    2.323,
+    2.216
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.324,
+      "iou_object": 0.905,
+      "matched_at": 1,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       275.8,
+       191.5,
+       334.5,
+       312.6
+      ],
+      "top1_object_box": [
+       278.4,
+       170.2,
+       500.8,
+       339.9
+      ],
+      "top1_score": -8.893,
+      "top1_margin": 0.908,
+      "chosen_box": [
+       275.8,
+       191.5,
+       334.5,
+       312.6
+      ],
+      "object_box": [
+       278.4,
+       170.2,
+       500.8,
+       339.9
+      ],
+      "truth_box": [
+       258.0,
+       254.0,
+       324.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.085,
+       0.766
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 17.6,
+      "elevation": 14.3,
+      "moved": 0.452,
+      "xz": [
+       1.648,
+       0.877
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 4,
+      "candidates": 98,
+      "top1_box": [
+       233.3,
+       245.8,
+       316.9,
+       317.2
+      ],
+      "top1_object_box": [
+       270.3,
+       21.6,
+       555.2,
+       347.0
+      ],
+      "top1_score": -11.815,
+      "top1_margin": 10.49,
+      "truth_box": [
+       219.0,
+       251.0,
+       314.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.235,
+      "xz": [
+       1.437,
+       0.981
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       223.7,
+       246.2,
+       298.7,
+       320.4
+      ],
+      "top1_object_box": [
+       279.5,
+       184.5,
+       514.8,
+       330.2
+      ],
+      "top1_score": -8.516,
+      "top1_margin": 0.887,
+      "truth_box": [
+       218.0,
+       250.0,
+       292.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.233,
+      "xz": [
+       1.247,
+       1.116
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 95,
+      "top1_box": [
+       315.4,
+       248.7,
+       500.7,
+       326.0
+      ],
+      "top1_object_box": [
+       284.3,
+       187.7,
+       510.9,
+       329.3
+      ],
+      "top1_score": -9.743,
+      "top1_margin": 11.041,
+      "truth_box": [
+       200.0,
+       249.0,
+       270.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     true,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.92,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|292",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.107,
+    2.575
+   ],
+   "target_xz": [
+    2.107,
+    2.8
+   ],
+   "landmark_xz": [
+    2.42,
+    2.25
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       282.9,
+       237.8,
+       333.9,
+       315.9
+      ],
+      "top1_object_box": [
+       292.4,
+       207.6,
+       456.5,
+       324.4
+      ],
+      "top1_score": -9.798,
+      "top1_margin": 0.471,
+      "truth_box": [
+       239.0,
+       243.0,
+       329.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.107,
+       0.8
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.286,
+      "xz": [
+       1.824,
+       0.842
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       269.4,
+       239.1,
+       343.6,
+       315.8
+      ],
+      "top1_object_box": [
+       303.7,
+       209.6,
+       486.0,
+       327.0
+      ],
+      "top1_score": -6.742,
+      "top1_margin": 3.914,
+      "truth_box": [
+       229.0,
+       242.0,
+       340.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.326,
+      "xz": [
+       2.15,
+       0.837
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       274.8,
+       236.3,
+       320.5,
+       316.3
+      ],
+      "top1_object_box": [
+       277.6,
+       206.1,
+       446.1,
+       322.2
+      ],
+      "top1_score": -9.456,
+      "top1_margin": 3.911,
+      "truth_box": [
+       227.0,
+       242.0,
+       315.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "elevation": 0.0,
+      "moved": 0.674,
+      "xz": [
+       1.499,
+       1.012
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.458,
+      "iou_object": 0.245,
+      "matched_at": 2,
+      "recall": 3,
+      "candidates": 97,
+      "top1_box": [
+       170.8,
+       236.0,
+       263.5,
+       320.1
+      ],
+      "top1_object_box": [
+       -1.4,
+       198.7,
+       434.4,
+       382.8
+      ],
+      "top1_score": -8.745,
+      "top1_margin": 0.776,
+      "chosen_box": [
+       76.3,
+       234.9,
+       263.6,
+       320.9
+      ],
+      "object_box": [
+       -1.4,
+       198.7,
+       434.4,
+       382.8
+      ],
+      "truth_box": [
+       173.0,
+       238.0,
+       263.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.286,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|306",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.936,
+    2.34
+   ],
+   "target_xz": [
+    1.936,
+    2.828
+   ],
+   "landmark_xz": [
+    2.35,
+    2.278
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.809,
+      "matched_at": 8,
+      "recall": null,
+      "candidates": 96,
+      "top1_box": [
+       291.3,
+       250.2,
+       326.5,
+       309.4
+      ],
+      "top1_object_box": [
+       321.4,
+       191.5,
+       489.4,
+       324.7
+      ],
+      "top1_score": -8.441,
+      "top1_margin": 1.291,
+      "chosen_box": [
+       205.0,
+       450.7,
+       593.7,
+       594.9
+      ],
+      "object_box": [
+       321.4,
+       191.5,
+       489.4,
+       324.7
+      ],
+      "truth_box": [
+       258.0,
+       253.0,
+       323.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.936,
+       0.828
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.244,
+      "xz": [
+       1.695,
+       0.864
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       255.2,
+       246.4,
+       324.2,
+       315.6
+      ],
+      "top1_object_box": [
+       312.0,
+       193.8,
+       493.9,
+       323.1
+      ],
+      "top1_score": -8.111,
+      "top1_margin": 1.619,
+      "truth_box": [
+       235.0,
+       252.0,
+       319.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.244,
+      "xz": [
+       1.463,
+       0.938
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 11,
+      "candidates": 99,
+      "top1_box": [
+       479.4,
+       438.1,
+       596.4,
+       596.4
+      ],
+      "top1_object_box": [
+       301.8,
+       193.5,
+       494.8,
+       325.5
+      ],
+      "top1_score": -13.133,
+      "top1_margin": 6.983,
+      "truth_box": [
+       223.0,
+       251.0,
+       315.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.243,
+      "xz": [
+       1.246,
+       1.048
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       226.7,
+       249.0,
+       298.7,
+       318.2
+      ],
+      "top1_object_box": [
+       293.4,
+       195.1,
+       492.6,
+       326.4
+      ],
+      "top1_score": -8.311,
+      "top1_margin": 3.941,
+      "truth_box": [
+       222.0,
+       251.0,
+       294.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.731,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|442.1",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.005,
+   "centre_xz": [
+    1.933,
+    2.14
+   ],
+   "target_xz": [
+    1.933,
+    2.84
+   ],
+   "landmark_xz": [
+    1.782,
+    2.29
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.005,
+      "iou_object": 0.931,
+      "matched_at": 3,
+      "recall": 2,
+      "candidates": 97,
+      "top1_box": [
+       157.5,
+       104.6,
+       324.2,
+       322.3
+      ],
+      "top1_object_box": [
+       154.9,
+       102.7,
+       327.8,
+       325.6
+      ],
+      "top1_score": -11.253,
+      "top1_margin": 0.723,
+      "chosen_box": [
+       34.9,
+       297.9,
+       576.8,
+       590.8
+      ],
+      "object_box": [
+       154.9,
+       102.7,
+       327.8,
+       325.6
+      ],
+      "truth_box": [
+       321.0,
+       245.0,
+       357.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.933,
+       0.84
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.209,
+      "xz": [
+       2.14,
+       0.871
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.843,
+      "iou_object": 0.941,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       329.4,
+       242.6,
+       388.4,
+       314.3
+      ],
+      "top1_object_box": [
+       164.3,
+       98.7,
+       338.3,
+       328.6
+      ],
+      "top1_score": -7.968,
+      "top1_margin": 2.159,
+      "chosen_box": [
+       329.4,
+       242.6,
+       388.4,
+       314.3
+      ],
+      "object_box": [
+       164.3,
+       98.7,
+       338.3,
+       328.6
+      ],
+      "truth_box": [
+       332.0,
+       243.0,
+       387.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -30.0,
+      "elevation": 0.0,
+      "moved": 0.671,
+      "xz": [
+       2.752,
+       1.146
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.894,
+      "matched_at": 10,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       0.9,
+       2.0,
+       246.3,
+       494.9
+      ],
+      "top1_object_box": [
+       203.4,
+       96.7,
+       381.9,
+       323.9
+      ],
+      "top1_score": -10.55,
+      "top1_margin": 2.111,
+      "chosen_box": [
+       16.9,
+       332.5,
+       245.2,
+       470.6
+      ],
+      "object_box": [
+       203.4,
+       96.7,
+       381.9,
+       323.9
+      ],
+      "truth_box": [
+       376.0,
+       235.0,
+       482.0,
+       323.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": -8.8,
+      "moved": 0.21,
+      "xz": [
+       2.57,
+       1.041
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.371,
+      "iou_object": 0.0,
+      "matched_at": 3,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       2.0,
+       8.3,
+       156.5,
+       492.3
+      ],
+      "top1_object_box": [
+       193.1,
+       96.8,
+       368.7,
+       325.0
+      ],
+      "top1_score": -11.785,
+      "top1_margin": 0.106,
+      "chosen_box": [
+       403.9,
+       244.1,
+       449.2,
+       307.5
+      ],
+      "object_box": [
+       153.0,
+       448.5,
+       282.1,
+       533.8
+      ],
+      "truth_box": [
+       361.0,
+       238.0,
+       452.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.09,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|533",
+   "instruction": "Find the vase behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.983,
+    2.083
+   ],
+   "target_xz": [
+    1.983,
+    2.746
+   ],
+   "landmark_xz": [
+    2.173,
+    2.196
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.742,
+      "matched_at": 10,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       144.0,
+       261.4,
+       215.5,
+       323.9
+      ],
+      "top1_object_box": [
+       290.7,
+       145.6,
+       446.8,
+       324.7
+      ],
+      "top1_score": -7.677,
+      "top1_margin": 1.988,
+      "chosen_box": [
+       133.2,
+       243.1,
+       224.9,
+       330.7
+      ],
+      "object_box": [
+       270.2,
+       138.4,
+       463.3,
+       335.2
+      ],
+      "truth_box": [
+       275.0,
+       255.0,
+       302.0,
+       320.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.983,
+       0.746
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": -8.8,
+      "moved": 0.215,
+      "xz": [
+       1.771,
+       0.78
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 2,
+      "candidates": 99,
+      "top1_box": [
+       131.8,
+       257.8,
+       206.8,
+       324.9
+      ],
+      "top1_object_box": [
+       283.5,
+       146.7,
+       438.6,
+       326.3
+      ],
+      "top1_score": -7.964,
+      "top1_margin": 0.542,
+      "truth_box": [
+       246.0,
+       255.0,
+       291.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.215,
+      "xz": [
+       1.566,
+       0.846
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.472,
+      "iou_object": 0.681,
+      "matched_at": 10,
+      "recall": 1,
+      "candidates": 100,
+      "top1_box": [
+       216.6,
+       250.8,
+       270.8,
+       320.1
+      ],
+      "top1_object_box": [
+       275.5,
+       147.0,
+       431.8,
+       326.7
+      ],
+      "top1_score": -7.239,
+      "top1_margin": 0.042,
+      "chosen_box": [
+       201.0,
+       239.1,
+       285.0,
+       328.5
+      ],
+      "object_box": [
+       247.8,
+       133.0,
+       454.1,
+       338.5
+      ],
+      "truth_box": [
+       217.0,
+       254.0,
+       270.0,
+       321.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.215,
+      "xz": [
+       1.374,
+       0.944
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 100,
+      "top1_box": [
+       188.2,
+       247.8,
+       246.2,
+       321.6
+      ],
+      "top1_object_box": [
+       265.7,
+       149.1,
+       420.3,
+       325.6
+      ],
+      "top1_score": -7.195,
+      "top1_margin": 0.065,
+      "truth_box": [
+       190.0,
+       252.0,
+       243.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     true,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.646,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|540",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.373,
+   "centre_xz": [
+    1.956,
+    2.61
+   ],
+   "target_xz": [
+    1.955,
+    2.841
+   ],
+   "landmark_xz": [
+    2.228,
+    2.291
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.373,
+      "iou_object": 0.912,
+      "matched_at": 1,
+      "recall": 4,
+      "candidates": 98,
+      "top1_box": [
+       288.9,
+       247.8,
+       331.1,
+       309.5
+      ],
+      "top1_object_box": [
+       298.4,
+       130.4,
+       493.3,
+       326.7
+      ],
+      "top1_score": -7.259,
+      "top1_margin": 2.867,
+      "chosen_box": [
+       288.9,
+       247.8,
+       331.1,
+       309.5
+      ],
+      "object_box": [
+       298.4,
+       130.4,
+       493.3,
+       326.7
+      ],
+      "truth_box": [
+       240.0,
+       251.0,
+       331.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.956,
+       0.841
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.285,
+      "xz": [
+       1.674,
+       0.883
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.522,
+      "iou_object": 0.826,
+      "matched_at": 2,
+      "recall": 1,
+      "candidates": 100,
+      "top1_box": [
+       270.9,
+       247.5,
+       350.1,
+       312.5
+      ],
+      "top1_object_box": [
+       319.4,
+       134.1,
+       495.2,
+       328.5
+      ],
+      "top1_score": -9.627,
+      "top1_margin": 0.594,
+      "chosen_box": [
+       271.1,
+       246.5,
+       347.3,
+       310.9
+      ],
+      "object_box": [
+       312.0,
+       121.9,
+       505.3,
+       330.0
+      ],
+      "truth_box": [
+       228.0,
+       249.0,
+       349.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.327,
+      "xz": [
+       1.362,
+       0.982
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.854,
+      "iou_object": 0.926,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       266.3,
+       247.8,
+       354.5,
+       312.7
+      ],
+      "top1_object_box": [
+       352.0,
+       138.3,
+       536.7,
+       327.2
+      ],
+      "top1_score": -8.551,
+      "top1_margin": 3.792,
+      "chosen_box": [
+       266.3,
+       247.8,
+       354.5,
+       312.7
+      ],
+      "object_box": [
+       352.0,
+       138.3,
+       536.7,
+       327.2
+      ],
+      "truth_box": [
+       266.0,
+       248.0,
+       356.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.29,
+      "xz": [
+       1.648,
+       0.931
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.559,
+      "iou_object": 0.809,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       278.2,
+       245.1,
+       361.9,
+       312.6
+      ],
+      "top1_object_box": [
+       322.9,
+       114.5,
+       529.0,
+       330.6
+      ],
+      "top1_score": -9.784,
+      "top1_margin": 2.069,
+      "chosen_box": [
+       278.2,
+       245.1,
+       361.9,
+       312.6
+      ],
+      "object_box": [
+       322.9,
+       114.5,
+       529.0,
+       330.6
+      ],
+      "truth_box": [
+       236.0,
+       247.0,
+       363.0,
+       323.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     true,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": false,
+    "steps": 3,
+    "metres": 0.902,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|592",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": true,
+   "start_stops": true,
+   "start_iou": 0.877,
+   "centre_xz": [
+    1.913,
+    2.151
+   ],
+   "target_xz": [
+    1.913,
+    2.813
+   ],
+   "landmark_xz": [
+    1.913,
+    2.263
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.877,
+      "iou_object": 0.751,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       311.2,
+       235.7,
+       365.9,
+       317.0
+      ],
+      "top1_object_box": [
+       204.3,
+       210.5,
+       353.2,
+       322.8
+      ],
+      "top1_score": -7.271,
+      "top1_margin": 1.456,
+      "chosen_box": [
+       311.2,
+       235.7,
+       365.9,
+       317.0
+      ],
+      "object_box": [
+       204.3,
+       210.5,
+       353.2,
+       322.8
+      ],
+      "truth_box": [
+       312.0,
+       239.0,
+       365.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.913,
+       0.813
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -17.6,
+      "elevation": 14.3,
+      "moved": 0.406,
+      "xz": [
+       2.307,
+       0.913
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.804,
+      "iou_object": 0.944,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       343.0,
+       230.9,
+       423.4,
+       318.5
+      ],
+      "top1_object_box": [
+       185.6,
+       207.1,
+       367.2,
+       327.5
+      ],
+      "top1_score": -5.882,
+      "top1_margin": 4.342,
+      "chosen_box": [
+       343.0,
+       230.9,
+       423.4,
+       318.5
+      ],
+      "object_box": [
+       185.6,
+       207.1,
+       367.2,
+       327.5
+      ],
+      "truth_box": [
+       334.0,
+       234.0,
+       421.0,
+       323.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 17.6,
+      "elevation": 14.3,
+      "moved": 0.4,
+      "xz": [
+       1.907,
+       0.889
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 9,
+      "candidates": 97,
+      "top1_box": [
+       195.3,
+       204.2,
+       308.5,
+       238.3
+      ],
+      "top1_object_box": [
+       199.8,
+       204.8,
+       357.4,
+       325.8
+      ],
+      "top1_score": -10.873,
+      "top1_margin": 1.321,
+      "truth_box": [
+       316.0,
+       237.0,
+       369.0,
+       323.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -17.6,
+      "elevation": 14.3,
+      "moved": 0.383,
+      "xz": [
+       2.278,
+       0.984
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.564,
+      "iou_object": 0.291,
+      "matched_at": 8,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       351.1,
+       229.7,
+       429.1,
+       317.3
+      ],
+      "top1_object_box": [
+       180.1,
+       201.0,
+       372.3,
+       329.2
+      ],
+      "top1_score": -5.782,
+      "top1_margin": 3.787,
+      "chosen_box": [
+       358.6,
+       236.6,
+       424.6,
+       308.2
+      ],
+      "object_box": [
+       148.1,
+       158.8,
+       593.2,
+       343.0
+      ],
+      "truth_box": [
+       338.0,
+       231.0,
+       428.0,
+       324.0
+      ]
+     }
+    ],
+    "per_step": [
+     true,
+     true,
+     false,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 1.19,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|628",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": true,
+   "start_stops": true,
+   "start_iou": 0.866,
+   "centre_xz": [
+    1.969,
+    2.112
+   ],
+   "target_xz": [
+    1.969,
+    2.828
+   ],
+   "landmark_xz": [
+    1.839,
+    2.278
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.866,
+      "iou_object": 0.592,
+      "matched_at": 3,
+      "recall": 1,
+      "candidates": 97,
+      "top1_box": [
+       319.9,
+       244.6,
+       361.3,
+       317.3
+      ],
+      "top1_object_box": [
+       152.5,
+       131.2,
+       351.4,
+       325.1
+      ],
+      "top1_score": -8.359,
+      "top1_margin": 4.228,
+      "chosen_box": [
+       319.9,
+       244.6,
+       361.3,
+       317.3
+      ],
+      "object_box": [
+       121.2,
+       107.3,
+       379.6,
+       340.7
+      ],
+      "truth_box": [
+       320.0,
+       249.0,
+       360.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.969,
+       0.828
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.207,
+      "xz": [
+       2.174,
+       0.858
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.848,
+      "iou_object": 0.915,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       330.1,
+       242.9,
+       395.1,
+       318.6
+      ],
+      "top1_object_box": [
+       170.9,
+       129.1,
+       359.3,
+       325.2
+      ],
+      "top1_score": -9.285,
+      "top1_margin": 2.326,
+      "chosen_box": [
+       330.1,
+       242.9,
+       395.1,
+       318.6
+      ],
+      "object_box": [
+       170.9,
+       129.1,
+       359.3,
+       325.2
+      ],
+      "truth_box": [
+       330.0,
+       247.0,
+       391.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.207,
+      "xz": [
+       2.371,
+       0.921
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.695,
+      "iou_object": 0.915,
+      "matched_at": 2,
+      "recall": 1,
+      "candidates": 97,
+      "top1_box": [
+       356.4,
+       241.2,
+       425.3,
+       318.5
+      ],
+      "top1_object_box": [
+       187.5,
+       128.6,
+       370.3,
+       325.4
+      ],
+      "top1_score": -8.113,
+      "top1_margin": 2.667,
+      "chosen_box": [
+       332.8,
+       234.2,
+       433.1,
+       325.9
+      ],
+      "object_box": [
+       187.5,
+       128.6,
+       370.3,
+       325.4
+      ],
+      "truth_box": [
+       339.0,
+       245.0,
+       422.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.207,
+      "xz": [
+       2.167,
+       0.885
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.457,
+      "iou_object": 0.916,
+      "matched_at": 2,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       331.1,
+       242.5,
+       396.6,
+       319.7
+      ],
+      "top1_object_box": [
+       168.1,
+       127.4,
+       363.9,
+       327.2
+      ],
+      "top1_score": -8.151,
+      "top1_margin": 1.301,
+      "chosen_box": [
+       311.7,
+       230.5,
+       415.1,
+       328.9
+      ],
+      "object_box": [
+       168.1,
+       127.4,
+       363.9,
+       327.2
+      ],
+      "truth_box": [
+       331.0,
+       247.0,
+       393.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.621,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|761",
+   "instruction": "Find the vase behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.011,
+   "centre_xz": [
+    1.919,
+    2.13
+   ],
+   "target_xz": [
+    1.919,
+    2.78
+   ],
+   "landmark_xz": [
+    2.078,
+    2.23
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.011,
+      "iou_object": 0.922,
+      "matched_at": 2,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       159.5,
+       241.4,
+       209.8,
+       327.1
+      ],
+      "top1_object_box": [
+       288.7,
+       170.5,
+       429.3,
+       324.4
+      ],
+      "top1_score": -10.543,
+      "top1_margin": 0.347,
+      "chosen_box": [
+       125.3,
+       155.9,
+       535.2,
+       557.3
+      ],
+      "object_box": [
+       288.7,
+       170.5,
+       429.3,
+       324.4
+      ],
+      "truth_box": [
+       275.0,
+       255.0,
+       302.0,
+       320.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.919,
+       0.78
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.217,
+      "xz": [
+       2.134,
+       0.812
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       298.8,
+       364.0,
+       382.4,
+       555.2
+      ],
+      "top1_object_box": [
+       257.3,
+       145.1,
+       473.9,
+       337.0
+      ],
+      "top1_score": -11.024,
+      "top1_margin": 0.713,
+      "truth_box": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -24.3,
+      "elevation": 14.3,
+      "moved": 0.55,
+      "xz": [
+       2.631,
+       1.048
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       193.4,
+       143.0,
+       466.7,
+       332.3
+      ],
+      "top1_object_box": [
+       297.5,
+       148.8,
+       460.2,
+       327.2
+      ],
+      "top1_score": -10.849,
+      "top1_margin": 0.186,
+      "truth_box": null
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -28.5,
+      "elevation": 8.8,
+      "moved": 0.621,
+      "xz": [
+       3.038,
+       1.517
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 2,
+      "candidates": 99,
+      "top1_box": [
+       264.5,
+       173.4,
+       308.2,
+       323.7
+      ],
+      "top1_object_box": [
+       294.4,
+       132.4,
+       467.6,
+       329.9
+      ],
+      "top1_score": -6.439,
+      "top1_margin": 0.475,
+      "truth_box": [
+       461.0,
+       242.0,
+       529.0,
+       325.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 1.388,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|774",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.976,
+    2.357
+   ],
+   "target_xz": [
+    1.976,
+    2.844
+   ],
+   "landmark_xz": [
+    2.39,
+    2.294
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 96,
+      "top1_box": [
+       326.6,
+       234.3,
+       478.6,
+       321.2
+      ],
+      "top1_object_box": [
+       318.1,
+       191.4,
+       489.2,
+       324.3
+      ],
+      "top1_score": -9.569,
+      "top1_margin": 0.258,
+      "truth_box": [
+       258.0,
+       253.0,
+       323.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.976,
+       0.844
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.244,
+      "xz": [
+       1.735,
+       0.88
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 16,
+      "candidates": 98,
+      "top1_box": [
+       261.4,
+       213.0,
+       336.9,
+       315.5
+      ],
+      "top1_object_box": [
+       303.8,
+       193.5,
+       494.0,
+       321.4
+      ],
+      "top1_score": -10.214,
+      "top1_margin": 2.255,
+      "truth_box": [
+       235.0,
+       252.0,
+       319.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.244,
+      "xz": [
+       1.979,
+       0.877
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       294.4,
+       253.4,
+       323.6,
+       306.8
+      ],
+      "top1_object_box": [
+       327.2,
+       189.2,
+       495.7,
+       237.0
+      ],
+      "top1_score": -11.555,
+      "top1_margin": 0.294,
+      "truth_box": [
+       257.0,
+       253.0,
+       322.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.241,
+      "xz": [
+       1.74,
+       0.912
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 26,
+      "candidates": 99,
+      "top1_box": [
+       253.3,
+       246.2,
+       322.1,
+       317.0
+      ],
+      "top1_object_box": [
+       211.6,
+       266.5,
+       511.5,
+       350.3
+      ],
+      "top1_score": -10.773,
+      "top1_margin": 0.166,
+      "truth_box": [
+       233.0,
+       251.0,
+       319.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 0.728,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|883",
+   "instruction": "Find the vase behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.0,
+   "centre_xz": [
+    1.983,
+    2.125
+   ],
+   "target_xz": [
+    1.983,
+    2.842
+   ],
+   "landmark_xz": [
+    2.209,
+    2.292
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.105,
+      "matched_at": 10,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       158.8,
+       181.8,
+       211.3,
+       327.0
+      ],
+      "top1_object_box": [
+       291.5,
+       144.7,
+       484.3,
+       326.4
+      ],
+      "top1_score": -10.521,
+      "top1_margin": 0.659,
+      "chosen_box": [
+       159.9,
+       240.4,
+       209.5,
+       327.0
+      ],
+      "object_box": [
+       289.5,
+       145.5,
+       491.1,
+       174.4
+      ],
+      "truth_box": [
+       275.0,
+       255.0,
+       300.0,
+       320.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.983,
+       0.842
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -30.0,
+      "elevation": 0.0,
+      "moved": 0.664,
+      "xz": [
+       2.625,
+       1.014
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.683,
+      "matched_at": 3,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       177.3,
+       106.9,
+       533.6,
+       363.9
+      ],
+      "top1_object_box": [
+       297.3,
+       118.9,
+       515.7,
+       327.7
+      ],
+      "top1_score": -10.415,
+      "top1_margin": 0.183,
+      "chosen_box": [
+       133.8,
+       120.2,
+       595.5,
+       558.8
+      ],
+      "object_box": [
+       220.8,
+       115.0,
+       519.9,
+       331.3
+      ],
+      "truth_box": null
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -30.0,
+      "elevation": 0.0,
+      "moved": 0.65,
+      "xz": [
+       3.085,
+       1.474
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       278.8,
+       188.2,
+       315.2,
+       323.4
+      ],
+      "top1_object_box": [
+       188.6,
+       83.7,
+       555.6,
+       393.7
+      ],
+      "top1_score": -8.148,
+      "top1_margin": 0.913,
+      "truth_box": [
+       532.0,
+       271.0,
+       535.0,
+       286.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": -8.8,
+      "moved": 0.198,
+      "xz": [
+       2.96,
+       1.321
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       274.9,
+       85.3,
+       546.0,
+       594.4
+      ],
+      "top1_object_box": [
+       293.5,
+       93.0,
+       538.3,
+       328.4
+      ],
+      "top1_score": -8.907,
+      "top1_margin": 3.014,
+      "truth_box": null
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 1.512,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|898",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.546,
+   "centre_xz": [
+    1.928,
+    2.103
+   ],
+   "target_xz": [
+    1.928,
+    2.803
+   ],
+   "landmark_xz": [
+    1.779,
+    2.253
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.546,
+      "iou_object": 0.927,
+      "matched_at": 2,
+      "recall": 2,
+      "candidates": 96,
+      "top1_box": [
+       182.6,
+       119.9,
+       308.2,
+       295.0
+      ],
+      "top1_object_box": [
+       155.0,
+       103.4,
+       331.0,
+       327.8
+      ],
+      "top1_score": -9.978,
+      "top1_margin": 0.841,
+      "chosen_box": [
+       311.7,
+       232.9,
+       367.4,
+       322.8
+      ],
+      "object_box": [
+       155.0,
+       103.4,
+       331.0,
+       327.8
+      ],
+      "truth_box": [
+       321.0,
+       245.0,
+       357.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       1.928,
+       0.803
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.209,
+      "xz": [
+       1.721,
+       0.834
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.014,
+      "iou_object": 0.643,
+      "matched_at": 6,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       143.5,
+       96.6,
+       326.2,
+       327.7
+      ],
+      "top1_object_box": [
+       144.3,
+       93.7,
+       327.6,
+       328.2
+      ],
+      "top1_score": -10.214,
+      "top1_margin": 1.186,
+      "chosen_box": [
+       143.5,
+       96.6,
+       326.2,
+       327.7
+      ],
+      "object_box": [
+       122.2,
+       78.1,
+       355.3,
+       345.6
+      ],
+      "truth_box": [
+       318.0,
+       246.0,
+       328.0,
+       320.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 30.0,
+      "elevation": 0.0,
+      "moved": 0.661,
+      "xz": [
+       1.118,
+       1.106
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.001,
+      "iou_object": 0.0,
+      "matched_at": 1,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       110.5,
+       70.8,
+       312.1,
+       330.0
+      ],
+      "top1_object_box": [
+       22.4,
+       489.5,
+       122.0,
+       563.8
+      ],
+      "top1_score": -12.672,
+      "top1_margin": 0.932,
+      "chosen_box": [
+       110.5,
+       70.8,
+       312.1,
+       330.0
+      ],
+      "object_box": [
+       22.4,
+       489.5,
+       122.0,
+       563.8
+      ],
+      "truth_box": [
+       106.0,
+       317.0,
+       118.0,
+       323.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -28.5,
+      "elevation": 8.8,
+      "moved": 0.614,
+      "xz": [
+       1.68,
+       0.858
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.007,
+      "iou_object": 0.666,
+      "matched_at": 6,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       148.1,
+       95.5,
+       326.9,
+       327.3
+      ],
+      "top1_object_box": [
+       148.0,
+       90.7,
+       329.4,
+       329.2
+      ],
+      "top1_score": -10.315,
+      "top1_margin": 1.699,
+      "chosen_box": [
+       148.1,
+       95.5,
+       326.9,
+       327.3
+      ],
+      "object_box": [
+       125.7,
+       75.6,
+       357.3,
+       343.0
+      ],
+      "truth_box": [
+       322.0,
+       245.0,
+       326.0,
+       320.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 1.485,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|1166",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": true,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.077,
+    2.077
+   ],
+   "target_xz": [
+    2.077,
+    2.791
+   ],
+   "landmark_xz": [
+    1.939,
+    2.241
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       319.8,
+       238.8,
+       361.4,
+       317.2
+      ],
+      "top1_object_box": [
+       118.9,
+       109.1,
+       389.1,
+       345.4
+      ],
+      "top1_score": -12.546,
+      "top1_margin": 0.454,
+      "truth_box": [
+       318.0,
+       244.0,
+       358.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.077,
+       0.791
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.207,
+      "xz": [
+       1.872,
+       0.822
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.573,
+      "matched_at": 4,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       195.4,
+       160.9,
+       295.0,
+       324.6
+      ],
+      "top1_object_box": [
+       108.6,
+       104.9,
+       366.6,
+       342.3
+      ],
+      "top1_score": -12.616,
+      "top1_margin": 0.031,
+      "chosen_box": [
+       195.4,
+       160.9,
+       295.0,
+       324.6
+      ],
+      "object_box": [
+       96.4,
+       98.5,
+       366.6,
+       347.7
+      ],
+      "truth_box": [
+       308.0,
+       244.0,
+       328.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 28.5,
+      "elevation": -8.8,
+      "moved": 0.618,
+      "xz": [
+       1.312,
+       1.083
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.676,
+      "matched_at": 3,
+      "recall": null,
+      "candidates": 99,
+      "top1_box": [
+       302.8,
+       4.3,
+       601.3,
+       495.9
+      ],
+      "top1_object_box": [
+       105.1,
+       103.8,
+       313.9,
+       329.3
+      ],
+      "top1_score": -11.486,
+      "top1_margin": 1.251,
+      "chosen_box": [
+       302.8,
+       4.3,
+       601.3,
+       495.9
+      ],
+      "object_box": [
+       89.7,
+       95.2,
+       325.7,
+       381.6
+      ],
+      "truth_box": [
+       106.0,
+       313.0,
+       141.0,
+       323.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": -8.8,
+      "moved": 0.196,
+      "xz": [
+       1.178,
+       1.226
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       95.8,
+       237.5,
+       132.5,
+       307.4
+      ],
+      "top1_object_box": [
+       100.5,
+       95.5,
+       317.5,
+       330.6
+      ],
+      "top1_score": -8.9,
+      "top1_margin": 1.245,
+      "truth_box": [
+       67.0,
+       240.0,
+       135.0,
+       324.0
+      ]
+     }
+    ],
+    "per_step": [
+     true,
+     false,
+     false,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": false,
+    "revisit": false,
+    "steps": 3,
+    "metres": 1.022,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|1290",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": true,
+   "start_iou": 0.389,
+   "centre_xz": [
+    2.019,
+    2.052
+   ],
+   "target_xz": [
+    2.019,
+    2.753
+   ],
+   "landmark_xz": [
+    1.87,
+    2.203
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.389,
+      "iou_object": 0.935,
+      "matched_at": 2,
+      "recall": 40,
+      "candidates": 97,
+      "top1_box": [
+       186.3,
+       123.1,
+       301.2,
+       289.2
+      ],
+      "top1_object_box": [
+       155.6,
+       103.1,
+       329.2,
+       326.8
+      ],
+      "top1_score": -10.192,
+      "top1_margin": 0.813,
+      "chosen_box": [
+       302.1,
+       230.5,
+       373.6,
+       328.8
+      ],
+      "object_box": [
+       155.6,
+       103.1,
+       329.2,
+       326.8
+      ],
+      "truth_box": [
+       321.0,
+       245.0,
+       357.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.019,
+       0.753
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.209,
+      "xz": [
+       2.227,
+       0.784
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.382,
+      "iou_object": 0.043,
+      "matched_at": 6,
+      "recall": 28,
+      "candidates": 97,
+      "top1_box": [
+       192.8,
+       129.0,
+       302.0,
+       287.4
+      ],
+      "top1_object_box": [
+       165.8,
+       100.2,
+       339.1,
+       329.0
+      ],
+      "top1_score": -9.813,
+      "top1_margin": 1.323,
+      "chosen_box": [
+       346.6,
+       257.5,
+       384.1,
+       301.1
+      ],
+      "object_box": [
+       318.6,
+       231.2,
+       405.2,
+       329.9
+      ],
+      "truth_box": [
+       333.0,
+       244.0,
+       388.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.209,
+      "xz": [
+       2.018,
+       0.781
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.791,
+      "iou_object": 0.945,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 97,
+      "top1_box": [
+       321.0,
+       240.3,
+       361.9,
+       319.4
+      ],
+      "top1_object_box": [
+       153.2,
+       100.5,
+       330.8,
+       327.7
+      ],
+      "top1_score": -8.095,
+      "top1_margin": 2.305,
+      "chosen_box": [
+       321.0,
+       240.3,
+       361.9,
+       319.4
+      ],
+      "object_box": [
+       153.2,
+       100.5,
+       330.8,
+       327.7
+      ],
+      "truth_box": [
+       323.0,
+       245.0,
+       358.0,
+       321.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.205,
+      "xz": [
+       2.221,
+       0.811
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.0,
+      "iou_object": 0.0,
+      "matched_at": 10,
+      "recall": 36,
+      "candidates": 98,
+      "top1_box": [
+       188.2,
+       124.1,
+       304.7,
+       289.6
+      ],
+      "top1_object_box": [
+       164.4,
+       95.9,
+       338.1,
+       329.6
+      ],
+      "top1_score": -10.407,
+      "top1_margin": 1.191,
+      "chosen_box": [
+       159.9,
+       323.8,
+       345.0,
+       345.0
+      ],
+      "object_box": [
+       151.5,
+       448.3,
+       260.6,
+       520.7
+      ],
+      "truth_box": [
+       334.0,
+       243.0,
+       389.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     false,
+     true,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.623,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|1430",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.082,
+    2.36
+   ],
+   "target_xz": [
+    2.082,
+    2.842
+   ],
+   "landmark_xz": [
+    2.353,
+    2.292
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 97,
+      "top1_box": [
+       290.6,
+       251.0,
+       325.5,
+       308.5
+      ],
+      "top1_object_box": [
+       282.4,
+       215.4,
+       465.2,
+       322.8
+      ],
+      "top1_score": -8.51,
+      "top1_margin": 0.777,
+      "truth_box": [
+       258.0,
+       253.0,
+       323.0,
+       321.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.082,
+       0.842
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.244,
+      "xz": [
+       1.841,
+       0.878
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 97,
+      "top1_box": [
+       241.8,
+       240.0,
+       327.6,
+       318.9
+      ],
+      "top1_object_box": [
+       278.9,
+       211.7,
+       467.1,
+       325.0
+      ],
+      "top1_score": -8.991,
+      "top1_margin": 0.297,
+      "truth_box": [
+       235.0,
+       252.0,
+       319.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.243,
+      "xz": [
+       1.609,
+       0.952
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 99,
+      "top1_box": [
+       236.5,
+       244.8,
+       317.7,
+       316.8
+      ],
+      "top1_object_box": [
+       276.9,
+       210.6,
+       462.8,
+       324.5
+      ],
+      "top1_score": -7.194,
+      "top1_margin": 4.327,
+      "truth_box": [
+       224.0,
+       251.0,
+       315.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.241,
+      "xz": [
+       1.846,
+       0.91
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 2,
+      "candidates": 99,
+      "top1_box": [
+       318.6,
+       230.3,
+       434.5,
+       327.0
+      ],
+      "top1_object_box": [
+       277.9,
+       210.1,
+       471.6,
+       325.6
+      ],
+      "top1_score": -9.358,
+      "top1_margin": 0.069,
+      "truth_box": [
+       234.0,
+       251.0,
+       319.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     true,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.728,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|1495",
+   "instruction": "Find the vase behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.062,
+    2.115
+   ],
+   "target_xz": [
+    2.062,
+    2.832
+   ],
+   "landmark_xz": [
+    2.288,
+    2.282
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       159.1,
+       187.1,
+       211.3,
+       327.3
+      ],
+      "top1_object_box": [
+       290.3,
+       144.3,
+       483.5,
+       324.6
+      ],
+      "top1_score": -10.818,
+      "top1_margin": 0.916,
+      "truth_box": [
+       275.0,
+       255.0,
+       300.0,
+       320.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.062,
+       0.832
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.207,
+      "xz": [
+       1.858,
+       0.862
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.02,
+      "iou_object": 0.0,
+      "matched_at": 9,
+      "recall": 1,
+      "candidates": 100,
+      "top1_box": [
+       244.9,
+       251.7,
+       288.3,
+       318.2
+      ],
+      "top1_object_box": [
+       281.1,
+       143.8,
+       470.9,
+       325.5
+      ],
+      "top1_score": -8.717,
+      "top1_margin": 4.254,
+      "chosen_box": [
+       121.1,
+       152.3,
+       471.3,
+       570.5
+      ],
+      "object_box": [
+       428.1,
+       443.4,
+       567.3,
+       519.7
+      ],
+      "truth_box": [
+       244.0,
+       255.0,
+       289.0,
+       321.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": -9.3,
+      "elevation": 8.8,
+      "moved": 0.207,
+      "xz": [
+       2.065,
+       0.859
+      ],
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 100,
+      "top1_box": [
+       26.3,
+       124.6,
+       531.6,
+       575.8
+      ],
+      "top1_object_box": [
+       290.6,
+       141.8,
+       487.7,
+       326.9
+      ],
+      "top1_score": -11.166,
+      "top1_margin": 0.613,
+      "truth_box": [
+       274.0,
+       255.0,
+       299.0,
+       321.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.202,
+      "xz": [
+       1.865,
+       0.889
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 100,
+      "top1_box": [
+       243.7,
+       249.9,
+       287.5,
+       319.1
+      ],
+      "top1_object_box": [
+       282.2,
+       141.5,
+       472.9,
+       326.3
+      ],
+      "top1_score": -8.299,
+      "top1_margin": 2.883,
+      "truth_box": [
+       242.0,
+       254.0,
+       288.0,
+       321.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     false,
+     true
+    ],
+    "correct": true,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.616,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  },
+  {
+   "scene": "slot|1596",
+   "instruction": "Find the laptop behind the box",
+   "start_correct": false,
+   "start_stops": false,
+   "start_iou": 0.0,
+   "centre_xz": [
+    2.01,
+    2.46
+   ],
+   "target_xz": [
+    2.01,
+    2.757
+   ],
+   "landmark_xz": [
+    2.34,
+    2.207
+   ],
+   "evidence": {
+    "trail": [
+     {
+      "step": 0,
+      "top1_correct": false,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": null,
+      "candidates": 98,
+      "top1_box": [
+       231.5,
+       309.5,
+       452.5,
+       327.5
+      ],
+      "top1_object_box": [
+       313.3,
+       207.0,
+       450.9,
+       325.6
+      ],
+      "top1_score": -9.382,
+      "top1_margin": 0.058,
+      "truth_box": [
+       245.0,
+       255.0,
+       325.0,
+       322.0
+      ],
+      "moved": 0.0,
+      "xz": [
+       2.01,
+       0.757
+      ]
+     },
+     {
+      "step": 1,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.274,
+      "xz": [
+       1.738,
+       0.797
+      ],
+      "top1_correct": true,
+      "stops": true,
+      "stop_correct": true,
+      "iou": 0.546,
+      "iou_object": 0.93,
+      "matched_at": 1,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       271.2,
+       249.9,
+       335.1,
+       316.3
+      ],
+      "top1_object_box": [
+       318.9,
+       207.1,
+       470.7,
+       325.5
+      ],
+      "top1_score": -6.997,
+      "top1_margin": 2.397,
+      "chosen_box": [
+       271.2,
+       249.9,
+       335.1,
+       316.3
+      ],
+      "object_box": [
+       318.9,
+       207.1,
+       470.7,
+       325.5
+      ],
+      "truth_box": [
+       234.0,
+       253.0,
+       333.0,
+       322.0
+      ]
+     },
+     {
+      "step": 2,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.304,
+      "xz": [
+       1.448,
+       0.89
+      ],
+      "top1_correct": true,
+      "stops": false,
+      "stop_correct": false,
+      "iou": 0.0,
+      "matched_at": null,
+      "recall": 1,
+      "candidates": 98,
+      "top1_box": [
+       257.8,
+       249.7,
+       343.0,
+       319.3
+      ],
+      "top1_object_box": [
+       338.4,
+       208.6,
+       493.4,
+       324.7
+      ],
+      "top1_score": -7.542,
+      "top1_margin": 1.164,
+      "truth_box": [
+       225.0,
+       252.0,
+       341.0,
+       322.0
+      ]
+     },
+     {
+      "step": 3,
+      "source": "evidence",
+      "azimuth": 9.3,
+      "elevation": 8.8,
+      "moved": 0.304,
+      "xz": [
+       1.177,
+       1.028
+      ],
+      "top1_correct": false,
+      "stops": true,
+      "stop_correct": false,
+      "iou": 0.411,
+      "iou_object": 0.923,
+      "matched_at": 1,
+      "recall": 5,
+      "candidates": 98,
+      "top1_box": [
+       285.7,
+       250.4,
+       336.5,
+       318.2
+      ],
+      "top1_object_box": [
+       354.3,
+       210.1,
+       517.7,
+       325.2
+      ],
+      "top1_score": -8.411,
+      "top1_margin": 1.311,
+      "chosen_box": [
+       285.7,
+       250.4,
+       336.5,
+       318.2
+      ],
+      "object_box": [
+       354.3,
+       210.1,
+       517.7,
+       325.2
+      ],
+      "truth_box": [
+       222.0,
+       252.0,
+       336.0,
+       322.0
+      ]
+     }
+    ],
+    "per_step": [
+     false,
+     true,
+     true,
+     false
+    ],
+    "correct": false,
+    "stopped_at": null,
+    "best": true,
+    "revisit": true,
+    "steps": 3,
+    "metres": 0.883,
+    "sweeps": 2,
+    "stops": [],
+    "sheet": []
+   }
+  }
+ ]
+}
